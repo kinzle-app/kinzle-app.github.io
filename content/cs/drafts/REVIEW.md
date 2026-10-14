@@ -6,7 +6,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 
 Nové typy skupin, aby se neopakovalo „Dají se doplnit slovem…“ a „Schovává se v nich…“: přirovnání, rčení, slova bez čárky, přidané a vynechané písmeno.
 
-### cs-0024 · 4×4 · úroveň 3 · denní čt 29. 10.
+### cs-0024 · 4×4 · úroveň 3 · denní čt 29. 10. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Kontinenty | Evropa, Asie, Afrika, Austrálie | |
@@ -17,7 +17,7 @@ Nové typy skupin, aby se neopakovalo „Dají se doplnit slovem…“ a „Scho
 **Záludná slova:** VČELA (k úlu), RYBA (vypouští bubliny – ale komiks jinam nepatří).
 **Slepý test:** správně napoprvé, jiné rozdělení nenašel.
 
-### cs-0025 · 4×4 · úroveň 5 · denní pá 30. 10.
+### cs-0025 · 4×4 · úroveň 5 · denní pá 30. 10. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Části jízdního kola | sedlo, pedál, řídítka, řetěz | |
@@ -28,7 +28,7 @@ Nové typy skupin, aby se neopakovalo „Dají se doplnit slovem…“ a „Scho
 **Záludná slova:** PRŠÍ (vypadá jako počasí k deštníku), LÉK („složit lék“ jen volně).
 **Slepý test:** správně napoprvé, jiné rozdělení nenašel.
 
-### cs-0026 · 5×4 · úroveň 4 · denní so 31. 10.
+### cs-0026 · 5×4 · úroveň 4 · denní so 31. 10. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Tropické ovoce | ananas, mango, kokos, avokádo | |
@@ -40,7 +40,7 @@ Nové typy skupin, aby se neopakovalo „Dají se doplnit slovem…“ a „Scho
 **Záludná slova:** STAN (začíná na S, ale „tan“ není slovo), MÍSTO (místo pro chodce).
 **Slepý test:** správně napoprvé, jiné rozdělení nenašel.
 
-### cs-0027 · 5×4 · úroveň 3 · denní ne 1. 11.
+### cs-0027 · 5×4 · úroveň 3 · denní ne 1. 11. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Části obličeje | čelo, tvář, brada, obočí | |
@@ -52,7 +52,7 @@ Nové typy skupin, aby se neopakovalo „Dají se doplnit slovem…“ a „Scho
 **Záludná slova:** OKO (část obličeje), BRADA (bez B je RADA), ŠKOLA a KRÁM (dají se vést).
 **Slepý test:** správně napoprvé; zkoušel prohodit oko a bradu, ale pak „Hodí se v rčeních“ nemá čtvrté slovo – řešení je jediné.
 
-### cs-0028 · 4×4 · úroveň 1 · denní po 2. 11.
+### cs-0028 · 4×4 · úroveň 1 · denní po 2. 11. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Dopravní prostředky | autobus, tramvaj, vlak, metro | |
@@ -69,7 +69,7 @@ Nové typy skupin, aby se neopakovalo „Dají se doplnit slovem…“ a „Scho
 
 Víkendový speciál 5×4 (so, ne), pak pondělí až středa podle rytmu týdne. Po schválení je zapíšu do `daily.json`.
 
-### cs-0019 · 5×4 · úroveň 4 · denní so 24. 10.
+### cs-0019 · 5×4 · úroveň 4 · denní so 24. 10. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Plavidla | loď, ponorka, jachta, člun | Plavidla na vodě i pod ní. |
@@ -81,7 +81,7 @@ Víkendový speciál 5×4 (so, ne), pak pondělí až středa podle rytmu týdne
 **Záludná slova:** KULEČNÍK (vypadá jako sport, ale ne zimní), DÁNSKO (jediná země – patří kvůli měně).
 **Slepý test:** vyřešil správně napoprvé, jiné rozdělení nenašel.
 
-### cs-0020 · 5×4 · úroveň 3 · denní ne 25. 10.
+### cs-0020 · 5×4 · úroveň 3 · denní ne 25. 10. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Dny v týdnu | pondělí, úterý, čtvrtek, neděle | |
@@ -95,7 +95,7 @@ Víkendový speciál 5×4 (so, ne), pak pondělí až středa podle rytmu týdne
 **Opraveno:** ZUB → PROBLÉM, aby se slovo neopakovalo hned po sobotní hádance.
 **Slepý test 2:** správně, jiné rozdělení nenašel.
 
-### cs-0021 · 4×4 · úroveň 1 · denní po 26. 10.
+### cs-0021 · 4×4 · úroveň 1 · denní po 26. 10. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Hospodářská zvířata | kráva, ovce, koza, prase | |
@@ -108,7 +108,7 @@ Víkendový speciál 5×4 (so, ne), pak pondělí až středa podle rytmu týdne
 **Opraveno:** BUNDA → ZIP. **Slepý test 2:** správně, ale upozornil, že i PÁS by šel uplést. **Opraveno:** PÁS → POČÍTAČ.
 **Slepý test 3:** správně, jiné úplné rozdělení nenašel.
 
-### cs-0022 · 4×4 · úroveň 2 · denní út 27. 10.
+### cs-0022 · 4×4 · úroveň 2 · denní út 27. 10. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Jehličnaté stromy | smrk, borovice, jedle, modřín | |
@@ -121,7 +121,7 @@ Víkendový speciál 5×4 (so, ne), pak pondělí až středa podle rytmu týdne
 **Slepý test 2:** správně, upozornil, že „chytit facku“ je hovorové. **Opraveno:** FACKA → ZLODĚJ.
 **Slepý test 3:** správně, jiné úplné rozdělení nenašel.
 
-### cs-0023 · 4×4 · úroveň 3 · denní st 28. 10.
+### cs-0023 · 4×4 · úroveň 3 · denní st 28. 10. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Hlavní města | Praha, Paříž, Řím, Vídeň | |
