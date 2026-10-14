@@ -4,10 +4,10 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 
 ## Várka 2026-10-14 (4) – ukázkový balíček „V dílně“
 
-Balíček v `packs.json` má `"draft": true`, takže je vidět jen ve vývojové verzi (Více → Balíčky). Po schválení příznak smažu.
+Balíček je schválený a vidí ho všichni hráči (Více → Balíčky).
 Popis balíčku: „Tři hádanky, které voní pilinami: nářadí, řemesla a pár slovních hříček.“
 
-### cs-0016 · 3×4 · úroveň 2 · balíček V dílně, hádanka 1
+### cs-0016 · 3×4 · úroveň 2 · balíček V dílně, hádanka 1 · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Řemeslníci | truhlář, zedník, kovář, instalatér | Truhlář pracuje se dřevem, zedník staví zdi, kovář kuje železo, instalatér zavádí vodu a topení. |
@@ -17,7 +17,7 @@ Popis balíčku: „Tři hádanky, které voní pilinami: nářadí, řemesla a 
 **Záludná slova:** PILA a HRÁBĚ jsou nářadí, ale do „Nářadí“ by pak chybělo ke čtyřem; zubaté věci jsou jen tyhle čtyři. Řemeslníci mají zuby taky, proto „ale nejsou živé“.
 **Slepý test:** vyřešil správně napoprvé, jiné rozdělení nenašel; pilu a hrábě sám označil jako hlavní past.
 
-### cs-0017 · 4×4 · úroveň 3 · balíček V dílně, hádanka 2
+### cs-0017 · 4×4 · úroveň 3 · balíček V dílně, hádanka 2 · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Listnaté stromy | dub, buk, javor, lípa | Listnaté stromy z českých lesů a parků. |
@@ -28,7 +28,7 @@ Popis balíčku: „Tři hádanky, které voní pilinami: nářadí, řemesla a 
 **Záludná slova:** STUPNICE (je na teploměru, ale sama neměří), KLÍČ (maticový klíč patří k šroubům, ale závit nemá).
 **Slepý test:** vyřešil správně napoprvé; jako pasti uvedl klíč a stupnici, jiné rozdělení podle něj nevychází.
 
-### cs-0018 · 4×4 · úroveň 4 · balíček V dílně, hádanka 3
+### cs-0018 · 4×4 · úroveň 4 · balíček V dílně, hádanka 3 · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Části domu | střecha, komín, sklep, zeď | Části většiny rodinných domů. |
