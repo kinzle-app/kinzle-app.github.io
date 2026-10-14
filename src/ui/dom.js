@@ -7,7 +7,7 @@ export function h(tag, attrs = {}, ...children) {
     if (name.startsWith('on')) el.addEventListener(name.slice(2), value);
     else el.setAttribute(name, value === true ? '' : value);
   }
-  el.append(...children.flat().filter((c) => c != null));
+  el.append(...children.flat().filter((c) => c != null && c !== false));
   return el;
 }
 
