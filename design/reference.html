@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spojky – 4 styly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Space+Grotesk:wght@400;500;700&family=Baloo+2:wght@500;700;800&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body { background: #2B2B30; font-family: 'Manrope', sans-serif; color: #fff; overflow: hidden; }
+  nav { height: 72px; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 0 12px; flex-wrap: wrap; }
+  nav button { height: 48px; padding: 0 18px; border-radius: 999px; border: 2px solid #55555E; background: transparent; color: #fff; font: 600 16px 'Manrope', sans-serif; cursor: pointer; }
+  nav button.on { background: #fff; color: #111; border-color: #fff; }
+  .stage { height: calc(100% - 72px); display: flex; justify-content: center; align-items: flex-start; padding-top: 8px; }
+  .scaler { width: 390px; height: 844px; transform-origin: top center; }
+  .phone { width: 390px; height: 844px; border-radius: 36px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,.5); display: none; }
+  .phone.on { display: block; }
+  .phone button { cursor: pointer; }
+  .screen { width: 390px; height: 844px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+  .g4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .g3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .row { display: flex; align-items: center; }
+  .between { justify-content: space-between; }
+  .ico { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; }
+  h1 { margin: 0; }
+
+  /* 1 Deskovka */
+  .s1 { background: #1E3A2C; font-family: 'Bricolage Grotesque', sans-serif; color: #F4EBDD; padding: 20px 18px 22px; gap: 14px; }
+  .s1 .ico { border-radius: 12px; border: none; background: #2A4A3A; color: #F4EBDD; }
+  .s1 .t { height: 74px; border: none; border-radius: 12px; background: #F4EBDD; color: #2B2A24; font: 700 13px 'Bricolage Grotesque'; box-shadow: 0 5px 0 #C9B99C; transition: .12s; }
+  .s1 .t.sel { background: #F2C46B; font-weight: 800; box-shadow: 0 2px 0 #B8873A; transform: translateY(3px); }
+  .s1 .sec { height: 46px; border-radius: 12px; border: 2px solid #4C6B5B; background: transparent; color: #F4EBDD; font: 700 14px 'Bricolage Grotesque'; }
+  .s1 .tab { height: 44px; border: none; border-radius: 10px; background: transparent; color: #A9C2B4; font: 600 14px 'Bricolage Grotesque'; }
+  .s1 .tab.on { background: #2A4A3A; color: #F4EBDD; font-weight: 700; }
+
+  /* 2 Moderní */
+  .s2 { background: #0D0E13; font-family: 'Space Grotesk', sans-serif; color: #ECEDF3; padding: 20px 18px 22px; gap: 14px; }
+  .s2 .ico { border-radius: 50%; border: 1px solid #2A2D3A; background: #15171F; color: #ECEDF3; }
+  .s2 .card { background: #15171F; border: 1px solid #23262F; border-radius: 14px; padding: 10px 12px; display: flex; flex-direction: column; gap: 2px; }
+  .s2 .lab { font-size: 11px; color: #8A8D9E; }
+  .s2 .t { height: 76px; border-radius: 14px; border: 1px solid #2A2D3A; background: #171922; color: #ECEDF3; font: 500 13px 'Space Grotesk'; transition: .12s; }
+  .s2 .t.sel { border-color: #5BE7C4; background: #5BE7C4; color: #0D0E13; font-weight: 700; box-shadow: 0 0 22px rgba(91,231,196,.45); }
+  .s2 .tab { height: 44px; padding: 0 12px; border: none; background: transparent; color: #8A8D9E; font: 400 14px 'Space Grotesk'; }
+  .s2 .tab.on { color: #5BE7C4; font-weight: 700; }
+
+  /* 3 Hravý */
+  .s3 { background: #FFF2DB; font-family: 'Baloo 2', sans-serif; color: #1D1B3A; padding: 18px 18px 20px; gap: 12px; }
+  .s3 > * { position: relative; }
+  .s3 .ico { border-radius: 14px; border: 3px solid #1D1B3A; background: #fff; color: #1D1B3A; box-shadow: 3px 3px 0 #1D1B3A; }
+  .s3 .pill { border: 2px solid #1D1B3A; border-radius: 999px; padding: 2px 12px; font-weight: 700; font-size: 14px; }
+  .s3 .t { height: 72px; border-radius: 18px; border: 3px solid #1D1B3A; background: #fff; color: #1D1B3A; font: 700 15px 'Baloo 2'; box-shadow: 3px 3px 0 #1D1B3A; transition: .12s; }
+  .s3 .t.sel { background: #FF8A6B; font-weight: 800; box-shadow: 1px 1px 0 #1D1B3A; transform: rotate(-3deg); }
+  .s3 .t.sel:nth-child(even) { transform: rotate(2deg); }
+  .s3 .sec { height: 48px; border-radius: 16px; border: 3px solid #1D1B3A; background: #fff; color: #1D1B3A; font: 700 15px 'Baloo 2'; box-shadow: 3px 3px 0 #1D1B3A; }
+  .s3 .tab { height: 44px; border-radius: 14px; border: 2px solid #1D1B3A; background: #fff; color: #1D1B3A; font: 700 14px 'Baloo 2'; }
+  .s3 .tab.on { background: #1D1B3A; color: #FFF2DB; }
+
+  /* 4 Minimal */
+  .s4 { background: #fff; font-family: 'Manrope', sans-serif; color: #111; padding: 24px 20px 22px; gap: 16px; }
+  .s4 .ico { border: none; background: transparent; color: #111; }
+  .s4 .t { height: 76px; border-radius: 6px; border: 1px solid #E4E4E1; background: #F5F5F3; color: #111; font: 600 13px 'Manrope'; transition: .12s; }
+  .s4 .t.sel { border-color: #111; background: #111; color: #fff; }
+  .s4 .lnk { height: 44px; padding: 0; border: none; background: transparent; color: #111; font: 400 14px 'Manrope'; text-decoration: underline; text-underline-offset: 4px; }
+  .s4 .tab { height: 44px; border: none; background: transparent; color: #5C5C5C; font: 400 14px 'Manrope'; }
+  .s4 .tab.on { border-bottom: 2px solid #111; color: #111; font-weight: 700; }
+</style>
+</head>
+<body>
+<nav>
+  <button class="on" data-s="1">1 · Deskovka</button>
+  <button data-s="2">2 · Moderní tmavý</button>
+  <button data-s="3">3 · Hravý barevný</button>
+  <button data-s="4">4 · Minimalismus</button>
+</nav>
+<div class="stage"><div class="scaler" id="scaler">
+
+<!-- 1 DESKOVKA -->
+<div class="phone on" id="p1"><div class="screen s1">
+  <div class="row between">
+    <div class="row" style="gap:10px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;width:26px">
+        <div style="height:11px;background:#F2C46B;border-radius:3px"></div><div style="height:11px;background:#E07A4F;border-radius:3px"></div>
+        <div style="height:11px;background:#8FBF8A;border-radius:3px"></div><div style="height:11px;background:#F4EBDD;border-radius:3px"></div>
+      </div>
+      <h1 style="font-size:26px;font-weight:800;letter-spacing:-.5px">Spojky</h1>
+    </div>
+    <div class="row" style="gap:8px">
+      <button class="ico" aria-label="Statistiky"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V11M12 20V4M19 20v-6"/></svg></button>
+      <button class="ico" aria-label="Nápověda"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5V14M12 17.5v.01"/></svg></button>
+    </div>
+  </div>
+  <div class="row between" style="background:#183024;border-radius:14px;padding:10px 14px;font-size:14px">
+    <span style="font-weight:700">Denní · 11. 10.</span>
+    <span class="row" style="gap:6px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M10 2h4"/></svg>01:24</span>
+    <span style="background:#F2C46B;color:#1E3A2C;font-weight:800;padding:4px 10px;border-radius:999px">120 b.</span>
+  </div>
+  <div style="background:#E07A4F;color:#2B140A;border-radius:14px;padding:12px 14px;box-shadow:0 5px 0 #A9502E;display:flex;flex-direction:column;gap:4px">
+    <div style="font-size:13px;font-weight:800;letter-spacing:1px">DÁ SE LADIT</div>
+    <div style="font-size:16px;font-weight:700">KYTARA · PIANO · RÁDIO · BARVY</div>
+    <div style="font-size:12px;opacity:.85">Zajímavost: slovo „ladit“ pochází z němčiny (laden).</div>
+  </div>
+  <div class="g4 tiles" style="gap:8px;margin-top:4px">
+    <button class="t">DUB</button><button class="t sel">JAZYK</button><button class="t">PILA</button><button class="t">BUK</button>
+    <button class="t sel">ŠNŮRKA</button><button class="t">HŘEBEN</button><button class="t">LÍPA</button><button class="t">ZIP</button>
+    <button class="t sel" style="font-size:12px">PODPATEK</button><button class="t">JASAN</button><button class="t">DRAK</button><button class="t" style="font-size:12px">PODRÁŽKA</button>
+  </div>
+  <div class="row" style="justify-content:center;gap:8px;font-size:14px;margin-top:6px">
+    <span>Zbývající pokusy</span>
+    <span style="width:12px;height:12px;border-radius:50%;background:#F2C46B"></span><span style="width:12px;height:12px;border-radius:50%;background:#F2C46B"></span>
+    <span style="width:12px;height:12px;border-radius:50%;background:#F2C46B"></span><span style="width:12px;height:12px;border-radius:50%;background:#3B5A4A"></span>
+  </div>
+  <div class="g3" style="gap:8px"><button class="sec">Nápověda −20</button><button class="sec">Zamíchat</button><button class="sec">Zrušit</button></div>
+  <button style="height:54px;border-radius:14px;border:none;background:#F2C46B;color:#1E3A2C;font:800 17px 'Bricolage Grotesque';box-shadow:0 5px 0 #B8873A">Odeslat skupinu</button>
+  <div class="g3" style="margin-top:auto;gap:6px;background:#183024;border-radius:14px;padding:5px">
+    <button class="tab on">Denní</button><button class="tab">Nekonečná</button><button class="tab">Souboj</button>
+  </div>
+</div></div>
+
+<!-- 2 MODERNÍ -->
+<div class="phone" id="p2"><div class="screen s2">
+  <div class="row between">
+    <div style="display:flex;flex-direction:column;gap:2px">
+      <span style="font-size:11px;letter-spacing:3px;color:#8A8D9E">DENNÍ HÁDANKA #142</span>
+      <h1 style="font-size:28px;font-weight:700;letter-spacing:-.5px">spojky<span style="color:#5BE7C4">.</span></h1>
+    </div>
+    <div class="row" style="gap:8px">
+      <button class="ico" aria-label="Statistiky"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V11M12 20V4M19 20v-6"/></svg></button>
+      <button class="ico" aria-label="Nastavení"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></button>
+    </div>
+  </div>
+  <div class="g3" style="gap:8px">
+    <div class="card"><span class="lab">ČAS</span><span style="font-size:18px;font-weight:700">01:24</span></div>
+    <div class="card"><span class="lab">SKÓRE</span><span style="font-size:18px;font-weight:700;color:#5BE7C4">120</span></div>
+    <div class="card" style="gap:6px"><span class="lab">POKUSY</span><div class="row" style="gap:5px">
+      <span style="width:14px;height:6px;border-radius:3px;background:#5BE7C4"></span><span style="width:14px;height:6px;border-radius:3px;background:#5BE7C4"></span>
+      <span style="width:14px;height:6px;border-radius:3px;background:#5BE7C4"></span><span style="width:14px;height:6px;border-radius:3px;background:#2A2D3A"></span></div></div>
+  </div>
+  <div style="background:#7B5CFF;color:#fff;border-radius:16px;padding:13px 15px;display:flex;flex-direction:column;gap:4px;box-shadow:0 8px 28px rgba(123,92,255,.35)">
+    <div class="row between" style="font-size:12px;letter-spacing:2px;font-weight:700"><span>DÁ SE LADIT</span><span>+40</span></div>
+    <div style="font-size:16px;font-weight:500">kytara · piano · rádio · barvy</div>
+    <div style="font-size:12px;opacity:.85">Slovo „ladit“ pochází z němčiny (laden).</div>
+  </div>
+  <div class="g4 tiles" style="gap:8px;margin-top:2px">
+    <button class="t">dub</button><button class="t sel">jazyk</button><button class="t">pila</button><button class="t">buk</button>
+    <button class="t sel">šňůrka</button><button class="t">hřeben</button><button class="t">lípa</button><button class="t">zip</button>
+    <button class="t sel" style="font-size:12px">podpatek</button><button class="t">jasan</button><button class="t">drak</button><button class="t" style="font-size:12px">podrážka</button>
+  </div>
+  <div class="row" style="gap:8px;margin-top:6px">
+    <button style="flex:1;height:46px;border-radius:999px;border:1px solid #2A2D3A;background:#15171F;color:#ECEDF3;font:400 14px 'Space Grotesk'">Nápověda · −20</button>
+    <button class="ico" aria-label="Zamíchat" style="width:46px;height:46px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg></button>
+    <button class="ico" aria-label="Zrušit výběr" style="width:46px;height:46px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <button style="height:54px;border-radius:999px;border:none;background:#ECEDF3;color:#0D0E13;font:700 16px 'Space Grotesk'">Odeslat · 3/4</button>
+  <div class="row" style="margin-top:auto;justify-content:space-around;border-top:1px solid #23262F;padding-top:10px">
+    <button class="tab on">Denní</button><button class="tab">Nekonečná</button><button class="tab">Souboj</button><button class="tab">Žebříček</button>
+  </div>
+</div></div>
+
+<!-- 3 HRAVÝ -->
+<div class="phone" id="p3"><div class="screen s3">
+  <div style="position:absolute;top:-60px;right:-50px;width:170px;height:170px;border-radius:50%;background:#FFC93C"></div>
+  <div style="position:absolute;bottom:120px;left:-70px;width:140px;height:140px;border-radius:50%;background:#BDEBF2"></div>
+  <div class="row between">
+    <h1 style="font-size:34px;font-weight:800;line-height:1">Spoj<span style="color:#E8513A">ky</span></h1>
+    <div class="row" style="gap:8px">
+      <button class="ico" aria-label="Statistiky"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 20V11M12 20V4M19 20v-6"/></svg></button>
+      <button class="ico" aria-label="Nápověda"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5V14M12 18v.01"/></svg></button>
+    </div>
+  </div>
+  <div class="row" style="gap:8px">
+    <span style="background:#1D1B3A;color:#FFF2DB;border-radius:999px;padding:4px 12px;font-weight:700;font-size:14px">Denní</span>
+    <span class="pill" style="background:#fff">01:24</span>
+    <span class="pill" style="background:#9BE15D;font-weight:800">120 bodů</span>
+  </div>
+  <div style="background:#3EC1D3;border:3px solid #1D1B3A;border-radius:20px;padding:10px 14px;box-shadow:4px 4px 0 #1D1B3A;display:flex;flex-direction:column">
+    <div style="font-size:15px;font-weight:800">Dá se ladit</div>
+    <div style="font-size:16px;font-weight:600">kytara, piano, rádio, barvy</div>
+    <div style="font-size:13px;font-weight:500">Věděl jsi? „Ladit“ k nám přišlo z němčiny.</div>
+  </div>
+  <div class="g4 tiles" style="gap:9px;margin-top:4px">
+    <button class="t">dub</button><button class="t sel">jazyk</button><button class="t">pila</button><button class="t">buk</button>
+    <button class="t sel">šňůrka</button><button class="t">hřeben</button><button class="t">lípa</button><button class="t">zip</button>
+    <button class="t sel" style="font-size:14px">podpatek</button><button class="t">jasan</button><button class="t">drak</button><button class="t" style="font-size:14px">podrážka</button>
+  </div>
+  <div class="row" style="justify-content:center;gap:6px;font-weight:700;font-size:15px">
+    <span>Životy</span>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="#E8513A" stroke="#1D1B3A" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="#E8513A" stroke="#1D1B3A" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="#E8513A" stroke="#1D1B3A" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D1B3A" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+  </div>
+  <div class="g3" style="gap:9px">
+    <button class="sec" style="background:#FFC93C;font-weight:800">Nápověda</button><button class="sec">Zamíchat</button><button class="sec">Zrušit</button>
+  </div>
+  <button style="height:56px;border-radius:18px;border:3px solid #1D1B3A;background:#1D1B3A;color:#FFF2DB;font:800 19px 'Baloo 2';box-shadow:4px 4px 0 #E8513A">Spojit!</button>
+  <div class="g3" style="margin-top:auto;gap:8px">
+    <button class="tab on">Denní</button><button class="tab">Nekonečná</button><button class="tab">Souboj</button>
+  </div>
+</div></div>
+
+<!-- 4 MINIMAL -->
+<div class="phone" id="p4"><div class="screen s4">
+  <div class="row between" style="align-items:flex-end">
+    <div style="display:flex;flex-direction:column;gap:2px">
+      <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:40px;line-height:1">Spojky</h1>
+      <span style="font-size:13px;color:#5C5C5C">Neděle 11. října · č. 142</span>
+    </div>
+    <div class="row" style="gap:4px">
+      <button class="ico" aria-label="Statistiky"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 20V11M12 20V4M19 20v-6"/></svg></button>
+      <button class="ico" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <div class="row between" style="border-top:1px solid #111;border-bottom:1px solid #E4E4E1;padding:10px 0;font-size:13px">
+    <span><span style="color:#5C5C5C">Čas</span> <strong>1:24</strong></span>
+    <span><span style="color:#5C5C5C">Body</span> <strong>120</strong></span>
+    <span class="row" style="gap:5px"><span style="color:#5C5C5C">Pokusy</span>
+      <span style="width:8px;height:8px;border-radius:50%;background:#111"></span><span style="width:8px;height:8px;border-radius:50%;background:#111"></span>
+      <span style="width:8px;height:8px;border-radius:50%;background:#111"></span><span style="width:8px;height:8px;border-radius:50%;border:1px solid #111"></span></span>
+  </div>
+  <div style="background:#E9EEFC;border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:4px">
+    <div class="row" style="gap:8px;font-size:12px;font-weight:700;letter-spacing:1.5px;color:#1F4FD8"><span style="width:8px;height:8px;border-radius:50%;background:#1F4FD8"></span>DÁ SE LADIT</div>
+    <div style="font-family:'Instrument Serif',serif;font-size:22px;line-height:1.15">kytara, piano, rádio, barvy</div>
+    <div style="font-size:12px;color:#3D3D3D"><em>Zajímavost:</em> slovo „ladit“ přišlo z němčiny.</div>
+  </div>
+  <div class="g4 tiles" style="gap:6px">
+    <button class="t">DUB</button><button class="t sel">JAZYK</button><button class="t">PILA</button><button class="t">BUK</button>
+    <button class="t sel">ŠNŮRKA</button><button class="t">HŘEBEN</button><button class="t">LÍPA</button><button class="t">ZIP</button>
+    <button class="t sel" style="font-size:12px">PODPATEK</button><button class="t">JASAN</button><button class="t">DRAK</button><button class="t" style="font-size:12px">PODRÁŽKA</button>
+  </div>
+  <div class="row between" style="margin-top:4px">
+    <button class="lnk">Nápověda (−20)</button><button class="lnk">Zamíchat</button><button class="lnk">Zrušit výběr</button>
+  </div>
+  <button style="height:54px;border-radius:6px;border:none;background:#1F4FD8;color:#fff;font:700 16px 'Manrope'">Odeslat</button>
+  <div class="row" style="margin-top:auto;justify-content:center;gap:24px">
+    <button class="tab on">Denní</button><button class="tab">Nekonečná</button><button class="tab">Souboj</button><button class="tab">Žebříček</button>
+  </div>
+</div></div>
+
+</div></div>
+
+<script>
+  const scaler = document.getElementById('scaler');
+  function fit() {
+    const s = Math.min((window.innerHeight - 96) / 844, (window.innerWidth - 24) / 390, 1.6);
+    scaler.style.transform = 'scale(' + s + ')';
+  }
+  window.addEventListener('resize', fit); fit();
+
+  document.querySelectorAll('nav button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('nav button').forEach(x => x.classList.toggle('on', x === b));
+    document.querySelectorAll('.phone').forEach(p => p.classList.toggle('on', p.id === 'p' + b.dataset.s));
+  }));
+
+  // kostičky jdou zkusmo vybírat (max 4)
+  document.querySelectorAll('.tiles').forEach(grid => {
+    grid.querySelectorAll('.t').forEach(t => t.addEventListener('click', () => {
+      if (!t.classList.contains('sel') && grid.querySelectorAll('.sel').length >= 4) return;
+      t.classList.toggle('sel');
+    }));
+  });
+</script>
+</body>
+</html>

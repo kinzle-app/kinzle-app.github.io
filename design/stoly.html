@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kinzle – Večerní a Denní stůl</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body { background: #2B2B30; font-family: 'Bricolage Grotesque', sans-serif; overflow: hidden; color: #fff; }
+  nav { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 10px 12px 6px; }
+  nav .grp { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  nav button { height: 44px; padding: 0 16px; border-radius: 999px; border: 2px solid #55555E; background: transparent; color: #fff; font: 700 15px 'Bricolage Grotesque', sans-serif; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+  nav button.on { background: #fff; color: #111; border-color: #fff; }
+  nav .sw { width: 16px; height: 16px; border-radius: 50%; border: 2px solid rgba(255,255,255,.5); }
+  .stage { display: flex; justify-content: center; align-items: flex-start; padding-top: 6px; }
+  .scaler { width: 390px; height: 844px; transform-origin: top center; }
+  .desc { text-align: center; color: #D5D5DC; font-size: 15px; min-height: 22px; padding: 0 16px; }
+
+  /* ===== Večerní stůl ===== */
+  .phone {
+    --felt: #1E3A2C; --felt-dark: #183024; --felt-light: #2A4A3A; --line: #4C6B5B;
+    --tile: #F4EBDD; --tile-shadow: #C9B99C; --ink: #2B2A24;
+    --selected: #F2C46B; --selected-shadow: #B8873A;
+    --text: #F4EBDD; --muted: #A9C2B4; --dot-off: #3B5A4A;
+    --track: #2F5442; --track-dash: #4C6B5B; --star: #F2C46B; --star-off: #3B5A4A; --crown: #F2C46B;
+    --primary: #F2C46B; --primary-ink: #1E3A2C; --primary-shadow: #B8873A; --pill-ink: #1E3A2C;
+  }
+  /* ===== Denní A: Papír ===== */
+  .phone.paper {
+    --felt: #FAF7F0; --felt-dark: #F0EBE0; --felt-light: #E4DDCE; --line: #CFC6B4;
+    --tile: #FFFFFF; --tile-shadow: #D9D2C3; --ink: #1E2B24;
+    --text: #1E2B24; --muted: #5E6A62; --dot-off: #DCD5C6;
+    --track: #EAE3D4; --track-dash: #C7BEAB; --star: #C98A1E; --star-off: #DCD5C6; --crown: #C98A1E;
+    --primary: #1E3A2C; --primary-ink: #FAF7F0; --primary-shadow: #0F2219;
+  }
+  /* ===== Denní B: Šalvěj ===== */
+  .phone.sage {
+    --felt: #DCE8DE; --felt-dark: #CCDDCF; --felt-light: #BBD0BF; --line: #8FAA97;
+    --tile: #FFFDF8; --tile-shadow: #B5C6B8; --ink: #22302A;
+    --text: #1E3A2C; --muted: #4A6555; --dot-off: #B5C9BA;
+    --track: #C3D7C7; --track-dash: #8FAA97; --star: #B07A14; --star-off: #B5C9BA; --crown: #B07A14;
+    --primary: #1E3A2C; --primary-ink: #F4EBDD; --primary-shadow: #0F2219;
+  }
+  /* ===== Denní C: Ranní mlha ===== */
+  .phone.mist {
+    --felt: #E6ECEF; --felt-dark: #D7E0E5; --felt-light: #C6D2D9; --line: #9EB0BA;
+    --tile: #FFFFFF; --tile-shadow: #BFCCD3; --ink: #1F2A30;
+    --text: #1F2A30; --muted: #56656D; --dot-off: #C6D2D9;
+    --track: #D0DAE0; --track-dash: #9EB0BA; --star: #C98A1E; --star-off: #C6D2D9; --crown: #C98A1E;
+    --primary: #24414F; --primary-ink: #F2F6F8; --primary-shadow: #142832;
+  }
+  /* ===== Denní D: Pergamen a zeleň ===== */
+  .phone.vellum {
+    --felt: #F3EFE2; --felt-dark: #2A4A3A; --felt-light: #E2DCCB; --line: #C5BDA7;
+    --tile: #FFFDF7; --tile-shadow: #D6CDB6; --ink: #22302A;
+    --text: #22302A; --muted: #5F6B60; --dot-off: #D9D2BF;
+    --track: #E7E0CE; --track-dash: #BDB49B; --star: #C98A1E; --star-off: #D9D2BF; --crown: #C98A1E;
+    --primary: #1E3A2C; --primary-ink: #F4EBDD; --primary-shadow: #0F2219;
+  }
+  /* Pergamen: tmavě zelené panely jako ozvěna sukna */
+  .phone.vellum .bar, .phone.vellum .chapter, .phone.vellum .next, .phone.vellum .tabs { color: #F4EBDD; }
+  .phone.vellum .chapter small, .phone.vellum .next .t2, .phone.vellum .chapter div[style*="muted"] { color: #A9C2B4 !important; }
+  .phone.vellum .tab { color: #A9C2B4; } .phone.vellum .tab.on { background: #3A5E4B; color: #F4EBDD; }
+  .phone.vellum .bar svg, .phone.vellum .chapter svg { }
+  .phone.vellum .map { background: #EAE4D3; }
+  .phone.vellum .chapter .bar { background: #3A5E4B; }
+  .phone.vellum .next .play { background: #F2C46B; color: #1E3A2C; box-shadow: 0 5px 0 #B8873A; }
+
+  .phone { width: 390px; height: 844px; border-radius: 36px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,.5); background: var(--felt); }
+  .screen { width: 390px; height: 844px; background: var(--felt); color: var(--text); padding: 20px 18px 22px; display: flex; flex-direction: column; gap: 12px; transition: background .3s, color .3s; }
+  .screen[hidden] { display: none; }
+  #scrGame { gap: 14px; }
+  .row { display: flex; align-items: center; }
+  .between { justify-content: space-between; }
+  .g4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  .g3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  h1 { margin: 0; font-size: 26px; font-weight: 800; letter-spacing: -.5px; }
+  button { cursor: pointer; font-family: inherit; }
+  .ico { width: 44px; height: 44px; border-radius: 12px; border: none; background: var(--felt-light); color: var(--text); display: flex; align-items: center; justify-content: center; }
+  .bar { background: var(--felt-dark); border-radius: 14px; padding: 10px 14px; font-size: 14px; }
+  .pill { background: var(--selected); color: #1E3A2C; font-weight: 800; padding: 4px 10px; border-radius: 999px; }
+  .solved { background: #E07A4F; color: #2B140A; border-radius: 14px; padding: 12px 14px; box-shadow: 0 5px 0 #A9502E; display: flex; flex-direction: column; gap: 4px; }
+  .t { height: 74px; border: none; border-radius: 12px; background: var(--tile); color: var(--ink); font-weight: 700; font-size: 13px; box-shadow: 0 5px 0 var(--tile-shadow); transition: .12s; }
+  .t.sel { background: var(--selected); color: #2B2A24; font-weight: 800; box-shadow: 0 2px 0 var(--selected-shadow); transform: translateY(3px); }
+  .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--selected); }
+  .dot.off { background: var(--dot-off); }
+  .sec { height: 46px; border-radius: 12px; border: 2px solid var(--line); background: transparent; color: var(--text); font-weight: 700; font-size: 14px; }
+  .primary { height: 54px; border-radius: 14px; border: none; background: var(--primary); color: var(--primary-ink); font-weight: 800; font-size: 17px; box-shadow: 0 5px 0 var(--primary-shadow); }
+  .tabs { margin-top: auto; gap: 6px; background: var(--felt-dark); border-radius: 14px; padding: 5px; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .tab { height: 44px; border: none; border-radius: 10px; background: transparent; color: var(--muted); font-weight: 600; font-size: 14px; }
+  .tab.on { background: var(--felt-light); color: var(--text); font-weight: 700; }
+
+  .chapter { background: var(--felt-dark); border-radius: 16px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+  .chapter small { font-size: 12px; font-weight: 800; letter-spacing: 1.5px; color: var(--muted); }
+  .chapter .name { font-size: 20px; font-weight: 800; }
+  .chapter .bar { height: 8px; border-radius: 4px; background: var(--felt-light); overflow: hidden; padding: 0; }
+  .chapter .bar span { display: block; height: 100%; width: 50%; background: var(--selected); border-radius: 4px; }
+  .map { position: relative; flex: 1; border-radius: 18px; background: var(--felt-dark); overflow: hidden; }
+  .map svg.track { position: absolute; inset: 0; }
+  .lvl { position: absolute; width: 56px; height: 56px; margin: -28px 0 0 -28px; border: none; border-radius: 14px; background: var(--tile); color: var(--ink); font-weight: 800; font-size: 20px; box-shadow: 0 5px 0 var(--tile-shadow); display: flex; align-items: center; justify-content: center; }
+  .lvl .size { position: absolute; top: -9px; right: -9px; background: var(--felt-light); color: var(--text); font-size: 10px; font-weight: 700; padding: 2px 5px; border-radius: 6px; }
+  .lvl .stars { position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%); display: flex; gap: 1px; }
+  .lvl .stars svg { width: 14px; height: 14px; }
+  .lvl.current { background: var(--selected); color: #2B2A24; box-shadow: 0 5px 0 var(--selected-shadow); }
+  .lvl.current::after { content: ""; position: absolute; inset: -9px; border-radius: 20px; border: 3px solid var(--selected); opacity: .6; animation: pulse 1.6s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { transform: scale(1); opacity: .6; } 50% { transform: scale(1.08); opacity: .15; } }
+  .lvl.locked { background: var(--felt-light); color: var(--muted); box-shadow: 0 5px 0 var(--line); font-size: 0; }
+  .lvl.skipped { background: transparent; border: 3px dashed var(--line); color: var(--text); box-shadow: none; }
+  .lvl.master { width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 18px; }
+  .lvl.chosen { outline: 3px solid var(--text); outline-offset: 4px; }
+  .badge { position: absolute; top: -10px; left: -10px; width: 24px; height: 24px; border-radius: 50%; background: #9CC59A; color: #1E3A2C; display: flex; align-items: center; justify-content: center; }
+  .crown { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); color: var(--crown); }
+  .next { background: var(--felt-dark); border-radius: 16px; padding: 10px 10px 10px 14px; display: flex; align-items: center; gap: 12px; }
+  .next .info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+  .next .t1 { font-weight: 800; font-size: 16px; }
+  .next .t2 { font-size: 13px; color: var(--muted); }
+  .play { height: 50px; padding: 0 22px; border-radius: 14px; border: none; background: var(--primary); color: var(--primary-ink); font-weight: 800; font-size: 17px; box-shadow: 0 5px 0 var(--primary-shadow); }
+  .play:disabled { opacity: .45; cursor: default; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="grp" id="themes"><button data-t="" data-d="Současný tmavý stůl (beze změny)." class="on"><span class="sw" style="background:#1E3A2C"></span>Večerní stůl</button><button data-t="vellum" data-d="Světlý pergamen s tmavě zelenými panely (lišty, karty) jako ozvěna sukna. Kontrastní a „deskovkové“."><span class="sw" style="background:#F3EFE2"></span>Denní stůl (Pergamen)</button></div>
+  <div class="grp" id="screens"><button class="on" data-s="game">Obrazovka hry</button><button data-s="path">Cesta</button></div>
+  <div class="desc" id="desc">Současný tmavý stůl (beze změny).</div>
+</nav>
+<div class="stage" id="stage"><div class="scaler" id="scaler">
+  <div class="phone" id="phone">
+  <div class="screen" id="scrGame">
+
+    <div class="row between">
+      <div class="row" style="gap:10px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;width:26px">
+          <div style="height:11px;background:#F2C46B;border-radius:3px"></div><div style="height:11px;background:#E07A4F;border-radius:3px"></div>
+          <div style="height:11px;background:#9CC59A;border-radius:3px"></div><div style="height:11px;background:#8DB0CC;border-radius:3px"></div>
+        </div>
+        <h1>Kinzle</h1>
+      </div>
+      <div class="row" style="gap:8px">
+        <button class="ico" aria-label="Statistiky"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V11M12 20V4M19 20v-6"/></svg></button>
+        <button class="ico" aria-label="Nastavení"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></button>
+      </div>
+    </div>
+
+    <div class="row between bar">
+      <span style="font-weight:700">Denní · #142</span>
+      <span class="row" style="gap:6px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M10 2h4"/></svg>01:24</span>
+      <span class="pill">120 b.</span>
+    </div>
+
+    <div class="solved">
+      <div style="font-size:13px;font-weight:800;letter-spacing:1px">▲ DÁ SE LADIT</div>
+      <div style="font-size:16px;font-weight:700">KYTARA · PIANO · RÁDIO · BARVY</div>
+      <div style="font-size:12px;opacity:.85">Zajímavost: slovo „ladit“ pochází z němčiny (laden).</div>
+    </div>
+
+    <div class="g4" id="tiles" style="margin-top:4px">
+      <button class="t">DUB</button><button class="t sel">JAZYK</button><button class="t">PILA</button><button class="t">BUK</button>
+      <button class="t sel">ŠNŮRKA</button><button class="t">HŘEBEN</button><button class="t">LÍPA</button><button class="t">ZIP</button>
+      <button class="t sel" style="font-size:12px">PODPATEK</button><button class="t">JASAN</button><button class="t">DRAK</button><button class="t" style="font-size:12px">PODRÁŽKA</button>
+    </div>
+
+    <div class="row" style="justify-content:center;gap:8px;font-size:14px;margin-top:6px">
+      <span>Zbývající pokusy</span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot off"></span>
+    </div>
+
+    <div class="g3"><button class="sec">Nápověda −20</button><button class="sec">Zamíchat</button><button class="sec">Zrušit</button></div>
+    <button class="primary">Odeslat skupinu</button>
+
+    <div class="g3 tabs">
+      <button class="tab on">Denní</button><button class="tab">Cesta</button><button class="tab">Souboj</button>
+    </div>
+  </div>
+  <div class="screen" id="scrPath" hidden>
+
+    <div class="row between">
+      <div class="row" style="gap:10px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;width:26px">
+          <div style="height:11px;background:#F2C46B;border-radius:3px"></div><div style="height:11px;background:#E07A4F;border-radius:3px"></div>
+          <div style="height:11px;background:#9CC59A;border-radius:3px"></div><div style="height:11px;background:#8DB0CC;border-radius:3px"></div>
+        </div>
+        <h1>Cesta</h1>
+      </div>
+      <div class="row" style="gap:8px">
+        <button class="ico" aria-label="Volná hra s filtrem obtížnosti"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg></button>
+        <button class="ico" aria-label="Kapitoly"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4zM20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg></button>
+      </div>
+    </div>
+
+    <div class="chapter">
+      <small>KAPITOLA 1 · DALŠÍ „NA ZAHRADĚ“ PŘIBUDE BRZY</small>
+      <div class="row between">
+        <span class="name">U kuchyňského stolu</span>
+        <span class="row" style="gap:4px;font-weight:700;font-size:15px">
+          <svg width="16" height="16" viewBox="0 0 24 24" style="fill:var(--star)"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg>13 / 30
+        </span>
+      </div>
+      <div class="bar" aria-label="Postup kapitolou: 5 z 10"><span></span></div>
+      <div style="font-size:13px;color:var(--muted)">5 z 10 dokončeno · 1 přeskočená · hvězdy postup nezamykají</div>
+    </div>
+
+    <div class="map" id="map">
+      <svg class="track" viewBox="0 0 354 480" preserveAspectRatio="none" aria-hidden="true">
+        <path id="tr1" fill="none" style="stroke:var(--track)" stroke-width="30" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+        <path id="tr2" fill="none" style="stroke:var(--track-dash)" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+      </svg>
+
+      <div id="levels"></div>
+    </div>
+
+    <div class="next">
+      <div class="info">
+        <span class="t1" id="nT1">Úroveň 7</span>
+        <span class="t2" id="nT2">Klasická 4×4 · těžší obtížnost</span>
+      </div>
+      <button class="play" id="play">Hrát</button>
+    </div>
+
+    <div class="tabs">
+      <button class="tab">Denní</button><button class="tab on">Cesta</button><button class="tab">Souboj</button>
+    </div>
+  </div></div>
+</div></div>
+<script>
+  // pozice v px uvnitř mapy (354 × 480 odpovídá viewBoxu)
+  const L = [
+    { n: 1,  x: 62, y: 410, size: '3×4', state: 'done', stars: 3, diff: 'lehká' },
+    { n: 2,  x: 175, y: 418, size: '4×4', state: 'done', stars: 2, diff: 'lehká' },
+    { n: 3,  x: 290, y: 402, size: '4×4', state: 'done', stars: 3, diff: 'střední' },
+    { n: 4,  x: 282, y: 298, size: '3×4', state: 'done', stars: 3, diff: 'oddechová', rest: true },
+    { n: 5,  x: 172, y: 306, size: '4×4', state: 'skipped', diff: 'těžší' },
+    { n: 6,  x: 64, y: 290, size: '4×4', state: 'done', stars: 2, diff: 'střední' },
+    { n: 7,  x: 70, y: 188, size: '4×4', state: 'current', diff: 'těžší' },
+    { n: 8,  x: 178, y: 196, size: '3×4', state: 'locked', diff: 'oddechová', rest: true },
+    { n: 9,  x: 290, y: 180, size: '4×4', state: 'locked', diff: 'těžká' },
+    { n: 10, x: 178, y: 82,  size: '5×4', state: 'locked', diff: 'mistrovská', master: true }
+  ];
+  // cesta přes všechny body (Catmull-Rom → Bézier)
+  (function () {
+    const P = L.map(l => [l.x, l.y]);
+    let d = 'M' + P[0].join(' ');
+    for (let i = 0; i < P.length - 1; i++) {
+      const p0 = P[i - 1] || P[i], p1 = P[i], p2 = P[i + 1], p3 = P[i + 2] || p2;
+      const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
+      const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+      d += ' C' + c1.join(' ') + ', ' + c2.join(' ') + ', ' + p2.join(' ');
+    }
+    document.getElementById('tr1').setAttribute('d', d);
+    document.getElementById('tr2').setAttribute('d', d);
+  })();
+  const starPath = 'M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z';
+  const sizeName = { '3×4': 'Lehká 3×4', '4×4': 'Klasická 4×4', '5×4': 'Těžká 5×4' };
+  const wrap = document.getElementById('levels');
+  const map = document.getElementById('map');
+  const btns = [];
+
+  function place() {
+    const w = map.clientWidth, h = map.clientHeight;
+    btns.forEach(({ el, l }) => {
+      el.style.left = (l.x / 354 * w) + 'px';
+      el.style.top = (l.y / 480 * h) + 'px';
+    });
+  }
+
+  L.filter(l => !l.hidden).forEach(l => {
+    const b = document.createElement('button');
+    b.className = 'lvl ' + l.state + (l.master ? ' master' : '');
+    b.setAttribute('aria-label', 'Úroveň ' + l.n + ', ' + sizeName[l.size] + (l.state === 'locked' ? ', zamčeno' : ''));
+    let html = l.state === 'locked'
+      ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="color:var(--muted)"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>'
+      : (l.state === 'skipped'
+          ? '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17a8 8 0 0 1 14-6M18 5v6h-6"/></svg>'
+          : l.n);
+    html += '<span class="size">' + l.size + '</span>';
+    if (l.rest) html += '<span class="badge" title="Oddechovka"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-9 6-14 14-14 0 8-5 14-14 14zM5 19l7-7"/></svg></span>';
+    if (l.master) html += '<span class="crown"><svg width="26" height="20" viewBox="0 0 26 20" aria-hidden="true" fill="currentColor"><path d="M2 6l6 5 5-9 5 9 6-5-2 12H4z"/></svg></span>';
+    if (l.state === 'done') {
+      html += '<span class="stars">' + [0,1,2].map(i => '<svg viewBox="0 0 24 24" style="fill:var(' + (i < l.stars ? '--star' : '--star-off') + ')"><path d="' + starPath + '"/></svg>').join('') + '</span>';
+    }
+    b.innerHTML = html;
+    b.addEventListener('click', () => choose(l, b));
+    wrap.appendChild(b);
+    btns.push({ el: b, l });
+  });
+
+  function choose(l, b) {
+    btns.forEach(x => x.el.classList.remove('chosen'));
+    b.classList.add('chosen');
+    const t1 = document.getElementById('nT1'), t2 = document.getElementById('nT2'), play = document.getElementById('play');
+    t1.textContent = 'Úroveň ' + l.n + (l.master ? ' · mistrovská' : '');
+    if (l.state === 'locked') {
+      t2.textContent = 'Odemkne se dohráním předchozí úrovně';
+      play.textContent = 'Zamčeno'; play.disabled = true;
+    } else if (l.state === 'skipped') {
+      t2.textContent = 'Přeskočeno · vrať se, kdy chceš';
+      play.textContent = 'Zkusit'; play.disabled = false;
+    } else if (l.state === 'done') {
+      t2.textContent = sizeName[l.size] + ' · ' + l.stars + ' ' + (l.stars === 1 ? 'hvězda' : 'hvězdy') + ' · hrát znovu';
+      play.textContent = 'Znovu'; play.disabled = false;
+    } else {
+      t2.textContent = sizeName[l.size] + ' · ' + l.diff + ' obtížnost';
+      play.textContent = 'Hrát'; play.disabled = false;
+    }
+  }
+
+
+  const grid = document.getElementById('tiles');
+  grid.querySelectorAll('.t').forEach(t => t.addEventListener('click', () => {
+    if (!t.classList.contains('sel') && grid.querySelectorAll('.sel').length >= 4) return;
+    t.classList.toggle('sel');
+  }));
+  const phone = document.getElementById('phone');
+  document.querySelectorAll('#themes button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('#themes button').forEach(x => x.classList.toggle('on', x === b));
+    phone.className = 'phone' + (b.dataset.t ? ' ' + b.dataset.t : '');
+    document.getElementById('desc').textContent = b.dataset.d;
+  }));
+  document.querySelectorAll('#screens button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('#screens button').forEach(x => x.classList.toggle('on', x === b));
+    document.getElementById('scrGame').hidden = b.dataset.s !== 'game';
+    document.getElementById('scrPath').hidden = b.dataset.s !== 'path';
+    place();
+  }));
+  const scaler = document.getElementById('scaler');
+  function fit() {
+    const top = document.querySelector('nav').offsetHeight + 16;
+    const s = Math.min((window.innerHeight - top) / 844, (window.innerWidth - 24) / 390, 1.6);
+    scaler.style.transform = 'scale(' + s + ')';
+    document.getElementById('stage').style.height = (844 * s) + 'px';
+  }
+  window.addEventListener('resize', fit); fit(); place();
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Závislosti a build
+node_modules/
+dist/
+
+# Neveřejné dokumenty (spoilery příběhu, plány) – zůstávají jen lokálně
+ZADANI-KINZLE.md
+docs/PO-SPUSTENI.md
+
+# Lokální soubory
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db
+.claude/settings.local.json
