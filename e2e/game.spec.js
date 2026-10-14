@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 
 const puzzle = (id) => JSON.parse(readFileSync(`content/${id.slice(0, 2)}/puzzles/${id}.json`, 'utf8'));
-const easy = puzzle('cs-test-01');
+const easy = puzzle('cs-0001');
 
 // Hráč, který už viděl návod; animace omezené, ať testy běží rychle
 async function setup(page, settings = {}) {
@@ -32,7 +32,7 @@ test('první spuštění ukáže návod a pak výběr hádanky', async ({ page }
 
 test('výhra: skupiny se vyřeší a ukáže se skóre a Sdílet', async ({ page }) => {
   await setup(page);
-  await page.goto('./#/hra/cs-test-01');
+  await page.goto('./#/hra/cs-0001');
   for (const g of easy.groups) await pick(page, g.words);
   await expect(page.getByRole('heading', { name: 'Výborně, všechny skupiny sedí!' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Sdílet výsledek' })).toBeVisible();
@@ -41,7 +41,7 @@ test('výhra: skupiny se vyřeší a ukáže se skóre a Sdílet', async ({ page
 
 test('těsně vedle, opakovaná kombinace a prohra s odkrytím skupin', async ({ page }) => {
   await setup(page);
-  await page.goto('./#/hra/cs-test-01');
+  await page.goto('./#/hra/cs-0001');
   const [a, b, c] = easy.groups.map((g) => g.words);
 
   await pick(page, [a[0], a[1], a[2], b[0]]);
@@ -58,12 +58,12 @@ test('těsně vedle, opakovaná kombinace a prohra s odkrytím skupin', async ({
     await pick(page, [a[0], a[1], c[1], extra]);
   }
   await expect(page.getByText('Tentokrát to nevyšlo')).toBeVisible({ timeout: 10_000 });
-  await expect(page.locator('.group')).toHaveCount(3);
+  await expect(page.locator('.group')).toHaveCount(easy.groups.length);
 });
 
 test('nápovědy: název skupiny, barevný okraj, nejvýš dvě', async ({ page }) => {
   await setup(page);
-  await page.goto('./#/hra/cs-test-01');
+  await page.goto('./#/hra/cs-0001');
   const easiest = easy.groups.find((g) => g.difficulty === 1);
 
   await page.getByRole('button', { name: 'Nápověda', exact: true }).click();
@@ -78,17 +78,17 @@ test('nápovědy: název skupiny, barevný okraj, nejvýš dvě', async ({ page 
 
 test('Zpět zavře okno nápovědy a hra zůstane', async ({ page }) => {
   await setup(page);
-  await page.goto('./#/hra/cs-test-01');
+  await page.goto('./#/hra/cs-0001');
   await page.getByRole('button', { name: 'Nápověda', exact: true }).click();
   await expect(page.getByRole('dialog')).toBeVisible();
   await page.goBack();
   await expect(page.getByRole('dialog')).toHaveCount(0);
-  await expect(page).toHaveURL(/#\/hra\/cs-test-01$/);
+  await expect(page).toHaveURL(/#\/hra\/cs-0001$/);
 });
 
 test('rozehraná hra přežije návštěvu nastavení', async ({ page }) => {
   await setup(page);
-  await page.goto('./#/hra/cs-test-01');
+  await page.goto('./#/hra/cs-0001');
   await pick(page, easy.groups[0].words);
   await page.getByRole('button', { name: 'Nastavení' }).click();
   await page.getByRole('button', { name: 'Zpět' }).click();
@@ -109,7 +109,7 @@ test('nastavení: angličtina a Denní stůl', async ({ page }) => {
 test('malý displej 320 px: nic nepřetéká a slova se neořezávají', async ({ page }) => {
   await setup(page);
   await page.setViewportSize({ width: 320, height: 640 });
-  for (const id of ['cs-test-04', 'en-test-04', 'cs-test-05']) {
+  for (const id of ['cs-0005', 'en-test-04', 'en-test-05']) {
     await page.goto(`./#/hra/${id}`);
     await page.locator('.tile').first().waitFor();
     // počkat na písmo a přepočítání velikostí

@@ -78,7 +78,7 @@ Silná kritéria úspěchu ti umožní pracovat samostatně v cyklu. Slabá krit
 - Testy: Vitest (`tests/`) a Playwright (`e2e/`, mobilní rozlišení; na Windows jen Chromium, v CI i WebKit). Playwright vždy sestaví čerstvou verzi na portu 4319.
 - Barvy jen přes tokeny v `src/ui/styles/tokens.css` (Večerní = `:root`, Denní = `[data-table='day']`); test `tests/contrast.test.js` hlídá kontrast 4,5:1. Stůl se nastavuje před vykreslením skriptem v `index.html` (klíč `kinzle:settings`).
 - Žádný text natvrdo: vše v `src/locales/<jazyk>.json`, oba soubory musí mít stejné klíče (hlídá test).
-- Obsah: `content/<jazyk>/puzzles/<id>.json` (schválené), `drafts/` (návrhy), `daily.json` (datum → id), `packs.json`. Pravidla a ověřovací postup v `content/PRAVIDLA-HADANEK.md`, tvorba přes `/hadanky`, opravy `/oprav-hadanku`. `npm run validate` (`scripts/validate.js`) hlídá obsah, rytmus týdne, zásobu a texty. Den hádanky podle Europe/Prague (`src/game/calendar.js`). Testovací hádanky mají `"status": "test"` a ve fázi 3 se smažou.
+- Obsah: `content/<jazyk>/puzzles/<id>.json` (schválené), `drafts/` (návrhy), `daily.json` (datum → id), `packs.json`. Pravidla a ověřovací postup v `content/PRAVIDLA-HADANEK.md`, tvorba přes `/hadanky`, opravy `/oprav-hadanku`. `npm run validate` (`scripts/validate.js`) hlídá obsah, rytmus týdne, zásobu a texty. Den hádanky podle Europe/Prague (`src/game/calendar.js`). Zbylé zkušební hádanky (`en-test-*`, `"status": "test"`) se smažou, až budou schválené první anglické.
 - Editor hádanek: `npm run editor` (`tools/editor.html`, nenasazuje se). Zásady fair play: `docs/FAIR-PLAY.md`.
 - Relativní cesty všude (`base: './'`), žádná závislost na adrese webu.
 
