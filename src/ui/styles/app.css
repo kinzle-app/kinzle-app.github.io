@@ -265,3 +265,69 @@ dialog .primary { width: 100%; }
 .reduce-motion *, .reduce-motion *::before, .reduce-motion *::after {
   transition-duration: 0.01ms !important; animation-duration: 0.01ms !important;
 }
+
+/* ---------- Panely (na Denním stole tmavě zelené) ---------- */
+.panel {
+  display: flex; flex-direction: column; gap: 8px; width: 100%;
+  background: var(--panel); color: var(--panel-text);
+  border: none; border-radius: 16px; padding: 14px; text-align: left; font: inherit;
+}
+.panel small { font-size: calc(12px * var(--fs)); font-weight: 800; letter-spacing: 1.5px; color: var(--panel-muted); }
+.panel-text { margin: 0; font-size: calc(16px * var(--fs)); }
+.panel-muted, .panel .muted { margin: 0; color: var(--panel-muted); font-size: calc(14px * var(--fs)); }
+/* hlavní tlačítko uvnitř tmavého panelu je žluté na obou stolech */
+.panel .primary { background: var(--selected); color: var(--selected-ink); box-shadow: 0 5px 0 var(--selected-shadow); }
+.page h3 { margin: 4px 0 0; font-size: calc(16px * var(--fs)); font-weight: 800; }
+
+/* ---------- Spodní záložky ---------- */
+.tabs {
+  margin-top: auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px;
+  background: var(--panel); border-radius: 14px; padding: 5px;
+}
+.tab {
+  min-height: 44px; border: none; border-radius: 10px; background: transparent;
+  color: var(--panel-muted); font-weight: 600; font-size: calc(14px * var(--fs));
+}
+.tab[aria-current='page'] { background: var(--panel-active); color: var(--panel-text); font-weight: 700; }
+
+/* ---------- Denní hádanka ---------- */
+.daily-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.daily-number { font-size: calc(28px * var(--fs)); font-weight: 800; letter-spacing: -0.5px; }
+.result-row { display: flex; justify-content: space-between; gap: 8px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.teaser { margin: 0; font-style: italic; color: var(--panel-text); }
+.panel .panel-muted span { font-variant-numeric: tabular-nums; }
+
+/* ---------- Váček ---------- */
+.bag-card { flex-direction: row; align-items: center; gap: 12px; cursor: pointer; }
+.bag-text { display: flex; flex-direction: column; gap: 2px; }
+.bag-text strong { font-size: calc(16px * var(--fs)); }
+.bag-head { display: flex; align-items: center; gap: 12px; }
+.bag-head p { margin: 2px 0 0; }
+.seed-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.seed { display: flex; gap: 12px; align-items: flex-start; padding: 10px 12px; border-radius: 12px; background: var(--felt-light); }
+.seed-dot {
+  flex: none; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  background: var(--gc); color: var(--gc-ink); font-size: 14px;
+}
+.seed-body { display: flex; flex-direction: column; gap: 2px; font-size: calc(14px * var(--fs)); }
+.seed-body strong { font-size: calc(15px * var(--fs)); }
+.seed-rare { color: var(--star); }
+
+/* ---------- Nabídka (Více, Archiv) ---------- */
+.menu { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.menu-item {
+  width: 100%; min-height: 56px; border: none; border-radius: var(--radius-panel); margin-bottom: 5px;
+  background: var(--tile); color: var(--ink); box-shadow: 0 5px 0 var(--tile-shadow);
+  padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  font-size: calc(16px * var(--fs)); font-weight: 800; text-align: left;
+}
+.menu-item .muted { color: var(--ink); opacity: 0.75; font-weight: 500; font-size: calc(14px * var(--fs)); }
+
+/* ---------- Statistiky ---------- */
+.stats-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.bars { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.bars li { display: grid; grid-template-columns: 20px 1fr 32px; align-items: center; gap: 8px; font-weight: 700; }
+.bar-track { height: 18px; border-radius: 6px; background: var(--felt-light); overflow: hidden; }
+.bar-fill { display: block; height: 100%; min-width: 4px; border-radius: 6px; background: var(--dot); }
+.bar-value { text-align: right; font-variant-numeric: tabular-nums; }
+.seeds-note { margin: 0; font-weight: 800; color: var(--text); }

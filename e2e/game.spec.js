@@ -27,7 +27,7 @@ test('první spuštění ukáže návod a pak výběr hádanky', async ({ page }
   await page.getByRole('button', { name: 'Další' }).click();
   await page.getByRole('button', { name: 'Další' }).click();
   await page.getByRole('button', { name: 'Jdeme hrát' }).click();
-  await expect(page.getByRole('heading', { name: 'Vyber hádanku' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Denní' })).toBeVisible();
 });
 
 test('výhra: skupiny se vyřeší a ukáže se skóre a Sdílet', async ({ page }) => {
@@ -103,7 +103,7 @@ test('nastavení: angličtina a Denní stůl', async ({ page }) => {
   await page.getByRole('button', { name: 'English' }).click();
   await expect(page.getByRole('heading', { name: 'Settings' })).toBeVisible();
   await page.goto('./#/');
-  await expect(page.getByRole('heading', { name: 'Pick a puzzle' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Daily' })).toBeVisible();
 });
 
 test('malý displej 320 px: nic nepřetéká a slova se neořezávají', async ({ page }) => {
@@ -125,4 +125,24 @@ test('malý displej 320 px: nic nepřetéká a slova se neořezávají', async (
     });
     expect(problems, id).toEqual([]);
   }
+});
+
+test('denní hádanka: jednou denně, výsledek, váček a archiv', async ({ page }) => {
+  await setup(page);
+  await page.clock.setFixedTime(new Date('2026-10-19T08:00:00Z')); // pondělí 19. 10. v Praze
+  await page.goto('./#/');
+  await expect(page.getByText('Kinzle #1')).toBeVisible();
+  await page.getByRole('button', { name: 'Hrát' }).click();
+  for (const g of easy.groups) await pick(page, g.words);
+  await expect(page.getByText('+4 semínka do váčku')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Hrát znovu' })).toHaveCount(0); // denní jen jednou
+  await page.getByRole('button', { name: 'Zpět na úvod' }).click();
+  await expect(page.getByText('Vyřešeno')).toBeVisible();
+  await expect(page.getByText('Další hádanka za')).toBeVisible();
+  await expect(page.getByText('4 semínka')).toBeVisible();
+
+  // druhý den je včerejší hádanka v archivu
+  await page.clock.setFixedTime(new Date('2026-10-20T08:00:00Z'));
+  await page.goto('./#/archiv');
+  await expect(page.getByRole('button', { name: /Kinzle #1/ })).toContainText('✓'); // odehraná, s body
 });

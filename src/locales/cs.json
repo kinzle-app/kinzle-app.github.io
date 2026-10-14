@@ -8,8 +8,6 @@
     "help": "Jak se hraje"
   },
   "home": {
-    "title": "Vyber hádanku",
-    "note": "Zkušební hádanky pro vyzkoušení hry.",
     "puzzle": "Hádanka {n}",
     "draft": "Návrh {id}"
   },
@@ -52,11 +50,17 @@
     "won": "Výborně, všechny skupiny sedí!",
     "lost": "Tentokrát to nevyšlo. Tady jsou zbylé skupiny – příště to dáš.",
     "again": "Hrát znovu",
-    "back": "Zpět na výběr",
+    "back": "Zpět na úvod",
     "time": "Čas",
     "mistakes": "Chyby",
     "hints": "Nápovědy",
-    "share": "Sdílet výsledek"
+    "share": "Sdílet výsledek",
+    "seeds": {
+      "one": "+{count} semínko do váčku",
+      "few": "+{count} semínka do váčku",
+      "many": "+{count} semínka do váčku",
+      "other": "+{count} semínek do váčku"
+    }
   },
   "settings": {
     "title": "Nastavení",
@@ -134,5 +138,76 @@
     "skip": "Přeskočit",
     "play": "Jdeme hrát",
     "progress": "Krok {n} z {total}"
+  },
+  "tabs": {
+    "label": "Hlavní nabídka",
+    "daily": "Denní",
+    "path": "Cesta",
+    "more": "Více"
+  },
+  "daily": {
+    "title": "DENNÍ HÁDANKA",
+    "label": "Kinzle #{n}",
+    "upcoming": "První denní hádanka vyjde {date}.",
+    "none": "Denní hádanky se připravují.",
+    "rerun": "Repríza: starší hádanka, která se dnes hraje znovu.",
+    "won": "Vyřešeno",
+    "lost": "Dohráno",
+    "next": "Další hádanka za",
+    "teaser": "Zítra: {text}",
+    "play": "Hrát",
+    "continue": "Pokračovat"
+  },
+  "bag": {
+    "title": "Váček se semínky",
+    "count": {
+      "one": "{count} semínko",
+      "few": "{count} semínka",
+      "many": "{count} semínka",
+      "other": "{count} semínek"
+    },
+    "rare": {
+      "one": "{count} vzácné",
+      "few": "{count} vzácná",
+      "many": "{count} vzácného",
+      "other": "{count} vzácných"
+    },
+    "rareOne": "Vzácné semínko za čistou hru",
+    "empty": "Váček je zatím prázdný. Každá vyřešená skupina do něj přidá semínko."
+  },
+  "more": {
+    "title": "Více",
+    "drafts": "Návrhy ke schválení (jen ve vývojové verzi)"
+  },
+  "path": {
+    "soon": "Cesta po herním plánu se připravuje a přibude v příští verzi."
+  },
+  "archive": {
+    "title": "Archiv",
+    "note": "Starší denní hádanky. Do žebříčku se nepočítají.",
+    "unplayed": "nehráno",
+    "empty": "Zatím tu nic není – archiv se plní každým dnem."
+  },
+  "stats": {
+    "title": "Statistiky",
+    "played": {
+      "one": "odehraná hra",
+      "few": "odehrané hry",
+      "many": "odehrané hry",
+      "other": "odehraných her"
+    },
+    "winRate": "úspěšnost",
+    "best": "nejlepší skóre",
+    "average": "průměrný čas výhry",
+    "mistakes": "Počet chyb ve hře",
+    "backup": "Záloha",
+    "backupNote": "Ulož si postup do souboru a obnov ho na stejném nebo jiném zařízení.",
+    "export": "Uložit zálohu do souboru",
+    "import": "Obnovit ze zálohy",
+    "importInvalid": "Tohle není záloha Kinzle.",
+    "importTitle": "Obnovit ze zálohy?",
+    "importWarning": "Postup a nastavení v tomto zařízení se nahradí obsahem zálohy.",
+    "importConfirm": "Obnovit",
+    "cancel": "Zrušit"
   }
 }

@@ -20,12 +20,19 @@ import { openModal } from './modal.js';
 export const SYMBOLS = { 1: '●', 2: '▲', 3: '■', 4: '◆', 5: '★' };
 const TILE_HEIGHT = 74; // výchozí výška kostičky v px
 
-// Rozehrané hry podle id hádanky: odchod do nastavení a zpět hru nepřeruší
+// Rozehrané hry (klíč = režim + hádanka): odchod do nastavení a zpět hru nepřeruší
 const sessions = new Map();
 
-export function renderGame(root, { puzzle, label, navigate }) {
-  if (!sessions.has(puzzle.id)) sessions.set(puzzle.id, { game: createGame(puzzle), timer: createTimer() });
-  const { game, timer } = sessions.get(puzzle.id);
+export function hasSession(key) {
+  return sessions.get(key)?.game.status === 'playing';
+}
+
+// onFinish(game, seconds, score) se zavolá jednou po konci hry a vrátí počet nových semínek.
+// again = jde hrát znovu (denní hádanka jen jednou).
+export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.id, onFinish, again = true }) {
+  if (!sessions.has(sessionKey)) sessions.set(sessionKey, { game: createGame(puzzle), timer: createTimer(), finished: false, seedsAdded: 0 });
+  const session = sessions.get(sessionKey);
+  const { game, timer } = session;
 
   const tiles = new Map(); // slovo → tlačítko kostičky (zůstávají, aby fungovaly přechody)
   const groupEls = [];
@@ -168,6 +175,7 @@ export function renderGame(root, { puzzle, label, navigate }) {
 
     update();
     busy = false;
+    if (game.status !== 'playing') finish();
     if (game.status === 'won') {
       timer.pause();
       play('win');
@@ -305,6 +313,14 @@ export function renderGame(root, { puzzle, label, navigate }) {
     });
   }
 
+  // Uloží výsledek (jen jednou za hru)
+  function finish() {
+    if (session.finished) return;
+    timer.pause();
+    session.finished = true;
+    session.seedsAdded = onFinish?.(game, timer.seconds(), scoreBreakdown(game, timer.seconds()).total) || 0;
+  }
+
   function showEnd(fresh) {
     const won = game.status === 'won';
     const seconds = timer.seconds();
@@ -333,13 +349,14 @@ export function renderGame(root, { puzzle, label, navigate }) {
         line('score.clean', score.clean),
         line('score.mistakes', score.mistakes, true),
         line('score.hints', score.hints, true)),
+      session.seedsAdded > 0 && h('p', { class: 'seeds-note' }, t('end.seeds', { count: session.seedsAdded })),
       won && h('button', { class: 'primary', onclick: () => onShare(score.total, seconds, shareNote) }, t('end.share')),
       won && shareNote,
-      h('button', {
+      again && h('button', {
         class: won ? 'secondary' : 'primary',
-        onclick: () => { sessions.delete(game.puzzle.id); navigate(`#/hra/${game.puzzle.id}`); }
+        onclick: () => { sessions.delete(sessionKey); navigate(location.hash); }
       }, t('end.again')),
-      h('button', { class: 'secondary', onclick: () => navigate('#/') }, t('end.back'))
+      h('button', { class: again || won ? 'secondary' : 'primary', onclick: () => navigate('#/') }, t('end.back'))
     );
     playArea.replaceChildren(end);
     if (fresh) {

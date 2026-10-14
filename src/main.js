@@ -9,10 +9,19 @@ import { h, icon } from './ui/dom.js';
 import { t, setLanguage, detectLanguage } from './services/i18n.js';
 import { getSettings, updateSettings } from './services/settings.js';
 import { isPersistent } from './services/storage.js';
-import { getPuzzle, puzzleLabel } from './services/content.js';
+import { getPuzzle, puzzleLabel, dailySchedule, approvedById } from './services/content.js';
+import { getProgress, recordGame } from './services/progress.js';
+import { today } from './services/clock.js';
+import { dailyFor } from './game/daily.js';
+import { createEntry, dailyEntry } from './game/progress.js';
 import { FEEL } from './config/feel.js';
 import { applySettings } from './ui/prefs.js';
-import { renderHome } from './ui/home.js';
+import { renderDaily } from './ui/daily.js';
+import { renderPath } from './ui/path.js';
+import { renderMore } from './ui/more.js';
+import { renderArchive } from './ui/archive.js';
+import { renderBag } from './ui/bag.js';
+import { renderStats } from './ui/stats.js';
 import { renderGame } from './ui/game.js';
 import { renderSettings } from './ui/settings.js';
 import { renderHelp } from './ui/help.js';
@@ -68,15 +77,45 @@ function onChange(changes) {
   render();
 }
 
+// Uložení dohrané hry; vrací počet nových semínek ve váčku
+const finisher = (mode, date) => (game, seconds, score) => recordGame(createEntry(game, { mode, date, seconds, score }));
+
+// Obrazovky se záložkami Denní / Cesta / Více
+const TAB_SCREENS = { '#/': renderDaily, '#/cesta': renderPath, '#/vice': renderMore };
+// Další obrazovky s tlačítkem Zpět
+const SCREENS = { '#/archiv': renderArchive, '#/vacek': renderBag, '#/statistiky': renderStats };
+
+// Denní hádanka (dnešní) nebo starší z archivu: #/denni/YYYY-MM-DD
+function renderDailyGame(date) {
+  const lang = settings.lang;
+  const info = dailyFor(date, dailySchedule(lang), approvedById());
+  const isToday = date === today();
+  // budoucí den, neexistující hádanka nebo už odehraná dnešní → zpět na úvod (tam je výsledek)
+  if (!info.puzzle || date > today() || (isToday && dailyEntry(getProgress(), date))) {
+    location.replace('#/');
+    return null;
+  }
+  const mode = isToday ? 'daily' : 'archive';
+  return renderGame(app, {
+    puzzle: info.puzzle,
+    label: t('daily.label', { n: info.number }),
+    navigate,
+    sessionKey: `${mode}:${date}`,
+    onFinish: finisher(mode, date),
+    again: !isToday
+  });
+}
+
 function render() {
   cleanup?.();
   cleanup = null;
   app.replaceChildren();
   document.title = 'Kinzle';
 
-  const route = location.hash;
-  const game = route.match(/^#\/hra\/([\w-]+)$/);
-  const puzzle = game && getPuzzle(game[1]);
+  const route = location.hash || '#/';
+  const free = route.match(/^#\/hra\/([\w-]+)$/);
+  const daily = route.match(/^#\/denni\/(\d{4}-\d{2}-\d{2})$/);
+  const puzzle = free && getPuzzle(free[1]);
 
   if (!settings.onboarded && route !== '#/navod') {
     location.replace('#/navod');
@@ -95,12 +134,20 @@ function render() {
   } else if (route === '#/nastaveni') {
     app.append(header(false));
     renderSettings(app, { onChange, navigate });
+  } else if (daily) {
+    app.append(header(false));
+    cleanup = renderDailyGame(daily[1]);
   } else if (puzzle) {
     app.append(header(false));
-    cleanup = renderGame(app, { puzzle, label: puzzleLabel(puzzle), navigate });
+    cleanup = renderGame(app, {
+      puzzle, label: puzzleLabel(puzzle), navigate, sessionKey: `free:${puzzle.id}`, onFinish: finisher('free', today())
+    });
+  } else if (SCREENS[route]) {
+    app.append(header(false));
+    SCREENS[route](app, { navigate });
   } else {
     app.append(header(true));
-    renderHome(app, { navigate });
+    cleanup = (TAB_SCREENS[route] || renderDaily)(app, { navigate }) || null;
   }
   if (!isPersistent()) app.append(h('p', { class: 'notice' }, t('app.storageWarning')));
   // nahoru jen při změně obrazovky, ne při překreslení (např. přepnutí v nastavení)

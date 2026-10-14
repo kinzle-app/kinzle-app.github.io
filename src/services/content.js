@@ -24,6 +24,19 @@ export function puzzleLabel(puzzle) {
   return t('home.puzzle', { n: listPuzzles(puzzle.language).filter((p) => p.status !== 'draft').indexOf(puzzle) + 1 });
 }
 
+// Rozpis denních hádanek a schválené hádanky pro výběr denní hádanky
+const schedules = Object.fromEntries(Object.entries(
+  import.meta.glob('/content/*/daily.json', { eager: true, import: 'default' })
+).map(([path, data]) => [path.split('/')[2], data]));
+
+export function dailySchedule(lang) {
+  return schedules[lang] || {};
+}
+
+export function approvedById() {
+  return new Map(puzzles.filter((p) => p.status === 'approved').map((p) => [p.id, p]));
+}
+
 export function getPuzzle(id) {
   return puzzles.find((p) => p.id === id) || null;
 }

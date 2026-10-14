@@ -1,5 +1,16 @@
 # Changelog
 
+## Nevydáno – Fáze 3 (průběžně)
+
+- Pravidla hádanek, `npm run validate` (obsah, rytmus týdne, zásoba, texty), editor hádanek, příkazy `/hadanky` a `/oprav-hadanku`, `docs/FAIR-PLAY.md`.
+- Prvních 5 schválených denních hádanek (cs-0001 až cs-0005).
+- Nová úvodní obrazovka se záložkami Denní / Cesta / Více.
+- Denní hádanka podle času Europe/Prague s číslem (Kinzle #N), jednou denně, po dohrání výsledek a odpočet do další; když rozpis dojde, repríza starší hádanky (pro všechny stejná).
+- Archiv starších denních hádanek.
+- Historie her se schématem verze; poškozená data hru neshodí.
+- Váček se semínky: každá vyřešená skupina = semínko, čistá hra = vzácné ✦.
+- Statistiky a záloha postupu do souboru (export a import).
+
 ## 0.2.0 – Fáze 2: hratelnost (2026-10-14)
 
 - Body podle `src/config/scoring.js`: skupiny podle obtížnosti, bonus za odvahu, časový bonus, čistá hra, srážky za chyby a nápovědy. Po prohře zůstanou body za vyřešené skupiny.

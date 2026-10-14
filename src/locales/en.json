@@ -8,8 +8,6 @@
     "help": "How to play"
   },
   "home": {
-    "title": "Pick a puzzle",
-    "note": "Trial puzzles for trying out the game.",
     "puzzle": "Puzzle {n}",
     "draft": "Draft {id}"
   },
@@ -48,11 +46,15 @@
     "won": "Brilliant – every group found!",
     "lost": "Not this time. Here are the remaining groups – you'll get the next one.",
     "again": "Play again",
-    "back": "Back to puzzles",
+    "back": "Back to start",
     "time": "Time",
     "mistakes": "Mistakes",
     "hints": "Hints",
-    "share": "Share result"
+    "share": "Share result",
+    "seeds": {
+      "one": "+{count} seed for your pouch",
+      "other": "+{count} seeds for your pouch"
+    }
   },
   "settings": {
     "title": "Settings",
@@ -126,5 +128,70 @@
     "skip": "Skip",
     "play": "Let's play",
     "progress": "Step {n} of {total}"
+  },
+  "tabs": {
+    "label": "Main menu",
+    "daily": "Daily",
+    "path": "Journey",
+    "more": "More"
+  },
+  "daily": {
+    "title": "DAILY PUZZLE",
+    "label": "Kinzle #{n}",
+    "upcoming": "The first daily puzzle arrives on {date}.",
+    "none": "Daily puzzles are on their way.",
+    "rerun": "Encore: an older puzzle getting another round today.",
+    "won": "Solved",
+    "lost": "Finished",
+    "next": "Next puzzle in",
+    "teaser": "Tomorrow: {text}",
+    "play": "Play",
+    "continue": "Continue"
+  },
+  "bag": {
+    "title": "Seed pouch",
+    "count": {
+      "one": "{count} seed",
+      "other": "{count} seeds"
+    },
+    "rare": {
+      "one": "{count} rare",
+      "other": "{count} rare"
+    },
+    "rareOne": "Rare seed for a clean game",
+    "empty": "Your pouch is empty for now. Every group you solve adds a seed."
+  },
+  "more": {
+    "title": "More",
+    "drafts": "Drafts awaiting approval (development build only)"
+  },
+  "path": {
+    "soon": "The Journey board is being built and arrives in the next version."
+  },
+  "archive": {
+    "title": "Archive",
+    "note": "Older daily puzzles. They don’t count towards leaderboards.",
+    "unplayed": "not played",
+    "empty": "Nothing here yet – the archive grows every day."
+  },
+  "stats": {
+    "title": "Statistics",
+    "played": {
+      "one": "game played",
+      "other": "games played"
+    },
+    "winRate": "win rate",
+    "best": "best score",
+    "average": "average winning time",
+    "mistakes": "Mistakes per game",
+    "backup": "Backup",
+    "backupNote": "Save your progress to a file and restore it on this or another device.",
+    "export": "Save backup to file",
+    "import": "Restore from backup",
+    "importInvalid": "That isn’t a Kinzle backup.",
+    "importTitle": "Restore from backup?",
+    "importWarning": "Progress and settings on this device will be replaced by the backup.",
+    "importConfirm": "Restore",
+    "cancel": "Cancel"
   }
 }
