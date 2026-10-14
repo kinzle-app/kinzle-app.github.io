@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="cs" data-table="evening">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kinzle – editor hádanek</title>
+  <style>
+    /* Editor je jen pro autora a nenasazuje se. Náhled používá styly hry. */
+    .editor { display: grid; grid-template-columns: minmax(320px, 1fr) 358px; /* náhled má šířku hry na mobilu */ gap: 24px; max-width: 1100px; margin: 0 auto; padding: 20px; }
+    @media (max-width: 860px) { .editor { grid-template-columns: 1fr; } }
+    .form { display: flex; flex-direction: column; gap: 12px; }
+    .form h1 { margin: 0; font-size: 24px; }
+    .row { display: flex; gap: 10px; flex-wrap: wrap; }
+    label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 700; color: var(--muted); }
+    input, select, textarea {
+      font: inherit; font-size: 15px; padding: 8px 10px; border-radius: 8px;
+      border: 2px solid var(--line); background: var(--tile); color: var(--ink);
+    }
+    textarea { resize: vertical; min-height: 54px; }
+    fieldset { border: 2px solid var(--line); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+    legend { font-weight: 800; padding: 0 6px; }
+    .words { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    .problems { margin: 0; padding: 10px 14px 10px 30px; border-radius: 10px; background: var(--panel); color: var(--panel-text); font-size: 14px; }
+    .problems.ok { list-style: none; padding-left: 14px; }
+    .preview { position: sticky; top: 20px; align-self: start; display: flex; flex-direction: column; gap: 12px; }
+    .preview h2 { margin: 0; font-size: 16px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main class="editor">
+    <form class="form" id="form" autocomplete="off">
+      <h1>Editor hádanek</h1>
+      <div class="row">
+        <label>Jazyk <select name="language"><option>cs</option><option>en</option></select></label>
+        <label>Id <input name="id" required size="10"></label>
+        <label>Velikost <select name="size"><option value="3">3 skupiny</option><option value="4" selected>4 skupiny</option><option value="5">5 skupin</option></select></label>
+        <label>Úroveň (level) <select name="level"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></label>
+      </div>
+      <label>Upoutávka na zítřek (nepovinná, nesmí prozradit řešení) <input name="teaser"></label>
+      <div id="groups"></div>
+      <ul class="problems" id="problems"></ul>
+      <div class="row">
+        <button class="primary" type="submit">Uložit jako JSON</button>
+        <button class="secondary" type="button" id="open">Otevřít hádanku…</button>
+        <input type="file" id="file" accept=".json" hidden>
+      </div>
+      <p class="muted">Ulož do <code>content/&lt;jazyk&gt;/drafts/</code>. Pak spusť <code>npm run validate</code> a projdi ověřovací postup z <code>content/PRAVIDLA-HADANEK.md</code>.</p>
+    </form>
+    <section class="preview">
+      <h2>Náhled kostiček</h2>
+      <div class="board" id="board"></div>
+      <h2>Náhled vyřešených skupin</h2>
+      <div class="solved-list" id="solved"></div>
+    </section>
+  </main>
+  <script type="module" src="./editor.js"></script>
+</body>
+</html>

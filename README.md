@@ -67,3 +67,28 @@ Hra používá jen relativní cesty, takže v kódu se nic měnit nemusí.
    (Při nasazování přes GitHub Actions rozhoduje nastavení v kroku 2, soubor slouží jako záznam v repozitáři.)
 
 Adresa `kinzle-app.github.io` pak bude automaticky přesměrovávat na novou doménu.
+
+## Jak přidat hádanky
+
+Pravidla kvality a ověřovací postup jsou v [content/PRAVIDLA-HADANEK.md](content/PRAVIDLA-HADANEK.md).
+Nová hádanka je vždy nejdřív návrh (`content/<jazyk>/drafts/`, `"status": "draft"`) a do hry se dostane až po schválení.
+
+**Várka od Claude:** v Claude Code napiš například
+
+- `/hadanky cs 5` – pět českých hádanek,
+- `/hadanky en 3 téma: kuchyně` – tři anglické na téma,
+- `/hadanky cs denní od 2026-11-02` – denní hádanky podle rytmu týdne,
+- `/hadanky cs kapitola 2` – úrovně 2. kapitoly Cesty.
+
+Claude hádanky vytvoří, ověří (včetně slepého testu samostatným subagentem) a připraví přehled
+`content/<jazyk>/drafts/REVIEW.md`. Projdi ho a odpověz třeba „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
+Schválené hádanky Claude přesune do `puzzles/`, zapíše do rozpisu a nasadí.
+
+**Vlastní hádanka v editoru:** `npm run editor` otevře formulář s živým náhledem a kontrolou pravidel.
+Hádanku ulož do `content/<jazyk>/drafts/` a požádej Claude o ověření a zařazení.
+
+**Kontrola:** `npm run validate` zkontroluje všechny hádanky, rozpis denních hádanek (jen schválené, bez opakování,
+rytmus týdne), balíčky a texty a vypíše, na kolik dní dopředu jsou denní hádanky naplánované
+(varuje pod 14 dní). Běží i v GitHub Actions před každým nasazením.
+
+**Oprava hádanky:** `/oprav-hadanku cs-0007 skupina Ovoce je sporná` – najde příčinu, opraví, znovu ověří a předloží ke schválení.
