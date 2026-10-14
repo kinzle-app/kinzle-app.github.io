@@ -101,3 +101,26 @@ describe('kontrola textů', () => {
     expect([...checkLocale('cs', cs), ...checkLocale('en', en)]).toEqual([]);
   });
 });
+
+describe('kontrola Cesty', () => {
+  const path = (ids) => ({ acts: [{ id: '1', chapters: [{ id: '1-1', levels: ids.map((puzzle) => ({ puzzle })) }] }] });
+  const stories = { cs: { chapters: { '1-1': { title: 'K' } } } };
+
+  it('správná Cesta projde', () => {
+    const r = checkContent(base({ puzzles: [puzzle('cs-0001')], paths: { cs: path(['cs-0001']) }, stories }));
+    expect(r.errors).toEqual([]);
+  });
+
+  it('odmítne denní hádanku, opakování a chybějící název kapitoly', () => {
+    const r = checkContent(base({
+      puzzles: [puzzle('cs-0001')],
+      daily: { cs: { [MONDAY]: 'cs-0001' } },
+      paths: { cs: path(['cs-0001', 'cs-0001']) },
+      stories: {}
+    }));
+    const all = r.errors.join();
+    expect(all).toMatch(/rozpisu denních/);
+    expect(all).toMatch(/dvakrát/);
+    expect(all).toMatch(/chybí název/);
+  });
+});

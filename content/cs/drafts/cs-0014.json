@@ -1,0 +1,55 @@
+{
+  "id": "cs-0014",
+  "language": "cs",
+  "size": 4,
+  "level": 4,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Sporty s míčem",
+      "difficulty": 1,
+      "words": [
+        "fotbal",
+        "tenis",
+        "golf",
+        "volejbal"
+      ],
+      "explanation": "Ve všech čtyřech sportech se hraje s míčem nebo míčkem."
+    },
+    {
+      "title": "Mají křídla",
+      "difficulty": 2,
+      "words": [
+        "letadlo",
+        "anděl",
+        "mlýn",
+        "okno"
+      ],
+      "explanation": "Letadlo a anděl mají křídla, větrný mlýn má lopatky, kterým se říká křídla, a okno má otevírací křídla."
+    },
+    {
+      "title": "Dají se doplnit slovem DOMÁCÍ",
+      "difficulty": 3,
+      "words": [
+        "úkol",
+        "vězení",
+        "zvíře",
+        "kino"
+      ],
+      "explanation": "Domácí úkol, domácí vězení, domácí zvíře a domácí kino."
+    },
+    {
+      "title": "Na začátku se v nich schovává dopravní prostředek",
+      "difficulty": 4,
+      "words": [
+        "autor",
+        "kolotoč",
+        "metronom",
+        "busta"
+      ],
+      "explanation": "AUTOr, KOLOtoč, METROnom, BUSta – auto, kolo, metro a bus."
+    }
+  ]
+}

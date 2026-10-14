@@ -1,0 +1,20 @@
+{
+  "acts": [
+    {
+      "id": "1",
+      "chapters": [
+        {
+          "id": "1-1",
+          "theme": { "tint": "#E07A4F", "ornament": "dots" },
+          "levels": [
+            { "puzzle": "cs-0006" },
+            { "puzzle": "cs-0007" },
+            { "puzzle": "cs-0008" },
+            { "puzzle": "cs-0009", "rest": true },
+            { "puzzle": "cs-0010" }
+          ]
+        }
+      ]
+    }
+  ]
+}

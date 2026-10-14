@@ -1,0 +1,55 @@
+{
+  "id": "cs-0011",
+  "language": "cs",
+  "size": 4,
+  "level": 3,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Roční období",
+      "difficulty": 1,
+      "words": [
+        "jaro",
+        "léto",
+        "podzim",
+        "zima"
+      ],
+      "explanation": "Čtyři roční období."
+    },
+    {
+      "title": "Šachové figurky",
+      "difficulty": 2,
+      "words": [
+        "král",
+        "věž",
+        "jezdec",
+        "pěšec"
+      ],
+      "explanation": "Figurky na šachovnici. Chybí jen dáma a střelec."
+    },
+    {
+      "title": "Rovinné geometrické tvary",
+      "difficulty": 3,
+      "words": [
+        "kruh",
+        "čtverec",
+        "trojúhelník",
+        "obdélník"
+      ],
+      "explanation": "Tvary, které se dají nakreslit na papír. Koule je prostorové těleso, ne rovinný tvar."
+    },
+    {
+      "title": "Dají se doplnit slovem SNĚHOVÁ",
+      "difficulty": 4,
+      "words": [
+        "vločka",
+        "koule",
+        "kalamita",
+        "pokrývka"
+      ],
+      "explanation": "Sněhová vločka, sněhová koule, sněhová kalamita a sněhová pokrývka."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "acts": {
+    "1": {
+      "title": "Putování",
+      "intro": "Všechna slova mají společného prapředka – Praslovo. Nikdo neví, jak vypadá. Vydej se po jeho stopách.",
+      "nextChapter": "Na zahradě"
+    }
+  },
+  "chapters": {
+    "1-1": {
+      "title": "U kuchyňského stolu",
+      "intro": "Cesta začíná doma, u kuchyňského stolu. Tady se slova potkávají nejčastěji – u snídaně, nad recepty i při večerním povídání.",
+      "outro": "Mezi hrnky a recepty jsi našel první stopu. Kdosi sem kdysi zapsal slovo, které je starší než všechna ostatní.",
+      "shard": "Praslovo je malé. Tak malé, že by se vešlo do dlaně."
+    }
+  }
+}

@@ -15,7 +15,7 @@ export const MIN_DAYS_AHEAD = 14;
 const FOLDER_STATUS = { puzzles: ['approved', 'test'], drafts: ['draft'] };
 
 // Čistá funkce kvůli testům. puzzles = [{ file, lang, folder, data }]
-export function checkContent({ puzzles, daily, packs, locales, today }) {
+export function checkContent({ puzzles, daily, packs, locales, today, paths = {}, stories = {} }) {
   const errors = [];
   const warnings = [];
   const summary = {};
@@ -79,6 +79,27 @@ export function checkContent({ puzzles, daily, packs, locales, today }) {
     }
   }
 
+  // Cesta: jen schválené hádanky, každá jednou, žádná z rozpisu denních (aby si hráč denní nevyzradil)
+  for (const [lang, path] of Object.entries(paths)) {
+    const used = new Set();
+    const chapterIds = new Set();
+    for (const act of path.acts || []) {
+      for (const chapter of act.chapters || []) {
+        const where = `${lang}/path.json kapitola ${chapter.id}`;
+        if (chapterIds.has(chapter.id)) errors.push(`${where}: id kapitoly už existuje`);
+        chapterIds.add(chapter.id);
+        if (!chapter.levels?.length) errors.push(`${where}: kapitola nemá žádné úrovně`);
+        if (!stories[lang]?.chapters?.[chapter.id]?.title) errors.push(`${where}: chybí název v ${lang}/story.json`);
+        for (const level of chapter.levels || []) {
+          if (used.has(level.puzzle)) errors.push(`${where}: hádanka ${level.puzzle} je na Cestě dvakrát`);
+          used.add(level.puzzle);
+          usable(level.puzzle, lang, where);
+          if (Object.values(daily[lang] || {}).includes(level.puzzle)) errors.push(`${where}: hádanka ${level.puzzle} je i v rozpisu denních hádanek`);
+        }
+      }
+    }
+  }
+
   for (const [lang, messages] of Object.entries(locales)) errors.push(...checkLocale(lang, messages));
 
   return { errors, warnings, summary };
@@ -116,6 +137,8 @@ function loadAll(root = '.') {
   const puzzles = [];
   const daily = {};
   const packs = {};
+  const paths = {};
+  const stories = {};
   for (const lang of langs) {
     for (const folder of ['puzzles', 'drafts']) {
       const dir = join(contentDir, lang, folder);
@@ -133,12 +156,14 @@ function loadAll(root = '.') {
     }
     daily[lang] = readJson(join(contentDir, lang, 'daily.json'), {});
     packs[lang] = readJson(join(contentDir, lang, 'packs.json'), []);
+    paths[lang] = readJson(join(contentDir, lang, 'path.json'), { acts: [] });
+    stories[lang] = readJson(join(contentDir, lang, 'story.json'), {});
   }
   const locales = {};
   for (const name of readdirSync(join(root, 'src', 'locales'))) {
     locales[name.replace('.json', '')] = readJson(join(root, 'src', 'locales', name));
   }
-  return { puzzles, daily, packs, locales, today: pragueDate() };
+  return { puzzles, daily, packs, locales, paths, stories, today: pragueDate() };
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {

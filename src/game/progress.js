@@ -5,7 +5,7 @@ export const SCHEMA_VERSION = 1;
 export const MODES = ['daily', 'archive', 'path', 'free', 'pack'];
 
 export function emptyProgress() {
-  return { version: SCHEMA_VERSION, history: [] };
+  return { version: SCHEMA_VERSION, history: [], skipped: [], storySeen: [], notebook: { text: '' } };
 }
 
 // Kontrola jednoho záznamu historie
@@ -26,7 +26,14 @@ export function normalizeProgress(raw) {
     // zatím existuje jen verze 1; budoucí migrace se přidají sem
     return emptyProgress();
   }
-  return { ...raw, history: raw.history.filter(validEntry) };
+  const strings = (list) => (Array.isArray(list) ? list.filter((x) => typeof x === 'string') : []);
+  return {
+    version: SCHEMA_VERSION,
+    history: raw.history.filter(validEntry),
+    skipped: strings(raw.skipped),           // přeskočené úrovně Cesty (id hádanek)
+    storySeen: strings(raw.storySeen),       // přečtené části příběhu ('intro:1-1', 'outro:1-1')
+    notebook: { text: typeof raw.notebook?.text === 'string' ? raw.notebook.text : '' } // tip do zápisníku
+  };
 }
 
 // Záznam dohrané hry. game = stav z engine.js

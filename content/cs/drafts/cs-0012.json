@@ -1,0 +1,55 @@
+{
+  "id": "cs-0012",
+  "language": "cs",
+  "size": 4,
+  "level": 4,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Části, které má každé auto",
+      "difficulty": 1,
+      "words": [
+        "volant",
+        "motor",
+        "brzda",
+        "dveře"
+      ],
+      "explanation": "Volant, motor, brzdy a dveře má každé auto. Střešní nosič ne."
+    },
+    {
+      "title": "Dají se nafouknout",
+      "difficulty": 2,
+      "words": [
+        "balónek",
+        "míč",
+        "matrace",
+        "duše"
+      ],
+      "explanation": "Duše je nafukovací hadice uvnitř pneumatiky – třeba u kola."
+    },
+    {
+      "title": "Mají kohoutek",
+      "difficulty": 3,
+      "words": [
+        "sud",
+        "umyvadlo",
+        "dřez",
+        "pistole"
+      ],
+      "explanation": "Ze sudu se točí kohoutkem, u umyvadla a dřezu teče voda z kohoutku a pistole má kohoutek, který se před výstřelem natahuje."
+    },
+    {
+      "title": "Na začátku se v nich schovává část hlavy",
+      "difficulty": 4,
+      "words": [
+        "bradavice",
+        "okoun",
+        "nosič",
+        "zubr"
+      ],
+      "explanation": "BRADAvice, OKOun, NOSič, ZUBr – brada, oko, nos a zub."
+    }
+  ]
+}

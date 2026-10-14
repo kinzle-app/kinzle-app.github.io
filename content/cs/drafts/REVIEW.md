@@ -2,6 +2,98 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
+## Várka 2026-10-14 (3) – Cesta, 1. kapitola „U kuchyňského stolu“, úrovně 6–10
+
+Křivka obtížnosti: 4×4, 4×4, oddechová 3×4, 4×4 a mistrovská 5×4 na konec kapitoly.
+
+### cs-0011 · 4×4 · úroveň 3 · Cesta, kapitola 1, úroveň 6
+
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Roční období | jaro, léto, podzim, zima | Čtyři roční období. |
+| ▲ 2 | Šachové figurky | král, věž, jezdec, pěšec | Figurky na šachovnici. Chybí jen dáma a střelec. |
+| ■ 3 | Rovinné geometrické tvary | kruh, čtverec, trojúhelník, obdélník | Tvary, které se dají nakreslit na papír. Koule je prostorové těleso, ne rovinný tvar. |
+| ◆ 4 | Dají se doplnit slovem SNĚHOVÁ | vločka, koule, kalamita, pokrývka | Sněhová vločka, sněhová koule, sněhová kalamita a sněhová pokrývka. |
+
+**Záludná slova:** KOULE (vypadá jako tvar, ale název chce rovinné tvary), ZIMA (sníh).
+**Slepý test:** správně napoprvé, jiné rozdělení nenašel.
+
+---
+
+### cs-0012 · 4×4 · úroveň 4 · Cesta, kapitola 1, úroveň 7
+
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Části, které má každé auto | volant, motor, brzda, dveře | Volant, motor, brzdy a dveře má každé auto. Střešní nosič ne. |
+| ▲ 2 | Dají se nafouknout | balónek, míč, matrace, duše | Duše je nafukovací hadice uvnitř pneumatiky – třeba u kola. |
+| ■ 3 | Mají kohoutek | sud, umyvadlo, dřez, pistole | Ze sudu se točí kohoutkem, u umyvadla a dřezu teče voda z kohoutku a pistole má kohoutek, který se před výstřelem natahuje. |
+| ◆ 4 | Na začátku se v nich schovává část hlavy | bradavice, okoun, nosič, zubr | BRADAvice, OKOun, NOSič, ZUBr – brada, oko, nos a zub. |
+
+**Záludná slova:** NOSIČ (střešní nosič – ale ten nemá každé auto), DUŠE (je v pneumatice auta).
+**Slepý test 1:** správně, ale našel dvě chyby: plavecké KOLO i dětská VANA se dají nafouknout.
+**Opraveno:** KOLO → BRZDA, VANA → DŘEZ, SEDADLO → DVEŘE.
+**Slepý test 2:** správně, jiné rozdělení nenašel. Past „duše a nosič k autu“ označil za férovou.
+
+---
+
+### cs-0013 · 3×4 · úroveň 2 · Cesta, kapitola 1, úroveň 8 (oddechová)
+
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Barvy | modrá, zelená, žlutá, fialová | Barvy, které najdeš v každé sadě pastelek. |
+| ▲ 2 | Hudební žánry | rock, jazz, pop, rap | Hudební žánry s krátkými anglickými názvy. |
+| ■ 3 | Dají se doplnit slovem ZLATÁ | rybka, horečka, svatba, medaile | Zlatá rybka, zlatá horečka, zlatá svatba (50 let manželství) a zlatá medaile. |
+
+**Záludná slova:** žádné – oddechová úroveň.
+**Slepý test:** správně napoprvé, jiné rozdělení nenašel.
+
+---
+
+### cs-0014 · 4×4 · úroveň 4 · Cesta, kapitola 1, úroveň 9
+
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Sporty s míčem | fotbal, tenis, golf, volejbal | Ve všech čtyřech sportech se hraje s míčem nebo míčkem. |
+| ▲ 2 | Mají křídla | letadlo, anděl, mlýn, okno | Letadlo a anděl mají křídla, větrný mlýn má lopatky, kterým se říká křídla, a okno má otevírací křídla. |
+| ■ 3 | Dají se doplnit slovem DOMÁCÍ | úkol, vězení, zvíře, kino | Domácí úkol, domácí vězení, domácí zvíře a domácí kino. |
+| ◆ 4 | Na začátku se v nich schovává dopravní prostředek | autor, kolotoč, metronom, busta | AUTOr, KOLOtoč, METROnom, BUSta – auto, kolo, metro a bus. |
+
+**Záludná slova:** LETADLO (je dopravní prostředek, ale nic v sobě neschovává), GOLF (model auta).
+**Slepý test 1:** správně, ale v LODIČCE není „loď“ (bez háčku).
+**Opraveno:** LODIČKA → BUSTA (BUSta).
+**Slepý test 2:** správně, jiné rozdělení nenašel. „Křídla větrného mlýna“ je běžné spojení, MLÝN zůstává.
+
+---
+
+### cs-0015 · 5×4 · úroveň 5 · Cesta, kapitola 1, úroveň 10 – mistrovská
+
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Planety | Mars, Venuše, Saturn, Merkur | Planety Sluneční soustavy. Všechny se jmenují po římských bozích. |
+| ▲ 2 | Řečtí bohové | Apollón, Afrodita, Hermés, Poseidón | Bohové starých Řeků. Mars, Venuše i Merkur jsou bohové římští. |
+| ■ 3 | Šachové pojmy | šach, pat, remíza, rošáda | Šach je ohrožení krále, pat situace, kdy hráč nemůže táhnout, remíza nerozhodný výsledek a rošáda tah králem a věží najednou. |
+| ◆ 4 | Dají se doplnit slovem MLÉČNÁ | dráha, čokoláda, žláza, pěna | Mléčná dráha, mléčná čokoláda, mléčná žláza a mléčná pěna, třeba na kávě. |
+| ★ 5 | Pozpátku dají jiné slovo | kos, lov, kat, lak | KOS → SOK, LOV → VOL, KAT → TAK, LAK → KAL. |
+
+**Záludná slova:** římští a řečtí bohové (Venuše = Afrodita, Merkur = Hermés), MARS (čokoládová tyčinka), APOLLÓN (mise Apollo).
+**Slepé testy 1 a 2:** rozdělení správně, ale skupinu „řecké písmeno na začátku“ (PÍseň, MÍč, RÓba, FÍk) ani jeden nerozluštil – příliš obskurní.
+**Opraveno:** řecká písmena → „Pozpátku dají jiné slovo“ (KOS, LOV, KAT, LAK); MAT → ROŠÁDA (mat dá pozpátku „tam“), ZEUS → APOLLÓN (pozpátku „Suez“), MLÉČNÁ KAŠE/RÝŽE → MLÉČNÁ PĚNA.
+**Slepý test 3:** celé správně včetně skupiny „pozpátku“, jiné rozdělení nenašel.
+
+---
+
+## Příběh 1. kapitoly (návrh ke schválení)
+
+Texty jsou v `content/cs/story.json`. Rozuzlení (co je Praslovo) v repozitáři není.
+
+- **Dějství I – Putování, úvod:** Všechna slova mají společného prapředka – Praslovo. Nikdo neví, jak vypadá. Vydej se po jeho stopách.
+- **Kapitola 1 „U kuchyňského stolu“, začátek:** Cesta začíná doma, u kuchyňského stolu. Tady se slova potkávají nejčastěji – u snídaně, nad recepty i při večerním povídání.
+- **Konec kapitoly:** Mezi hrnky a recepty jsi našel první stopu. Kdosi sem kdysi zapsal slovo, které je starší než všechna ostatní.
+- **Střípek 1:** Praslovo je malé. Tak malé, že by se vešlo do dlaně.
+- **Další kapitola (zobrazí se jako „přibude brzy“):** Na zahradě
+
+---
+
 ## Várka 2026-10-14 (2) – Cesta, 1. kapitola „U kuchyňského stolu“, úrovně 1–5
 
 Mix velikostí podle zadání: 3×4, 4×4, 4×4, oddechová 3×4, 4×4. Kuchyňské téma mají jen některé skupiny (kapitoly jsou volně tematické).

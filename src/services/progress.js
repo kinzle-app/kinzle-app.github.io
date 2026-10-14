@@ -16,6 +16,11 @@ export function recordGame(entry) {
   return seeds(after).length - seeds(before).length;
 }
 
+// Drobné změny postupu (přeskočení úrovně, přečtený příběh, zápisník)
+export function updateProgress(change) {
+  save(KEY, { ...getProgress(), ...change(getProgress()) });
+}
+
 export function replaceProgress(progress) {
   save(KEY, progress);
 }

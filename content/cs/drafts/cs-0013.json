@@ -1,0 +1,44 @@
+{
+  "id": "cs-0013",
+  "language": "cs",
+  "size": 3,
+  "level": 2,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Barvy",
+      "difficulty": 1,
+      "words": [
+        "modrá",
+        "zelená",
+        "žlutá",
+        "fialová"
+      ],
+      "explanation": "Barvy, které najdeš v každé sadě pastelek."
+    },
+    {
+      "title": "Hudební žánry",
+      "difficulty": 2,
+      "words": [
+        "rock",
+        "jazz",
+        "pop",
+        "rap"
+      ],
+      "explanation": "Hudební žánry s krátkými anglickými názvy."
+    },
+    {
+      "title": "Dají se doplnit slovem ZLATÁ",
+      "difficulty": 3,
+      "words": [
+        "rybka",
+        "horečka",
+        "svatba",
+        "medaile"
+      ],
+      "explanation": "Zlatá rybka, zlatá horečka, zlatá svatba (50 let manželství) a zlatá medaile."
+    }
+  ]
+}

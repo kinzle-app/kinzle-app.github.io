@@ -1,0 +1,66 @@
+{
+  "id": "cs-0015",
+  "language": "cs",
+  "size": 5,
+  "level": 5,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Planety",
+      "difficulty": 1,
+      "words": [
+        "Mars",
+        "Venuše",
+        "Saturn",
+        "Merkur"
+      ],
+      "explanation": "Planety Sluneční soustavy. Všechny se jmenují po římských bozích."
+    },
+    {
+      "title": "Řečtí bohové",
+      "difficulty": 2,
+      "words": [
+        "Apollón",
+        "Afrodita",
+        "Hermés",
+        "Poseidón"
+      ],
+      "explanation": "Bohové starých Řeků. Mars, Venuše i Merkur jsou bohové římští."
+    },
+    {
+      "title": "Šachové pojmy",
+      "difficulty": 3,
+      "words": [
+        "šach",
+        "pat",
+        "remíza",
+        "rošáda"
+      ],
+      "explanation": "Šach je ohrožení krále, pat situace, kdy hráč nemůže táhnout, remíza nerozhodný výsledek a rošáda tah králem a věží najednou."
+    },
+    {
+      "title": "Dají se doplnit slovem MLÉČNÁ",
+      "difficulty": 4,
+      "words": [
+        "dráha",
+        "čokoláda",
+        "žláza",
+        "pěna"
+      ],
+      "explanation": "Mléčná dráha, mléčná čokoláda, mléčná žláza a mléčná pěna, třeba na kávě."
+    },
+    {
+      "title": "Pozpátku dají jiné slovo",
+      "difficulty": 5,
+      "words": [
+        "kos",
+        "lov",
+        "kat",
+        "lak"
+      ],
+      "explanation": "KOS → SOK, LOV → VOL, KAT → TAK, LAK → KAL."
+    }
+  ]
+}

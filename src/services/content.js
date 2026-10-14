@@ -29,6 +29,22 @@ const schedules = Object.fromEntries(Object.entries(
   import.meta.glob('/content/*/daily.json', { eager: true, import: 'default' })
 ).map(([path, data]) => [path.split('/')[2], data]));
 
+// Cesta: struktura (path.json) a texty příběhu (story.json) pro každý jazyk
+const paths = byLanguage(import.meta.glob('/content/*/path.json', { eager: true, import: 'default' }));
+const stories = byLanguage(import.meta.glob('/content/*/story.json', { eager: true, import: 'default' }));
+
+function byLanguage(files) {
+  return Object.fromEntries(Object.entries(files).map(([path, data]) => [path.split('/')[2], data]));
+}
+
+// Aktuální dějství (hráč vidí jen jedno) a jeho texty
+export function currentAct(lang) {
+  const act = paths[lang]?.acts?.at(-1);
+  if (!act?.chapters?.length) return null;
+  const story = stories[lang] || {};
+  return { ...act, story: story.acts?.[act.id] || {}, chapterStory: (id) => story.chapters?.[id] || {} };
+}
+
 export function dailySchedule(lang) {
   return schedules[lang] || {};
 }
