@@ -48,6 +48,8 @@ Slovo má nejvýš 12 znaků (jinak se nevejde na kostičku), víceslovné spoje
   - Ne „Zvířata“, ale „Zvířata, která přezimují ve spánku“.
   - **Slovní hříčka musí mít v názvu řečeno, s čím se pracuje.** Ne „Mořská…“ (dá se číst jako „věci související s mořem“ a pak sedí jen část slov), ale „Dají se doplnit slovem MOŘSKÁ“. Ne „Skrytá zvířata“, ale „Schovává se v nich zvíře“.
   - Název nesmí sedět i na jinou čtveřici slov z hádanky.
+- **Skrytá slova a hříčky kontroluj u všech slov hádanky**, ne jen u skupiny. U „schovává se v nich zvíře“ hledej i krátká slova a mláďata (tele, sele, kotě, tur, sob, los, rys, kos, mol…): TELEfon by sem omylem patřil taky.
+- **Pozor na druhé významy, které spojují slovo s jinou skupinou:** háček má očko, celer bývá i řapíkatý (roste nad zemí). Když druhý význam sedí na název jiné skupiny, slovo vyměň.
 - **Záludná slova:** každá hádanka má 1–3 slova, která na první pohled sedí i jinam, ale podle přesného názvu skupiny jednoznačně nepatří. Celé rozdělení musí být přesto jediné možné.
 - **Obtížnost odpovídá skutečnosti:** skupina 1 je vidět hned, nejtěžší skupina vyžaduje „aha moment“. Těžkost má plynout z chytrosti spojení, ne z neznámých slov.
 - **Vysvětlení je fakticky pravdivé.** Fakt, který nejde ověřit, se nepíše; stačí jednoduché vysvětlení spojení.

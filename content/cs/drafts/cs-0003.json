@@ -1,0 +1,55 @@
+{
+  "id": "cs-0003",
+  "language": "cs",
+  "size": 4,
+  "level": 3,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Nábytek",
+      "difficulty": 1,
+      "words": [
+        "stůl",
+        "židle",
+        "křeslo",
+        "pohovka"
+      ],
+      "explanation": "Nábytek, který najdeš skoro v každém bytě."
+    },
+    {
+      "title": "Dají se zamknout",
+      "difficulty": 2,
+      "words": [
+        "dveře",
+        "kufr",
+        "trezor",
+        "auto"
+      ],
+      "explanation": "Dveře, kufr, trezor i auto se dají zamknout."
+    },
+    {
+      "title": "Mají hlavičku",
+      "difficulty": 3,
+      "words": [
+        "hřebík",
+        "sirka",
+        "špendlík",
+        "česnek"
+      ],
+      "explanation": "Hřebík, sirka i špendlík mají hlavičku. U česneku se hlavičkou říká celá cibule složená ze stroužků."
+    },
+    {
+      "title": "Na začátku se v nich schovává zvíře",
+      "difficulty": 4,
+      "words": [
+        "hadr",
+        "kosmonaut",
+        "myšlenka",
+        "sobota"
+      ],
+      "explanation": "HADr, KOSmonaut, MYŠlenka, SOBota."
+    }
+  ]
+}

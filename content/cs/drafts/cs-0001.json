@@ -1,0 +1,55 @@
+{
+  "id": "cs-0001",
+  "language": "cs",
+  "size": 4,
+  "level": 1,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Ptáci",
+      "difficulty": 1,
+      "words": [
+        "vrabec",
+        "sýkorka",
+        "čáp",
+        "holub"
+      ],
+      "explanation": "Vrabec, sýkorka a holub u nás zůstávají i v zimě, čáp bílý na zimu odlétá do Afriky."
+    },
+    {
+      "title": "Části stromu, které jsou ze dřeva",
+      "difficulty": 2,
+      "words": [
+        "kmen",
+        "větev",
+        "kořen",
+        "suk"
+      ],
+      "explanation": "Suk je místo ve dřevě, kde z kmene vyrůstala větev. List je taky část stromu, ale ze dřeva není."
+    },
+    {
+      "title": "Části knihy",
+      "difficulty": 3,
+      "words": [
+        "list",
+        "obálka",
+        "hřbet",
+        "kapitola"
+      ],
+      "explanation": "Hřbet je ta část knihy, kterou vidíš, když stojí v knihovně."
+    },
+    {
+      "title": "Dají se doplnit slovem NOČNÍ",
+      "difficulty": 4,
+      "words": [
+        "košile",
+        "směna",
+        "můra",
+        "stolek"
+      ],
+      "explanation": "Noční košile, noční směna, noční můra a noční stolek. Můra je i noční motýl – mezi ptáky ale nepatří."
+    }
+  ]
+}

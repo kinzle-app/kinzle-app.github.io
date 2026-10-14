@@ -1,0 +1,55 @@
+{
+  "id": "cs-0005",
+  "language": "cs",
+  "size": 4,
+  "level": 5,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Místa, kde se studuje",
+      "difficulty": 1,
+      "words": [
+        "škola",
+        "fakulta",
+        "gymnázium",
+        "univerzita"
+      ],
+      "explanation": "Škola, gymnázium, fakulta i univerzita. Kostel je taky budova, ale studovat se do něj nechodí."
+    },
+    {
+      "title": "Dají se natáhnout",
+      "difficulty": 2,
+      "words": [
+        "hodiny",
+        "guma",
+        "kabel",
+        "struna"
+      ],
+      "explanation": "Hodiny se natahují, aby šly, gumu i strunu napneš a kabel natáhneš z místa na místo."
+    },
+    {
+      "title": "Zdrobněliny zvířat s ještě jiným významem",
+      "difficulty": 3,
+      "words": [
+        "koník",
+        "myška",
+        "kočička",
+        "beránek"
+      ],
+      "explanation": "Koník je i záliba, myška ovládá počítač, kočičky kvetou na jívě a beránek se peče na Velikonoce."
+    },
+    {
+      "title": "Schovává se v nich část těla",
+      "difficulty": 4,
+      "words": [
+        "kostel",
+        "lopata",
+        "kabaret",
+        "pasta"
+      ],
+      "explanation": "KOSTel, loPATA, kabaRET, PASta – kost, pata, ret a pas."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "cs-0002",
+  "language": "cs",
+  "size": 4,
+  "level": 2,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Zelenina, ze které jíme část rostoucí pod zemí",
+      "difficulty": 1,
+      "words": [
+        "mrkev",
+        "ředkvička",
+        "křen",
+        "řepa"
+      ],
+      "explanation": "U mrkve, ředkvičky, křenu i řepy jíme část, která roste v zemi. Zelí a salát rostou nad zemí."
+    },
+    {
+      "title": "Lidé v divadle",
+      "difficulty": 2,
+      "words": [
+        "herec",
+        "režisér",
+        "divák",
+        "nápověda"
+      ],
+      "explanation": "Nápověda je v divadle člověk, který hercům potichu napovídá text, když ho zapomenou."
+    },
+    {
+      "title": "Skládají se z listů",
+      "difficulty": 3,
+      "words": [
+        "kniha",
+        "sešit",
+        "zelí",
+        "salát"
+      ],
+      "explanation": "Kniha a sešit se skládají z listů papíru, hlávka zelí a salátu z listů rostliny. Zelí a salát rostou nad zemí."
+    },
+    {
+      "title": "Dají se doplnit slovem ŽELEZNÁ",
+      "difficulty": 4,
+      "words": [
+        "opona",
+        "dráha",
+        "vůle",
+        "ruda"
+      ],
+      "explanation": "Železná opona, železná dráha, železná vůle a železná ruda. Opona sice patří do divadla, ale není to člověk."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "cs-0004",
+  "language": "cs",
+  "size": 4,
+  "level": 4,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Druhy srážek",
+      "difficulty": 1,
+      "words": [
+        "déšť",
+        "sníh",
+        "kroupy",
+        "mrholení"
+      ],
+      "explanation": "Déšť, sníh, kroupy i mrholení jsou srážky – voda, která padá z mraků."
+    },
+    {
+      "title": "Kuchyňské nádobí",
+      "difficulty": 2,
+      "words": [
+        "hrnec",
+        "pánev",
+        "poklice",
+        "naběračka"
+      ],
+      "explanation": "Hrnec, pánev, poklice a naběračka. Kroupy se v kuchyni taky vaří, ale nádobí to není."
+    },
+    {
+      "title": "Dají se doplnit slovem SLUNEČNÍ",
+      "difficulty": 3,
+      "words": [
+        "brýle",
+        "elektrárna",
+        "soustava",
+        "paprsek"
+      ],
+      "explanation": "Sluneční brýle, sluneční elektrárna, sluneční soustava a sluneční paprsek."
+    },
+    {
+      "title": "Mají oka",
+      "difficulty": 4,
+      "words": [
+        "síť",
+        "punčocha",
+        "kostka",
+        "brambora"
+      ],
+      "explanation": "Síť má oka, na punčoše se může „pustit oko“, tečkám na hrací kostce se říká oka a z ok na bramboře raší klíčky."
+    }
+  ]
+}
