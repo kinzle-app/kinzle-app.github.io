@@ -10,7 +10,7 @@ Kde našel problém, hádanku jsem opravil a test zopakoval s novým subagentem.
 
 ---
 
-### cs-0001 · 4×4 · úroveň 1 · pondělí
+### cs-0001 · 4×4 · úroveň 1 · pondělí · ✅ schváleno 2026-10-14
 
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
@@ -26,7 +26,7 @@ Kde našel problém, hádanku jsem opravil a test zopakoval s novým subagentem.
 
 ---
 
-### cs-0002 · 4×4 · úroveň 2 · úterý
+### cs-0002 · 4×4 · úroveň 2 · úterý · ✅ schváleno 2026-10-14
 
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
@@ -43,7 +43,7 @@ Kde našel problém, hádanku jsem opravil a test zopakoval s novým subagentem.
 
 ---
 
-### cs-0003 · 4×4 · úroveň 3 · středa
+### cs-0003 · 4×4 · úroveň 3 · středa · ✅ schváleno 2026-10-14
 
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
@@ -61,7 +61,7 @@ Kde našel problém, hádanku jsem opravil a test zopakoval s novým subagentem.
 
 ---
 
-### cs-0004 · 4×4 · úroveň 4 · čtvrtek
+### cs-0004 · 4×4 · úroveň 4 · čtvrtek · ✅ schváleno 2026-10-14
 
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
@@ -78,7 +78,7 @@ Kde našel problém, hádanku jsem opravil a test zopakoval s novým subagentem.
 
 ---
 
-### cs-0005 · 4×4 · úroveň 5 · pátek
+### cs-0005 · 4×4 · úroveň 5 · pátek · ✅ schváleno 2026-10-14
 
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|

@@ -78,8 +78,7 @@ test('nápovědy: název skupiny, barevný okraj, nejvýš dvě', async ({ page 
 
 test('Zpět zavře okno nápovědy a hra zůstane', async ({ page }) => {
   await setup(page);
-  await page.goto('./#/');
-  await page.getByRole('button', { name: /Hádanka 1/ }).click();
+  await page.goto('./#/hra/cs-test-01');
   await page.getByRole('button', { name: 'Nápověda', exact: true }).click();
   await expect(page.getByRole('dialog')).toBeVisible();
   await page.goBack();
@@ -89,8 +88,7 @@ test('Zpět zavře okno nápovědy a hra zůstane', async ({ page }) => {
 
 test('rozehraná hra přežije návštěvu nastavení', async ({ page }) => {
   await setup(page);
-  await page.goto('./#/');
-  await page.getByRole('button', { name: /Hádanka 1/ }).click();
+  await page.goto('./#/hra/cs-test-01');
   await pick(page, easy.groups[0].words);
   await page.getByRole('button', { name: 'Nastavení' }).click();
   await page.getByRole('button', { name: 'Zpět' }).click();
