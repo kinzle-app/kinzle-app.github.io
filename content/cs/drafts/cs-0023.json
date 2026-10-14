@@ -1,0 +1,55 @@
+{
+  "id": "cs-0023",
+  "language": "cs",
+  "size": 4,
+  "level": 3,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Hlavní města",
+      "difficulty": 1,
+      "words": [
+        "Praha",
+        "Paříž",
+        "Řím",
+        "Vídeň"
+      ],
+      "explanation": "Hlavní města Česka, Francie, Itálie a Rakouska."
+    },
+    {
+      "title": "Ptáci, kteří neumějí létat",
+      "difficulty": 2,
+      "words": [
+        "pštros",
+        "tučňák",
+        "emu",
+        "kiwi"
+      ],
+      "explanation": "Pštros, tučňák, emu ani kiwi nelétají."
+    },
+    {
+      "title": "Dají se stříhat",
+      "difficulty": 3,
+      "words": [
+        "vlasy",
+        "nehty",
+        "látka",
+        "keř"
+      ],
+      "explanation": "Stříhají se vlasy, nehty, látka i keře."
+    },
+    {
+      "title": "Mají patu",
+      "difficulty": 4,
+      "words": [
+        "ponožka",
+        "punčocha",
+        "noha",
+        "Achilles"
+      ],
+      "explanation": "Pata ponožky, punčochy a nohy. Achillova pata je jediné zranitelné místo bájného hrdiny."
+    }
+  ]
+}

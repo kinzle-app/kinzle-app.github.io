@@ -1,0 +1,66 @@
+{
+  "id": "cs-0020",
+  "language": "cs",
+  "size": 5,
+  "level": 3,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Dny v týdnu",
+      "difficulty": 1,
+      "words": [
+        "pondělí",
+        "úterý",
+        "čtvrtek",
+        "neděle"
+      ],
+      "explanation": "Dny v týdnu."
+    },
+    {
+      "title": "Pohádkové bytosti",
+      "difficulty": 2,
+      "words": [
+        "víla",
+        "skřítek",
+        "drak",
+        "čarodějnice"
+      ],
+      "explanation": "Bytosti, které známe z pohádek."
+    },
+    {
+      "title": "Dají se loupat",
+      "difficulty": 3,
+      "words": [
+        "brambora",
+        "vajíčko",
+        "cibule",
+        "pomeranč"
+      ],
+      "explanation": "Oloupat bramboru, vajíčko natvrdo, cibuli i pomeranč."
+    },
+    {
+      "title": "Mají jen množné číslo",
+      "difficulty": 4,
+      "words": [
+        "nůžky",
+        "brýle",
+        "dveře",
+        "kamna"
+      ],
+      "explanation": "Pomnožná podstatná jména: i jedny nůžky, brýle, dveře nebo kamna mají tvar množného čísla."
+    },
+    {
+      "title": "Mají kořen",
+      "difficulty": 5,
+      "words": [
+        "problém",
+        "vlas",
+        "slovo",
+        "rovnice"
+      ],
+      "explanation": "Kořen problému, vlasový kořínek, kořen slova a kořen rovnice. Cibule má taky kořínky, ale bez ní by se nedalo nic loupat."
+    }
+  ]
+}

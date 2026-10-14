@@ -1,0 +1,55 @@
+{
+  "id": "cs-0022",
+  "language": "cs",
+  "size": 4,
+  "level": 2,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Jehličnaté stromy",
+      "difficulty": 1,
+      "words": [
+        "smrk",
+        "borovice",
+        "jedle",
+        "modřín"
+      ],
+      "explanation": "Jehličnany z českých lesů. Modřín na zimu jehlice shazuje."
+    },
+    {
+      "title": "Připojují se k počítači",
+      "difficulty": 2,
+      "words": [
+        "myš",
+        "klávesnice",
+        "monitor",
+        "reproduktor"
+      ],
+      "explanation": "Zařízení, která se připojují k počítači."
+    },
+    {
+      "title": "Mají hřbet",
+      "difficulty": 3,
+      "words": [
+        "ruka",
+        "nůž",
+        "kůň",
+        "hora"
+      ],
+      "explanation": "Hřbet ruky, hřbet nože, koňský hřbet a horský hřbet."
+    },
+    {
+      "title": "Dají se chytit nebo chytat",
+      "difficulty": 4,
+      "words": [
+        "lelky",
+        "signál",
+        "rýma",
+        "zloděj"
+      ],
+      "explanation": "Chytat lelky (zahálet), chytit signál, chytit rýmu a chytit zloděje. Myš se dá chytit taky, ale patří k počítači."
+    }
+  ]
+}

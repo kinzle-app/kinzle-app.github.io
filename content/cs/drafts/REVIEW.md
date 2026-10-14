@@ -2,6 +2,76 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
+## Várka 2026-10-14 (5) – denní hádanky so 24. 10. – st 28. 10.
+
+Víkendový speciál 5×4 (so, ne), pak pondělí až středa podle rytmu týdne. Po schválení je zapíšu do `daily.json`.
+
+### cs-0019 · 5×4 · úroveň 4 · denní so 24. 10.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Plavidla | loď, ponorka, jachta, člun | Plavidla na vodě i pod ní. |
+| ▲ 2 | Zimní sporty | hokej, biatlon, curling, sáňkování | Sporty na sněhu a ledu. |
+| ■ 3 | Mají kapsy | kalhoty, bunda, batoh, kulečník | Kulečníkový stůl má kapsy na koule. |
+| ◆ 4 | Mají korunu | strom, zub, král, Dánsko | Koruna stromu, zubu, krále a dánská koruna (měna). |
+| ★ 5 | Přesmyčkou z nich vznikne zvíře | park, role, sok, lom | KAPR, OREL, KOS, MOL. |
+
+**Záludná slova:** KULEČNÍK (vypadá jako sport, ale ne zimní), DÁNSKO (jediná země – patří kvůli měně).
+**Slepý test:** vyřešil správně napoprvé, jiné rozdělení nenašel.
+
+### cs-0020 · 5×4 · úroveň 3 · denní ne 25. 10.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Dny v týdnu | pondělí, úterý, čtvrtek, neděle | |
+| ▲ 2 | Pohádkové bytosti | víla, skřítek, drak, čarodějnice | |
+| ■ 3 | Dají se loupat | brambora, vajíčko, cibule, pomeranč | |
+| ◆ 4 | Mají jen množné číslo | nůžky, brýle, dveře, kamna | Pomnožná podstatná jména. |
+| ★ 5 | Mají kořen | problém, vlas, slovo, rovnice | Kořen problému, vlasu, slova a rovnice. |
+
+**Záludná slova:** CIBULE (má kořínky, ale bez ní by nebylo co loupat), velikonoční svod (neděle, pondělí, čtvrtek, vajíčko – úterý ho rozbije).
+**Slepý test 1:** správně (ve skupině „kořen“ tehdy byl ZUB).
+**Opraveno:** ZUB → PROBLÉM, aby se slovo neopakovalo hned po sobotní hádance.
+**Slepý test 2:** správně, jiné rozdělení nenašel.
+
+### cs-0021 · 4×4 · úroveň 1 · denní po 26. 10.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Hospodářská zvířata | kráva, ovce, koza, prase | |
+| ▲ 2 | Školní pomůcky | pravítko, guma, penál, pastelka | |
+| ■ 3 | Dají se zapnout | televize, světlo, počítač, zip | Přístroje vypínačem, zip na oblečení. |
+| ◆ 4 | Dají se plést | svetr, šála, cop, košík | Z vlny, z vlasů, z proutí. |
+
+**Záludná slova:** SVETR (jde i zapnout), PENÁL (bývá na zip).
+**Slepý test 1:** správně, ale BUNDA jde i plést (pletená bunda) a mohla se prohodit se svetrem.
+**Opraveno:** BUNDA → ZIP. **Slepý test 2:** správně, ale upozornil, že i PÁS by šel uplést. **Opraveno:** PÁS → POČÍTAČ.
+**Slepý test 3:** správně, jiné úplné rozdělení nenašel.
+
+### cs-0022 · 4×4 · úroveň 2 · denní út 27. 10.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Jehličnaté stromy | smrk, borovice, jedle, modřín | |
+| ▲ 2 | Připojují se k počítači | myš, klávesnice, monitor, reproduktor | |
+| ■ 3 | Mají hřbet | ruka, nůž, kůň, hora | Hřbet ruky, nože, koně, horský hřbet. |
+| ◆ 4 | Dají se chytit nebo chytat | lelky, signál, rýma, zloděj | Chytat lelky (zahálet), chytit signál, rýmu, zloděje. |
+
+**Záludná slova:** MYŠ (dá se chytit), KŮŇ (dá se chytit).
+**Slepý test 1:** správně, ale „chytit bronz“ (opálit se) neznal a „chytit dech“ je málo běžné. **Opraveno:** BRONZ, DECH → RÝMA, FACKA.
+**Slepý test 2:** správně, upozornil, že „chytit facku“ je hovorové. **Opraveno:** FACKA → ZLODĚJ.
+**Slepý test 3:** správně, jiné úplné rozdělení nenašel.
+
+### cs-0023 · 4×4 · úroveň 3 · denní st 28. 10.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Hlavní města | Praha, Paříž, Řím, Vídeň | |
+| ▲ 2 | Ptáci, kteří neumějí létat | pštros, tučňák, emu, kiwi | |
+| ■ 3 | Dají se stříhat | vlasy, nehty, látka, keř | |
+| ◆ 4 | Mají patu | ponožka, punčocha, noha, Achilles | Achillova pata. |
+
+**Záludná slova:** PAŘÍŽ (Paris zasáhl Achilla do paty – svod, ne skupina), NOHA (část těla jako nehty a vlasy).
+**Slepý test 1:** správně, ale ponožka a punčocha se pletly se skupinou „Obuv“ a bota má taky patu. **Opraveno:** skupina „Obuv“ → „Ptáci, kteří neumějí létat“.
+**Slepý test 2:** správně. **Opraveno:** OVCE → LÁTKA (ovce už je v pondělí). **Slepý test 3:** správně, jiné rozdělení nenašel.
+
+---
+
 ## Várka 2026-10-14 (4) – ukázkový balíček „V dílně“
 
 Balíček je schválený a vidí ho všichni hráči (Více → Balíčky).

@@ -1,0 +1,55 @@
+{
+  "id": "cs-0021",
+  "language": "cs",
+  "size": 4,
+  "level": 1,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Hospodářská zvířata",
+      "difficulty": 1,
+      "words": [
+        "kráva",
+        "ovce",
+        "koza",
+        "prase"
+      ],
+      "explanation": "Zvířata, která se chovají na statku."
+    },
+    {
+      "title": "Školní pomůcky",
+      "difficulty": 2,
+      "words": [
+        "pravítko",
+        "guma",
+        "penál",
+        "pastelka"
+      ],
+      "explanation": "Věci, které nosí školáci v aktovce."
+    },
+    {
+      "title": "Dají se zapnout",
+      "difficulty": 3,
+      "words": [
+        "televize",
+        "světlo",
+        "počítač",
+        "zip"
+      ],
+      "explanation": "Televize, světlo a počítač se zapínají vypínačem, zip se zapíná na oblečení."
+    },
+    {
+      "title": "Dají se plést",
+      "difficulty": 4,
+      "words": [
+        "svetr",
+        "šála",
+        "cop",
+        "košík"
+      ],
+      "explanation": "Svetr a šála se pletou z vlny, cop z vlasů a košík z proutí. Svetr jde někdy i zapnout, ale bez něj by se nedalo nic plést."
+    }
+  ]
+}

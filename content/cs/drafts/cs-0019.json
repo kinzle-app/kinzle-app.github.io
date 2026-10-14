@@ -1,0 +1,66 @@
+{
+  "id": "cs-0019",
+  "language": "cs",
+  "size": 5,
+  "level": 4,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Plavidla",
+      "difficulty": 1,
+      "words": [
+        "loď",
+        "ponorka",
+        "jachta",
+        "člun"
+      ],
+      "explanation": "Plavidla, která jezdí po vodě nebo pod ní."
+    },
+    {
+      "title": "Zimní sporty",
+      "difficulty": 2,
+      "words": [
+        "hokej",
+        "biatlon",
+        "curling",
+        "sáňkování"
+      ],
+      "explanation": "Sporty na sněhu a ledu."
+    },
+    {
+      "title": "Mají kapsy",
+      "difficulty": 3,
+      "words": [
+        "kalhoty",
+        "bunda",
+        "batoh",
+        "kulečník"
+      ],
+      "explanation": "Kalhoty, bunda i batoh mají kapsy; kulečníkový stůl má kapsy, do kterých padají koule."
+    },
+    {
+      "title": "Mají korunu",
+      "difficulty": 4,
+      "words": [
+        "strom",
+        "zub",
+        "král",
+        "Dánsko"
+      ],
+      "explanation": "Koruna stromu, korunka zubu, královská koruna a dánská koruna (měna Dánska)."
+    },
+    {
+      "title": "Přesmyčkou z nich vznikne zvíře",
+      "difficulty": 5,
+      "words": [
+        "park",
+        "role",
+        "sok",
+        "lom"
+      ],
+      "explanation": "PARK → KAPR, ROLE → OREL, SOK → KOS, LOM → MOL."
+    }
+  ]
+}
