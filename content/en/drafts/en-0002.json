@@ -1,0 +1,55 @@
+{
+  "id": "en-0002",
+  "language": "en",
+  "size": 4,
+  "level": 2,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Weather",
+      "difficulty": 1,
+      "words": [
+        "rain",
+        "hail",
+        "fog",
+        "sleet"
+      ],
+      "explanation": "Kinds of weather."
+    },
+    {
+      "title": "Bodies of water",
+      "difficulty": 2,
+      "words": [
+        "lake",
+        "pond",
+        "stream",
+        "bay"
+      ],
+      "explanation": "Places with water."
+    },
+    {
+      "title": "Can be broken without touching anything",
+      "difficulty": 3,
+      "words": [
+        "promise",
+        "record",
+        "silence",
+        "news"
+      ],
+      "explanation": "Break a promise, break a record, break the silence, break the news."
+    },
+    {
+      "title": "Hide a body part",
+      "difficulty": 4,
+      "words": [
+        "machine",
+        "harmony",
+        "legend",
+        "ship"
+      ],
+      "explanation": "maCHINe, hARMony, LEGend, sHIP."
+    }
+  ]
+}

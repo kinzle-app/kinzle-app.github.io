@@ -1,0 +1,55 @@
+{
+  "id": "en-0001",
+  "language": "en",
+  "size": 4,
+  "level": 1,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Fruits",
+      "difficulty": 1,
+      "words": [
+        "apple",
+        "banana",
+        "cherry",
+        "grape"
+      ],
+      "explanation": "Common fruits."
+    },
+    {
+      "title": "Kitchen utensils",
+      "difficulty": 2,
+      "words": [
+        "whisk",
+        "ladle",
+        "spatula",
+        "grater"
+      ],
+      "explanation": "Tools you cook with."
+    },
+    {
+      "title": "Have keys",
+      "difficulty": 3,
+      "words": [
+        "piano",
+        "keyboard",
+        "map",
+        "song"
+      ],
+      "explanation": "Piano keys, keyboard keys, the key on a map, and the key a song is played in."
+    },
+    {
+      "title": "___BALL",
+      "difficulty": 4,
+      "words": [
+        "snow",
+        "meat",
+        "eye",
+        "foot"
+      ],
+      "explanation": "Snowball, meatball, eyeball, football."
+    }
+  ]
+}

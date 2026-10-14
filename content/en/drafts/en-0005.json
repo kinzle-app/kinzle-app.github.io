@@ -1,0 +1,55 @@
+{
+  "id": "en-0005",
+  "language": "en",
+  "size": 4,
+  "level": 4,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Trees",
+      "difficulty": 1,
+      "words": [
+        "oak",
+        "maple",
+        "birch",
+        "willow"
+      ],
+      "explanation": "Common trees."
+    },
+    {
+      "title": "Have a shell",
+      "difficulty": 2,
+      "words": [
+        "egg",
+        "snail",
+        "turtle",
+        "nut"
+      ],
+      "explanation": "Eggshell, snail shell, turtle shell, nutshell."
+    },
+    {
+      "title": "Can be fired",
+      "difficulty": 3,
+      "words": [
+        "worker",
+        "clay",
+        "question",
+        "arrow"
+      ],
+      "explanation": "Fire a worker, fire clay in a kiln, fire a question at someone, fire an arrow."
+    },
+    {
+      "title": "Add S at the front to make a new word",
+      "difficulty": 4,
+      "words": [
+        "word",
+        "mile",
+        "tone",
+        "ink"
+      ],
+      "explanation": "SWORD, SMILE, STONE, SINK."
+    }
+  ]
+}

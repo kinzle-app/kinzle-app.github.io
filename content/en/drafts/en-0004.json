@@ -1,0 +1,55 @@
+{
+  "id": "en-0004",
+  "language": "en",
+  "size": 4,
+  "level": 4,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Vegetables",
+      "difficulty": 1,
+      "words": [
+        "carrot",
+        "onion",
+        "pea",
+        "leek"
+      ],
+      "explanation": "Common vegetables."
+    },
+    {
+      "title": "Card games",
+      "difficulty": 2,
+      "words": [
+        "poker",
+        "bridge",
+        "snap",
+        "rummy"
+      ],
+      "explanation": "Games played with a deck of cards."
+    },
+    {
+      "title": "Have a bridge",
+      "difficulty": 3,
+      "words": [
+        "nose",
+        "glasses",
+        "guitar",
+        "teeth"
+      ],
+      "explanation": "The bridge of the nose, of glasses and of a guitar, and a dental bridge."
+    },
+    {
+      "title": "Hide a number",
+      "difficulty": 4,
+      "words": [
+        "often",
+        "money",
+        "weight",
+        "canine"
+      ],
+      "explanation": "ofTEN, mONEy, wEIGHT, caNINE."
+    }
+  ]
+}

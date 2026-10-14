@@ -1,0 +1,55 @@
+{
+  "id": "en-0003",
+  "language": "en",
+  "size": 4,
+  "level": 3,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Musical instruments",
+      "difficulty": 1,
+      "words": [
+        "violin",
+        "trumpet",
+        "flute",
+        "drum"
+      ],
+      "explanation": "Instruments in an orchestra."
+    },
+    {
+      "title": "Shades of blue",
+      "difficulty": 2,
+      "words": [
+        "navy",
+        "teal",
+        "azure",
+        "cyan"
+      ],
+      "explanation": "Different blues."
+    },
+    {
+      "title": "Have or make a bark",
+      "difficulty": 3,
+      "words": [
+        "dog",
+        "seal",
+        "fox",
+        "tree"
+      ],
+      "explanation": "Dogs, seals and foxes bark; a tree is covered in bark."
+    },
+    {
+      "title": "BOOK___",
+      "difficulty": 4,
+      "words": [
+        "worm",
+        "mark",
+        "case",
+        "keeper"
+      ],
+      "explanation": "Bookworm, bookmark, bookcase, bookkeeper."
+    }
+  ]
+}
