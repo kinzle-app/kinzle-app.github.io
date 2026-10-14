@@ -1,0 +1,66 @@
+{
+  "id": "cs-0041",
+  "language": "cs",
+  "size": 5,
+  "level": 4,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Svátky v roce",
+      "difficulty": 1,
+      "words": [
+        "Vánoce",
+        "Velikonoce",
+        "Silvestr",
+        "Dušičky"
+      ],
+      "explanation": "Svátky a významné dny v kalendáři."
+    },
+    {
+      "title": "Atletika",
+      "difficulty": 2,
+      "words": [
+        "sprint",
+        "maraton",
+        "oštěp",
+        "štafeta"
+      ],
+      "explanation": "Atletické disciplíny."
+    },
+    {
+      "title": "Mají náplň",
+      "difficulty": 3,
+      "words": [
+        "kobliha",
+        "palačinka",
+        "propiska",
+        "práce"
+      ],
+      "explanation": "Kobliha a palačinka mají sladkou náplň, propiska náplň s inkoustem a práce má náplň práce."
+    },
+    {
+      "title": "Dá se jich dosáhnout",
+      "difficulty": 4,
+      "words": [
+        "úspěch",
+        "cíl",
+        "dohoda",
+        "vrchol"
+      ],
+      "explanation": "Dosáhnout úspěchu, cíle, dohody i vrcholu. Cíl je i v atletice, ale atletika má čtyři disciplíny bez něj."
+    },
+    {
+      "title": "Přidáním háčku vznikne jiné slovo",
+      "difficulty": 5,
+      "words": [
+        "rada",
+        "sít",
+        "kos",
+        "rez"
+      ],
+      "explanation": "RADA → ŘADA, SÍT → ŠÍT, KOS → KOŠ, REZ → ŘEZ."
+    }
+  ]
+}

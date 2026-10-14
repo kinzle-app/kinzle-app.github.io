@@ -2,6 +2,71 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
+## Várka 2026-10-14 (9) – denní hádanky pá 13. 11. – út 17. 11. (poslední česká)
+
+### cs-0039 · 4×4 · úroveň 4 · denní pá 13. 11.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Sýry | eidam, hermelín, niva, parmazán | |
+| ▲ 2 | Části boty | podrážka, podpatek, špička, svršek | |
+| ■ 3 | Dají se podat | výpověď, žaloba, přihláška, výkon | |
+| ◆ 4 | V množném čísle jsou to hry | šach, šipka, kuželka, karta | Šachy, šipky, kuželky, karty. |
+
+**Záludná slova:** ŠPIČKA a ŠIPKA (hrot), PODRÁŽKA a PODPATEK (začínají „pod“ jako „podat“).
+**Slepý test:** správně napoprvé, jiné úplné rozdělení nenašel.
+
+### cs-0040 · 5×4 · úroveň 4 · denní so 14. 11.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Česká pohoří | Krkonoše, Šumava, Beskydy, Jeseníky | |
+| ▲ 2 | Vodní ptáci | kachna, labuť, volavka, kormorán | |
+| ■ 3 | Dají se nasadit | helma, čepice, maska, laťka | Nasadit laťku vysoko. |
+| ◆ 4 | Dají se položit | otázka, základy, koberec, telefon | |
+| ★ 5 | Jsou pojmenované po člověku | sendvič, rentgen, saxofon, nikotin | Hrabě ze Sandwiche, Röntgen, Adolphe Sax, Jean Nicot. |
+
+**Záludná slova:** TELEFON (vypadá jako vynález jako saxofon), LAŤKA (dá se i „zvednout“).
+**Slepý test 1:** správně, ale ŽIVOT jde „nasadit“ i „položit“. **Opraveno:** ŽIVOT → HELMA.
+**Slepý test 2:** správně, ale VĚNEC jde i nasadit na hlavu. **Opraveno:** VĚNEC → KOBEREC.
+**Slepý test 3:** správně, jiné úplné rozdělení nenašel.
+
+### cs-0041 · 5×4 · úroveň 4 · denní ne 15. 11.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Svátky v roce | Vánoce, Velikonoce, Silvestr, Dušičky | |
+| ▲ 2 | Atletika | sprint, maraton, oštěp, štafeta | |
+| ■ 3 | Mají náplň | kobliha, palačinka, propiska, práce | Náplň práce. |
+| ◆ 4 | Dá se jich dosáhnout | úspěch, cíl, dohoda, vrchol | |
+| ★ 5 | Přidáním háčku vznikne jiné slovo | rada, sít, kos, rez | ŘADA, ŠÍT, KOŠ, ŘEZ. |
+
+**Záludná slova:** CÍL (k atletice), PRÁCE.
+**Slepý test 1:** správně, ale skupina „Dají se slavit“ (narozeniny, výročí…) se pletla se svátky. **Opraveno:** skupina → „Dá se jich dosáhnout“.
+**Slepý test 2:** správně, jiné úplné rozdělení nenašel.
+
+### cs-0042 · 4×4 · úroveň 1 · denní po 16. 11.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Lesní zvířata | liška, jelen, srna, zajíc | |
+| ▲ 2 | Hračky | panenka, autíčko, stavebnice, chrastítko | |
+| ■ 3 | Dají se sfouknout | svíčka, zápalka, pampeliška, prach | |
+| ◆ 4 | Dají se doplnit slovem HOUPACÍ | kůň, síť, křeslo, lodička | |
+
+**Záludná slova:** KŮŇ a LODIČKA (vypadají jako hračky nebo zvíře).
+**Slepý test:** správně napoprvé, jiné úplné rozdělení nenašel.
+
+### cs-0043 · 4×4 · úroveň 2 · denní út 17. 11.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Na obloze | slunce, měsíc, hvězda, duha | |
+| ▲ 2 | Literární žánry | pohádka, román, povídka, bajka | |
+| ■ 3 | Dají se doplnit slovem ŽIVÝ | plot, sen, vzpomínka, voda | Živá voda z pohádek. |
+| ◆ 4 | Mívají hvězdičky | hotel, generál, koňak, recenze | |
+
+**Záludná slova:** HVĚZDA (k hvězdičkám), RECENZE (i žánr).
+**Slepý test 1:** správně, ale skupina „Dají se vyprávět“ (vtip, historka…) se pletla s žánry. **Opraveno:** skupina → „Dají se doplnit slovem ŽIVÝ“.
+**Slepý test 2:** správně, jiné úplné rozdělení nenašel.
+
+---
+
 ## Várka 2026-10-14 (8) – denní hádanky ne 8. 11. – čt 12. 11.
 
 ### cs-0034 · 5×4 · úroveň 3 · denní ne 8. 11. · ✅ schváleno 2026-10-14

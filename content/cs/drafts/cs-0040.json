@@ -1,0 +1,66 @@
+{
+  "id": "cs-0040",
+  "language": "cs",
+  "size": 5,
+  "level": 4,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Česká pohoří",
+      "difficulty": 1,
+      "words": [
+        "Krkonoše",
+        "Šumava",
+        "Beskydy",
+        "Jeseníky"
+      ],
+      "explanation": "Pohoří v Česku."
+    },
+    {
+      "title": "Vodní ptáci",
+      "difficulty": 2,
+      "words": [
+        "kachna",
+        "labuť",
+        "volavka",
+        "kormorán"
+      ],
+      "explanation": "Ptáci, kteří žijí u vody."
+    },
+    {
+      "title": "Dají se nasadit",
+      "difficulty": 3,
+      "words": [
+        "helma",
+        "čepice",
+        "maska",
+        "laťka"
+      ],
+      "explanation": "Nasadit helmu, čepici, masku – a laťku vysoko."
+    },
+    {
+      "title": "Dají se položit",
+      "difficulty": 4,
+      "words": [
+        "otázka",
+        "základy",
+        "koberec",
+        "telefon"
+      ],
+      "explanation": "Položit otázku, základy, koberec i telefon."
+    },
+    {
+      "title": "Jsou pojmenované po člověku",
+      "difficulty": 5,
+      "words": [
+        "sendvič",
+        "rentgen",
+        "saxofon",
+        "nikotin"
+      ],
+      "explanation": "Sendvič podle hraběte ze Sandwiche, rentgen podle W. C. Röntgena, saxofon podle Adolpha Saxe a nikotin podle Jeana Nicota."
+    }
+  ]
+}

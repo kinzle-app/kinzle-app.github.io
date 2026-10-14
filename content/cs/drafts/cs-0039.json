@@ -1,0 +1,55 @@
+{
+  "id": "cs-0039",
+  "language": "cs",
+  "size": 4,
+  "level": 4,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Sýry",
+      "difficulty": 1,
+      "words": [
+        "eidam",
+        "hermelín",
+        "niva",
+        "parmazán"
+      ],
+      "explanation": "Druhy sýrů."
+    },
+    {
+      "title": "Části boty",
+      "difficulty": 2,
+      "words": [
+        "podrážka",
+        "podpatek",
+        "špička",
+        "svršek"
+      ],
+      "explanation": "Části, ze kterých se skládá bota."
+    },
+    {
+      "title": "Dají se podat",
+      "difficulty": 3,
+      "words": [
+        "výpověď",
+        "žaloba",
+        "přihláška",
+        "výkon"
+      ],
+      "explanation": "Podat výpověď, žalobu, přihlášku i dobrý výkon."
+    },
+    {
+      "title": "V množném čísle jsou to hry",
+      "difficulty": 4,
+      "words": [
+        "šach",
+        "šipka",
+        "kuželka",
+        "karta"
+      ],
+      "explanation": "Šachy, šipky, kuželky a karty."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "cs-0042",
+  "language": "cs",
+  "size": 4,
+  "level": 1,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Lesní zvířata",
+      "difficulty": 1,
+      "words": [
+        "liška",
+        "jelen",
+        "srna",
+        "zajíc"
+      ],
+      "explanation": "Zvířata, která žijí v českých lesích."
+    },
+    {
+      "title": "Hračky",
+      "difficulty": 2,
+      "words": [
+        "panenka",
+        "autíčko",
+        "stavebnice",
+        "chrastítko"
+      ],
+      "explanation": "Hračky pro děti."
+    },
+    {
+      "title": "Dají se sfouknout",
+      "difficulty": 3,
+      "words": [
+        "svíčka",
+        "zápalka",
+        "pampeliška",
+        "prach"
+      ],
+      "explanation": "Sfouknout svíčku, zápalku, chmýří pampelišky i prach."
+    },
+    {
+      "title": "Dají se doplnit slovem HOUPACÍ",
+      "difficulty": 4,
+      "words": [
+        "kůň",
+        "síť",
+        "křeslo",
+        "lodička"
+      ],
+      "explanation": "Houpací kůň, houpací síť, houpací křeslo a houpací lodička na pouti."
+    }
+  ]
+}
