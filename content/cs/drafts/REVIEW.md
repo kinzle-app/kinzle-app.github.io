@@ -6,7 +6,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 
 Mix velikostí podle zadání: 3×4, 4×4, 4×4, oddechová 3×4, 4×4. Kuchyňské téma mají jen některé skupiny (kapitoly jsou volně tematické).
 
-### cs-0006 · 3×4 · úroveň 1 · Cesta, kapitola 1, úroveň 1
+### cs-0006 · 3×4 · úroveň 1 · Cesta, kapitola 1, úroveň 1 · ✅ schváleno 2026-10-14
 
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
@@ -21,7 +21,7 @@ Mix velikostí podle zadání: 3×4, 4×4, 4×4, oddechová 3×4, 4×4. Kuchyňs
 
 ---
 
-### cs-0007 · 4×4 · úroveň 1 · Cesta, kapitola 1, úroveň 2
+### cs-0007 · 4×4 · úroveň 1 · Cesta, kapitola 1, úroveň 2 · ✅ schváleno 2026-10-14
 
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
@@ -35,7 +35,7 @@ Mix velikostí podle zadání: 3×4, 4×4, 4×4, oddechová 3×4, 4×4. Kuchyňs
 
 ---
 
-### cs-0008 · 4×4 · úroveň 2 · Cesta, kapitola 1, úroveň 3
+### cs-0008 · 4×4 · úroveň 2 · Cesta, kapitola 1, úroveň 3 · ✅ schváleno 2026-10-14
 
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
@@ -49,7 +49,7 @@ Mix velikostí podle zadání: 3×4, 4×4, 4×4, oddechová 3×4, 4×4. Kuchyňs
 
 ---
 
-### cs-0009 · 3×4 · úroveň 1 · Cesta, kapitola 1, úroveň 4 (oddechová)
+### cs-0009 · 3×4 · úroveň 1 · Cesta, kapitola 1, úroveň 4 (oddechová) · ✅ schváleno 2026-10-14
 
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
@@ -62,7 +62,7 @@ Mix velikostí podle zadání: 3×4, 4×4, 4×4, oddechová 3×4, 4×4. Kuchyňs
 
 ---
 
-### cs-0010 · 4×4 · úroveň 3 · Cesta, kapitola 1, úroveň 5
+### cs-0010 · 4×4 · úroveň 3 · Cesta, kapitola 1, úroveň 5 · ✅ schváleno 2026-10-14
 
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
