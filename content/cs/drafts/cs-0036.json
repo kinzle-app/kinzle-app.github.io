@@ -1,0 +1,55 @@
+{
+  "id": "cs-0036",
+  "language": "cs",
+  "size": 4,
+  "level": 3,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Bylinky",
+      "difficulty": 1,
+      "words": [
+        "bazalka",
+        "petržel",
+        "kopr",
+        "pažitka"
+      ],
+      "explanation": "Kuchyňské bylinky."
+    },
+    {
+      "title": "Patří k železnici",
+      "difficulty": 2,
+      "words": [
+        "nástupiště",
+        "kolej",
+        "výpravčí",
+        "jízdenka"
+      ],
+      "explanation": "Nástupiště, koleje, výpravčí a jízdenka."
+    },
+    {
+      "title": "Dají se zmeškat",
+      "difficulty": 3,
+      "words": [
+        "vlak",
+        "termín",
+        "začátek",
+        "oběd"
+      ],
+      "explanation": "Zmeškat vlak, termín, začátek filmu nebo oběd."
+    },
+    {
+      "title": "Dají se doplnit slovem ČERNÝ",
+      "difficulty": 4,
+      "words": [
+        "pasažér",
+        "humor",
+        "skříňka",
+        "díra"
+      ],
+      "explanation": "Černý pasažér, černý humor, černá skříňka a černá díra."
+    }
+  ]
+}

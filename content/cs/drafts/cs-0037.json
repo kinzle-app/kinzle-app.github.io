@@ -1,0 +1,55 @@
+{
+  "id": "cs-0037",
+  "language": "cs",
+  "size": 4,
+  "level": 3,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Kovy",
+      "difficulty": 1,
+      "words": [
+        "železo",
+        "měď",
+        "hliník",
+        "stříbro"
+      ],
+      "explanation": "Kovy."
+    },
+    {
+      "title": "Lidé ve škole",
+      "difficulty": 2,
+      "words": [
+        "učitel",
+        "ředitel",
+        "žák",
+        "školník"
+      ],
+      "explanation": "Kdo patří do školy."
+    },
+    {
+      "title": "Dají se napnout",
+      "difficulty": 3,
+      "words": [
+        "nervy",
+        "luk",
+        "plachta",
+        "šňůra"
+      ],
+      "explanation": "Napnout luk, plachtu, šňůru – a nervy jsou napjaté."
+    },
+    {
+      "title": "Jsou to i česká města",
+      "difficulty": 4,
+      "words": [
+        "most",
+        "písek",
+        "ostrov",
+        "slaný"
+      ],
+      "explanation": "Most, Písek, Ostrov a Slaný. Stříbro je taky město, ale patří ke kovům."
+    }
+  ]
+}

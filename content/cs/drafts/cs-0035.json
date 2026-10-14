@@ -1,0 +1,55 @@
+{
+  "id": "cs-0035",
+  "language": "cs",
+  "size": 4,
+  "level": 1,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Oblečení",
+      "difficulty": 1,
+      "words": [
+        "tričko",
+        "sukně",
+        "mikina",
+        "šaty"
+      ],
+      "explanation": "Kusy oblečení."
+    },
+    {
+      "title": "Dá se jím zaplatit",
+      "difficulty": 2,
+      "words": [
+        "mince",
+        "bankovka",
+        "hotovost",
+        "kreditka"
+      ],
+      "explanation": "Čím se platí v obchodě."
+    },
+    {
+      "title": "Dají se zavázat",
+      "difficulty": 3,
+      "words": [
+        "tkanička",
+        "kravata",
+        "šátek",
+        "pytel"
+      ],
+      "explanation": "Zavázat tkaničku, kravatu, šátek i pytel."
+    },
+    {
+      "title": "Dají se doplnit slovem DÁRKOVÝ",
+      "difficulty": 4,
+      "words": [
+        "koš",
+        "poukaz",
+        "balíček",
+        "papír"
+      ],
+      "explanation": "Dárkový koš, poukaz, balíček a papír. Poukazem se dá i zaplatit, ale platidel je tu dost i bez něj."
+    }
+  ]
+}

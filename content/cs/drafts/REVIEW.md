@@ -2,6 +2,69 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
+## Várka 2026-10-14 (8) – denní hádanky ne 8. 11. – čt 12. 11.
+
+### cs-0034 · 5×4 · úroveň 3 · denní ne 8. 11.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Hmyz | mravenec, komár, beruška, moucha | |
+| ▲ 2 | Na koupališti | bazén, tobogán, plavky, lehátko | |
+| ■ 3 | Dají se sbírat | známky, houby, body, zkušenosti | |
+| ◆ 4 | Jedním z jejich významů je hudební nástroj | roh, trubka, basa, bubínek | Kout, potrubí, přepravka, část ucha. |
+| ★ 5 | Dají se doplnit slovem KOČIČÍ | zlato, hlavy, oči, mytí | Nerost, dlažba, odrazky, odbyté umytí. |
+
+**Záludná slova:** ZLATO (dá se sbírat), BODY (oblečení k plavkám).
+**Slepý test 1:** správně, ale „kočičí kašel“ neznal. **Opraveno:** KAŠEL → MYTÍ.
+**Slepý test 2:** správně, jiné úplné rozdělení nenašel.
+
+### cs-0035 · 4×4 · úroveň 1 · denní po 9. 11.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Oblečení | tričko, sukně, mikina, šaty | |
+| ▲ 2 | Dá se jím zaplatit | mince, bankovka, hotovost, kreditka | |
+| ■ 3 | Dají se zavázat | tkanička, kravata, šátek, pytel | |
+| ◆ 4 | Dají se doplnit slovem DÁRKOVÝ | koš, poukaz, balíček, papír | |
+
+**Záludná slova:** KRAVATA a ŠÁTEK (oblečení), POUKAZ (dá se jím platit).
+**Slepý test 1:** správně, ale ŠEK a KARTA jdou i „dárkové“ a daly se prohodit s poukazem. **Opraveno:** ŠEK, KARTA → HOTOVOST, KREDITKA.
+**Slepý test 2:** správně, jiné úplné rozdělení nenašel.
+
+### cs-0036 · 4×4 · úroveň 3 · denní út 10. 11.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Bylinky | bazalka, petržel, kopr, pažitka | |
+| ▲ 2 | Patří k železnici | nástupiště, kolej, výpravčí, jízdenka | |
+| ■ 3 | Dají se zmeškat | vlak, termín, začátek, oběd | |
+| ◆ 4 | Dají se doplnit slovem ČERNÝ | pasažér, humor, skříňka, díra | |
+
+**Záludná slova:** VLAK a PASAŽÉR (k železnici).
+**Slepý test 1:** správně kromě dvojice POKLADNA / PASAŽÉR – „černá pokladna“ i „pokladna na nádraží“ dávaly dvě řešení. **Opraveno:** POKLADNA → JÍZDENKA.
+**Slepý test 2:** správně, jiné úplné rozdělení nenašel.
+
+### cs-0037 · 4×4 · úroveň 3 · denní st 11. 11.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Kovy | železo, měď, hliník, stříbro | |
+| ▲ 2 | Lidé ve škole | učitel, ředitel, žák, školník | |
+| ■ 3 | Dají se napnout | nervy, luk, plachta, šňůra | |
+| ◆ 4 | Jsou to i česká města | most, písek, ostrov, slaný | |
+
+**Záludná slova:** STŘÍBRO (je to i město, ale kovy bez něj nemají čtyři slova).
+**Slepý test:** správně napoprvé, jiné úplné rozdělení nenašel.
+
+### cs-0038 · 4×4 · úroveň 3 · denní čt 12. 11.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Africká zvířata | žirafa, zebra, hroch, nosorožec | |
+| ▲ 2 | Patří do lékárničky | obvaz, náplast, gáza, dezinfekce | |
+| ■ 3 | Nosí se na krku | náhrdelník, korále, řetízek, píšťalka | |
+| ◆ 4 | Dají se doplnit slovem SLEPÝ | ulička, skvrna, střevo, bába | Slepá bába je hra. |
+
+**Záludná slova:** ZEBRA (i přechod), PÍŠŤALKA (není šperk, ale rozhodčí ji nosí na krku).
+**Slepý test:** správně napoprvé, jiné rozdělení nenašel.
+
+---
+
 ## Várka 2026-10-14 (7) – denní hádanky út 3. 11. – so 7. 11.
 
 ### cs-0029 · 4×4 · úroveň 2 · denní út 3. 11. · ✅ schváleno 2026-10-14

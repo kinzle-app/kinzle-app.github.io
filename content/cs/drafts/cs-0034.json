@@ -1,0 +1,66 @@
+{
+  "id": "cs-0034",
+  "language": "cs",
+  "size": 5,
+  "level": 3,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Hmyz",
+      "difficulty": 1,
+      "words": [
+        "mravenec",
+        "komár",
+        "beruška",
+        "moucha"
+      ],
+      "explanation": "Hmyz, který potkáš na zahradě i doma."
+    },
+    {
+      "title": "Na koupališti",
+      "difficulty": 2,
+      "words": [
+        "bazén",
+        "tobogán",
+        "plavky",
+        "lehátko"
+      ],
+      "explanation": "Co najdeš na koupališti."
+    },
+    {
+      "title": "Dají se sbírat",
+      "difficulty": 3,
+      "words": [
+        "známky",
+        "houby",
+        "body",
+        "zkušenosti"
+      ],
+      "explanation": "Sbírat známky, houby, body i zkušenosti."
+    },
+    {
+      "title": "Jedním z jejich významů je hudební nástroj",
+      "difficulty": 4,
+      "words": [
+        "roh",
+        "trubka",
+        "basa",
+        "bubínek"
+      ],
+      "explanation": "Roh je i kout, trubka i potrubí, basa i přepravka na lahve a bubínek i část ucha."
+    },
+    {
+      "title": "Dají se doplnit slovem KOČIČÍ",
+      "difficulty": 5,
+      "words": [
+        "zlato",
+        "hlavy",
+        "oči",
+        "mytí"
+      ],
+      "explanation": "Kočičí zlato (lesklý nerost), kočičí hlavy (dlažba), kočičí oči (odrazky) a kočičí mytí (rychlé a odbyté)."
+    }
+  ]
+}

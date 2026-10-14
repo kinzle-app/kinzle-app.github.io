@@ -1,0 +1,55 @@
+{
+  "id": "cs-0038",
+  "language": "cs",
+  "size": 4,
+  "level": 3,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Africká zvířata",
+      "difficulty": 1,
+      "words": [
+        "žirafa",
+        "zebra",
+        "hroch",
+        "nosorožec"
+      ],
+      "explanation": "Zvířata z afrických savan."
+    },
+    {
+      "title": "Patří do lékárničky",
+      "difficulty": 2,
+      "words": [
+        "obvaz",
+        "náplast",
+        "gáza",
+        "dezinfekce"
+      ],
+      "explanation": "Věci na ošetření zranění."
+    },
+    {
+      "title": "Nosí se na krku",
+      "difficulty": 3,
+      "words": [
+        "náhrdelník",
+        "korále",
+        "řetízek",
+        "píšťalka"
+      ],
+      "explanation": "Šperky na krku a píšťalka rozhodčího na šňůrce."
+    },
+    {
+      "title": "Dají se doplnit slovem SLEPÝ",
+      "difficulty": 4,
+      "words": [
+        "ulička",
+        "skvrna",
+        "střevo",
+        "bába"
+      ],
+      "explanation": "Slepá ulička, slepá skvrna, slepé střevo a slepá bába (hra)."
+    }
+  ]
+}
