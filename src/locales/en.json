@@ -4,7 +4,8 @@
   },
   "nav": {
     "settings": "Settings",
-    "back": "Back to puzzles"
+    "back": "Back",
+    "help": "How to play"
   },
   "home": {
     "title": "Pick a puzzle",
@@ -26,7 +27,14 @@
     "deselect": "Deselect",
     "submit": "Submit group",
     "board": "Word tiles",
-    "solvedGroup": "Solved group: {title}. Words: {words}."
+    "solvedGroup": "Solved group: {title}. Words: {words}.",
+    "hint": "Hint",
+    "time": "Time",
+    "points": "{points} pts",
+    "pointsUnit": {
+      "one": "point",
+      "other": "points"
+    }
   },
   "msg": {
     "pickFour": "Pick four tiles.",
@@ -36,20 +44,86 @@
     "repeat": "You've already tried these four – no attempt lost."
   },
   "end": {
-    "won": "Done – every group found!",
+    "won": "Brilliant – every group found!",
     "lost": "Not this time. Here are the remaining groups – you'll get the next one.",
     "again": "Play again",
-    "back": "Back to puzzles"
+    "back": "Back to puzzles",
+    "time": "Time",
+    "mistakes": "Mistakes",
+    "hints": "Hints",
+    "share": "Share result"
   },
   "settings": {
     "title": "Settings",
     "language": "Language",
     "table": "Table",
-    "close": "Close"
+    "fontSize": "Text size",
+    "sound": "Sounds",
+    "vibration": "Vibration",
+    "reduceMotion": "Reduce motion",
+    "colorblind": "Colour-blind mode",
+    "colorblindNote": "Every group has a symbol as well as a colour (● ▲ ■ ◆ ★). In colour-blind mode you also see it on a hinted tile.",
+    "howToPlay": "How to play"
   },
   "table": {
     "evening": "Evening",
     "day": "Daylight",
     "auto": "Match my phone"
+  },
+  "hint": {
+    "title": "Hint",
+    "left": {
+      "one": "{count} hint left",
+      "other": "{count} hints left"
+    },
+    "option": {
+      "title": "Reveal a group name",
+      "word": "Reveal one word"
+    },
+    "cost": "−{points} pts",
+    "cancel": "Back to the game",
+    "groupTitle": "Hint: {title}",
+    "tileLabel": "{word}, hint: belongs to group {symbol}"
+  },
+  "score": {
+    "groups": "Groups",
+    "bravery": "Bravery bonus",
+    "time": "Time bonus",
+    "clean": "Clean game",
+    "mistakes": "Mistakes",
+    "hints": "Hints"
+  },
+  "share": {
+    "text": "Kinzle · {name} · {points} pts · {time} · {mistakes}",
+    "noMistakes": "no mistakes",
+    "mistakes": {
+      "one": "{count} mistake",
+      "other": "{count} mistakes"
+    },
+    "copied": "Result copied – just paste it into a message.",
+    "manual": "Copy your result:"
+  },
+  "fontSize": {
+    "normal": "Normal",
+    "large": "Larger",
+    "xlarge": "Largest"
+  },
+  "help": {
+    "0": {
+      "title": "Find the fours",
+      "text": "The table is full of words. Four at a time have something in common. Pick them and tap Submit group."
+    },
+    "1": {
+      "title": "Every group is a different challenge",
+      "text": "Colour and symbol show the difficulty, from easy ● to the toughest ★. Watch out for tricky words that seem to fit elsewhere too."
+    },
+    "2": {
+      "title": "Attempts, hints and points",
+      "text": "You have 4 attempts. Get three out of four right and the game will tell you. Hints cost points; speed and bravery (solving a harder group before an easier one) earn extra."
+    },
+    "next": "Next",
+    "skip": "Skip",
+    "play": "Let's play",
+    "progress": "Step {n} of {total}"
   }
 }

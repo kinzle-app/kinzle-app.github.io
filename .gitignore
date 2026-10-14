@@ -13,3 +13,7 @@ docs/PO-SPUSTENI.md
 .DS_Store
 Thumbs.db
 .claude/settings.local.json
+
+# Playwright
+test-results/
+playwright-report/

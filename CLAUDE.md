@@ -71,9 +71,11 @@ Silná kritéria úspěchu ti umožní pracovat samostatně v cyklu. Slabá krit
 ## Architektura Kinzle
 - Zadání: veřejné v `docs/ZADANI.md`; úplné (s příběhem Cesty a plány po spuštění) jen lokálně v `ZADANI-KINZLE.md` a `docs/PO-SPUSTENI.md`, oba v `.gitignore`. Spoilery příběhu nikdy necommituj.
 - Vite + čistý JS (ES moduly), testy Vitest (`npm test`), nasazení GitHub Actions → GitHub Pages při pushi do `main`.
-- `src/game/` – herní logika bez UI (`engine.js` pravidla, `puzzle.js` kontrola hádanky). Vše pokryté testy v `tests/`.
-- `src/services/` – vrstvy vyměnitelné za Capacitor: `storage.js` (data, fallback do paměti), `i18n.js` + `typography.js` (texty, `Intl.PluralRules`, pevné mezery), `content.js` (načítání hádanek – jediné místo, kde se řeší zdroj obsahu), `settings.js`.
-- `src/ui/` – obrazovky (`home.js`, `game.js`, `settings.js`), `dom.js` (pomocník `h()`, `fitText`), `theme.js` (stoly). Přepínání obrazovek přes `#/` a `#/hra/<id>` v `main.js`.
+- `src/game/` – herní logika bez UI (`engine.js` pravidla a nápovědy, `score.js` body, `timer.js` časovač, `puzzle.js` kontrola hádanky). Vše pokryté testy v `tests/`.
+- `src/config/scoring.js` (body) a `src/config/feel.js` (časy animací, zvuky, vibrace) – ladicí čísla jen tady.
+- `src/services/` – vrstvy vyměnitelné za Capacitor: `storage.js` (data, fallback do paměti), `i18n.js` + `typography.js` (texty, `Intl.PluralRules`, pevné mezery), `content.js` (načítání hádanek – jediné místo, kde se řeší zdroj obsahu), `settings.js`, `sound.js` (Web Audio), `haptics.js`, `share.js`.
+- `src/ui/` – obrazovky (`home.js`, `game.js`, `settings.js`, `help.js`), `dom.js` (pomocník `h()`, `fitText` měří přes canvas), `anim.js` (WAAPI animace, respektují omezení animací), `modal.js` (dialog zavíratelný tlačítkem Zpět), `prefs.js` (promítnutí nastavení), `theme.js`. Obrazovky přes `#/`, `#/hra/<id>`, `#/nastaveni`, `#/navod` v `main.js`; `history.state.depth` kvůli tlačítku Zpět. Rozehrané hry drží `game.js` v paměti (`sessions`).
+- Testy: Vitest (`tests/`) a Playwright (`e2e/`, mobilní rozlišení; na Windows jen Chromium, v CI i WebKit). Playwright vždy sestaví čerstvou verzi na portu 4319.
 - Barvy jen přes tokeny v `src/ui/styles/tokens.css` (Večerní = `:root`, Denní = `[data-table='day']`); test `tests/contrast.test.js` hlídá kontrast 4,5:1. Stůl se nastavuje před vykreslením skriptem v `index.html` (klíč `kinzle:settings`).
 - Žádný text natvrdo: vše v `src/locales/<jazyk>.json`, oba soubory musí mít stejné klíče (hlídá test).
 - Obsah: `content/<jazyk>/puzzles/<id>.json`; test kontroluje každou hádanku. Testovací hádanky mají `"status": "test"` a ve fázi 3 se smažou.

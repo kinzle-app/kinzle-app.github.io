@@ -5,7 +5,18 @@ import { load, save } from './storage.js';
 const KEY = 'settings';
 export const TABLES = ['evening', 'day', 'auto']; // Večerní / Denní / Podle telefonu
 
-const defaults = { lang: null, table: 'evening' };
+export const FONT_SIZES = ['normal', 'large', 'xlarge'];
+
+const defaults = {
+  lang: null,            // null = zvolí se podle prohlížeče
+  table: 'evening',
+  sound: true,
+  vibration: true,
+  reduceMotion: false,   // omezení animací navíc k systémovému nastavení
+  colorblind: false,     // symboly skupin i na kostičkách s nápovědou
+  fontSize: 'normal',
+  onboarded: false       // úvodní návod už viděl
+};
 
 export function getSettings() {
   return { ...defaults, ...load(KEY, {}) };

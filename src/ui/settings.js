@@ -1,21 +1,29 @@
-// Dočasné nastavení fáze 1: jen jazyk a stůl. Ve fázi 2 přibudou další volby.
+// Obrazovka nastavení. Každá změna se hned uloží a projeví.
 import { h } from './dom.js';
 import { t, LANGUAGES, getLanguage } from '../services/i18n.js';
-import { getSettings, TABLES } from '../services/settings.js';
+import { getSettings, TABLES, FONT_SIZES } from '../services/settings.js';
+import { hapticsSupported } from '../services/haptics.js';
 
-export function openSettings({ onChange }) {
-  const settings = getSettings();
+export function renderSettings(root, { onChange, navigate }) {
+  const s = getSettings();
 
   // Skupina tlačítek, z nichž je vybrané jedno
-  const choices = (legend, options, current, apply) =>
+  const choices = (legend, options, current, key) =>
     h('fieldset', { class: 'setting' },
       h('legend', {}, legend),
       h('div', { class: 'choices' }, options.map(([value, label]) =>
         h('button', {
           class: 'secondary', type: 'button', 'aria-pressed': String(value === current),
-          onclick: () => { dialog.close(); apply(value); }
+          onclick: () => onChange({ [key]: value })
         }, label)))
     );
+
+  // Přepínač zapnuto / vypnuto
+  const toggle = (key, label) =>
+    h('button', {
+      class: 'switch', type: 'button', role: 'switch', 'aria-checked': String(s[key]),
+      onclick: () => onChange({ [key]: !s[key] })
+    }, h('span', {}, label), h('span', { class: 'switch-track', 'aria-hidden': 'true' }, h('span', { class: 'switch-thumb' })));
 
   // Názvy jazyků v jejich vlastním jazyce (Čeština, English)
   const languageName = (code) => {
@@ -23,15 +31,17 @@ export function openSettings({ onChange }) {
     return name.charAt(0).toLocaleUpperCase(code) + name.slice(1);
   };
 
-  const dialog = h('dialog', { 'aria-labelledby': 'settings-title' },
-    h('h2', { id: 'settings-title' }, t('settings.title')),
-    choices(t('settings.language'), LANGUAGES.map((c) => [c, languageName(c)]), getLanguage(),
-      (lang) => onChange({ lang })),
-    choices(t('settings.table'), TABLES.map((v) => [v, t(`table.${v}`)]), settings.table,
-      (table) => onChange({ table })),
-    h('button', { class: 'primary', type: 'button', onclick: () => dialog.close() }, t('settings.close'))
-  );
-  dialog.addEventListener('close', () => dialog.remove());
-  document.body.append(dialog);
-  dialog.showModal();
+  root.append(h('section', { class: 'page' },
+    h('h2', {}, t('settings.title')),
+    choices(t('settings.language'), LANGUAGES.map((c) => [c, languageName(c)]), getLanguage(), 'lang'),
+    choices(t('settings.table'), TABLES.map((v) => [v, t(`table.${v}`)]), s.table, 'table'),
+    choices(t('settings.fontSize'), FONT_SIZES.map((v) => [v, t(`fontSize.${v}`)]), s.fontSize, 'fontSize'),
+    h('div', { class: 'switches' },
+      toggle('sound', t('settings.sound')),
+      hapticsSupported() && toggle('vibration', t('settings.vibration')),
+      toggle('reduceMotion', t('settings.reduceMotion')),
+      toggle('colorblind', t('settings.colorblind'))),
+    h('p', { class: 'muted' }, t('settings.colorblindNote')),
+    h('button', { class: 'secondary', type: 'button', onclick: () => navigate('#/navod') }, t('settings.howToPlay'))
+  ));
 }

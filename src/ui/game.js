@@ -1,45 +1,70 @@
-// Obrazovka hry: vyřešené skupiny, kostičky, pokusy, ovládání a konec hry.
+// Obrazovka hry: lišta s časem a body, nápovědy, vyřešené skupiny, kostičky, ovládání a konec hry.
 import { h, fitText } from './dom.js';
 import { t } from '../services/i18n.js';
+import { getSettings } from '../services/settings.js';
+import { play } from '../services/sound.js';
+import { vibrate } from '../services/haptics.js';
+import { shareText } from '../services/share.js';
+import { FEEL } from '../config/feel.js';
+import { SCORING } from '../config/scoring.js';
 import {
-  createGame, toggleWord, clearSelection, shuffleBoard, submit,
+  createGame, toggleWord, clearSelection, shuffleBoard, submit, canHint, useHint,
   mistakesLeft, MAX_MISTAKES, RESULT
 } from '../game/engine.js';
+import { scoreBreakdown } from '../game/score.js';
+import { createTimer, formatTime } from '../game/timer.js';
+import { flip, shake, bounce, gather, revealGroup, fadeIn, countUp } from './anim.js';
+import { confetti } from './confetti.js';
+import { openModal } from './modal.js';
 
 export const SYMBOLS = { 1: '●', 2: '▲', 3: '■', 4: '◆', 5: '★' };
-const REVEAL_DELAY = 700; // ms mezi odkrýváním skupin po prohře
-const MESSAGE_TIME = 2500;
 const TILE_HEIGHT = 74; // výchozí výška kostičky v px
 
+// Rozehrané hry podle id hádanky: odchod do nastavení a zpět hru nepřeruší
+const sessions = new Map();
+
 export function renderGame(root, { puzzle, number, navigate }) {
-  const game = createGame(puzzle);
+  if (!sessions.has(puzzle.id)) sessions.set(puzzle.id, { game: createGame(puzzle), timer: createTimer() });
+  const { game, timer } = sessions.get(puzzle.id);
+
   const tiles = new Map(); // slovo → tlačítko kostičky (zůstávají, aby fungovaly přechody)
+  const groupEls = [];
+  // během animace nejde odeslat, míchat ani brát nápovědu; kostičky vybírat jde (rychlý hráč)
+  let busy = false;
   let messageTimer = null;
   const timers = [];
 
+  // ---------- prvky ----------
+  const timeEl = h('span', {});
+  const scoreEl = h('span', { class: 'pill' });
+  const hintCards = h('div', { class: 'hint-cards' });
   const solvedList = h('div', { class: 'solved-list' });
   const board = h('div', { class: 'board', role: 'group', 'aria-label': t('game.board') });
   const dots = h('span', { class: 'attempts-dots', role: 'img' });
   const attempts = h('div', { class: 'attempts' }, h('span', { 'aria-hidden': 'true' }, t('game.attempts')), dots);
   const message = h('p', { class: 'message', role: 'status', 'aria-live': 'polite' });
+  const hintBtn = h('button', { class: 'secondary', onclick: onHintMenu }, t('game.hint'));
   const shuffleBtn = h('button', { class: 'secondary', onclick: onShuffle }, t('game.shuffle'));
   const deselectBtn = h('button', { class: 'secondary', onclick: onDeselect }, t('game.deselect'));
   const submitBtn = h('button', { class: 'primary', onclick: onSubmit }, t('game.submit'));
-  const play = h('div', { class: 'play' },
-    board, attempts, message, h('div', { class: 'controls' }, shuffleBtn, deselectBtn), submitBtn);
+  const playArea = h('div', { class: 'play' },
+    board, attempts, message, h('div', { class: 'controls' }, hintBtn, shuffleBtn, deselectBtn), submitBtn);
 
   root.append(
     h('div', { class: 'bar' },
       h('span', {}, t('home.puzzle', { n: number })),
-      h('span', { class: 'muted' }, t(`size.${puzzle.size}`))),
+      h('span', { class: 'timer' }, clockIcon(), h('span', { class: 'visually-hidden' }, t('game.time')), timeEl),
+      scoreEl),
+    hintCards,
     solvedList,
-    play
+    playArea
   );
 
-  for (const word of game.board) {
-    const btn = h('button', { class: 'tile', 'aria-pressed': 'false', 'aria-label': word, 'data-word': word, onclick: () => onTile(word) },
-      h('span', {}, word));
-    tiles.set(word, btn);
+  for (const word of game.puzzle.groups.flatMap((g) => g.words)) {
+    tiles.set(word, h('button', {
+      class: 'tile', 'aria-pressed': 'false', 'aria-label': word, 'data-word': word,
+      onclick: () => onTile(word)
+    }, h('span', {}, word)));
   }
 
   // Kostičky se zmenší (nejvýš na 48 px), aby se hra vešla na displej bez posouvání
@@ -50,108 +75,319 @@ export function renderGame(root, { puzzle, number, navigate }) {
     if (overflow > 0 && rows) {
       board.style.setProperty('--tile-h', Math.max(48, TILE_HEIGHT - Math.ceil(overflow / rows)) + 'px');
     }
-    tiles.forEach((btn) => btn.isConnected && fitText(btn));
+    const max = 15 * fontScale();
+    tiles.forEach((btn) => btn.isConnected && fitText(btn, max));
   };
-  window.addEventListener('resize', refit);
-  document.fonts.ready.then(refit);
 
+  // stav po návratu na obrazovku (nebo nová hra)
+  game.solved.forEach((i) => addGroup(i));
+  game.revealed.forEach((i) => addGroup(i, { revealed: true }));
+  renderHints();
   update();
+  if (game.status !== 'playing') showEnd(false);
+
+  // ---------- časovač: běží jen při hře a na viditelné obrazovce ----------
+  const onVisibility = () => {
+    if (document.hidden) timer.pause();
+    else if (game.status === 'playing') timer.start();
+  };
+  if (game.status === 'playing') timer.start();
+  document.addEventListener('visibilitychange', onVisibility);
+  const tick = setInterval(updateBar, 1000);
+
+  // přepočítat při změně šířky mřížky (otočení, okno) i po načtení písma (do té doby má jiné rozměry)
+  let boardWidth = 0;
+  const resizeObserver = new ResizeObserver(([entry]) => {
+    if (Math.round(entry.contentRect.width) !== boardWidth) {
+      boardWidth = Math.round(entry.contentRect.width);
+      refit();
+    }
+  });
+  resizeObserver.observe(board);
+  window.addEventListener('resize', refit);
+  document.fonts.addEventListener('loadingdone', refit);
+  document.fonts.ready.then(refit);
 
   // ---------- akce hráče ----------
   function onTile(word) {
+    if (game.status !== 'playing') return;
+    const wasSelected = game.selected.includes(word);
     toggleWord(game, word);
-    update();
+    const nowSelected = game.selected.includes(word);
+    if (nowSelected !== wasSelected) {
+      play(nowSelected ? 'select' : 'deselect');
+      vibrate(nowSelected ? FEEL.vibrate.select : FEEL.vibrate.deselect);
+    }
+    update({ keepTiles: busy }); // během animace se kostičky nepřeskládají
   }
 
   function onDeselect() {
     clearSelection(game);
-    update();
+    play('deselect');
+    update({ keepTiles: busy });
   }
 
   function onShuffle() {
-    shuffleBoard(game);
-    update();
+    if (busy) return;
+    busy = true;
+    flip([...tiles.values()], () => {
+      shuffleBoard(game);
+      placeTiles();
+    }).then(() => (busy = false));
   }
 
-  function onSubmit() {
+  async function onSubmit() {
+    if (busy) return;
+    const chosen = game.selected.map((w) => tiles.get(w));
     const { result, groupIndex } = submit(game);
-    if (result === RESULT.CORRECT) {
-      addGroup(groupIndex);
-      say(t('msg.correct'));
-    } else if (result === RESULT.ONE_AWAY) say(t('msg.oneAway'));
-    else if (result === RESULT.WRONG) say(t('msg.wrong'));
-    else if (result === RESULT.REPEAT) say(t('msg.repeat'));
-    else if (result === RESULT.INCOMPLETE) say(t('msg.pickFour'));
 
-    if (game.status === 'lost') revealRest();
-    else if (game.status === 'won') showEnd();
+    if (result === RESULT.INCOMPLETE) return say(t('msg.pickFour'));
+    if (result === RESULT.REPEAT) return say(t('msg.repeat'));
+    busy = true;
+
+    if (result === RESULT.CORRECT) {
+      play('correct');
+      vibrate(FEEL.vibrate.correct);
+      update({ keepTiles: true });
+      chosen.forEach((el) => el.setAttribute('aria-pressed', 'true')); // během animace zůstanou vybrané
+      await gather(chosen);
+      await flip([...tiles.values()].filter((el) => !chosen.includes(el)), placeTiles);
+      chosen.forEach((el) => el.getAnimations().forEach((a) => a.cancel()));
+      renderHints();
+      // pruh skupiny vyjíždí, ale hráč už může vybírat další kostičky (při výhře se počká)
+      const reveal = addGroup(groupIndex, { animate: true });
+      if (game.status === 'won') await reveal;
+    } else {
+      const oneAway = result === RESULT.ONE_AWAY;
+      play(oneAway ? 'oneAway' : 'wrong');
+      vibrate(oneAway ? FEEL.vibrate.oneAway : FEEL.vibrate.wrong);
+      say(t(oneAway ? 'msg.oneAway' : 'msg.wrong'));
+      update({ keepTiles: true });
+      await (oneAway ? bounce(chosen) : shake(chosen));
+    }
+
+    update();
+    busy = false;
+    if (game.status === 'won') {
+      timer.pause();
+      play('win');
+      showEnd(true);
+    } else if (game.status === 'lost') {
+      timer.pause();
+      revealRest();
+    }
+  }
+
+  function onHintMenu() {
+    if (busy || game.status !== 'playing') return;
+    const left = SCORING.maxHints - game.hints.length;
+    const option = (type) => h('button', {
+      class: 'secondary hint-option', type: 'button',
+      disabled: !canHint(game, type, SCORING.maxHints),
+      onclick: () => { close(); applyHint(type); }
+    }, h('span', {}, t(`hint.option.${type}`)), h('span', { class: 'cost' }, t('hint.cost', { points: SCORING.hintCost[type] })));
+
+    const close = openModal([
+      h('h2', { id: 'hint-title' }, t('hint.title')),
+      h('p', { class: 'muted' }, t('hint.left', { count: left })),
+      h('div', { class: 'hint-options' }, option('title'), option('word')),
+      h('button', { class: 'primary', type: 'button', onclick: () => close() }, t('hint.cancel'))
+    ], { labelledBy: 'hint-title' });
+  }
+
+  function applyHint(type) {
+    if (!useHint(game, type, SCORING.maxHints)) return;
+    play('hint');
+    renderHints();
     update();
   }
 
   // ---------- vykreslení ----------
-  function update() {
-    // kostičky v aktuálním pořadí, vyřešené odeberou
+  function placeTiles() {
     board.replaceChildren(...game.board.map((w) => tiles.get(w)));
+  }
+
+  function update({ keepTiles = false } = {}) {
+    if (!keepTiles) placeTiles();
     tiles.forEach((btn, word) => {
       btn.setAttribute('aria-pressed', String(game.selected.includes(word)));
       btn.disabled = game.status !== 'playing';
     });
-    refit();
+    requestAnimationFrame(refit);
 
     const left = mistakesLeft(game);
     dots.setAttribute('aria-label', t('game.attemptsLeft', { count: left }));
     dots.replaceChildren(...Array.from({ length: MAX_MISTAKES }, (_, i) =>
       h('span', { class: i < left ? 'dot' : 'dot off' })));
 
-    deselectBtn.disabled = game.selected.length === 0;
-    submitBtn.disabled = game.selected.length !== 4 || game.status !== 'playing';
-    shuffleBtn.disabled = game.status !== 'playing';
+    const playing = game.status === 'playing';
+    deselectBtn.disabled = !playing || game.selected.length === 0;
+    submitBtn.disabled = !playing || game.selected.length !== 4;
+    shuffleBtn.disabled = !playing;
+    hintBtn.disabled = !playing || !(canHint(game, 'title', SCORING.maxHints) || canHint(game, 'word', SCORING.maxHints));
+    updateBar();
   }
 
-  function addGroup(index, revealed = false) {
-    const g = puzzle.groups[index];
-    solvedList.append(h('section', {
-      class: revealed ? 'group revealed' : 'group',
-      'data-d': g.difficulty,
-      'aria-label': t('game.solvedGroup', { title: g.title, words: g.words.join(', ') })
+  function updateBar() {
+    timeEl.textContent = formatTime(timer.seconds());
+    scoreEl.textContent = t('game.points', { points: scoreBreakdown(game, timer.seconds()).total });
+  }
+
+  // Nápovědy: karta s názvem skupiny nad kostičkami, barevný okraj kostičky
+  function renderHints() {
+    const active = game.hints.filter((hint) => !game.solved.includes(hint.group) && !game.revealed.includes(hint.group));
+    hintCards.replaceChildren(...active.filter((hint) => hint.type === 'title').map((hint) => {
+      const g = game.puzzle.groups[hint.group];
+      return h('div', { class: 'hint-card', 'data-d': g.difficulty },
+        h('span', { 'aria-hidden': 'true' }, SYMBOLS[g.difficulty]), ' ', t('hint.groupTitle', { title: g.title }));
+    }));
+    tiles.forEach((btn) => {
+      btn.classList.remove('hinted');
+      btn.removeAttribute('data-d');
+      btn.removeAttribute('data-symbol');
+      btn.setAttribute('aria-label', btn.dataset.word);
+    });
+    for (const hint of active.filter((x) => x.type === 'word')) {
+      const g = game.puzzle.groups[hint.group];
+      const btn = tiles.get(hint.word);
+      btn.classList.add('hinted');
+      btn.dataset.d = g.difficulty;
+      btn.dataset.symbol = SYMBOLS[g.difficulty];
+      btn.setAttribute('aria-label', t('hint.tileLabel', { word: hint.word, symbol: SYMBOLS[g.difficulty] }));
+    }
+  }
+
+  async function addGroup(index, { revealed = false, animate = false } = {}) {
+    const g = game.puzzle.groups[index];
+    const note = h('span', { class: 'group-note' }, g.explanation);
+    const el = h('button', {
+      class: revealed ? 'group revealed' : 'group', type: 'button', 'data-d': g.difficulty,
+      'aria-expanded': 'true', onclick: () => toggleGroup(el)
     },
-      h('div', { class: 'group-title' }, `${SYMBOLS[g.difficulty]} ${g.title}`),
-      h('div', { class: 'group-words' }, g.words.join(' · ')),
-      h('div', { class: 'group-note' }, g.explanation)
-    ));
+      h('span', { class: 'group-title' }, h('span', { 'aria-hidden': 'true' }, SYMBOLS[g.difficulty]), ' ', g.title),
+      h('span', { class: 'group-words' }, g.words.join(' · ')),
+      note);
+    // vysvětlení nechá rozbalené jen u nejnovější skupiny, ať se hra vejde na displej
+    groupEls.forEach((other) => other.setAttribute('aria-expanded', 'false'));
+    groupEls.push(el);
+    solvedList.append(el);
+    requestAnimationFrame(refit);
+    if (animate) await revealGroup(el, note);
+  }
+
+  function toggleGroup(el) {
+    el.setAttribute('aria-expanded', String(el.getAttribute('aria-expanded') !== 'true'));
+    requestAnimationFrame(refit);
   }
 
   function say(text) {
     message.textContent = text;
     clearTimeout(messageTimer);
-    messageTimer = setTimeout(() => (message.textContent = ''), MESSAGE_TIME);
+    messageTimer = setTimeout(() => (message.textContent = ''), FEEL.message);
   }
 
   // Po prohře se zbylé skupiny klidně odkryjí jedna po druhé
   function revealRest() {
+    busy = true;
     game.revealed.forEach((index, i) => {
-      timers.push(setTimeout(() => {
-        addGroup(index, true);
-        game.board = game.board.filter((w) => !puzzle.groups[index].words.includes(w));
+      timers.push(setTimeout(async () => {
+        const words = game.puzzle.groups[index].words;
+        await gather(words.map((w) => tiles.get(w)).filter((el) => el.isConnected));
+        game.board = game.board.filter((w) => !words.includes(w));
         update();
-        if (i === game.revealed.length - 1) showEnd();
-      }, REVEAL_DELAY * (i + 1)));
+        renderHints();
+        await addGroup(index, { revealed: true, animate: true });
+        if (i === game.revealed.length - 1) {
+          busy = false;
+          showEnd(true);
+        }
+      }, FEEL.revealDelay * (i + 1)));
     });
   }
 
-  function showEnd() {
-    play.replaceChildren(h('div', { class: 'end' },
-      h('p', { role: 'status' }, t(game.status === 'won' ? 'end.won' : 'end.lost')),
-      h('button', { class: 'primary', onclick: () => navigate(`#/hra/${puzzle.id}`) }, t('end.again')),
+  function showEnd(fresh) {
+    const won = game.status === 'won';
+    const seconds = timer.seconds();
+    const score = scoreBreakdown(game, seconds);
+    const points = h('span', { class: 'end-points' });
+    const shareNote = h('p', { class: 'share-note', role: 'status' });
+
+    const stat = (label, value) => h('div', { class: 'stat' },
+      h('span', { class: 'stat-value' }, value), h('span', { class: 'stat-label' }, label));
+    // řádek rozpisu bodů; srážky se zobrazují se znaménkem minus
+    const line = (key, value, minus = false) => value
+      ? h('li', {}, h('span', {}, t(key)), h('span', {}, `${minus ? '−' : '+'}${value}`))
+      : null;
+
+    const end = h('div', { class: 'end' },
+      h('h2', {}, t(won ? 'end.won' : 'end.lost')),
+      h('p', { class: 'end-score' }, points, ' ', h('span', { class: 'end-unit' }, t('game.pointsUnit', { count: score.total }))),
+      h('div', { class: 'stats' },
+        stat(t('end.time'), formatTime(seconds)),
+        stat(t('end.mistakes'), String(game.mistakes)),
+        stat(t('end.hints'), String(game.hints.length))),
+      h('ul', { class: 'breakdown' },
+        line('score.groups', score.groupPoints),
+        line('score.bravery', score.bravery),
+        line('score.time', score.time),
+        line('score.clean', score.clean),
+        line('score.mistakes', score.mistakes, true),
+        line('score.hints', score.hints, true)),
+      won && h('button', { class: 'primary', onclick: () => onShare(score.total, seconds, shareNote) }, t('end.share')),
+      won && shareNote,
+      h('button', {
+        class: won ? 'secondary' : 'primary',
+        onclick: () => { sessions.delete(game.puzzle.id); navigate(`#/hra/${game.puzzle.id}`); }
+      }, t('end.again')),
       h('button', { class: 'secondary', onclick: () => navigate('#/') }, t('end.back'))
-    ));
+    );
+    playArea.replaceChildren(end);
+    if (fresh) {
+      fadeIn(end);
+      countUp(points, score.total, String);
+      if (won) confetti();
+    } else {
+      points.textContent = String(score.total);
+    }
   }
 
-  // Úklid při odchodu z obrazovky
-  function cleanup() {
-    window.removeEventListener('resize', refit);
+  async function onShare(total, seconds, note) {
+    const text = t('share.text', {
+      name: t('home.puzzle', { n: number }),
+      points: total,
+      time: formatTime(seconds),
+      mistakes: game.mistakes === 0 ? t('share.noMistakes') : t('share.mistakes', { count: game.mistakes })
+    });
+    const url = location.origin + location.pathname;
+    const result = await shareText(text, url);
+    if (result === 'copied') note.textContent = t('share.copied');
+    else if (result === 'manual') {
+      note.replaceChildren(t('share.manual'),
+        h('textarea', { readonly: true, rows: 3, 'aria-label': t('end.share') }, `${text}\n${url}`));
+    }
+  }
+
+  // Úklid při odchodu z obrazovky (hra zůstane rozehraná v sessions)
+  return function cleanup() {
+    timer.pause();
+    clearInterval(tick);
     clearTimeout(messageTimer);
     timers.forEach(clearTimeout);
-  }
-  return cleanup;
+    window.removeEventListener('resize', refit);
+    resizeObserver.disconnect();
+    document.fonts.removeEventListener('loadingdone', refit);
+    document.removeEventListener('visibilitychange', onVisibility);
+    // odkrývání po prohře se přerušilo: zbytek se po návratu ukáže hned
+    if (game.status === 'lost') game.board = [];
+  };
+}
+
+function fontScale() {
+  return { normal: 1, large: 1.12, xlarge: 1.25 }[getSettings().fontSize] || 1;
+}
+
+function clockIcon() {
+  const span = document.createElement('span');
+  span.innerHTML = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M10 2h4"/></svg>';
+  return span.firstChild;
 }

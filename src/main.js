@@ -10,45 +10,62 @@ import { t, setLanguage, detectLanguage } from './services/i18n.js';
 import { getSettings, updateSettings } from './services/settings.js';
 import { isPersistent } from './services/storage.js';
 import { getPuzzle, listPuzzles } from './services/content.js';
-import { setTable } from './ui/theme.js';
+import { FEEL } from './config/feel.js';
+import { applySettings } from './ui/prefs.js';
 import { renderHome } from './ui/home.js';
 import { renderGame } from './ui/game.js';
-import { openSettings } from './ui/settings.js';
+import { renderSettings } from './ui/settings.js';
+import { renderHelp } from './ui/help.js';
 
 const app = document.getElementById('app');
 let cleanup = null;
+let lastRoute = null;
 
 // Jazyk: uložená volba, jinak podle prohlížeče (a rovnou ji uložíme)
-const settings = getSettings();
-if (!settings.lang) settings.lang = updateSettings({ lang: detectLanguage() }).lang;
+let settings = getSettings();
+if (!settings.lang) settings = updateSettings({ lang: detectLanguage() });
 setLanguage(settings.lang);
-setTable(settings.table);
+applySettings(settings);
+
+// rychlost zamáčknutí kostičky z feel.js
+document.documentElement.style.setProperty('--press', FEEL.tilePress + 'ms');
+document.documentElement.style.setProperty('--release', FEEL.tileRelease + 'ms');
 
 // Přechod na obrazovku. Stejná adresa znovu (např. „Hrát znovu“) obrazovku jen překreslí.
+// Hloubka v historii si pamatuje každý záznam, takže funguje i systémové Zpět.
 function navigate(hash) {
-  if (location.hash === hash) render();
-  else location.hash = hash;
+  if (location.hash !== hash) history.pushState({ depth: depth() + 1 }, '', hash);
+  render();
 }
 
-function header(inGame) {
+function depth() {
+  return history.state?.depth || 0;
+}
+
+// Zpět: uvnitř aplikace jako systémové Zpět, jinak (např. po otevření odkazu) na úvodní obrazovku
+function goBack() {
+  if (depth() > 0) history.back();
+  else location.replace('#/');
+}
+
+function header(isHome) {
+  const button = (name, label, onclick) => h('button', { class: 'icon-btn', 'aria-label': label, onclick }, icon(name));
   return h('header', { class: 'header' },
     h('div', { class: 'brand' },
+      !isHome && button('back', t('nav.back'), goBack),
       h('div', { class: 'logo', 'aria-hidden': 'true' }, h('span'), h('span'), h('span'), h('span')),
       h('h1', {}, 'Kinzle')),
     h('div', { class: 'header-actions' },
-      inGame && h('button', { class: 'icon-btn', 'aria-label': t('nav.back'), onclick: () => navigate('#/') }, icon('back')),
-      h('button', { class: 'icon-btn', 'aria-label': t('nav.settings'), onclick: () => openSettings({ onChange }) }, icon('settings')))
+      button('help', t('nav.help'), () => navigate('#/navod')),
+      button('settings', t('nav.settings'), () => navigate('#/nastaveni')))
   );
 }
 
 function onChange(changes) {
-  const next = updateSettings(changes);
-  setTable(next.table);
-  if (changes.lang) {
-    setLanguage(next.lang);
-    // hádanky jsou pro každý jazyk vlastní, proto zpět na výběr
-    navigate('#/');
-  }
+  settings = updateSettings(changes);
+  if (changes.lang) setLanguage(settings.lang);
+  applySettings(settings);
+  render();
 }
 
 function render() {
@@ -57,18 +74,39 @@ function render() {
   app.replaceChildren();
   document.title = 'Kinzle';
 
-  const match = location.hash.match(/^#\/hra\/([\w-]+)$/);
-  const puzzle = match && getPuzzle(match[1]);
+  const route = location.hash;
+  const game = route.match(/^#\/hra\/([\w-]+)$/);
+  const puzzle = game && getPuzzle(game[1]);
 
-  if (puzzle) {
-    app.append(header(true));
+  if (!settings.onboarded && route !== '#/navod') {
+    location.replace('#/navod');
+    return;
+  }
+
+  if (route === '#/navod') {
+    renderHelp(app, {
+      onDone: () => {
+        if (!settings.onboarded) {
+          settings = updateSettings({ onboarded: true });
+          location.replace('#/');
+        } else goBack();
+      }
+    });
+  } else if (route === '#/nastaveni') {
+    app.append(header(false));
+    renderSettings(app, { onChange, navigate });
+  } else if (puzzle) {
+    app.append(header(false));
     const number = listPuzzles(puzzle.language).findIndex((p) => p.id === puzzle.id) + 1;
     cleanup = renderGame(app, { puzzle, number, navigate });
   } else {
-    app.append(header(false));
+    app.append(header(true));
     renderHome(app, { navigate });
   }
   if (!isPersistent()) app.append(h('p', { class: 'notice' }, t('app.storageWarning')));
+  // nahoru jen při změně obrazovky, ne při překreslení (např. přepnutí v nastavení)
+  if (route !== lastRoute) window.scrollTo(0, 0);
+  lastRoute = route;
 }
 
 window.addEventListener('hashchange', render);

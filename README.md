@@ -25,7 +25,8 @@ u řádku `Network`. Windows se může zeptat na firewall, povol privátní sí�
 | Příkaz | Co dělá |
 |---|---|
 | `npm run dev` | vývojový server s automatickým obnovením |
-| `npm test` | testy (herní logika, překlady, kontrast barev, kontrola všech hádanek) |
+| `npm test` | testy (herní logika, body, překlady, kontrast barev, kontrola všech hádanek) |
+| `npm run test:e2e` | průchody hrou v prohlížeči v mobilním rozlišení (Playwright; poprvé `npx playwright install chromium`) |
 | `npm run build` | sestavení hry do složky `dist/` |
 | `npm run preview` | spuštění sestavené verze z `dist/` |
 
@@ -37,6 +38,9 @@ src/game/                  herní logika bez UI (pravidla, kontrola hádanky)
 src/services/              úložiště, překlady, typografie, načítání obsahu, nastavení
 src/ui/                    obrazovky a styly (tokens.css = barvy obou stolů)
 src/locales/               texty: cs.json, en.json
+src/config/scoring.js      výpočet bodů (ladění)
+src/config/feel.js         časy a intenzity animací, zvuků a vibrací (ladění)
+e2e/                       testy průchodů hrou (Playwright)
 tests/                     testy ve Vitestu
 design/                    náhledy vzhledu (předloha)
 docs/                      dokumentace a veřejné zadání
@@ -45,7 +49,7 @@ docs/                      dokumentace a veřejné zadání
 ## Nasazení
 
 Každý push do větve `main` spustí GitHub Action **Nasazení** (`.github/workflows/deploy.yml`):
-testy → build → GitHub Pages. Když testy selžou, nic se nenasadí.
+testy → průchody hrou (Playwright) → build → GitHub Pages. Když testy selžou, nic se nenasadí.
 Průběh je vidět v repozitáři v záložce **Actions**.
 
 Jednorázové nastavení: repozitář → **Settings** → **Pages** → *Source*: **GitHub Actions**.

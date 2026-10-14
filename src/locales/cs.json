@@ -4,7 +4,8 @@
   },
   "nav": {
     "settings": "Nastavení",
-    "back": "Zpět na výběr"
+    "back": "Zpět",
+    "help": "Jak se hraje"
   },
   "home": {
     "title": "Vyber hádanku",
@@ -28,7 +29,16 @@
     "deselect": "Zrušit výběr",
     "submit": "Odeslat skupinu",
     "board": "Kostičky se slovy",
-    "solvedGroup": "Vyřešená skupina: {title}. Slova: {words}."
+    "solvedGroup": "Vyřešená skupina: {title}. Slova: {words}.",
+    "hint": "Nápověda",
+    "time": "Čas",
+    "points": "{points} b.",
+    "pointsUnit": {
+      "one": "bod",
+      "few": "body",
+      "many": "bodu",
+      "other": "bodů"
+    }
   },
   "msg": {
     "pickFour": "Vyber čtyři kostičky.",
@@ -38,20 +48,90 @@
     "repeat": "Tuhle čtveřici už máš za sebou, pokus se nepočítá."
   },
   "end": {
-    "won": "Hotovo, všechny skupiny sedí!",
+    "won": "Výborně, všechny skupiny sedí!",
     "lost": "Tentokrát to nevyšlo. Tady jsou zbylé skupiny – příště to dáš.",
     "again": "Hrát znovu",
-    "back": "Zpět na výběr"
+    "back": "Zpět na výběr",
+    "time": "Čas",
+    "mistakes": "Chyby",
+    "hints": "Nápovědy",
+    "share": "Sdílet výsledek"
   },
   "settings": {
     "title": "Nastavení",
     "language": "Jazyk",
     "table": "Stůl",
-    "close": "Zavřít"
+    "fontSize": "Velikost písma",
+    "sound": "Zvuky",
+    "vibration": "Vibrace",
+    "reduceMotion": "Omezit animace",
+    "colorblind": "Režim pro barvoslepé",
+    "colorblindNote": "Každá skupina má kromě barvy i symbol (● ▲ ■ ◆ ★). V režimu pro barvoslepé ho uvidíš i na kostičce s nápovědou.",
+    "howToPlay": "Jak se hraje"
   },
   "table": {
     "evening": "Večerní",
     "day": "Denní",
     "auto": "Podle telefonu"
+  },
+  "hint": {
+    "title": "Nápověda",
+    "left": {
+      "one": "Zbývá {count} nápověda",
+      "few": "Zbývají {count} nápovědy",
+      "many": "Zbývá {count} nápovědy",
+      "other": "Zbývá {count} nápověd"
+    },
+    "option": {
+      "title": "Odhalit název skupiny",
+      "word": "Odhalit jedno slovo"
+    },
+    "cost": "−{points} b.",
+    "cancel": "Zpět ke hře",
+    "groupTitle": "Nápověda: {title}",
+    "tileLabel": "{word}, nápověda: patří do skupiny {symbol}"
+  },
+  "score": {
+    "groups": "Skupiny",
+    "bravery": "Bonus za odvahu",
+    "time": "Časový bonus",
+    "clean": "Čistá hra",
+    "mistakes": "Chyby",
+    "hints": "Nápovědy"
+  },
+  "share": {
+    "text": "Kinzle · {name} · {points} b. · {time} · {mistakes}",
+    "noMistakes": "bez chyby",
+    "mistakes": {
+      "one": "{count} chyba",
+      "few": "{count} chyby",
+      "many": "{count} chyby",
+      "other": "{count} chyb"
+    },
+    "copied": "Výsledek je zkopírovaný, stačí ho vložit do zprávy.",
+    "manual": "Zkopíruj si výsledek:"
+  },
+  "fontSize": {
+    "normal": "Normální",
+    "large": "Větší",
+    "xlarge": "Největší"
+  },
+  "help": {
+    "0": {
+      "title": "Najdi čtveřice",
+      "text": "Na stole leží slova. Vždy čtyři z nich mají něco společného. Vyber je a stiskni Odeslat skupinu."
+    },
+    "1": {
+      "title": "Každá skupina je jinak těžká",
+      "text": "Barva a symbol prozradí obtížnost, od lehké ● po nejtěžší ★. Pozor na záludná slova, která se na první pohled hodí i jinam."
+    },
+    "2": {
+      "title": "Pokusy, nápovědy a body",
+      "text": "Máš 4 pokusy. Když trefíš tři slova ze čtyř, hra ti to naznačí. Nápověda stojí body, rychlost a odvaha (těžší skupina dřív než lehčí) body přidají."
+    },
+    "next": "Další",
+    "skip": "Přeskočit",
+    "play": "Jdeme hrát",
+    "progress": "Krok {n} z {total}"
   }
 }

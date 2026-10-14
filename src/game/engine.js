@@ -34,6 +34,7 @@ export function createGame(puzzle, random = Math.random) {
     revealed: [],                  // indexy skupin odkrytých po prohře
     mistakes: 0,
     guesses: [],                   // všechny odeslané kombinace (seřazené klíče)
+    hints: [],                     // použité nápovědy { type, group, word? }
     status: 'playing'              // 'playing' | 'won' | 'lost'
   };
 }
@@ -101,6 +102,41 @@ export function submit(game) {
     game.revealed = unsolvedGroups(game);
   }
   return { result: best.hits === GROUP_SIZE - 1 ? RESULT.ONE_AWAY : RESULT.WRONG };
+}
+
+// ---------- Nápovědy ----------
+// Nápověda míří vždy na nejlehčí nevyřešenou skupinu, u které ještě má co odhalit.
+//  'title' – odhalí název skupiny
+//  'word'  – odhalí jedno slovo skupiny (kostička dostane barevný okraj)
+
+function hintTarget(game, type) {
+  return unsolvedGroups(game).find((index) => {
+    const used = game.hints.filter((h) => h.group === index);
+    if (type === 'title') return !used.some((h) => h.type === 'title');
+    return wordsToHint(game, index).length > 0;
+  });
+}
+
+function wordsToHint(game, index) {
+  const hinted = game.hints.map((h) => h.word);
+  return game.puzzle.groups[index].words.filter((w) => !hinted.includes(w));
+}
+
+export function canHint(game, type, maxHints) {
+  return game.status === 'playing' && game.hints.length < maxHints && hintTarget(game, type) !== undefined;
+}
+
+// Použije nápovědu a vrátí ji, nebo null, když nejde
+export function useHint(game, type, maxHints, random = Math.random) {
+  if (!canHint(game, type, maxHints)) return null;
+  const group = hintTarget(game, type);
+  const hint = { type, group };
+  if (type === 'word') {
+    const words = wordsToHint(game, group);
+    hint.word = words[Math.floor(random() * words.length)];
+  }
+  game.hints.push(hint);
+  return hint;
 }
 
 // Nevyřešené skupiny od nejlehčí, v tomhle pořadí se po prohře odkrývají
