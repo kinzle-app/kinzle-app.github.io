@@ -1,0 +1,55 @@
+{
+  "app": {
+    "storageWarning": "Settings won't be saved in this browser."
+  },
+  "nav": {
+    "settings": "Settings",
+    "back": "Back to puzzles"
+  },
+  "home": {
+    "title": "Pick a puzzle",
+    "note": "Trial puzzles for trying out the game.",
+    "puzzle": "Puzzle {n}"
+  },
+  "size": {
+    "3": "Easy 3×4",
+    "4": "Classic 4×4",
+    "5": "Hard 5×4"
+  },
+  "game": {
+    "attempts": "Attempts left",
+    "attemptsLeft": {
+      "one": "{count} attempt left",
+      "other": "{count} attempts left"
+    },
+    "shuffle": "Shuffle",
+    "deselect": "Deselect",
+    "submit": "Submit group",
+    "board": "Word tiles",
+    "solvedGroup": "Solved group: {title}. Words: {words}."
+  },
+  "msg": {
+    "pickFour": "Pick four tiles.",
+    "correct": "Spot on!",
+    "oneAway": "So close! Three of the four fit.",
+    "wrong": "These four don't belong together.",
+    "repeat": "You've already tried these four – no attempt lost."
+  },
+  "end": {
+    "won": "Done – every group found!",
+    "lost": "Not this time. Here are the remaining groups – you'll get the next one.",
+    "again": "Play again",
+    "back": "Back to puzzles"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "table": "Table",
+    "close": "Close"
+  },
+  "table": {
+    "evening": "Evening",
+    "day": "Daylight",
+    "auto": "Match my phone"
+  }
+}

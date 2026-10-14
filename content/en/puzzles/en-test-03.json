@@ -1,0 +1,54 @@
+{
+  "id": "en-test-03",
+  "language": "en",
+  "size": 4,
+  "status": "test",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Colours of the rainbow",
+      "difficulty": 1,
+      "words": [
+        "red",
+        "orange",
+        "yellow",
+        "violet"
+      ],
+      "explanation": "The rainbow is traditionally described with seven colours, from red to violet. Orange is a fruit too, but the citrus group already has four."
+    },
+    {
+      "title": "Citrus fruits",
+      "difficulty": 2,
+      "words": [
+        "lemon",
+        "lime",
+        "mandarin",
+        "grapefruit"
+      ],
+      "explanation": "Lime is also a shade of green, but it is not one of the rainbow colours."
+    },
+    {
+      "title": "___ball",
+      "difficulty": 3,
+      "words": [
+        "foot",
+        "basket",
+        "snow",
+        "eye"
+      ],
+      "explanation": "Football, basketball, snowball and eyeball."
+    },
+    {
+      "title": "Hidden animals",
+      "difficulty": 4,
+      "words": [
+        "scatter",
+        "pigment",
+        "crowd",
+        "scowl"
+      ],
+      "explanation": "sCATter, PIGment, CROWd, sCOWl. GrAPEfruit hides an animal too, but it belongs with the citrus fruits."
+    }
+  ]
+}

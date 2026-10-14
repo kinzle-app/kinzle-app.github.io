@@ -1,0 +1,54 @@
+{
+  "id": "cs-test-04",
+  "language": "cs",
+  "size": 4,
+  "status": "test",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Dopravní prostředky",
+      "difficulty": 1,
+      "words": [
+        "tramvaj",
+        "trolejbus",
+        "motocykl",
+        "helikoptéra"
+      ],
+      "explanation": "Trolejbus jezdí jako autobus, ale elektřinu bere z trolejí nad silnicí."
+    },
+    {
+      "title": "Povolání",
+      "difficulty": 2,
+      "words": [
+        "zahradník",
+        "elektrikář",
+        "instalatér",
+        "knihovník"
+      ],
+      "explanation": "Instalatér opravuje vodovod a odpady – s vodou má co dělat, ale je to povolání."
+    },
+    {
+      "title": "Školní potřeby",
+      "difficulty": 3,
+      "words": [
+        "pravítko",
+        "ořezávátko",
+        "kalkulačka",
+        "pastelka"
+      ],
+      "explanation": "Pastelka je tužka s barevnou tuhou."
+    },
+    {
+      "title": "Složeniny se slovem voda",
+      "difficulty": 4,
+      "words": [
+        "vodopád",
+        "vodotrysk",
+        "vodovod",
+        "vodoměr"
+      ],
+      "explanation": "Vodoměr měří, kolik vody v domácnosti proteče."
+    }
+  ]
+}

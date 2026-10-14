@@ -1,0 +1,54 @@
+{
+  "id": "cs-test-03",
+  "language": "cs",
+  "size": 4,
+  "status": "test",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Zvířata na statku",
+      "difficulty": 1,
+      "words": [
+        "kráva",
+        "koza",
+        "ovce",
+        "kůň"
+      ],
+      "explanation": "Hospodářská zvířata, která se chovají na statku."
+    },
+    {
+      "title": "Části stromu",
+      "difficulty": 2,
+      "words": [
+        "kořen",
+        "kmen",
+        "větev",
+        "koruna"
+      ],
+      "explanation": "Koruna stromu jsou větve s listím nad kmenem. Koruna je i měna, ale ty už mají své čtyři."
+    },
+    {
+      "title": "Měny",
+      "difficulty": 3,
+      "words": [
+        "euro",
+        "dolar",
+        "libra",
+        "frank"
+      ],
+      "explanation": "Frank je třeba měnou Švýcarska, libra Spojeného království."
+    },
+    {
+      "title": "Začínají názvem noty",
+      "difficulty": 4,
+      "words": [
+        "dort",
+        "mistr",
+        "fazole",
+        "lavice"
+      ],
+      "explanation": "DOrt, MIstr, FAzole, LAvice – na začátku je slabika ze stupnice do, re, mi, fa, sol, la, si. I DOlar začíná na „do“, ale patří k měnám."
+    }
+  ]
+}

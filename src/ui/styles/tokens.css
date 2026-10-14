@@ -1,0 +1,72 @@
+/* Designové tokeny stylu Deskovka.
+   Večerní stůl je výchozí, Denní stůl („Pergamen“) přepisuje jen to, co se liší. */
+
+:root {
+  /* plochy */
+  --felt: #1E3A2C;          /* pozadí stolu */
+  --felt-light: #2A4A3A;    /* ikonová tlačítka, aktivní plochy na pozadí */
+  --line: #4C6B5B;          /* obrysy vedlejších tlačítek */
+  --panel: #183024;         /* lišty a karty */
+  --panel-text: #F4EBDD;
+  --panel-muted: #A9C2B4;
+  --panel-active: #2A4A3A;
+
+  /* text */
+  --text: #F4EBDD;          /* text na suknu */
+  --muted: #A9C2B4;
+
+  /* kostičky */
+  --tile: #F4EBDD;
+  --tile-shadow: #C9B99C;
+  --ink: #2B2A24;           /* text na kostičkách */
+  --selected: #F2C46B;
+  --selected-shadow: #B8873A;
+  --selected-ink: #2B2A24;
+
+  /* hlavní tlačítko na pozadí stolu */
+  --primary: #F2C46B;
+  --primary-ink: #1E3A2C;
+  --primary-shadow: #B8873A;
+
+  /* tečky pokusů */
+  --dot: #F2C46B;
+  --dot-off: #3B5A4A;
+
+  /* barvy skupin podle obtížnosti (stejné na obou stolech) */
+  --g1: #9CC59A; --g1-ink: #1F2A1E; --g1-shadow: #6F9A6D;   /* ● šalvěj */
+  --g2: #E07A4F; --g2-ink: #2B140A; --g2-shadow: #A9502E;   /* ▲ terakota */
+  --g3: #C98A95; --g3-ink: #2B1519; --g3-shadow: #9A5E69;   /* ■ starorůžová */
+  --g4: #8DB0CC; --g4-ink: #14232F; --g4-shadow: #5F84A2;   /* ◆ břidlicová */
+  --g5: #9A4F63; --g5-ink: #F4EBDD; --g5-shadow: #6B3242;   /* ★ vínová (jen 5×4) */
+  --g5-outline: rgba(244, 235, 221, 0.35);                  /* vínová by na tmavém suknu splývala */
+
+  /* rozměry */
+  --radius-tile: 12px;
+  --radius-panel: 14px;
+  --font: 'Bricolage Grotesque', system-ui, sans-serif;
+}
+
+/* Denní stůl „Pergamen“: světlý pergamen s tmavě zelenými panely */
+:root[data-table='day'] {
+  --felt: #F3EFE2;
+  --felt-light: #E2DCCB;
+  --line: #C5BDA7;
+  --panel: #2A4A3A;
+  --panel-active: #3A5E4B;
+
+  --text: #22302A;
+  --muted: #5F6B60;
+
+  --tile: #FFFDF7;
+  --tile-shadow: #D6CDB6;
+  --ink: #22302A;
+
+  --primary: #1E3A2C;
+  --primary-ink: #F4EBDD;
+  --primary-shadow: #0F2219;
+
+  --dot: #2A4A3A;
+  --dot-off: #D9D2BF;
+
+  --g5-outline: transparent;
+}

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1E3A2C">
+  <title>Kinzle</title>
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <style>
+    /* barva stolu ještě před načtením stylů, aby nic neprobliklo */
+    html { background: #1E3A2C; }
+    html[data-table='day'] { background: #F3EFE2; }
+  </style>
+  <script>
+    // Nastaví stůl před prvním vykreslením. Klíč odpovídá src/services/settings.js.
+    (function () {
+      var table = 'evening';
+      try {
+        var s = JSON.parse(localStorage.getItem('kinzle:settings')) || {};
+        if (s.table) table = s.table;
+      } catch (e) {}
+      if (table === 'auto') {
+        table = window.matchMedia('(prefers-color-scheme: light)').matches ? 'day' : 'evening';
+      }
+      document.documentElement.dataset.table = table;
+      document.querySelector('meta[name="theme-color"]').content = table === 'day' ? '#F3EFE2' : '#1E3A2C';
+    })();
+  </script>
+</head>
+<body>
+  <main id="app"></main>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{
+  "app": {
+    "storageWarning": "V tomto prohlížeči se nastavení neuloží."
+  },
+  "nav": {
+    "settings": "Nastavení",
+    "back": "Zpět na výběr"
+  },
+  "home": {
+    "title": "Vyber hádanku",
+    "note": "Zkušební hádanky pro vyzkoušení hry.",
+    "puzzle": "Hádanka {n}"
+  },
+  "size": {
+    "3": "Lehká 3×4",
+    "4": "Klasická 4×4",
+    "5": "Těžká 5×4"
+  },
+  "game": {
+    "attempts": "Zbývající pokusy",
+    "attemptsLeft": {
+      "one": "Zbývá {count} pokus",
+      "few": "Zbývají {count} pokusy",
+      "many": "Zbývá {count} pokusu",
+      "other": "Zbývá {count} pokusů"
+    },
+    "shuffle": "Zamíchat",
+    "deselect": "Zrušit výběr",
+    "submit": "Odeslat skupinu",
+    "board": "Kostičky se slovy",
+    "solvedGroup": "Vyřešená skupina: {title}. Slova: {words}."
+  },
+  "msg": {
+    "pickFour": "Vyber čtyři kostičky.",
+    "correct": "Sedí!",
+    "oneAway": "Těsně vedle! Tři ze čtyř sedí.",
+    "wrong": "Tahle čtveřice k sobě nepatří.",
+    "repeat": "Tuhle čtveřici už máš za sebou, pokus se nepočítá."
+  },
+  "end": {
+    "won": "Hotovo, všechny skupiny sedí!",
+    "lost": "Tentokrát to nevyšlo. Tady jsou zbylé skupiny – příště to dáš.",
+    "again": "Hrát znovu",
+    "back": "Zpět na výběr"
+  },
+  "settings": {
+    "title": "Nastavení",
+    "language": "Jazyk",
+    "table": "Stůl",
+    "close": "Zavřít"
+  },
+  "table": {
+    "evening": "Večerní",
+    "day": "Denní",
+    "auto": "Podle telefonu"
+  }
+}

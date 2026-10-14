@@ -68,6 +68,17 @@ Silná kritéria úspěchu ti umožní pracovat samostatně v cyklu. Slabá krit
 - Pokud pushnout do main nejde (např. v cloudu), vytvoř pull request a slouč ho do main.
 - Pokud nastane konflikt nebo hrozí přepsání cizích změn, nic nepřepisuj a zeptej se mě.
 
+## Architektura Kinzle
+- Zadání: veřejné v `docs/ZADANI.md`; úplné (s příběhem Cesty a plány po spuštění) jen lokálně v `ZADANI-KINZLE.md` a `docs/PO-SPUSTENI.md`, oba v `.gitignore`. Spoilery příběhu nikdy necommituj.
+- Vite + čistý JS (ES moduly), testy Vitest (`npm test`), nasazení GitHub Actions → GitHub Pages při pushi do `main`.
+- `src/game/` – herní logika bez UI (`engine.js` pravidla, `puzzle.js` kontrola hádanky). Vše pokryté testy v `tests/`.
+- `src/services/` – vrstvy vyměnitelné za Capacitor: `storage.js` (data, fallback do paměti), `i18n.js` + `typography.js` (texty, `Intl.PluralRules`, pevné mezery), `content.js` (načítání hádanek – jediné místo, kde se řeší zdroj obsahu), `settings.js`.
+- `src/ui/` – obrazovky (`home.js`, `game.js`, `settings.js`), `dom.js` (pomocník `h()`, `fitText`), `theme.js` (stoly). Přepínání obrazovek přes `#/` a `#/hra/<id>` v `main.js`.
+- Barvy jen přes tokeny v `src/ui/styles/tokens.css` (Večerní = `:root`, Denní = `[data-table='day']`); test `tests/contrast.test.js` hlídá kontrast 4,5:1. Stůl se nastavuje před vykreslením skriptem v `index.html` (klíč `kinzle:settings`).
+- Žádný text natvrdo: vše v `src/locales/<jazyk>.json`, oba soubory musí mít stejné klíče (hlídá test).
+- Obsah: `content/<jazyk>/puzzles/<id>.json`; test kontroluje každou hádanku. Testovací hádanky mají `"status": "test"` a ve fázi 3 se smažou.
+- Relativní cesty všude (`base: './'`), žádná závislost na adrese webu.
+
 ---
 
 Tato pravidla fungují, když: v diffech je méně zbytečných změn, méně přepisování kvůli překomplikování, a doptávání přichází před implementací, ne až po chybách.

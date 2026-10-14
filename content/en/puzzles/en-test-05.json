@@ -1,0 +1,65 @@
+{
+  "id": "en-test-05",
+  "language": "en",
+  "size": 5,
+  "status": "test",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Parts of the face",
+      "difficulty": 1,
+      "words": [
+        "nose",
+        "chin",
+        "cheek",
+        "brow"
+      ],
+      "explanation": "The brow is the part of the face above the eyes."
+    },
+    {
+      "title": "Pasta shapes",
+      "difficulty": 2,
+      "words": [
+        "spaghetti",
+        "penne",
+        "ravioli",
+        "fusilli"
+      ],
+      "explanation": "Fusilli are spiral-shaped pasta."
+    },
+    {
+      "title": "Deserts",
+      "difficulty": 3,
+      "words": [
+        "Sahara",
+        "Gobi",
+        "Kalahari",
+        "Atacama"
+      ],
+      "explanation": "The Atacama in Chile is one of the driest places on Earth."
+    },
+    {
+      "title": "Card games",
+      "difficulty": 4,
+      "words": [
+        "poker",
+        "bridge",
+        "rummy",
+        "snap"
+      ],
+      "explanation": "Snap is a fast card game. Backwards it spells PANS, but it belongs here."
+    },
+    {
+      "title": "Backwards they spell another word",
+      "difficulty": 5,
+      "words": [
+        "star",
+        "live",
+        "wolf",
+        "keep"
+      ],
+      "explanation": "STAR → RATS, LIVE → EVIL, WOLF → FLOW, KEEP → PEEK."
+    }
+  ]
+}

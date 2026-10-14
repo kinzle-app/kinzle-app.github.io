@@ -1,0 +1,160 @@
+/* Rozvržení a komponenty hry. Barvy jen přes tokeny z tokens.css. */
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  min-height: 100dvh;
+  background: var(--felt);
+  color: var(--text);
+  font-family: var(--font);
+  font-weight: 500;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button { font-family: inherit; cursor: pointer; }
+button:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--selected); outline-offset: 3px; }
+
+#app {
+  max-width: 480px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  /* výřezy displeje (safe areas) */
+  padding:
+    max(16px, env(safe-area-inset-top))
+    max(16px, env(safe-area-inset-right))
+    max(20px, env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
+}
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* ---------- Horní lišta ---------- */
+.header { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand h1 { margin: 0; font-size: 26px; font-weight: 800; letter-spacing: -0.5px; }
+.logo { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; width: 26px; }
+.logo span { height: 11px; border-radius: 3px; }
+.logo span:nth-child(1) { background: var(--selected); }
+.logo span:nth-child(2) { background: var(--g2); }
+.logo span:nth-child(3) { background: var(--g1); }
+.logo span:nth-child(4) { background: var(--g4); }
+.header-actions { display: flex; gap: 8px; }
+
+.icon-btn {
+  width: 44px; height: 44px; border: none; border-radius: 12px;
+  background: var(--felt-light); color: var(--text);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  background: var(--panel); color: var(--panel-text);
+  border-radius: var(--radius-panel); padding: 10px 14px; font-size: 14px; font-weight: 700;
+}
+.bar .muted { color: var(--panel-muted); font-weight: 500; }
+
+/* ---------- Vyřešené skupiny ---------- */
+.solved-list { display: flex; flex-direction: column; gap: 10px; }
+.group {
+  border-radius: var(--radius-panel); padding: 12px 14px;
+  display: flex; flex-direction: column; gap: 4px;
+  background: var(--gc); color: var(--gc-ink); box-shadow: 0 5px 0 var(--gc-shadow);
+  margin-bottom: 5px;
+}
+.group[data-d='1'] { --gc: var(--g1); --gc-ink: var(--g1-ink); --gc-shadow: var(--g1-shadow); }
+.group[data-d='2'] { --gc: var(--g2); --gc-ink: var(--g2-ink); --gc-shadow: var(--g2-shadow); }
+.group[data-d='3'] { --gc: var(--g3); --gc-ink: var(--g3-ink); --gc-shadow: var(--g3-shadow); }
+.group[data-d='4'] { --gc: var(--g4); --gc-ink: var(--g4-ink); --gc-shadow: var(--g4-shadow); }
+.group[data-d='5'] { --gc: var(--g5); --gc-ink: var(--g5-ink); --gc-shadow: var(--g5-shadow); outline: 2px solid var(--g5-outline); outline-offset: -2px; }
+.group-title { font-size: 13px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+.group-words { font-size: 16px; font-weight: 700; text-transform: uppercase; }
+.group-note { font-size: 13px; opacity: 0.9; }
+.group.revealed { opacity: 0.92; }
+
+/* ---------- Kostičky ---------- */
+.board { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.tile {
+  height: var(--tile-h, 74px); /* nastavuje game.js podle místa na displeji */
+  padding: 0 4px; border: none; border-radius: var(--radius-tile);
+  background: var(--tile); color: var(--ink); box-shadow: 0 5px 0 var(--tile-shadow);
+  font-weight: 700; font-size: 15px; line-height: 1.1; text-transform: uppercase;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+  margin-bottom: 5px;
+  transition: transform 80ms ease-out, box-shadow 80ms ease-out, background-color 80ms;
+  touch-action: manipulation;
+}
+.tile span { display: block; max-width: 100%; white-space: pre-line; word-break: keep-all; overflow-wrap: normal; }
+.tile[aria-pressed='true'] {
+  background: var(--selected); color: var(--selected-ink); font-weight: 800;
+  box-shadow: 0 2px 0 var(--selected-shadow); transform: translateY(3px);
+}
+
+/* ---------- Pokusy a ovládání ---------- */
+.attempts { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; background: var(--dot); }
+.dot.off { background: var(--dot-off); }
+
+.controls { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.secondary {
+  min-height: 46px; border-radius: 12px; border: 2px solid var(--line);
+  background: transparent; color: var(--text); font-weight: 700; font-size: 14px;
+}
+.primary {
+  min-height: 54px; border-radius: var(--radius-panel); border: none;
+  background: var(--primary); color: var(--primary-ink); box-shadow: 0 5px 0 var(--primary-shadow);
+  font-weight: 800; font-size: 17px; margin-bottom: 5px;
+}
+.primary:disabled, .secondary:disabled { opacity: 0.45; cursor: default; }
+
+/* hláška po odeslání */
+.message { min-height: 22px; text-align: center; font-weight: 700; font-size: 15px; }
+
+/* ---------- Konec hry ---------- */
+.end { display: flex; flex-direction: column; gap: 12px; text-align: center; }
+.end p { margin: 0; font-size: 17px; font-weight: 700; }
+
+/* ---------- Výběr hádanky ---------- */
+.home { display: flex; flex-direction: column; gap: 12px; }
+.home h2 { margin: 0; font-size: 20px; font-weight: 800; }
+.home .muted { margin: 0; color: var(--muted); font-size: 14px; }
+.puzzle-list { display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.puzzle-item {
+  width: 100%; min-height: 56px; border: none; border-radius: var(--radius-panel);
+  background: var(--tile); color: var(--ink); box-shadow: 0 5px 0 var(--tile-shadow);
+  padding: 10px 16px; margin-bottom: 5px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  font-size: 16px; font-weight: 800; text-align: left;
+}
+.puzzle-item .size { font-weight: 500; font-size: 14px; }
+
+/* ---------- Nastavení ---------- */
+dialog {
+  width: min(420px, calc(100vw - 32px)); border: none; border-radius: 18px; padding: 20px;
+  background: var(--felt); color: var(--text);
+}
+dialog::backdrop { background: rgba(0, 0, 0, 0.55); }
+dialog h2 { margin: 0 0 16px; font-size: 20px; font-weight: 800; }
+.setting { margin: 0 0 18px; padding: 0; border: none; }
+.setting legend { font-weight: 700; margin-bottom: 8px; padding: 0; }
+.choices { display: flex; flex-wrap: wrap; gap: 8px; }
+.choices .secondary { padding: 0 14px; }
+.choices .secondary[aria-pressed='true'] { background: var(--felt-light); border-color: var(--selected); }
+dialog .primary { width: 100%; }
+
+.notice { color: var(--muted); font-size: 13px; text-align: center; margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+.play { display: flex; flex-direction: column; gap: 14px; }
+.attempts-dots { display: flex; gap: 8px; }
