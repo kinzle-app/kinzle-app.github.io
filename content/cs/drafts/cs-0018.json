@@ -1,0 +1,55 @@
+{
+  "id": "cs-0018",
+  "language": "cs",
+  "size": 4,
+  "level": 4,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Části domu",
+      "difficulty": 1,
+      "words": [
+        "střecha",
+        "komín",
+        "sklep",
+        "zeď"
+      ],
+      "explanation": "Části, které má většina rodinných domů."
+    },
+    {
+      "title": "Dají se brousit",
+      "difficulty": 2,
+      "words": [
+        "nůž",
+        "diamant",
+        "sklo",
+        "brusle"
+      ],
+      "explanation": "Nabrousit nůž nebo brusle, vybrousit diamant, broušené sklo."
+    },
+    {
+      "title": "Mají kladívko",
+      "difficulty": 3,
+      "words": [
+        "klavír",
+        "budík",
+        "zvonek",
+        "ucho"
+      ],
+      "explanation": "V klavíru kladívka udeří do strun, mechanický budík a elektrický zvonek mají kladívko, které bije do zvonku, a ve středním uchu je sluchová kůstka kladívko."
+    },
+    {
+      "title": "Pozpátku se čtou stejně",
+      "difficulty": 4,
+      "words": [
+        "kajak",
+        "radar",
+        "rotor",
+        "krk"
+      ],
+      "explanation": "KAJAK, RADAR, ROTOR i KRK se čtou zepředu i pozpátku stejně. Krk a ucho jsou sice části těla, ale třetí v hádance není."
+    }
+  ]
+}

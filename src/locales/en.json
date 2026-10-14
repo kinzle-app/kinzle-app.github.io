@@ -221,6 +221,31 @@
       "other": "{count} stars"
     }
   },
+  "free": {
+    "title": "Free play",
+    "note": "Puzzles you've already finished on the Path, plus older daily puzzles. Replay them as often as you like.",
+    "filter": "Difficulty",
+    "all": "All",
+    "easy": "easy",
+    "medium": "medium",
+    "hard": "hard",
+    "pathLevel": "Path · level {n}",
+    "empty": "Nothing here yet. Levels you finish on the Path and older daily puzzles will appear here.",
+    "emptyFilter": "Nothing at this difficulty yet.",
+    "back": "Back to Free play"
+  },
+  "packs": {
+    "title": "Packs",
+    "empty": "Packs are on their way.",
+    "progress": "{done} of {total} solved",
+    "puzzle": "Puzzle {n}",
+    "locked": "Locked",
+    "back": "Back to pack"
+  },
+  "news": {
+    "kicker": "What's new",
+    "ok": "Let's play"
+  },
   "archive": {
     "title": "Archive",
     "note": "Older daily puzzles. They don’t count towards leaderboards.",

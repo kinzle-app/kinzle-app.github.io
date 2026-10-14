@@ -12,7 +12,12 @@
 - Statistiky a záloha postupu do souboru (export a import).
 - Cesta (Dějství I): herní plán kapitoly ve stylu Deskovky (SVG), úrovně se odemykají dohráním, hvězdy 1–3 jen jako odměna, po 3 neúspěších jde úroveň přeskočit, oddechové a mistrovské úrovně, ozdoba za kapitolu na všechny hvězdy.
 - Příběh: úvod dějství a kapitoly (s tlačítkem Přeskočit), konec kapitoly se střípkem o Praslovu, zápisník s vlastním tipem.
-- 1. kapitola „U kuchyňského stolu“ s prvními 5 schválenými úrovněmi.
+- 1. kapitola „U kuchyňského stolu“ s 10 schválenými úrovněmi.
+- Volná hra: dohrané úrovně Cesty a starší denní hádanky, filtr lehké / střední / těžké (zatím podle plánované úrovně).
+- Balíčky: seznam, postup v balíčku, připravený vzhled zamčeného balíčku, `entitlements.js` (zatím vše odemčené).
+- Okno „Co je nového“ podle `content/<jazyk>/news.json` (jednou po aktualizaci).
+- Obsah se stahuje z webu (`content/manifest.json`, jen změněné soubory) a použije se při dalším spuštění; zabalená kopie funguje offline.
+- Testovací režim `?debug`: posun data a času, simulace offline, odemčení Cesty, semínka, vynulování, repríza, „Co je nového“.
 
 ## 0.2.0 – Fáze 2: hratelnost (2026-10-14)
 

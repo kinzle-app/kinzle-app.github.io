@@ -243,6 +243,31 @@
       "other": "{count} hvězd"
     }
   },
+  "free": {
+    "title": "Volná hra",
+    "note": "Hádanky, které už máš za sebou na Cestě, a starší denní. Hraj je znovu, kolikrát chceš.",
+    "filter": "Obtížnost",
+    "all": "Vše",
+    "easy": "lehké",
+    "medium": "střední",
+    "hard": "těžké",
+    "pathLevel": "Cesta · úroveň {n}",
+    "empty": "Zatím tu nic není. Přibudou sem úrovně, které dohraješ na Cestě, a starší denní hádanky.",
+    "emptyFilter": "V téhle obtížnosti tu zatím nic není.",
+    "back": "Zpět na Volnou hru"
+  },
+  "packs": {
+    "title": "Balíčky",
+    "empty": "Balíčky se připravují.",
+    "progress": "{done} z {total} vyřešeno",
+    "puzzle": "Hádanka {n}",
+    "locked": "Zamčeno",
+    "back": "Zpět na balíček"
+  },
+  "news": {
+    "kicker": "Co je nového",
+    "ok": "Jdu hrát"
+  },
   "archive": {
     "title": "Archiv",
     "note": "Starší denní hádanky. Do žebříčku se nepočítají.",

@@ -9,7 +9,8 @@ import { h, icon } from './ui/dom.js';
 import { t, setLanguage, detectLanguage } from './services/i18n.js';
 import { getSettings, updateSettings } from './services/settings.js';
 import { isPersistent } from './services/storage.js';
-import { getPuzzle, puzzleLabel, dailySchedule, approvedById, currentAct } from './services/content.js';
+import { getPuzzle, puzzleLabel, dailySchedule, approvedById, currentAct, updateContent } from './services/content.js';
+import { isDebug, debugOptions } from './services/debug.js';
 import { getProgress, recordGame } from './services/progress.js';
 import { today } from './services/clock.js';
 import { dailyFor } from './game/daily.js';
@@ -26,6 +27,10 @@ import { renderStats } from './ui/stats.js';
 import { renderGame } from './ui/game.js';
 import { renderSettings } from './ui/settings.js';
 import { renderHelp } from './ui/help.js';
+import { renderFree, freeList } from './ui/free.js';
+import { renderPacks, renderPack, findPack } from './ui/packs.js';
+import { renderDebug } from './ui/debug.js';
+import { maybeShowNews, markNewsSeen } from './ui/news.js';
 
 const app = document.getElementById('app');
 let cleanup = null;
@@ -64,7 +69,8 @@ function header(isHome) {
     h('div', { class: 'brand' },
       !isHome && button('back', t('nav.back'), goBack),
       h('div', { class: 'logo', 'aria-hidden': 'true' }, h('span'), h('span'), h('span'), h('span')),
-      h('h1', {}, 'Kinzle')),
+      h('h1', {}, 'Kinzle'),
+      isDebug() && h('button', { class: 'debug-badge', onclick: () => navigate('#/debug') }, 'DEBUG')),
     h('div', { class: 'header-actions' },
       button('help', t('nav.help'), () => navigate('#/navod')),
       button('settings', t('nav.settings'), () => navigate('#/nastaveni')))
@@ -84,7 +90,10 @@ const finisher = (mode, date) => (game, seconds, score) => recordGame(createEntr
 // Obrazovky se záložkami Denní / Cesta / Více
 const TAB_SCREENS = { '#/': renderDaily, '#/cesta': renderPath, '#/vice': renderMore };
 // Další obrazovky s tlačítkem Zpět
-const SCREENS = { '#/archiv': renderArchive, '#/vacek': renderBag, '#/statistiky': renderStats, '#/zapisnik': renderNotebook };
+const SCREENS = {
+  '#/archiv': renderArchive, '#/vacek': renderBag, '#/statistiky': renderStats, '#/zapisnik': renderNotebook,
+  '#/volna': renderFree, '#/balicky': renderPacks
+};
 
 // Denní hádanka (dnešní) nebo starší z archivu: #/denni/YYYY-MM-DD
 function renderDailyGame(date) {
@@ -135,6 +144,38 @@ function renderPathGame(puzzleId) {
   });
 }
 
+// Hádanka z balíčku: #/balicek/<balíček>/<hádanka>
+function renderPackGame(packId, puzzleId) {
+  const pack = findPack(packId);
+  const index = pack ? pack.puzzles.findIndex((p) => p.id === puzzleId) : -1;
+  if (index < 0) {
+    location.replace('#/balicky');
+    return null;
+  }
+  return renderGame(app, {
+    puzzle: pack.puzzles[index],
+    label: `${pack.title} · ${index + 1}/${pack.puzzles.length}`,
+    navigate,
+    sessionKey: `pack:${puzzleId}`,
+    onFinish: finisher('pack', today()),
+    back: `#/balicek/${packId}`,
+    backLabel: t('packs.back')
+  });
+}
+
+// Volná hra (#/hra/<id>): z nabídky Volné hry se vrací do ní; návrhy a přímé odkazy na úvod
+function renderFreeGame(puzzle) {
+  const item = freeList().find((x) => x.puzzle.id === puzzle.id);
+  return renderGame(app, {
+    puzzle,
+    label: item ? item.label : puzzleLabel(puzzle),
+    navigate,
+    sessionKey: `free:${puzzle.id}`,
+    onFinish: finisher('free', today()),
+    ...(item && { back: '#/volna', backLabel: t('free.back') })
+  });
+}
+
 function render() {
   cleanup?.();
   cleanup = null;
@@ -145,6 +186,8 @@ function render() {
   const free = route.match(/^#\/hra\/([\w-]+)$/);
   const daily = route.match(/^#\/denni\/(\d{4}-\d{2}-\d{2})$/);
   const pathLevel = route.match(/^#\/cesta\/([\w-]+)$/);
+  const pack = route.match(/^#\/balicek\/([\w-]+)$/);
+  const packGame = route.match(/^#\/balicek\/([\w-]+)\/([\w-]+)$/);
   const puzzle = free && getPuzzle(free[1]);
 
   if (!settings.onboarded && route !== '#/navod') {
@@ -157,6 +200,7 @@ function render() {
       onDone: () => {
         if (!settings.onboarded) {
           settings = updateSettings({ onboarded: true });
+          markNewsSeen(); // nový hráč nepotřebuje novinky, uvidí až ty z další aktualizace
           location.replace('#/');
         } else goBack();
       }
@@ -170,17 +214,25 @@ function render() {
   } else if (pathLevel) {
     app.append(header(false));
     cleanup = renderPathGame(pathLevel[1]);
+  } else if (packGame) {
+    app.append(header(false));
+    cleanup = renderPackGame(packGame[1], packGame[2]);
+  } else if (pack) {
+    app.append(header(false));
+    renderPack(app, { navigate, id: pack[1] });
   } else if (puzzle) {
     app.append(header(false));
-    cleanup = renderGame(app, {
-      puzzle, label: puzzleLabel(puzzle), navigate, sessionKey: `free:${puzzle.id}`, onFinish: finisher('free', today())
-    });
+    cleanup = renderFreeGame(puzzle);
+  } else if (route === '#/debug' && isDebug()) {
+    app.append(header(false));
+    renderDebug(app);
   } else if (SCREENS[route]) {
     app.append(header(false));
     SCREENS[route](app, { navigate });
   } else {
     app.append(header(true));
     cleanup = (TAB_SCREENS[route] || renderDaily)(app, { navigate }) || null;
+    if (!TAB_SCREENS[route] || route === '#/') maybeShowNews();
   }
   if (!isPersistent()) app.append(h('p', { class: 'notice' }, t('app.storageWarning')));
   // nahoru jen při změně obrazovky, ne při překreslení (např. přepnutí v nastavení)
@@ -190,3 +242,6 @@ function render() {
 
 window.addEventListener('hashchange', render);
 render();
+
+// Novější obsah z webu se stáhne na pozadí a použije se při dalším spuštění
+if (!(isDebug() && debugOptions().offline)) updateContent();

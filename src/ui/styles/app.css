@@ -402,3 +402,22 @@ dialog .primary { width: 100%; }
   background: var(--tile); color: var(--ink); font: inherit; font-size: calc(16px * var(--fs)); resize: vertical;
 }
 .end-note { margin: 0; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 8px; }
+
+/* ---------- Balíčky, novinky, testovací režim ---------- */
+.pack-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.pack {
+  width: 100%; border: none; border-radius: var(--radius-panel); margin-bottom: 5px; padding: 14px 16px;
+  background: var(--tile); color: var(--ink); box-shadow: 0 5px 0 var(--tile-shadow);
+  display: flex; flex-direction: column; align-items: flex-start; gap: 4px; text-align: left; font-size: calc(15px * var(--fs));
+}
+.pack strong { font-size: calc(17px * var(--fs)); font-weight: 800; display: flex; align-items: center; gap: 4px; }
+.pack .muted { margin: 0; color: var(--ink); opacity: 0.75; }
+/* zamčený balíček (připravený vzhled, zatím se nepoužívá) */
+.pack[data-locked='true'] { background: var(--felt-light); color: var(--text); box-shadow: none; border: 2px dashed var(--line); cursor: default; }
+.pack[data-locked='true'] .muted { color: var(--text); }
+.pack-lock { display: inline-flex; align-items: center; gap: 4px; font-size: calc(13px * var(--fs)); font-weight: 700; }
+.news-list { margin: 0 0 8px; padding-left: 20px; line-height: 1.45; }
+.news-image { width: 100%; border-radius: 12px; margin-bottom: 8px; }
+.debug-badge { font-size: 11px; font-weight: 800; letter-spacing: 1px; padding: 2px 6px; border-radius: 6px; background: var(--selected); color: var(--selected-ink); border: none; }
+.debug-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.debug-row input, .debug-row select { min-height: 44px; padding: 0 10px; border-radius: 10px; border: 2px solid var(--line); background: var(--tile); color: var(--ink); font: inherit; }

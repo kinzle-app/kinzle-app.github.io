@@ -1,0 +1,55 @@
+{
+  "id": "cs-0017",
+  "language": "cs",
+  "size": 4,
+  "level": 3,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Listnaté stromy",
+      "difficulty": 1,
+      "words": [
+        "dub",
+        "buk",
+        "javor",
+        "lípa"
+      ],
+      "explanation": "Listnaté stromy, které rostou v českých lesích a parcích."
+    },
+    {
+      "title": "Slouží k měření",
+      "difficulty": 2,
+      "words": [
+        "metr",
+        "váha",
+        "teploměr",
+        "vodováha"
+      ],
+      "explanation": "Metr měří délku, váha hmotnost, teploměr teplotu a vodováha, jestli je něco vodorovně."
+    },
+    {
+      "title": "Mají závit",
+      "difficulty": 3,
+      "words": [
+        "šroub",
+        "vrut",
+        "matice",
+        "žárovka"
+      ],
+      "explanation": "Šroub, vrut i matice mají závit; žárovka se závitem zašroubuje do objímky."
+    },
+    {
+      "title": "Jedním z jejich významů je hudební pojem",
+      "difficulty": 4,
+      "words": [
+        "klíč",
+        "stupnice",
+        "takt",
+        "pomlka"
+      ],
+      "explanation": "Houslový klíč, durová stupnice, takt a pomlka v notách. Stupnice je i na teploměru, ale k měření neslouží sama."
+    }
+  ]
+}

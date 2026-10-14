@@ -1,1 +1,15 @@
-[]
+[
+  {
+    "id": "v-dilne",
+    "title": "V dílně",
+    "description": "Tři hádanky, které voní pilinami: nářadí, řemesla a pár slovních hříček.",
+    "price": 0,
+    "locked": false,
+    "draft": true,
+    "puzzles": [
+      "cs-0016",
+      "cs-0017",
+      "cs-0018"
+    ]
+  }
+]

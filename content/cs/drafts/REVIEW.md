@@ -2,6 +2,45 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
+## Várka 2026-10-14 (4) – ukázkový balíček „V dílně“
+
+Balíček v `packs.json` má `"draft": true`, takže je vidět jen ve vývojové verzi (Více → Balíčky). Po schválení příznak smažu.
+Popis balíčku: „Tři hádanky, které voní pilinami: nářadí, řemesla a pár slovních hříček.“
+
+### cs-0016 · 3×4 · úroveň 2 · balíček V dílně, hádanka 1
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Řemeslníci | truhlář, zedník, kovář, instalatér | Truhlář pracuje se dřevem, zedník staví zdi, kovář kuje železo, instalatér zavádí vodu a topení. |
+| ▲ 2 | Nářadí | kladivo, šroubovák, kleště, sekera | Ruční nářadí z každé dílny. |
+| ■ 3 | Mají zuby, ale nejsou živé | pila, hrábě, hřeben, zip | Pila, hrábě, hřeben i zip mají zuby (zoubky). |
+
+**Záludná slova:** PILA a HRÁBĚ jsou nářadí, ale do „Nářadí“ by pak chybělo ke čtyřem; zubaté věci jsou jen tyhle čtyři. Řemeslníci mají zuby taky, proto „ale nejsou živé“.
+**Slepý test:** vyřešil správně napoprvé, jiné rozdělení nenašel; pilu a hrábě sám označil jako hlavní past.
+
+### cs-0017 · 4×4 · úroveň 3 · balíček V dílně, hádanka 2
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Listnaté stromy | dub, buk, javor, lípa | Listnaté stromy z českých lesů a parků. |
+| ▲ 2 | Slouží k měření | metr, váha, teploměr, vodováha | Délka, hmotnost, teplota, vodorovnost. |
+| ■ 3 | Mají závit | šroub, vrut, matice, žárovka | Žárovka se závitem zašroubuje do objímky. |
+| ◆ 4 | Jedním z jejich významů je hudební pojem | klíč, stupnice, takt, pomlka | Houslový klíč, stupnice, takt, pomlka v notách. |
+
+**Záludná slova:** STUPNICE (je na teploměru, ale sama neměří), KLÍČ (maticový klíč patří k šroubům, ale závit nemá).
+**Slepý test:** vyřešil správně napoprvé; jako pasti uvedl klíč a stupnici, jiné rozdělení podle něj nevychází.
+
+### cs-0018 · 4×4 · úroveň 4 · balíček V dílně, hádanka 3
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Části domu | střecha, komín, sklep, zeď | Části většiny rodinných domů. |
+| ▲ 2 | Dají se brousit | nůž, diamant, sklo, brusle | Nabrousit nůž a brusle, vybrousit diamant, broušené sklo. |
+| ■ 3 | Mají kladívko | klavír, budík, zvonek, ucho | Kladívka v klavíru, kladívko v mechanickém budíku a elektrickém zvonku, sluchová kůstka kladívko. |
+| ◆ 4 | Pozpátku se čtou stejně | kajak, radar, rotor, krk | Slova, která se čtou zepředu i pozpátku stejně. |
+
+**Záludná slova:** KRK a UCHO (části těla, ale třetí v hádance není), ZVONEK a SKLO (jsou i u domu, ale dům má čtyři slova bez nich).
+**Slepý test:** vyřešil správně napoprvé, jiné rozdělení pro všech 16 slov nenašel.
+
+---
+
 ## Várka 2026-10-14 (3) – Cesta, 1. kapitola „U kuchyňského stolu“, úrovně 6–10
 
 Křivka obtížnosti: 4×4, 4×4, oddechová 3×4, 4×4 a mistrovská 5×4 na konec kapitoly.

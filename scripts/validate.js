@@ -15,7 +15,7 @@ export const MIN_DAYS_AHEAD = 14;
 const FOLDER_STATUS = { puzzles: ['approved', 'test'], drafts: ['draft'] };
 
 // Čistá funkce kvůli testům. puzzles = [{ file, lang, folder, data }]
-export function checkContent({ puzzles, daily, packs, locales, today, paths = {}, stories = {} }) {
+export function checkContent({ puzzles, daily, packs, locales, today, paths = {}, stories = {}, news = {} }) {
   const errors = [];
   const warnings = [];
   const summary = {};
@@ -32,10 +32,11 @@ export function checkContent({ puzzles, daily, packs, locales, today, paths = {}
   }
 
   // hádanka použitelná v rozpisu nebo balíčku: existuje, je schválená a ve správném jazyce
-  const usable = (id, lang, where) => {
+  // (návrh balíčku "draft": true smí obsahovat i návrhy – ukazuje se jen ve vývojové verzi)
+  const usable = (id, lang, where, allowDraft = false) => {
     const p = byId.get(id);
     if (!p) errors.push(`${where}: hádanka ${id} neexistuje`);
-    else if (p.status !== 'approved') errors.push(`${where}: hádanka ${id} není schválená (${p.status})`);
+    else if (p.status !== 'approved' && !(allowDraft && p.status === 'draft')) errors.push(`${where}: hádanka ${id} není schválená (${p.status})`);
     else if (p.language !== lang) errors.push(`${where}: hádanka ${id} je v jiném jazyce`);
     else return p;
     return null;
@@ -75,7 +76,26 @@ export function checkContent({ puzzles, daily, packs, locales, today, paths = {}
       if (typeof pack.price !== 'number') errors.push(`${where}: price musí být číslo`);
       if (typeof pack.locked !== 'boolean') errors.push(`${where}: locked musí být true/false`);
       if (!Array.isArray(pack.puzzles) || pack.puzzles.length === 0) errors.push(`${where}: prázdný seznam hádanek`);
-      else pack.puzzles.forEach((id) => usable(id, lang, where));
+      else pack.puzzles.forEach((id) => usable(id, lang, where, pack.draft === true));
+    }
+  }
+
+  // „Co je nového“: id, nadpis a 1–3 body
+  for (const [lang, list] of Object.entries(news)) {
+    if (!Array.isArray(list)) {
+      errors.push(`${lang}/news.json: musí být seznam`);
+      continue;
+    }
+    const ids = new Set();
+    for (const item of list) {
+      const where = `${lang}/news.json ${item?.id}`;
+      if (!item?.id || !item.title) errors.push(`${where}: chybí id nebo title`);
+      if (ids.has(item?.id)) errors.push(`${where}: id už existuje`);
+      ids.add(item?.id);
+      if (!Array.isArray(item?.items) || item.items.length < 1 || item.items.length > 3 || !item.items.every((x) => typeof x === 'string' && x)) {
+        errors.push(`${where}: items musí mít 1–3 texty`);
+      }
+      if (lang === 'cs' && JSON.stringify(item).includes('\\"')) errors.push(`${where}: rovné uvozovky, v češtině patří „takhle“`);
     }
   }
 
@@ -139,6 +159,7 @@ function loadAll(root = '.') {
   const packs = {};
   const paths = {};
   const stories = {};
+  const news = {};
   for (const lang of langs) {
     for (const folder of ['puzzles', 'drafts']) {
       const dir = join(contentDir, lang, folder);
@@ -158,12 +179,13 @@ function loadAll(root = '.') {
     packs[lang] = readJson(join(contentDir, lang, 'packs.json'), []);
     paths[lang] = readJson(join(contentDir, lang, 'path.json'), { acts: [] });
     stories[lang] = readJson(join(contentDir, lang, 'story.json'), {});
+    news[lang] = readJson(join(contentDir, lang, 'news.json'), []);
   }
   const locales = {};
   for (const name of readdirSync(join(root, 'src', 'locales'))) {
     locales[name.replace('.json', '')] = readJson(join(root, 'src', 'locales', name));
   }
-  return { puzzles, daily, packs, locales, paths, stories, today: pragueDate() };
+  return { puzzles, daily, packs, locales, paths, stories, news, today: pragueDate() };
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {

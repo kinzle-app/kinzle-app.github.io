@@ -86,6 +86,25 @@ describe('npm run validate', () => {
     expect(r.errors.join()).toMatch(/locked/);
     expect(r.errors.join()).toMatch(/není schválená/);
   });
+
+  it('návrh balíčku smí obsahovat návrhy hádanek', () => {
+    const r = checkContent(base({
+      puzzles: [puzzle('cs-0001', { status: 'draft' })],
+      packs: { cs: [{ id: 'kuchyne', title: 'K', description: 'D', price: 0, locked: false, draft: true, puzzles: ['cs-0001'] }] }
+    }));
+    expect(r.errors).toEqual([]);
+  });
+
+  it('„Co je nového“ má id, nadpis, 1–3 body a české uvozovky', () => {
+    const r = checkContent(base({ news: { cs: [
+      { id: 'a', title: 'T', items: ['1', '2', '3', '4'] },
+      { id: 'a', title: '', items: ['řekl "ahoj"'] }
+    ] } }));
+    expect(r.errors.join()).toMatch(/1–3 texty/);
+    expect(r.errors.join()).toMatch(/id už existuje/);
+    expect(r.errors.join()).toMatch(/chybí id nebo title/);
+    expect(r.errors.join()).toMatch(/rovné uvozovky/);
+  });
 });
 
 describe('kontrola textů', () => {

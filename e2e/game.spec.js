@@ -1,18 +1,20 @@
 // Klíčové průchody hrou na mobilu: návod, výhra, prohra, nápovědy, nastavení, tlačítko Zpět, malý displej.
 import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
+import { contentHash } from '../src/services/content-sync.js';
 
 const puzzle = (id) => JSON.parse(readFileSync(`content/${id.slice(0, 2)}/puzzles/${id}.json`, 'utf8'));
 const easy = puzzle('cs-0001');
+const news = JSON.parse(readFileSync('content/cs/news.json', 'utf8'));
 
 // Hráč, který už viděl návod; animace omezené, ať testy běží rychle
 async function setup(page, settings = {}) {
   await page.addInitScript((s) => {
     if (!sessionStorage.getItem('init')) {
-      localStorage.setItem('kinzle:settings', JSON.stringify({ lang: 'cs', onboarded: true, reduceMotion: true, ...s }));
+      localStorage.setItem('kinzle:settings', JSON.stringify({ lang: 'cs', onboarded: true, reduceMotion: true, newsSeen: { cs: s.news }, ...s }));
       sessionStorage.setItem('init', '1');
     }
-  }, settings);
+  }, { news: news[0]?.id, ...settings });
 }
 
 async function pick(page, words) {
@@ -161,4 +163,53 @@ test('Cesta: úvod příběhu, výhra za hvězdy, odemčení další úrovně, z
   await page.getByRole('button', { name: 'Zpět na Cestu' }).click();
   await expect(page.getByRole('button', { name: /Úroveň 1, .*dohráno/ })).toBeVisible();
   await expect(page.getByRole('button', { name: /Úroveň 2, .*na řadě/ })).toBeVisible();
+});
+
+test('Volná hra: dohraná úroveň Cesty a starší denní, filtr obtížnosti', async ({ page }) => {
+  await setup(page);
+  await page.clock.setFixedTime(new Date('2026-10-20T08:00:00Z'));
+  await page.goto('./#/cesta');
+  await page.getByRole('button', { name: 'Vyrazit' }).click();
+  await page.locator('.next').getByRole('button', { name: 'Hrát' }).click();
+  for (const g of puzzle('cs-0006').groups) await pick(page, g.words);
+  await expect(page.getByText('Získáváš 3 hvězdy')).toBeVisible();
+  await page.goto('./#/volna');
+  await expect(page.getByRole('button', { name: /Kinzle #1/ })).toBeVisible(); // včerejší denní
+  await expect(page.getByRole('button', { name: /Cesta · úroveň 1/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: /Cesta · úroveň 2/ })).toHaveCount(0); // ještě nedohraná
+  await page.getByRole('button', { name: 'těžké' }).click();
+  await expect(page.getByText('V téhle obtížnosti tu zatím nic není.')).toBeVisible();
+  await page.getByRole('button', { name: 'lehké' }).click();
+  await page.getByRole('button', { name: /Cesta · úroveň 1/ }).click();
+  await expect(page.locator('.tile')).toHaveCount(12);
+});
+
+test('Co je nového: ukáže se jednou, novému hráči až po další aktualizaci', async ({ page }) => {
+  await setup(page, { news: 'starší' });
+  await page.goto('./#/');
+  await expect(page.getByRole('heading', { name: news[0].title })).toBeVisible();
+  await page.getByRole('button', { name: 'Jdu hrát' }).click();
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await page.reload();
+  await expect(page.getByRole('button', { name: 'Denní' })).toBeVisible();
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+});
+
+test('obsah z webu: novější se stáhne a použije při dalším spuštění, bez internetu hra běží dál', async ({ page }) => {
+  await setup(page);
+  const changed = [{ ...news[0], id: 'web', title: 'Novinka z webu' }];
+  await page.route('**/content/manifest.json', async (route) => {
+    const manifest = await (await route.fetch()).json();
+    await route.fulfill({ json: { version: '9999', files: { ...manifest.files, 'cs/news.json': contentHash(changed) } } });
+  });
+  await page.route('**/content/cs/news.json', (route) => route.fulfill({ json: changed }));
+  await page.goto('./#/');
+  await expect(page.getByRole('button', { name: 'Denní' })).toBeVisible();
+  await expect(page.getByRole('dialog')).toHaveCount(0); // stažené se uprostřed hraní neprojeví
+  await expect.poll(() => page.evaluate(() => localStorage.getItem('kinzle:content'))).toContain('Novinka z webu');
+
+  await page.unrouteAll();
+  await page.route('**/content/**', (route) => route.abort()); // bez internetu
+  await page.reload();
+  await expect(page.getByRole('heading', { name: 'Novinka z webu' })).toBeVisible();
 });

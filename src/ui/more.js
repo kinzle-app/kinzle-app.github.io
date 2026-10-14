@@ -3,6 +3,7 @@ import { h } from './dom.js';
 import { t, getLanguage } from '../services/i18n.js';
 import { listPuzzles } from '../services/content.js';
 import { tabs } from './tabs.js';
+import { isDebug } from '../services/debug.js';
 
 export function renderMore(root, { navigate }) {
   const item = (hash, title, note) => h('li', {}, h('button', { class: 'menu-item', onclick: () => navigate(hash) },
@@ -12,9 +13,12 @@ export function renderMore(root, { navigate }) {
   root.append(h('div', { class: 'page' },
     h('h2', {}, t('more.title')),
     h('ul', { class: 'menu' },
+      item('#/volna', t('free.title')),
+      item('#/balicky', t('packs.title')),
       item('#/archiv', t('archive.title'), t('archive.note')),
       item('#/vacek', t('bag.title')),
-      item('#/statistiky', t('stats.title'))),
+      item('#/statistiky', t('stats.title')),
+      isDebug() && item('#/debug', 'Testovací režim')),
     drafts.length > 0 && h('h2', {}, t('more.drafts')),
     drafts.length > 0 && h('ul', { class: 'menu' }, drafts.map((p) => item(`#/hra/${p.id}`, p.id, t(`size.${p.size}`))))
   ), tabs('#/vice', navigate));

@@ -1,0 +1,44 @@
+{
+  "id": "cs-0016",
+  "language": "cs",
+  "size": 3,
+  "level": 2,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Řemeslníci",
+      "difficulty": 1,
+      "words": [
+        "truhlář",
+        "zedník",
+        "kovář",
+        "instalatér"
+      ],
+      "explanation": "Řemesla: truhlář pracuje se dřevem, zedník staví zdi, kovář kuje železo a instalatér zavádí vodu a topení."
+    },
+    {
+      "title": "Nářadí",
+      "difficulty": 2,
+      "words": [
+        "kladivo",
+        "šroubovák",
+        "kleště",
+        "sekera"
+      ],
+      "explanation": "Ruční nářadí, které najdeš v každé dílně."
+    },
+    {
+      "title": "Mají zuby, ale nejsou živé",
+      "difficulty": 3,
+      "words": [
+        "pila",
+        "hrábě",
+        "hřeben",
+        "zip"
+      ],
+      "explanation": "Pila, hrábě, hřeben i zip mají zuby (nebo zoubky). Pila a hrábě jsou sice taky nářadí, ale tady patří k zubatým."
+    }
+  ]
+}

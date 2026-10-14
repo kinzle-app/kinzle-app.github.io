@@ -15,7 +15,8 @@ const defaults = {
   reduceMotion: false,   // omezení animací navíc k systémovému nastavení
   colorblind: false,     // symboly skupin i na kostičkách s nápovědou
   fontSize: 'normal',
-  onboarded: false       // úvodní návod už viděl
+  onboarded: false,      // úvodní návod už viděl
+  newsSeen: {}           // poslední viděné „Co je nového“ pro každý jazyk ({ cs: id })
 };
 
 export function getSettings() {
