@@ -6,7 +6,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 
 Křivka obtížnosti: 4×4, 4×4, oddechová 3×4, 4×4 a mistrovská 5×4 na konec kapitoly.
 
-### cs-0011 · 4×4 · úroveň 3 · Cesta, kapitola 1, úroveň 6
+### cs-0011 · 4×4 · úroveň 3 · Cesta, kapitola 1, úroveň 6 · ✅ schváleno 2026-10-14
 
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
@@ -20,7 +20,7 @@ Křivka obtížnosti: 4×4, 4×4, oddechová 3×4, 4×4 a mistrovská 5×4 na ko
 
 ---
 
-### cs-0012 · 4×4 · úroveň 4 · Cesta, kapitola 1, úroveň 7
+### cs-0012 · 4×4 · úroveň 4 · Cesta, kapitola 1, úroveň 7 · ✅ schváleno 2026-10-14
 
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
@@ -36,7 +36,7 @@ Křivka obtížnosti: 4×4, 4×4, oddechová 3×4, 4×4 a mistrovská 5×4 na ko
 
 ---
 
-### cs-0013 · 3×4 · úroveň 2 · Cesta, kapitola 1, úroveň 8 (oddechová)
+### cs-0013 · 3×4 · úroveň 2 · Cesta, kapitola 1, úroveň 8 (oddechová) · ✅ schváleno 2026-10-14
 
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
@@ -49,7 +49,7 @@ Křivka obtížnosti: 4×4, 4×4, oddechová 3×4, 4×4 a mistrovská 5×4 na ko
 
 ---
 
-### cs-0014 · 4×4 · úroveň 4 · Cesta, kapitola 1, úroveň 9
+### cs-0014 · 4×4 · úroveň 4 · Cesta, kapitola 1, úroveň 9 · ✅ schváleno 2026-10-14
 
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
@@ -65,7 +65,7 @@ Křivka obtížnosti: 4×4, 4×4, oddechová 3×4, 4×4 a mistrovská 5×4 na ko
 
 ---
 
-### cs-0015 · 5×4 · úroveň 5 · Cesta, kapitola 1, úroveň 10 – mistrovská
+### cs-0015 · 5×4 · úroveň 5 · Cesta, kapitola 1, úroveň 10 – mistrovská · ✅ schváleno 2026-10-14
 
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
@@ -82,7 +82,7 @@ Křivka obtížnosti: 4×4, 4×4, oddechová 3×4, 4×4 a mistrovská 5×4 na ko
 
 ---
 
-## Příběh 1. kapitoly (návrh ke schválení)
+## Příběh 1. kapitoly · ✅ schváleno 2026-10-14
 
 Texty jsou v `content/cs/story.json`. Rozuzlení (co je Praslovo) v repozitáři není.
 
