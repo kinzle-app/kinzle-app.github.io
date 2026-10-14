@@ -4,7 +4,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 
 ## Várka 2026-10-14 (8) – denní hádanky ne 8. 11. – čt 12. 11.
 
-### cs-0034 · 5×4 · úroveň 3 · denní ne 8. 11.
+### cs-0034 · 5×4 · úroveň 3 · denní ne 8. 11. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Hmyz | mravenec, komár, beruška, moucha | |
@@ -17,7 +17,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 **Slepý test 1:** správně, ale „kočičí kašel“ neznal. **Opraveno:** KAŠEL → MYTÍ.
 **Slepý test 2:** správně, jiné úplné rozdělení nenašel.
 
-### cs-0035 · 4×4 · úroveň 1 · denní po 9. 11.
+### cs-0035 · 4×4 · úroveň 1 · denní po 9. 11. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Oblečení | tričko, sukně, mikina, šaty | |
@@ -29,7 +29,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 **Slepý test 1:** správně, ale ŠEK a KARTA jdou i „dárkové“ a daly se prohodit s poukazem. **Opraveno:** ŠEK, KARTA → HOTOVOST, KREDITKA.
 **Slepý test 2:** správně, jiné úplné rozdělení nenašel.
 
-### cs-0036 · 4×4 · úroveň 3 · denní út 10. 11.
+### cs-0036 · 4×4 · úroveň 3 · denní út 10. 11. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Bylinky | bazalka, petržel, kopr, pažitka | |
@@ -41,7 +41,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 **Slepý test 1:** správně kromě dvojice POKLADNA / PASAŽÉR – „černá pokladna“ i „pokladna na nádraží“ dávaly dvě řešení. **Opraveno:** POKLADNA → JÍZDENKA.
 **Slepý test 2:** správně, jiné úplné rozdělení nenašel.
 
-### cs-0037 · 4×4 · úroveň 3 · denní st 11. 11.
+### cs-0037 · 4×4 · úroveň 3 · denní st 11. 11. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Kovy | železo, měď, hliník, stříbro | |
@@ -52,7 +52,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 **Záludná slova:** STŘÍBRO (je to i město, ale kovy bez něj nemají čtyři slova).
 **Slepý test:** správně napoprvé, jiné úplné rozdělení nenašel.
 
-### cs-0038 · 4×4 · úroveň 3 · denní čt 12. 11.
+### cs-0038 · 4×4 · úroveň 3 · denní čt 12. 11. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Africká zvířata | žirafa, zebra, hroch, nosorožec | |
