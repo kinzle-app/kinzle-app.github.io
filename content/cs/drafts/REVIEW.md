@@ -4,7 +4,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 
 ## Várka 2026-10-14 (9) – denní hádanky pá 13. 11. – út 17. 11. (poslední česká)
 
-### cs-0039 · 4×4 · úroveň 4 · denní pá 13. 11.
+### cs-0039 · 4×4 · úroveň 4 · denní pá 13. 11. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Sýry | eidam, hermelín, niva, parmazán | |
@@ -15,7 +15,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 **Záludná slova:** ŠPIČKA a ŠIPKA (hrot), PODRÁŽKA a PODPATEK (začínají „pod“ jako „podat“).
 **Slepý test:** správně napoprvé, jiné úplné rozdělení nenašel.
 
-### cs-0040 · 5×4 · úroveň 4 · denní so 14. 11.
+### cs-0040 · 5×4 · úroveň 4 · denní so 14. 11. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Česká pohoří | Krkonoše, Šumava, Beskydy, Jeseníky | |
@@ -29,7 +29,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 **Slepý test 2:** správně, ale VĚNEC jde i nasadit na hlavu. **Opraveno:** VĚNEC → KOBEREC.
 **Slepý test 3:** správně, jiné úplné rozdělení nenašel.
 
-### cs-0041 · 5×4 · úroveň 4 · denní ne 15. 11.
+### cs-0041 · 5×4 · úroveň 4 · denní ne 15. 11. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Svátky v roce | Vánoce, Velikonoce, Silvestr, Dušičky | |
@@ -42,7 +42,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 **Slepý test 1:** správně, ale skupina „Dají se slavit“ (narozeniny, výročí…) se pletla se svátky. **Opraveno:** skupina → „Dá se jich dosáhnout“.
 **Slepý test 2:** správně, jiné úplné rozdělení nenašel.
 
-### cs-0042 · 4×4 · úroveň 1 · denní po 16. 11.
+### cs-0042 · 4×4 · úroveň 1 · denní po 16. 11. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Lesní zvířata | liška, jelen, srna, zajíc | |
@@ -53,7 +53,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 **Záludná slova:** KŮŇ a LODIČKA (vypadají jako hračky nebo zvíře).
 **Slepý test:** správně napoprvé, jiné úplné rozdělení nenašel.
 
-### cs-0043 · 4×4 · úroveň 2 · denní út 17. 11.
+### cs-0043 · 4×4 · úroveň 2 · denní út 17. 11. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Na obloze | slunce, měsíc, hvězda, duha | |
