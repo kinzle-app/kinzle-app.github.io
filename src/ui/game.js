@@ -141,7 +141,7 @@ export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.
     flip([...tiles.values()], () => {
       shuffleBoard(game);
       placeTiles();
-    }).then(() => (busy = false));
+    }).then(() => { busy = false; update({ keepTiles: true }); });
   }
 
   async function onSubmit() {
@@ -152,6 +152,7 @@ export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.
     if (result === RESULT.INCOMPLETE) return say(t('msg.pickFour'));
     if (result === RESULT.REPEAT) return say(t('msg.repeat'));
     busy = true;
+    update({ keepTiles: true });
 
     if (result === RESULT.CORRECT) {
       play('correct');
@@ -174,8 +175,8 @@ export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.
       await (oneAway ? bounce(chosen) : shake(chosen));
     }
 
-    update();
     busy = false;
+    update();
     if (game.status !== 'playing') finish();
     if (game.status === 'won') {
       timer.pause();
@@ -231,9 +232,10 @@ export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.
 
     const playing = game.status === 'playing';
     deselectBtn.disabled = !playing || game.selected.length === 0;
-    submitBtn.disabled = !playing || game.selected.length !== 4;
-    shuffleBtn.disabled = !playing;
-    hintBtn.disabled = !playing || !(canHint(game, 'title', SCORING.maxHints) || canHint(game, 'word', SCORING.maxHints));
+    // během animace jsou tlačítka viditelně neaktivní (stisk by se jinak tiše ztratil)
+    submitBtn.disabled = busy || !playing || game.selected.length !== 4;
+    shuffleBtn.disabled = busy || !playing;
+    hintBtn.disabled = busy || !playing || !(canHint(game, 'title', SCORING.maxHints) || canHint(game, 'word', SCORING.maxHints));
     updateBar();
   }
 
