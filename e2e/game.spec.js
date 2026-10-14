@@ -111,7 +111,7 @@ test('nastavení: angličtina a Denní stůl', async ({ page }) => {
 test('malý displej 320 px: nic nepřetéká a slova se neořezávají', async ({ page }) => {
   await setup(page);
   await page.setViewportSize({ width: 320, height: 640 });
-  for (const id of ['cs-0005', 'en-test-04', 'en-test-05']) {
+  for (const id of ['cs-0005', 'en-0002', 'cs-0040']) {
     await page.goto(`./#/hra/${id}`);
     await page.locator('.tile').first().waitFor();
     // počkat na písmo a přepočítání velikostí

@@ -5,7 +5,7 @@ Přehled je česky, hádanky a vysvětlení pro hráče anglicky. Slova jsou vyb
 
 ## Várka 2026-10-14 – první anglický denní týden (po–pá 19.–23. 10., 4×4, obtížnost stoupá)
 
-### en-0001 · 4×4 · úroveň 1 · denní po 19. 10.
+### en-0001 · 4×4 · úroveň 1 · denní po 19. 10. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Česky |
 |---|---|---|---|
 | ● 1 | Fruits | apple, banana, cherry, grape | ovoce |
@@ -16,7 +16,7 @@ Přehled je česky, hádanky a vysvětlení pro hráče anglicky. Slova jsou vyb
 **Záludná slova:** MEAT, CHERRY, APPLE (svádějí k „___ pie“ – čtvrtý koláč ale chybí).
 **Slepý test:** správně napoprvé, jiné úplné rozdělení nenašel.
 
-### en-0002 · 4×4 · úroveň 2 · denní út 20. 10.
+### en-0002 · 4×4 · úroveň 2 · denní út 20. 10. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Česky |
 |---|---|---|---|
 | ● 1 | Weather | rain, hail, fog, sleet | déšť, kroupy, mlha, plískanice |
@@ -27,7 +27,7 @@ Přehled je česky, hádanky a vysvětlení pro hráče anglicky. Slova jsou vyb
 **Záludná slova:** SHIP (k vodě), MACHINE (fog machine).
 **Slepý test:** správně napoprvé, jiné úplné rozdělení nenašel.
 
-### en-0003 · 4×4 · úroveň 3 · denní st 21. 10.
+### en-0003 · 4×4 · úroveň 3 · denní st 21. 10. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Česky |
 |---|---|---|---|
 | ● 1 | Musical instruments | violin, trumpet, flute, drum | nástroje |
@@ -38,7 +38,7 @@ Přehled je česky, hádanky a vysvětlení pro hráče anglicky. Slova jsou vyb
 **Záludná slova:** TEAL (je to i kachna čírka – ke zvířatům), SEAL (Navy SEAL), WORM, DRUM, MARK (earworm, eardrum, earmark – jen tři).
 **Slepý test:** správně napoprvé, jiné úplné rozdělení nenašel.
 
-### en-0004 · 4×4 · úroveň 4 · denní čt 22. 10.
+### en-0004 · 4×4 · úroveň 4 · denní čt 22. 10. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Česky |
 |---|---|---|---|
 | ● 1 | Vegetables | carrot, onion, pea, leek | zelenina |
@@ -49,7 +49,7 @@ Přehled je česky, hádanky a vysvětlení pro hráče anglicky. Slova jsou vyb
 **Záludná slova:** BRIDGE (karetní hra, ale zároveň název skupiny ■), CANINE (špičák – k zubům), ONION (vypadá, že skrývá ONE, ale neskrývá).
 **Slepý test:** správně napoprvé, jiné úplné rozdělení nenašel.
 
-### en-0005 · 4×4 · úroveň 4 · denní pá 23. 10.
+### en-0005 · 4×4 · úroveň 4 · denní pá 23. 10. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Česky |
 |---|---|---|---|
 | ● 1 | Trees | oak, maple, birch, willow | dub, javor, bříza, vrba |
