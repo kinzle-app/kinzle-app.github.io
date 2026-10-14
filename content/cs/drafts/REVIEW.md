@@ -4,7 +4,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 
 ## Várka 2026-10-14 (7) – denní hádanky út 3. 11. – so 7. 11.
 
-### cs-0029 · 4×4 · úroveň 2 · denní út 3. 11.
+### cs-0029 · 4×4 · úroveň 2 · denní út 3. 11. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Mořští savci | velryba, delfín, tuleň, mrož | |
@@ -15,7 +15,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 **Záludná slova:** OBRAZ, ZÁCLONA, KABÁT (věci z bytu, svádějí k místnostem).
 **Slepý test:** správně napoprvé, jiné rozdělení nenašel.
 
-### cs-0030 · 4×4 · úroveň 3 · denní st 4. 11.
+### cs-0030 · 4×4 · úroveň 3 · denní st 4. 11. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Lesní plody | malina, borůvka, ostružina, jahoda | |
@@ -26,7 +26,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 **Záludná slova:** šviHADlo, rekLAMA, tataRÁK svádějí ke skupině „schovává se v nich zvíře“ – čtvrté slovo ale chybí.
 **Slepý test:** správně napoprvé, past se schovanými zvířaty sám popsal jako férovou.
 
-### cs-0031 · 4×4 · úroveň 4 · denní čt 5. 11.
+### cs-0031 · 4×4 · úroveň 4 · denní čt 5. 11. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Měsíce | leden, březen, duben, srpen | |
@@ -37,7 +37,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 **Záludná slova:** SRDCE (dá se rozbít), DUBEN – ŽALUD – LIST (vše od dubu).
 **Slepý test:** správně napoprvé, jiné rozdělení nenašel.
 
-### cs-0032 · 4×4 · úroveň 4 · denní pá 6. 11.
+### cs-0032 · 4×4 · úroveň 4 · denní pá 6. 11. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Těstoviny | špagety, nudle, kolínka, mušličky | |
@@ -48,7 +48,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 **Záludná slova:** OMÁČKA (taky začíná na O jako řeky), PŘÍKOP (k silnici jako zatáčka).
 **Slepý test:** správně napoprvé; podle řešitele spíš lehčí, proto úroveň 4 (ne 5).
 
-### cs-0033 · 5×4 · úroveň 5 · denní so 7. 11.
+### cs-0033 · 5×4 · úroveň 5 · denní so 7. 11. · ✅ schváleno 2026-10-14
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Psací potřeby | tužka, pero, fix, křída | |
