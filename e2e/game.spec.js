@@ -190,6 +190,7 @@ test('Co je nového: ukáže se jednou, novému hráči až po další aktualiza
   await expect(page.getByRole('heading', { name: news[0].title })).toBeVisible();
   await page.getByRole('button', { name: 'Jdu hrát' }).click();
   await expect(page.getByRole('dialog')).toHaveCount(0);
+  await page.waitForFunction(() => !history.state?.modal); // zavření okna vrací krok v historii
   await page.reload();
   await expect(page.getByRole('button', { name: 'Denní' })).toBeVisible();
   await expect(page.getByRole('dialog')).toHaveCount(0);
