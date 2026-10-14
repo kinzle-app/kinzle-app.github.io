@@ -2,6 +2,69 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
+## Várka 2026-10-14 (6) – denní hádanky čt 29. 10. – po 2. 11.
+
+Nové typy skupin, aby se neopakovalo „Dají se doplnit slovem…“ a „Schovává se v nich…“: přirovnání, rčení, slova bez čárky, přidané a vynechané písmeno.
+
+### cs-0024 · 4×4 · úroveň 3 · denní čt 29. 10.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Kontinenty | Evropa, Asie, Afrika, Austrálie | |
+| ▲ 2 | Zvířecí obydlí | úl, nora, hnízdo, brloh | |
+| ■ 3 | Mají bubliny | minerálka, šampaňské, pivo, komiks | Komiks má bubliny s textem. |
+| ◆ 4 | Zvířata ze známých přirovnání | ryba, býk, vlk, včela | Zdravý jako ryba, silný jako býk, hladový jako vlk, pilný jako včela. |
+
+**Záludná slova:** VČELA (k úlu), RYBA (vypouští bubliny – ale komiks jinam nepatří).
+**Slepý test:** správně napoprvé, jiné rozdělení nenašel.
+
+### cs-0025 · 4×4 · úroveň 5 · denní pá 30. 10.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Části jízdního kola | sedlo, pedál, řídítka, řetěz | |
+| ▲ 2 | Karetní hry | prší, žolíky, poker, mariáš | |
+| ■ 3 | Dají se složit | zkouška, deštník, prádlo, báseň | Pokaždé jiný význam slova „složit“. |
+| ◆ 4 | Bez čárky z nich vznikne jiné slovo | lék, vír, pás, být | LEK, VIR, PAS, BYT. |
+
+**Záludná slova:** PRŠÍ (vypadá jako počasí k deštníku), LÉK („složit lék“ jen volně).
+**Slepý test:** správně napoprvé, jiné rozdělení nenašel.
+
+### cs-0026 · 5×4 · úroveň 4 · denní so 31. 10.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Tropické ovoce | ananas, mango, kokos, avokádo | |
+| ▲ 2 | Najdeš je na silnici | přechod, semafor, chodník, křižovatka | |
+| ■ 3 | Dá se v nich bydlet | stan, karavan, iglú, maringotka | |
+| ◆ 4 | Na konci se v nich schovává číslovka | místo, těsto, zpět, opět | míSTO, těSTO, zPĚT, oPĚT. |
+| ★ 5 | Přidáním S na začátek vznikne jiné slovo | nít, tát, měna, mysl | SNÍT, STÁT, SMĚNA, SMYSL. |
+
+**Záludná slova:** STAN (začíná na S, ale „tan“ není slovo), MÍSTO (místo pro chodce).
+**Slepý test:** správně napoprvé, jiné rozdělení nenašel.
+
+### cs-0027 · 5×4 · úroveň 3 · denní ne 1. 11.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Části obličeje | čelo, tvář, brada, obočí | |
+| ▲ 2 | Najdeš je na dětském hřišti | klouzačka, houpačka, prolézačka, pískoviště | |
+| ■ 3 | Dají se vést | deník, rozhovor, válka, pes | |
+| ◆ 4 | Hodí se v rčeních | flinta, ručník, rukavice, oko | Hodit flintu do žita, ručník do ringu, rukavici, hodit okem. |
+| ★ 5 | Bez prvního písmene z nich vznikne jiné slovo | brána, škola, krám, tvar | RÁNA, KOLA, RÁM, VAR. |
+
+**Záludná slova:** OKO (část obličeje), BRADA (bez B je RADA), ŠKOLA a KRÁM (dají se vést).
+**Slepý test:** správně napoprvé; zkoušel prohodit oko a bradu, ale pak „Hodí se v rčeních“ nemá čtvrté slovo – řešení je jediné.
+
+### cs-0028 · 4×4 · úroveň 1 · denní po 2. 11.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Dopravní prostředky | autobus, tramvaj, vlak, metro | |
+| ▲ 2 | Povolání | kuchař, hasič, pekař, zahradník | |
+| ■ 3 | Dají se upéct | koláč, dort, perník, kuře | |
+| ◆ 4 | Název mají podle barvy | žloutek, zelenina, modřina, červenka | |
+
+**Záludná slova:** PEKAŘ (k pečení), KUŘE a ŽLOUTEK (k vajíčku).
+**Slepý test:** správně napoprvé; kuře mezi pečením mu připadalo nejslabší, proto název zní „Dají se upéct“ (ne „sladké pečivo“).
+
+---
+
 ## Várka 2026-10-14 (5) – denní hádanky so 24. 10. – st 28. 10.
 
 Víkendový speciál 5×4 (so, ne), pak pondělí až středa podle rytmu týdne. Po schválení je zapíšu do `daily.json`.

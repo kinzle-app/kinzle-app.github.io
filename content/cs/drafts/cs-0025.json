@@ -1,0 +1,55 @@
+{
+  "id": "cs-0025",
+  "language": "cs",
+  "size": 4,
+  "level": 5,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Části jízdního kola",
+      "difficulty": 1,
+      "words": [
+        "sedlo",
+        "pedál",
+        "řídítka",
+        "řetěz"
+      ],
+      "explanation": "Části, které má každé jízdní kolo."
+    },
+    {
+      "title": "Karetní hry",
+      "difficulty": 2,
+      "words": [
+        "prší",
+        "žolíky",
+        "poker",
+        "mariáš"
+      ],
+      "explanation": "Hry s kartami. Prší je zároveň tvar slovesa pršet."
+    },
+    {
+      "title": "Dají se složit",
+      "difficulty": 3,
+      "words": [
+        "zkouška",
+        "deštník",
+        "prádlo",
+        "báseň"
+      ],
+      "explanation": "Složit zkoušku, deštník, prádlo i báseň – pokaždé v jiném významu."
+    },
+    {
+      "title": "Bez čárky z nich vznikne jiné slovo",
+      "difficulty": 4,
+      "words": [
+        "lék",
+        "vír",
+        "pás",
+        "být"
+      ],
+      "explanation": "LÉK → LEK (úlek), VÍR → VIR, PÁS → PAS, BÝT → BYT."
+    }
+  ]
+}

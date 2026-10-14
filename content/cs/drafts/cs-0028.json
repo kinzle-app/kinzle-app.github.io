@@ -1,0 +1,55 @@
+{
+  "id": "cs-0028",
+  "language": "cs",
+  "size": 4,
+  "level": 1,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Dopravní prostředky",
+      "difficulty": 1,
+      "words": [
+        "autobus",
+        "tramvaj",
+        "vlak",
+        "metro"
+      ],
+      "explanation": "Hromadná doprava."
+    },
+    {
+      "title": "Povolání",
+      "difficulty": 2,
+      "words": [
+        "kuchař",
+        "hasič",
+        "pekař",
+        "zahradník"
+      ],
+      "explanation": "Povolání, která zná každé dítě."
+    },
+    {
+      "title": "Dají se upéct",
+      "difficulty": 3,
+      "words": [
+        "koláč",
+        "dort",
+        "perník",
+        "kuře"
+      ],
+      "explanation": "Koláč, dort, perník i kuře se pečou v troubě. Pekař peče taky, ale to je povolání."
+    },
+    {
+      "title": "Název mají podle barvy",
+      "difficulty": 4,
+      "words": [
+        "žloutek",
+        "zelenina",
+        "modřina",
+        "červenka"
+      ],
+      "explanation": "Žloutek je žlutý, zelenina zelená, modřina modrá a červenka má červenou hruď."
+    }
+  ]
+}

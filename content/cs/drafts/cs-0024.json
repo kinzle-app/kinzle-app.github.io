@@ -1,0 +1,55 @@
+{
+  "id": "cs-0024",
+  "language": "cs",
+  "size": 4,
+  "level": 3,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Kontinenty",
+      "difficulty": 1,
+      "words": [
+        "Evropa",
+        "Asie",
+        "Afrika",
+        "Austrálie"
+      ],
+      "explanation": "Čtyři ze sedmi kontinentů."
+    },
+    {
+      "title": "Zvířecí obydlí",
+      "difficulty": 2,
+      "words": [
+        "úl",
+        "nora",
+        "hnízdo",
+        "brloh"
+      ],
+      "explanation": "Úl včel, nora lišky nebo králíka, ptačí hnízdo a medvědí brloh."
+    },
+    {
+      "title": "Mají bubliny",
+      "difficulty": 3,
+      "words": [
+        "minerálka",
+        "šampaňské",
+        "pivo",
+        "komiks"
+      ],
+      "explanation": "Perlivé nápoje mají bublinky, komiks má bubliny s textem."
+    },
+    {
+      "title": "Zvířata ze známých přirovnání",
+      "difficulty": 4,
+      "words": [
+        "ryba",
+        "býk",
+        "vlk",
+        "včela"
+      ],
+      "explanation": "Zdravý jako ryba, silný jako býk, hladový jako vlk, pilný jako včela."
+    }
+  ]
+}

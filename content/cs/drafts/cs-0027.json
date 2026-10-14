@@ -1,0 +1,66 @@
+{
+  "id": "cs-0027",
+  "language": "cs",
+  "size": 5,
+  "level": 3,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Části obličeje",
+      "difficulty": 1,
+      "words": [
+        "čelo",
+        "tvář",
+        "brada",
+        "obočí"
+      ],
+      "explanation": "Části lidského obličeje."
+    },
+    {
+      "title": "Najdeš je na dětském hřišti",
+      "difficulty": 2,
+      "words": [
+        "klouzačka",
+        "houpačka",
+        "prolézačka",
+        "pískoviště"
+      ],
+      "explanation": "Herní prvky dětských hřišť."
+    },
+    {
+      "title": "Dají se vést",
+      "difficulty": 3,
+      "words": [
+        "deník",
+        "rozhovor",
+        "válka",
+        "pes"
+      ],
+      "explanation": "Vést deník, rozhovor, válku a psa na vodítku."
+    },
+    {
+      "title": "Hodí se v rčeních",
+      "difficulty": 4,
+      "words": [
+        "flinta",
+        "ručník",
+        "rukavice",
+        "oko"
+      ],
+      "explanation": "Hodit flintu do žita (vzdát to), hodit ručník do ringu (vzdát zápas), hodit rukavici (vyzvat) a hodit okem (podívat se). Oko je i část obličeje, ale ta skupina má čtyři slova bez něj."
+    },
+    {
+      "title": "Bez prvního písmene z nich vznikne jiné slovo",
+      "difficulty": 5,
+      "words": [
+        "brána",
+        "škola",
+        "krám",
+        "tvar"
+      ],
+      "explanation": "bRÁNA → RÁNA, šKOLA → KOLA, kRÁM → RÁM, tVAR → VAR. Z brady by vznikla rada, ale brada patří k obličeji."
+    }
+  ]
+}

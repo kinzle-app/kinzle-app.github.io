@@ -1,0 +1,66 @@
+{
+  "id": "cs-0026",
+  "language": "cs",
+  "size": 5,
+  "level": 4,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Tropické ovoce",
+      "difficulty": 1,
+      "words": [
+        "ananas",
+        "mango",
+        "kokos",
+        "avokádo"
+      ],
+      "explanation": "Plody, které rostou v teplých krajích."
+    },
+    {
+      "title": "Najdeš je na silnici",
+      "difficulty": 2,
+      "words": [
+        "přechod",
+        "semafor",
+        "chodník",
+        "křižovatka"
+      ],
+      "explanation": "Přechod pro chodce, semafor, chodník podél silnice a křižovatka."
+    },
+    {
+      "title": "Dá se v nich bydlet",
+      "difficulty": 3,
+      "words": [
+        "stan",
+        "karavan",
+        "iglú",
+        "maringotka"
+      ],
+      "explanation": "Obydlí, která nejsou zděný dům."
+    },
+    {
+      "title": "Na konci se v nich schovává číslovka",
+      "difficulty": 4,
+      "words": [
+        "místo",
+        "těsto",
+        "zpět",
+        "opět"
+      ],
+      "explanation": "míSTO, těSTO, zPĚT, oPĚT."
+    },
+    {
+      "title": "Přidáním S na začátek vznikne jiné slovo",
+      "difficulty": 5,
+      "words": [
+        "nít",
+        "tát",
+        "měna",
+        "mysl"
+      ],
+      "explanation": "SNÍT, STÁT, SMĚNA, SMYSL."
+    }
+  ]
+}
