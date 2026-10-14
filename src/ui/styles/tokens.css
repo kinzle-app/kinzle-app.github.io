@@ -36,6 +36,11 @@
   --star: #F2C46B;
   --star-off: #3B5A4A;
 
+  /* herní plán Cesty */
+  --map: #183024;
+  --track: #2F5442;
+  --track-dash: #4C6B5B;
+
   /* barvy skupin podle obtížnosti (stejné na obou stolech) */
   --g1: #9CC59A; --g1-ink: #1F2A1E; --g1-shadow: #6F9A6D;   /* ● šalvěj */
   --g2: #E07A4F; --g2-ink: #2B140A; --g2-shadow: #A9502E;   /* ▲ terakota */
@@ -74,6 +79,10 @@
 
   --star: #C98A1E;
   --star-off: #D9D2BF;
+
+  --map: #EAE4D3;
+  --track: #E7E0CE;
+  --track-dash: #BDB49B;
 
   --g5-outline: transparent;
 }

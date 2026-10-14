@@ -180,7 +180,68 @@
     "drafts": "Návrhy ke schválení (jen ve vývojové verzi)"
   },
   "path": {
-    "soon": "Cesta po herním plánu se připravuje a přibude v příští verzi."
+    "soon": "Cesta po herním plánu se připravuje a přibude v příští verzi.",
+    "chapter": "Kapitola {n}",
+    "nextSoon": "další „{title}“ přibude brzy",
+    "prev": "Předchozí kapitola",
+    "next": "Další kapitola",
+    "progress": "{done} z {total} dokončeno",
+    "skippedCount": {
+      "one": "{count} přeskočená",
+      "few": "{count} přeskočené",
+      "many": "{count} přeskočené",
+      "other": "{count} přeskočených"
+    },
+    "starsNote": "hvězdy postup nezamykají",
+    "notebook": {
+      "one": "Zápisník · {count} střípek",
+      "few": "Zápisník · {count} střípky",
+      "many": "Zápisník · {count} střípku",
+      "other": "Zápisník · {count} střípků"
+    },
+    "perfect": "Kapitola na všechny hvězdy",
+    "levelAria": "Úroveň {n}, {size}, {state}",
+    "state": {
+      "done": "dohráno",
+      "skipped": "přeskočeno",
+      "current": "na řadě",
+      "open": "odemčeno",
+      "locked": "zamčeno"
+    },
+    "rest": "oddechovka",
+    "master": "mistrovská",
+    "info": {
+      "done": "{size} · znovu kvůli hvězdám, kdykoli chceš",
+      "skipped": "Přeskočeno · vrať se, kdy chceš",
+      "current": "{size}",
+      "locked": "Odemkne se dohráním předchozí úrovně"
+    },
+    "again": "Znovu",
+    "try": "Zkusit",
+    "play": "Hrát",
+    "locked": "Zamčeno",
+    "level": "Úroveň {n}",
+    "skip": "Přeskočit a vrátit se později",
+    "chapterDone": "Kapitola dokončena",
+    "shard": "Střípek o Praslovu",
+    "openNotebook": "Otevřít zápisník",
+    "continue": "Pokračovat",
+    "start": "Vyrazit",
+    "skipStory": "Přeskočit",
+    "back": "Zpět na Cestu",
+    "earned": {
+      "one": "Získáváš {count} hvězdu",
+      "few": "Získáváš {count} hvězdy",
+      "many": "Získáváš {count} hvězdy",
+      "other": "Získáváš {count} hvězd"
+    },
+    "notYet": "Úroveň zkus znovu, kdykoli chceš.",
+    "starsLabel": {
+      "one": "{count} hvězda",
+      "few": "{count} hvězdy",
+      "many": "{count} hvězdy",
+      "other": "{count} hvězd"
+    }
   },
   "archive": {
     "title": "Archiv",
@@ -209,5 +270,13 @@
     "importWarning": "Postup a nastavení v tomto zařízení se nahradí obsahem zálohy.",
     "importConfirm": "Obnovit",
     "cancel": "Zrušit"
+  },
+  "notebook": {
+    "title": "Zápisník",
+    "intro": "Střípky o Praslovu, které jsi našel na Cestě. Zapiš si, co si myslíš, že Praslovo je – nic se nehodnotí.",
+    "empty": "Zatím žádný střípek. První najdeš na konci 1. kapitoly.",
+    "tip": "Můj tip",
+    "placeholder": "Myslím, že Praslovo je…",
+    "saved": "Uloženo"
   }
 }

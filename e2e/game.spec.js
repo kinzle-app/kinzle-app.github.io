@@ -146,3 +146,19 @@ test('denní hádanka: jednou denně, výsledek, váček a archiv', async ({ pag
   await page.goto('./#/archiv');
   await expect(page.getByRole('button', { name: /Kinzle #1/ })).toContainText('✓'); // odehraná, s body
 });
+
+test('Cesta: úvod příběhu, výhra za hvězdy, odemčení další úrovně, zamčená úroveň', async ({ page }) => {
+  await setup(page);
+  const first = puzzle('cs-0006');
+  await page.goto('./#/cesta/cs-0007'); // zamčená úroveň → zpět na plán
+  await expect(page).toHaveURL(/#\/cesta$/);
+  await expect(page.getByRole('heading', { name: 'U kuchyňského stolu' })).toBeVisible(); // úvod kapitoly
+  await page.getByRole('button', { name: 'Vyrazit' }).click();
+  await expect(page.getByRole('button', { name: /Úroveň 1, .*na řadě/ })).toBeVisible();
+  await page.locator('.next').getByRole('button', { name: 'Hrát' }).click();
+  for (const g of first.groups) await pick(page, g.words);
+  await expect(page.getByText('Získáváš 3 hvězdy')).toBeVisible();
+  await page.getByRole('button', { name: 'Zpět na Cestu' }).click();
+  await expect(page.getByRole('button', { name: /Úroveň 1, .*dohráno/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: /Úroveň 2, .*na řadě/ })).toBeVisible();
+});

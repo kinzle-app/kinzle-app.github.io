@@ -28,8 +28,9 @@ export function hasSession(key) {
 }
 
 // onFinish(game, seconds, score) se zavolá jednou po konci hry a vrátí počet nových semínek.
-// again = jde hrát znovu (denní hádanka jen jednou).
-export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.id, onFinish, again = true }) {
+// again = jde hrát znovu (denní hádanka jen jednou); back = kam vede tlačítko Zpět na konci;
+// endNote(game) = doplňující řádek na konci hry (např. hvězdy na Cestě).
+export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.id, onFinish, again = true, back = '#/', backLabel, endNote }) {
   if (!sessions.has(sessionKey)) sessions.set(sessionKey, { game: createGame(puzzle), timer: createTimer(), finished: false, seedsAdded: 0 });
   const session = sessions.get(sessionKey);
   const { game, timer } = session;
@@ -349,6 +350,7 @@ export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.
         line('score.clean', score.clean),
         line('score.mistakes', score.mistakes, true),
         line('score.hints', score.hints, true)),
+      endNote && h('p', { class: 'end-note' }, endNote(game)),
       session.seedsAdded > 0 && h('p', { class: 'seeds-note' }, t('end.seeds', { count: session.seedsAdded })),
       won && h('button', { class: 'primary', onclick: () => onShare(score.total, seconds, shareNote) }, t('end.share')),
       won && shareNote,
@@ -356,7 +358,7 @@ export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.
         class: won ? 'secondary' : 'primary',
         onclick: () => { sessions.delete(sessionKey); navigate(location.hash); }
       }, t('end.again')),
-      h('button', { class: again || won ? 'secondary' : 'primary', onclick: () => navigate('#/') }, t('end.back'))
+      h('button', { class: again || won ? 'secondary' : 'primary', onclick: () => navigate(back) }, backLabel || t('end.back'))
     );
     playArea.replaceChildren(end);
     if (fresh) {

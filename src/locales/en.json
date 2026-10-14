@@ -166,7 +166,60 @@
     "drafts": "Drafts awaiting approval (development build only)"
   },
   "path": {
-    "soon": "The Journey board is being built and arrives in the next version."
+    "soon": "The Journey board is being built and arrives in the next version.",
+    "chapter": "Chapter {n}",
+    "nextSoon": "“{title}” coming soon",
+    "prev": "Previous chapter",
+    "next": "Next chapter",
+    "progress": "{done} of {total} done",
+    "skippedCount": {
+      "one": "{count} skipped",
+      "other": "{count} skipped"
+    },
+    "starsNote": "stars never lock progress",
+    "notebook": {
+      "one": "Notebook · {count} fragment",
+      "other": "Notebook · {count} fragments"
+    },
+    "perfect": "Chapter with every star",
+    "levelAria": "Level {n}, {size}, {state}",
+    "state": {
+      "done": "completed",
+      "skipped": "skipped",
+      "current": "up next",
+      "open": "unlocked",
+      "locked": "locked"
+    },
+    "rest": "breather",
+    "master": "master level",
+    "info": {
+      "done": "{size} · replay for stars any time",
+      "skipped": "Skipped · come back whenever you like",
+      "current": "{size}",
+      "locked": "Unlocks when you finish the previous level"
+    },
+    "again": "Replay",
+    "try": "Try",
+    "play": "Play",
+    "locked": "Locked",
+    "level": "Level {n}",
+    "skip": "Skip for now and come back later",
+    "chapterDone": "Chapter complete",
+    "shard": "A fragment of the First Word",
+    "openNotebook": "Open notebook",
+    "continue": "Continue",
+    "start": "Set off",
+    "skipStory": "Skip",
+    "back": "Back to the Journey",
+    "earned": {
+      "one": "You earn {count} star",
+      "other": "You earn {count} stars"
+    },
+    "notYet": "Try the level again whenever you like.",
+    "starsLabel": {
+      "one": "{count} star",
+      "other": "{count} stars"
+    }
   },
   "archive": {
     "title": "Archive",
@@ -193,5 +246,13 @@
     "importWarning": "Progress and settings on this device will be replaced by the backup.",
     "importConfirm": "Restore",
     "cancel": "Cancel"
+  },
+  "notebook": {
+    "title": "Notebook",
+    "intro": "Fragments of the First Word you found on the Journey. Write down what you think it is – nothing is graded.",
+    "empty": "No fragments yet. You’ll find the first at the end of chapter 1.",
+    "tip": "My guess",
+    "placeholder": "I think the First Word is…",
+    "saved": "Saved"
   }
 }

@@ -10,6 +10,9 @@
 - Historie her se schématem verze; poškozená data hru neshodí.
 - Váček se semínky: každá vyřešená skupina = semínko, čistá hra = vzácné ✦.
 - Statistiky a záloha postupu do souboru (export a import).
+- Cesta (Dějství I): herní plán kapitoly ve stylu Deskovky (SVG), úrovně se odemykají dohráním, hvězdy 1–3 jen jako odměna, po 3 neúspěších jde úroveň přeskočit, oddechové a mistrovské úrovně, ozdoba za kapitolu na všechny hvězdy.
+- Příběh: úvod dějství a kapitoly (s tlačítkem Přeskočit), konec kapitoly se střípkem o Praslovu, zápisník s vlastním tipem.
+- 1. kapitola „U kuchyňského stolu“ s prvními 5 schválenými úrovněmi.
 
 ## 0.2.0 – Fáze 2: hratelnost (2026-10-14)
 

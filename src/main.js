@@ -9,7 +9,7 @@ import { h, icon } from './ui/dom.js';
 import { t, setLanguage, detectLanguage } from './services/i18n.js';
 import { getSettings, updateSettings } from './services/settings.js';
 import { isPersistent } from './services/storage.js';
-import { getPuzzle, puzzleLabel, dailySchedule, approvedById } from './services/content.js';
+import { getPuzzle, puzzleLabel, dailySchedule, approvedById, currentAct } from './services/content.js';
 import { getProgress, recordGame } from './services/progress.js';
 import { today } from './services/clock.js';
 import { dailyFor } from './game/daily.js';
@@ -17,7 +17,8 @@ import { createEntry, dailyEntry } from './game/progress.js';
 import { FEEL } from './config/feel.js';
 import { applySettings } from './ui/prefs.js';
 import { renderDaily } from './ui/daily.js';
-import { renderPath } from './ui/path.js';
+import { renderPath, renderNotebook, starsSvg } from './ui/path.js';
+import { starsFor, actState } from './game/path.js';
 import { renderMore } from './ui/more.js';
 import { renderArchive } from './ui/archive.js';
 import { renderBag } from './ui/bag.js';
@@ -83,7 +84,7 @@ const finisher = (mode, date) => (game, seconds, score) => recordGame(createEntr
 // Obrazovky se záložkami Denní / Cesta / Více
 const TAB_SCREENS = { '#/': renderDaily, '#/cesta': renderPath, '#/vice': renderMore };
 // Další obrazovky s tlačítkem Zpět
-const SCREENS = { '#/archiv': renderArchive, '#/vacek': renderBag, '#/statistiky': renderStats };
+const SCREENS = { '#/archiv': renderArchive, '#/vacek': renderBag, '#/statistiky': renderStats, '#/zapisnik': renderNotebook };
 
 // Denní hádanka (dnešní) nebo starší z archivu: #/denni/YYYY-MM-DD
 function renderDailyGame(date) {
@@ -106,6 +107,34 @@ function renderDailyGame(date) {
   });
 }
 
+// Úroveň Cesty: #/cesta/<id hádanky>; neznámá úroveň vrátí hráče na plán
+function renderPathGame(puzzleId) {
+  const act = currentAct(settings.lang);
+  const chapter = act?.chapters.find((c) => c.levels.some((l) => l.puzzle === puzzleId));
+  const puzzle = getPuzzle(puzzleId);
+  const index = chapter ? chapter.levels.findIndex((l) => l.puzzle === puzzleId) : -1;
+  const level = index >= 0 && actState(act, getProgress()).chapters.flatMap((c) => c.levels).find((l) => l.puzzle === puzzleId);
+  if (!puzzle || !level || level.state === 'locked') {
+    location.replace('#/cesta');
+    return null;
+  }
+  return renderGame(app, {
+    puzzle,
+    label: t('path.level', { n: index + 1 }),
+    navigate,
+    sessionKey: `path:${puzzleId}`,
+    onFinish: finisher('path', today()),
+    back: '#/cesta',
+    backLabel: t('path.back'),
+    endNote: (game) => {
+      const stars = starsFor({ won: game.status === 'won', mistakes: game.mistakes, hints: game.hints.length });
+      const note = document.createElement('span');
+      note.append(starsSvg(stars, 3, 22), ' ', stars ? t('path.earned', { count: stars }) : t('path.notYet'));
+      return note;
+    }
+  });
+}
+
 function render() {
   cleanup?.();
   cleanup = null;
@@ -115,6 +144,7 @@ function render() {
   const route = location.hash || '#/';
   const free = route.match(/^#\/hra\/([\w-]+)$/);
   const daily = route.match(/^#\/denni\/(\d{4}-\d{2}-\d{2})$/);
+  const pathLevel = route.match(/^#\/cesta\/([\w-]+)$/);
   const puzzle = free && getPuzzle(free[1]);
 
   if (!settings.onboarded && route !== '#/navod') {
@@ -137,6 +167,9 @@ function render() {
   } else if (daily) {
     app.append(header(false));
     cleanup = renderDailyGame(daily[1]);
+  } else if (pathLevel) {
+    app.append(header(false));
+    cleanup = renderPathGame(pathLevel[1]);
   } else if (puzzle) {
     app.append(header(false));
     cleanup = renderGame(app, {
