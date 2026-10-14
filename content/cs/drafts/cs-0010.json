@@ -1,0 +1,55 @@
+{
+  "id": "cs-0010",
+  "language": "cs",
+  "size": 4,
+  "level": 3,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Kuchyňské spotřebiče",
+      "difficulty": 1,
+      "words": [
+        "trouba",
+        "mikrovlnka",
+        "myčka",
+        "lednice"
+      ],
+      "explanation": "Elektrické spotřebiče, které v kuchyni pečou, ohřívají, myjí a chladí."
+    },
+    {
+      "title": "Ryby",
+      "difficulty": 2,
+      "words": [
+        "kapr",
+        "štika",
+        "pstruh",
+        "sumec"
+      ],
+      "explanation": "Ryby, které žijí v českých řekách a rybnících. Sumec mimochodem šupiny nemá."
+    },
+    {
+      "title": "Mají šupiny, ale nejsou to ryby",
+      "difficulty": 3,
+      "words": [
+        "had",
+        "ještěrka",
+        "krokodýl",
+        "šiška"
+      ],
+      "explanation": "Had, ještěrka i krokodýl mají kůži pokrytou šupinami. Šiška se skládá ze šupin, pod kterými jsou semena."
+    },
+    {
+      "title": "Schovává se v nich nápoj",
+      "difficulty": 4,
+      "words": [
+        "punčocha",
+        "pivoňka",
+        "originál",
+        "trumf"
+      ],
+      "explanation": "PUNČocha, PIVOňka, oriGINál, tRUMf – punč, pivo, gin a rum."
+    }
+  ]
+}

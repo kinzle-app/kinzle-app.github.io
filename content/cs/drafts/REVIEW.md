@@ -2,6 +2,82 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
+## Várka 2026-10-14 (2) – Cesta, 1. kapitola „U kuchyňského stolu“, úrovně 1–5
+
+Mix velikostí podle zadání: 3×4, 4×4, 4×4, oddechová 3×4, 4×4. Kuchyňské téma mají jen některé skupiny (kapitoly jsou volně tematické).
+
+### cs-0006 · 3×4 · úroveň 1 · Cesta, kapitola 1, úroveň 1
+
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Domácí mazlíčci | pes, kočka, křeček, morče | Zvířata, která lidé nejčastěji chovají doma. |
+| ▲ 2 | Ovoce | jablko, banán, hruška, švestka | Běžné ovoce z obchodu i ze zahrady. |
+| ■ 3 | Dají se doplnit slovem KUCHYŇSKÁ | linka, váha, sůl, utěrka | Kuchyňská linka, kuchyňská váha, kuchyňská sůl a kuchyňská utěrka. |
+
+**Záludná slova:** žádné – úvodní úroveň má být hned vidět.
+**Slepý test 1:** našel chybu – „kuchyňská LŽÍCE“ je běžná míra v receptech, takže příbory se pletly se skupinou KUCHYŇSKÁ.
+**Opraveno:** příbory → domácí mazlíčci.
+**Slepý test 2:** správně, jiné rozdělení nenašel. Hodnotí jako velmi snadnou – u první úrovně záměr.
+
+---
+
+### cs-0007 · 4×4 · úroveň 1 · Cesta, kapitola 1, úroveň 2
+
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Zelenina | rajče, okurka, paprika, cuketa | Zelenina, která se hodí do letního salátu. |
+| ▲ 2 | Mléčné výrobky | sýr, jogurt, tvaroh, máslo | Všechny se vyrábějí z mléka. |
+| ■ 3 | Hudební nástroje | kytara, buben, flétna, housle | Kytara a housle mají struny, do flétny se fouká a na buben se bubnuje. |
+| ◆ 4 | Dají se doplnit slovem POLNÍ | cesta, kvítí, láhev, kuchyně | Polní cesta, polní kvítí, polní láhev a polní kuchyně, která vaří vojákům nebo na akcích venku. |
+
+**Záludná slova:** KUCHYNĚ (láká k jídlu, ale patří k POLNÍ).
+**Slepý test:** správně napoprvé, jiné rozdělení nenašel. Spíš lehká – odpovídá úrovni 2.
+
+---
+
+### cs-0008 · 4×4 · úroveň 2 · Cesta, kapitola 1, úroveň 3
+
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Nápoje | čaj, káva, kakao, džus | Čaj, káva a kakao se pijí hlavně teplé, džus studený. |
+| ▲ 2 | Pečivo | rohlík, chléb, houska, bageta | Pečivo, které se peče z mouky, vody a kvasnic. |
+| ■ 3 | Mají ucho | hrnek, konvice, taška, jehla | Hrnek, konvice i taška mají ucho, za které je držíš. Jehla má ucho, kterým se provléká nit. |
+| ◆ 4 | Schovává se v nich rak | mrak, vrak, prak, zrak | mRAK, vRAK, pRAK, zRAK – stačí přidat jedno písmeno. |
+
+**Záludná slova:** HRNEK a KONVICE (lákají k nápojům), TAŠKA (taška na pečivo).
+**Slepý test:** správně napoprvé, jiné rozdělení nenašel. Poznámka: u jehly se říká „ucho“ i „ouško“ – obojí je správně.
+
+---
+
+### cs-0009 · 3×4 · úroveň 1 · Cesta, kapitola 1, úroveň 4 (oddechová)
+
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Koření | pepř, skořice, kmín, paprika | Koření, které najdeš skoro v každé kuchyni. Paprika je tu mletá. |
+| ▲ 2 | Sladkosti | čokoláda, bonbon, lízátko, sušenka | Sladkosti z obchodu. |
+| ■ 3 | Dají se doplnit slovem VÁNOČNÍ | stromek, kapr, koleda, dárek | Vánoční stromek, vánoční kapr, vánoční koleda a vánoční dárek. |
+
+**Záludná slova:** SKOŘICE (voní Vánocemi), ČOKOLÁDA a BONBON (bývají pod stromečkem).
+**Slepý test:** správně napoprvé, jiné rozdělení nenašel.
+
+---
+
+### cs-0010 · 4×4 · úroveň 3 · Cesta, kapitola 1, úroveň 5
+
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Kuchyňské spotřebiče | trouba, mikrovlnka, myčka, lednice | Elektrické spotřebiče, které v kuchyni pečou, ohřívají, myjí a chladí. |
+| ▲ 2 | Ryby | kapr, štika, pstruh, sumec | Ryby, které žijí v českých řekách a rybnících. Sumec mimochodem šupiny nemá. |
+| ■ 3 | Mají šupiny, ale nejsou to ryby | had, ještěrka, krokodýl, šiška | Had, ještěrka i krokodýl mají kůži pokrytou šupinami. Šiška se skládá ze šupin, pod kterými jsou semena. |
+| ◆ 4 | Schovává se v nich nápoj | punčocha, pivoňka, originál, trumf | PUNČocha, PIVOňka, oriGINál, tRUMf – punč, pivo, gin a rum. |
+
+**Záludná slova:** KAPR, ŠTIKA, PSTRUH (mají šupiny, ale název skupiny ryby vylučuje).
+**Slepý test 1:** správně, ale upozornil, že ve VODNÍKU je jen „vod“, ne celé slovo „voda“.
+**Opraveno:** VODNÍK → ORIGINÁL (oriGINál). Do vysvětlení u ryb doplněno, že sumec šupiny nemá.
+**Slepý test 2:** správně, jiné rozdělení nenašel.
+
+---
+
 ## Várka 2026-10-14 – první denní týden (po–pá, 4×4, obtížnost stoupá)
 
 Plánované použití: denní hádanky pondělí až pátek prvního týdne (datum doplníme po schválení).

@@ -1,0 +1,44 @@
+{
+  "id": "cs-0009",
+  "language": "cs",
+  "size": 3,
+  "level": 1,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Koření",
+      "difficulty": 1,
+      "words": [
+        "pepř",
+        "skořice",
+        "kmín",
+        "paprika"
+      ],
+      "explanation": "Koření, které najdeš skoro v každé kuchyni. Paprika je tu mletá."
+    },
+    {
+      "title": "Sladkosti",
+      "difficulty": 2,
+      "words": [
+        "čokoláda",
+        "bonbon",
+        "lízátko",
+        "sušenka"
+      ],
+      "explanation": "Sladkosti z obchodu."
+    },
+    {
+      "title": "Dají se doplnit slovem VÁNOČNÍ",
+      "difficulty": 3,
+      "words": [
+        "stromek",
+        "kapr",
+        "koleda",
+        "dárek"
+      ],
+      "explanation": "Vánoční stromek, vánoční kapr, vánoční koleda a vánoční dárek."
+    }
+  ]
+}

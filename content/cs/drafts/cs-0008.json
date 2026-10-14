@@ -1,0 +1,55 @@
+{
+  "id": "cs-0008",
+  "language": "cs",
+  "size": 4,
+  "level": 2,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Nápoje",
+      "difficulty": 1,
+      "words": [
+        "čaj",
+        "káva",
+        "kakao",
+        "džus"
+      ],
+      "explanation": "Čaj, káva a kakao se pijí hlavně teplé, džus studený."
+    },
+    {
+      "title": "Pečivo",
+      "difficulty": 2,
+      "words": [
+        "rohlík",
+        "chléb",
+        "houska",
+        "bageta"
+      ],
+      "explanation": "Pečivo, které se peče z mouky, vody a kvasnic."
+    },
+    {
+      "title": "Mají ucho",
+      "difficulty": 3,
+      "words": [
+        "hrnek",
+        "konvice",
+        "taška",
+        "jehla"
+      ],
+      "explanation": "Hrnek, konvice i taška mají ucho, za které je držíš. Jehla má ucho, kterým se provléká nit."
+    },
+    {
+      "title": "Schovává se v nich rak",
+      "difficulty": 4,
+      "words": [
+        "mrak",
+        "vrak",
+        "prak",
+        "zrak"
+      ],
+      "explanation": "mRAK, vRAK, pRAK, zRAK – stačí přidat jedno písmeno."
+    }
+  ]
+}

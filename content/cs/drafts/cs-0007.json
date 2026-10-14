@@ -1,0 +1,55 @@
+{
+  "id": "cs-0007",
+  "language": "cs",
+  "size": 4,
+  "level": 1,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Zelenina",
+      "difficulty": 1,
+      "words": [
+        "rajče",
+        "okurka",
+        "paprika",
+        "cuketa"
+      ],
+      "explanation": "Zelenina, která se hodí do letního salátu."
+    },
+    {
+      "title": "Mléčné výrobky",
+      "difficulty": 2,
+      "words": [
+        "sýr",
+        "jogurt",
+        "tvaroh",
+        "máslo"
+      ],
+      "explanation": "Všechny se vyrábějí z mléka."
+    },
+    {
+      "title": "Hudební nástroje",
+      "difficulty": 3,
+      "words": [
+        "kytara",
+        "buben",
+        "flétna",
+        "housle"
+      ],
+      "explanation": "Kytara a housle mají struny, do flétny se fouká a na buben se bubnuje."
+    },
+    {
+      "title": "Dají se doplnit slovem POLNÍ",
+      "difficulty": 4,
+      "words": [
+        "cesta",
+        "kvítí",
+        "láhev",
+        "kuchyně"
+      ],
+      "explanation": "Polní cesta, polní kvítí, polní láhev a polní kuchyně, která vaří vojákům nebo na akcích venku."
+    }
+  ]
+}

@@ -7,19 +7,10 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { validatePuzzle } from '../src/game/puzzle.js';
 import { pragueDate, weekday, addDays, isValidDate } from '../src/game/calendar.js';
+import { RHYTHM } from '../src/config/rhythm.js';
 
 export const MIN_DAYS_AHEAD = 14;
 
-// Rytmus týdne: velikost a rozsah úrovně (level) podle dne (0 = neděle)
-export const RHYTHM = {
-  1: { size: 4, min: 1, max: 2 },
-  2: { size: 4, min: 2, max: 3 },
-  3: { size: 4, min: 2, max: 4 },
-  4: { size: 4, min: 3, max: 4 },
-  5: { size: 4, min: 4, max: 5 },
-  6: { size: 5, min: 3, max: 5 },
-  0: { size: 5, min: 3, max: 5 }
-};
 
 const FOLDER_STATUS = { puzzles: ['approved', 'test'], drafts: ['draft'] };
 

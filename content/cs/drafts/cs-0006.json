@@ -1,0 +1,44 @@
+{
+  "id": "cs-0006",
+  "language": "cs",
+  "size": 3,
+  "level": 1,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Domácí mazlíčci",
+      "difficulty": 1,
+      "words": [
+        "pes",
+        "kočka",
+        "křeček",
+        "morče"
+      ],
+      "explanation": "Zvířata, která lidé nejčastěji chovají doma."
+    },
+    {
+      "title": "Ovoce",
+      "difficulty": 2,
+      "words": [
+        "jablko",
+        "banán",
+        "hruška",
+        "švestka"
+      ],
+      "explanation": "Běžné ovoce z obchodu i ze zahrady."
+    },
+    {
+      "title": "Dají se doplnit slovem KUCHYŇSKÁ",
+      "difficulty": 3,
+      "words": [
+        "linka",
+        "váha",
+        "sůl",
+        "utěrka"
+      ],
+      "explanation": "Kuchyňská linka, kuchyňská váha, kuchyňská sůl a kuchyňská utěrka."
+    }
+  ]
+}
