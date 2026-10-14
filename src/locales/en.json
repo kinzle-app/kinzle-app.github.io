@@ -10,7 +10,8 @@
   "home": {
     "title": "Pick a puzzle",
     "note": "Trial puzzles for trying out the game.",
-    "puzzle": "Puzzle {n}"
+    "puzzle": "Puzzle {n}",
+    "draft": "Draft {id}"
   },
   "size": {
     "3": "Easy 3×4",

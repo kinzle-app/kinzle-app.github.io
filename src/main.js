@@ -9,7 +9,7 @@ import { h, icon } from './ui/dom.js';
 import { t, setLanguage, detectLanguage } from './services/i18n.js';
 import { getSettings, updateSettings } from './services/settings.js';
 import { isPersistent } from './services/storage.js';
-import { getPuzzle, listPuzzles } from './services/content.js';
+import { getPuzzle, puzzleLabel } from './services/content.js';
 import { FEEL } from './config/feel.js';
 import { applySettings } from './ui/prefs.js';
 import { renderHome } from './ui/home.js';
@@ -97,8 +97,7 @@ function render() {
     renderSettings(app, { onChange, navigate });
   } else if (puzzle) {
     app.append(header(false));
-    const number = listPuzzles(puzzle.language).findIndex((p) => p.id === puzzle.id) + 1;
-    cleanup = renderGame(app, { puzzle, number, navigate });
+    cleanup = renderGame(app, { puzzle, label: puzzleLabel(puzzle), navigate });
   } else {
     app.append(header(true));
     renderHome(app, { navigate });

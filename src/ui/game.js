@@ -23,7 +23,7 @@ const TILE_HEIGHT = 74; // výchozí výška kostičky v px
 // Rozehrané hry podle id hádanky: odchod do nastavení a zpět hru nepřeruší
 const sessions = new Map();
 
-export function renderGame(root, { puzzle, number, navigate }) {
+export function renderGame(root, { puzzle, label, navigate }) {
   if (!sessions.has(puzzle.id)) sessions.set(puzzle.id, { game: createGame(puzzle), timer: createTimer() });
   const { game, timer } = sessions.get(puzzle.id);
 
@@ -52,7 +52,7 @@ export function renderGame(root, { puzzle, number, navigate }) {
 
   root.append(
     h('div', { class: 'bar' },
-      h('span', {}, t('home.puzzle', { n: number })),
+      h('span', {}, label),
       h('span', { class: 'timer' }, clockIcon(), h('span', { class: 'visually-hidden' }, t('game.time')), timeEl),
       scoreEl),
     hintCards,
@@ -353,7 +353,7 @@ export function renderGame(root, { puzzle, number, navigate }) {
 
   async function onShare(total, seconds, note) {
     const text = t('share.text', {
-      name: t('home.puzzle', { n: number }),
+      name: label,
       points: total,
       time: formatTime(seconds),
       mistakes: game.mistakes === 0 ? t('share.noMistakes') : t('share.mistakes', { count: game.mistakes })

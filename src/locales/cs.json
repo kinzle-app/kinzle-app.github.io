@@ -10,7 +10,8 @@
   "home": {
     "title": "Vyber hádanku",
     "note": "Zkušební hádanky pro vyzkoušení hry.",
-    "puzzle": "Hádanka {n}"
+    "puzzle": "Hádanka {n}",
+    "draft": "Návrh {id}"
   },
   "size": {
     "3": "Lehká 3×4",
