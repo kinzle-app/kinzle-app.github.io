@@ -3,14 +3,14 @@ import { checkContent, checkLocale } from '../scripts/validate.js';
 import { pragueDate, weekday, addDays, isValidDate } from '../src/game/calendar.js';
 
 // schválená hádanka pro testy; level a size se dají přepsat
-function puzzle(id, { size = 4, level = 1, status = 'approved', lang = 'cs' } = {}) {
+function puzzle(id, { size = 4, level = 1, status = 'approved', lang = 'cs', tier } = {}) {
   const groups = Array.from({ length: size }, (_, g) => ({
     title: `S${g}`, difficulty: g + 1, words: [0, 1, 2, 3].map((w) => `${id}-${g}-${w}`), explanation: '-'
   }));
   return {
     file: `content/${lang}/${status === 'draft' ? 'drafts' : 'puzzles'}/${id}.json`,
     lang, folder: status === 'draft' ? 'drafts' : 'puzzles',
-    data: { id, language: lang, size, level, status, author: 'a', createdAt: '2026-10-14', groups }
+    data: { id, language: lang, size, level, tier, status, author: 'a', createdAt: '2026-10-14', groups }
   };
 }
 
@@ -36,6 +36,23 @@ describe('npm run validate', () => {
     const r = checkContent(base({ puzzles: [puzzle('cs-0001')], daily: { cs: { [MONDAY]: 'cs-0001' } } }));
     expect(r.errors).toEqual([]);
     expect(r.summary.cs).toEqual({ approved: 1, drafts: 0, daysAhead: 1 });
+  });
+
+  it('angličtina má rozpis pro každou úroveň a hádanka musí mít správnou úroveň', () => {
+    const ok = checkContent(base({
+      puzzles: [puzzle('en-0001', { lang: 'en', tier: 'easy' }), puzzle('en-0002', { lang: 'en', tier: 'hard' })],
+      daily: { en: { easy: { [MONDAY]: 'en-0001' }, medium: {}, hard: { [MONDAY]: 'en-0002' } } }, packs: {}
+    }));
+    expect(ok.errors).toEqual([]);
+    const bad = checkContent(base({
+      puzzles: [puzzle('en-0001', { lang: 'en', tier: 'easy' }), puzzle('en-0002', { lang: 'en' }), puzzle('cs-0001', { tier: 'easy' })],
+      daily: { en: { hard: { [MONDAY]: 'en-0001' }, expert: {} } }, packs: { en: [{ id: 'p', title: 'P', description: 'D', price: 0, locked: false, puzzles: ['en-0001'] }] }
+    }));
+    expect(bad.errors.join()).toMatch(/má úroveň easy, ne hard/);
+    expect(bad.errors.join()).toMatch(/neznámá úroveň expert/);
+    expect(bad.errors.join()).toMatch(/en-0002.*úroveň jazyka/);
+    expect(bad.errors.join()).toMatch(/cs-0001.*nemá úrovně/);
+    expect(bad.errors.join()).toMatch(/packs.json p: chybí nebo neplatná úroveň/);
   });
 
   it('odmítne neschválenou nebo neexistující hádanku v rozpisu', () => {

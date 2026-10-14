@@ -421,3 +421,9 @@ dialog .primary { width: 100%; }
 .debug-badge { font-size: 11px; font-weight: 800; letter-spacing: 1px; padding: 2px 6px; border-radius: 6px; background: var(--selected); color: var(--selected-ink); border: none; }
 .debug-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .debug-row input, .debug-row select { min-height: 44px; padding: 0 10px; border-radius: 10px; border: 2px solid var(--line); background: var(--tile); color: var(--ink); font: inherit; }
+/* odkazy na denní hádanky ostatních úrovní (angličtina) */
+.other-tiers { display: flex; flex-wrap: wrap; align-items: center; gap: 0 12px; }
+.other-tiers .link { min-height: 44px; color: var(--panel-text); }
+.other-tiers .link:disabled { text-decoration: none; cursor: default; }
+.help-card .choices { justify-content: center; }
+.setting .muted { margin: 8px 0 0; }

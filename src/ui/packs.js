@@ -27,7 +27,7 @@ export function renderPacks(root, { navigate }) {
       },
         h('strong', {}, pack.title, locked ? h('span', { class: 'pack-lock' }, ' ', icon('lock'), ' ', t('packs.locked')) : ''),
         h('span', {}, pack.description),
-        h('span', { class: 'muted' }, t('packs.progress', { done: wonIn(pack).length, total: pack.puzzles.length }))));
+        h('span', { class: 'muted' }, pack.tier ? `${t(`tier.${pack.tier}`)} · ` : '', t('packs.progress', { done: wonIn(pack).length, total: pack.puzzles.length }))));
     })) : h('p', {}, t('packs.empty'))));
 }
 

@@ -1,6 +1,9 @@
 // Úvodní návod (3 krátké obrazovky) – při prvním spuštění a kdykoli z nápovědy.
 import { h } from './dom.js';
-import { t } from '../services/i18n.js';
+import { t, getLanguage } from '../services/i18n.js';
+import { activeTier } from '../services/content.js';
+import { updateSettings } from '../services/settings.js';
+import { tiersOf } from '../config/tiers.js';
 import { fadeIn } from './anim.js';
 import { SYMBOLS } from './game.js';
 
@@ -17,13 +20,14 @@ export function renderHelp(root, { onDone }) {
     const card = h('div', { class: 'help-card' },
       illustration(step),
       h('h2', {}, t(`help.${step}.title`)),
-      h('p', {}, t(`help.${step}.text`)));
+      h('p', {}, t(`help.${step}.text`)),
+      last && tierChoice());
     page.replaceChildren(
       card,
       h('div', { class: 'help-dots', 'aria-label': t('help.progress', { n: step + 1, total: STEPS }), role: 'img' },
         Array.from({ length: STEPS }, (_, i) => h('span', { class: i === step ? 'dot' : 'dot off' }))),
       h('button', { class: 'primary', type: 'button', onclick: next }, t(last ? 'help.play' : 'help.next')),
-      !last && h('button', { class: 'secondary', type: 'button', onclick: onDone }, t('help.skip'))
+      last ? '' : h('button', { class: 'secondary', type: 'button', onclick: onDone }, t('help.skip'))
     );
     fadeIn(card);
   }
@@ -33,6 +37,20 @@ export function renderHelp(root, { onDone }) {
     step += 1;
     show();
   }
+}
+
+// Na konci návodu volba úrovně jazyka (jen angličtina); jde změnit i v nastavení
+function tierChoice() {
+  const tiers = tiersOf(getLanguage());
+  if (!tiers.length) return null;
+  const buttons = tiers.map((tier) => h('button', {
+    class: 'secondary', type: 'button', 'aria-pressed': String(tier === activeTier(getLanguage())),
+    onclick: () => {
+      updateSettings({ tier });
+      for (const b of buttons) b.setAttribute('aria-pressed', String(b === buttons[tiers.indexOf(tier)]));
+    }
+  }, t(`tier.${tier}`)));
+  return h('fieldset', { class: 'setting' }, h('legend', {}, t('settings.tier')), h('div', { class: 'choices' }, buttons), h('p', { class: 'muted' }, t('settings.tierNote')));
 }
 
 // Malé ilustrace z kostiček (žádné obrázky)

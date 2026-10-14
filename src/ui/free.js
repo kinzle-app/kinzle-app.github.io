@@ -1,13 +1,13 @@
 // Volná hra: dohrané úrovně Cesty a starší denní hádanky, s filtrem obtížnosti. Nejde do žebříčku.
 import { h } from './dom.js';
 import { t, getLanguage } from '../services/i18n.js';
-import { dailySchedule, approvedById, currentAct } from '../services/content.js';
+import { dailySchedule, approvedById, currentAct, activeTier } from '../services/content.js';
 import { getProgress } from '../services/progress.js';
 import { today } from '../services/clock.js';
 import { freePuzzles, bucketOf, BUCKETS } from '../game/free.js';
 import { actState } from '../game/path.js';
 import { dailyFor } from '../game/daily.js';
-import { formatDate } from './daily.js';
+import { formatDate, dailyLabel } from './daily.js';
 
 export function freeList(lang = getLanguage()) {
   const act = currentAct(lang);
@@ -17,7 +17,7 @@ export function freeList(lang = getLanguage()) {
     .map((item) => ({
       ...item,
       label: item.source === 'daily'
-        ? t('daily.label', { n: dailyFor(item.date, schedule, byId).number })
+        ? dailyLabel(dailyFor(item.date, schedule, byId).number, activeTier(lang))
         : t('free.pathLevel', { n: item.level })
     }));
 }

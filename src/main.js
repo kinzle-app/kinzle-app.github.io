@@ -9,7 +9,8 @@ import { h, icon } from './ui/dom.js';
 import { t, setLanguage, detectLanguage } from './services/i18n.js';
 import { getSettings, updateSettings } from './services/settings.js';
 import { isPersistent } from './services/storage.js';
-import { getPuzzle, puzzleLabel, dailySchedule, approvedById, currentAct, updateContent } from './services/content.js';
+import { getPuzzle, puzzleLabel, dailySchedule, approvedById, currentAct, updateContent, activeTier } from './services/content.js';
+import { tiersOf } from './config/tiers.js';
 import { isDebug, debugOptions } from './services/debug.js';
 import { getProgress, recordGame } from './services/progress.js';
 import { today } from './services/clock.js';
@@ -17,7 +18,7 @@ import { dailyFor } from './game/daily.js';
 import { createEntry, dailyEntry } from './game/progress.js';
 import { FEEL } from './config/feel.js';
 import { applySettings } from './ui/prefs.js';
-import { renderDaily } from './ui/daily.js';
+import { renderDaily, dailyLabel } from './ui/daily.js';
 import { renderPath, renderNotebook, starsSvg } from './ui/path.js';
 import { starsFor, actState } from './game/path.js';
 import { renderMore } from './ui/more.js';
@@ -85,7 +86,7 @@ function onChange(changes) {
 }
 
 // Uložení dohrané hry; vrací počet nových semínek ve váčku
-const finisher = (mode, date) => (game, seconds, score) => recordGame(createEntry(game, { mode, date, seconds, score }));
+const finisher = (mode, date, tier) => (game, seconds, score) => recordGame(createEntry(game, { mode, date, seconds, score, tier }));
 
 // Obrazovky se záložkami Denní / Cesta / Více
 const TAB_SCREENS = { '#/': renderDaily, '#/cesta': renderPath, '#/vice': renderMore };
@@ -95,23 +96,24 @@ const SCREENS = {
   '#/volna': renderFree, '#/balicky': renderPacks
 };
 
-// Denní hádanka (dnešní) nebo starší z archivu: #/denni/YYYY-MM-DD
-function renderDailyGame(date) {
+// Denní hádanka (dnešní) nebo starší z archivu: #/denni/YYYY-MM-DD, u jazyka s úrovněmi i #/denni/YYYY-MM-DD/<úroveň>
+function renderDailyGame(date, requestedTier) {
   const lang = settings.lang;
-  const info = dailyFor(date, dailySchedule(lang), approvedById());
+  const tier = tiersOf(lang).includes(requestedTier) ? requestedTier : activeTier(lang);
+  const info = dailyFor(date, dailySchedule(lang, tier), approvedById());
   const isToday = date === today();
   // budoucí den, neexistující hádanka nebo už odehraná dnešní → zpět na úvod (tam je výsledek)
-  if (!info.puzzle || date > today() || (isToday && dailyEntry(getProgress(), date))) {
+  if (!info.puzzle || date > today() || (isToday && dailyEntry(getProgress(), date, tier))) {
     location.replace('#/');
     return null;
   }
   const mode = isToday ? 'daily' : 'archive';
   return renderGame(app, {
     puzzle: info.puzzle,
-    label: t('daily.label', { n: info.number }),
+    label: dailyLabel(info.number, tier),
     navigate,
-    sessionKey: `${mode}:${date}`,
-    onFinish: finisher(mode, date),
+    sessionKey: `${mode}:${date}${tier ? ':' + tier : ''}`,
+    onFinish: finisher(mode, date, tier),
     again: !isToday
   });
 }
@@ -184,7 +186,7 @@ function render() {
 
   const route = location.hash || '#/';
   const free = route.match(/^#\/hra\/([\w-]+)$/);
-  const daily = route.match(/^#\/denni\/(\d{4}-\d{2}-\d{2})$/);
+  const daily = route.match(/^#\/denni\/(\d{4}-\d{2}-\d{2})(?:\/(\w+))?$/);
   const pathLevel = route.match(/^#\/cesta\/([\w-]+)$/);
   const pack = route.match(/^#\/balicek\/([\w-]+)$/);
   const packGame = route.match(/^#\/balicek\/([\w-]+)\/([\w-]+)$/);
@@ -210,7 +212,7 @@ function render() {
     renderSettings(app, { onChange, navigate });
   } else if (daily) {
     app.append(header(false));
-    cleanup = renderDailyGame(daily[1]);
+    cleanup = renderDailyGame(daily[1], daily[2]);
   } else if (pathLevel) {
     app.append(header(false));
     cleanup = renderPathGame(pathLevel[1]);

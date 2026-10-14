@@ -6,6 +6,8 @@ import { t } from './i18n.js';
 import { load, save } from './storage.js';
 import { activeContent, syncContent } from './content-sync.js';
 import { CONTENT_URL } from '../config/remote.js';
+import { tiersOf, DEFAULT_TIER } from '../config/tiers.js';
+import { getSettings } from './settings.js';
 
 const STORE_KEY = 'content';
 
@@ -86,8 +88,17 @@ export function currentAct(lang) {
 }
 
 // Rozpis denních hádanek a schválené hádanky pro výběr denní hádanky
-export function dailySchedule(lang) {
-  return langFile(lang, 'daily.json', {});
+// Úroveň jazyka, kterou si hráč zvolil (Easy / Medium / Hard); null u jazyka bez úrovní
+export function activeTier(lang) {
+  const tiers = tiersOf(lang);
+  if (!tiers.length) return null;
+  return tiers.includes(getSettings().tier) ? getSettings().tier : DEFAULT_TIER;
+}
+
+// Jazyk s úrovněmi má v daily.json rozpis pro každou úroveň; bez udání se použije zvolená úroveň
+export function dailySchedule(lang, tier = activeTier(lang)) {
+  const file = langFile(lang, 'daily.json', {});
+  return tier ? file[tier] || {} : file;
 }
 
 // Balíčky s hádankami, které jdou hrát. Návrh balíčku ("draft": true) jen ve vývojové verzi.

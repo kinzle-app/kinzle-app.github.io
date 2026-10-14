@@ -66,7 +66,9 @@
     "reduceMotion": "Reduce motion",
     "colorblind": "Colour-blind mode",
     "colorblindNote": "Every group has a symbol as well as a colour (● ▲ ■ ◆ ★). In colour-blind mode you also see it on a hinted tile.",
-    "howToPlay": "How to play"
+    "howToPlay": "How to play",
+    "tier": "English level",
+    "tierNote": "Easy: everyday words, groups by meaning. Medium: common words and simple phrases. Hard: wordplay for native speakers. Each level has its own daily puzzle."
   },
   "table": {
     "evening": "Evening",
@@ -146,7 +148,8 @@
     "next": "Next puzzle in",
     "teaser": "Tomorrow: {text}",
     "play": "Play",
-    "continue": "Continue"
+    "continue": "Continue",
+    "alsoToday": "Also today:"
   },
   "bag": {
     "title": "Seed pouch",
@@ -279,5 +282,10 @@
     "tip": "My guess",
     "placeholder": "I think the First Word is…",
     "saved": "Saved"
+  },
+  "tier": {
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard"
   }
 }

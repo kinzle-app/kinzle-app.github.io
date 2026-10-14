@@ -28,6 +28,7 @@ Každá hádanka je jeden soubor `content/<jazyk>/<složka>/<id>.json`:
 | `id` | stabilní, nikdy se nemění: `cs-0001`, `en-0001`, … (pokrok hráčů se váže na id) |
 | `size` | počet skupin: 3 (Lehká), 4 (Klasická), 5 (Těžká) |
 | `level` | celková plánovaná obtížnost hádanky 1–5 (1 = nejlehčí), slouží pro rytmus týdne a Volnou hru |
+| `tier` | jen angličtina: úroveň jazyka `easy` / `medium` / `hard` (povinná), viz kapitola 3a |
 | `status` | `draft` (čeká na schválení, složka `drafts/`), `approved` (schválená, složka `puzzles/`) |
 | `difficulty` | obtížnost skupiny 1–5; v hádance je každá obtížnost jen jednou (1–3, 1–4 nebo 1–5) |
 | `teaser` | nepovinná upoutávka na zítřek, **nesmí prozradit řešení** |
@@ -68,6 +69,20 @@ Slovo má nejvýš 12 znaků (jinak se nevejde na kostičku), víceslovné spoje
 | sobota, neděle | 5×4 (víkendový speciál) | 3–5 |
 
 `npm run validate` rytmus kontroluje. Velikost 3×4 se v denních hádankách nepoužívá (patří hlavně do Cesty).
+
+## 3a. Úrovně angličtiny (Easy / Medium / Hard)
+
+Anglické hádanky hrají i lidé, kteří se anglicky učí. Každá anglická hádanka má úroveň `tier` a každá úroveň má vlastní denní rozpis (`content/en/daily.json` → `{ "easy": {…}, "medium": {…}, "hard": {…} }`). Rytmus týdne (`level` 1–5) platí uvnitř každé úrovně zvlášť.
+
+| Úroveň | Slovní zásoba | Typy skupin |
+|---|---|---|
+| **Easy** | základní slova, která zná začátečník (zhruba A2): jídlo, zvířata, barvy, rodina, škola, dům | jen podle významu a společné vlastnosti; žádné idiomy, frázová slovesa, skrytá slova ani slovní hříčky |
+| **Medium** | běžná slova (zhruba B1–B2) | navíc jednoduchá složená slova a známá spojení (___BALL, BOOK___), občas běžné frázové sloveso; skrytá slova jen výjimečně a krátká |
+| **Hard** | celá šíře jazyka pro rodilé mluvčí | idiomy, dvojí významy, skrytá slova, přesmyčky, slovní hříčky |
+
+- Úroveň se pozná podle **nejtěžší skupiny**: i Easy hádanka má svou ★ nebo ◆ skupinu, ale těžká je chytrým spojením, ne slovem nebo hříčkou nad úroveň.
+- Slepý test u Easy a Medium: subagent dostane i pokyn „řeš jako student angličtiny na úrovni A2 / B1“ a napíše, kterým slovům nerozumí. Neznámé slovo = vyměnit.
+- Balíček má v `packs.json` také pole `tier`.
 
 ## 4. Povinný ověřovací postup (každá hádanka)
 

@@ -17,6 +17,9 @@
 - Balíčky: seznam, postup v balíčku, připravený vzhled zamčeného balíčku, `entitlements.js` (zatím vše odemčené).
 - Okno „Co je nového“ podle `content/<jazyk>/news.json` (jednou po aktualizaci).
 - Obsah se stahuje z webu (`content/manifest.json`, jen změněné soubory) a použije se při dalším spuštění; zabalená kopie funguje offline.
+- Angličtina má úrovně Easy / Medium / Hard: volba na konci návodu a v nastavení, každá úroveň má vlastní denní hádanku, na úvodu odkazy na dnešní hádanky ostatních úrovní; archiv a Volná hra podle zvolené úrovně, balíček se štítkem úrovně.
+- Česká sada na první měsíc: 30 denních hádanek (19. 10. – 17. 11.), 1. kapitola Cesty (10 úrovní), balíček „V dílně“. Anglicky prvních 5 denních hádanek (Hard).
+- Oprava: na posledním kroku návodu se místo skrytého tlačítka vypisovalo „false“.
 - Testovací režim `?debug`: posun data a času, simulace offline, odemčení Cesty, semínka, vynulování, repríza, „Co je nového“.
 
 ## 0.2.0 – Fáze 2: hratelnost (2026-10-14)

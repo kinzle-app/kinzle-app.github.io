@@ -1,5 +1,6 @@
 // Kontrola struktury hádanky. Vrací seznam chyb (prázdný = v pořádku).
 // Použije ji hra při načítání i testy nad všemi soubory v content/.
+import { tiersOf } from '../config/tiers.js';
 
 export const SIZES = [3, 4, 5];          // počet skupin
 export const MAX_WORD_LENGTH = 12;       // delší slovo se na kostičku nevejde ani zmenšené
@@ -18,6 +19,10 @@ export function validatePuzzle(p) {
   if (p.status !== 'test' && !(Number.isInteger(p.level) && p.level >= 1 && p.level <= 5)) {
     errors.push(`neplatná úroveň (level) ${p.level}`);
   }
+  // úroveň jazyka (Easy / Medium / Hard) mají jen hádanky v jazycích s úrovněmi, a to všechny
+  const tiers = tiersOf(p.language);
+  if (tiers.length && p.status !== 'test' && !tiers.includes(p.tier)) errors.push(`chybí nebo neplatná úroveň jazyka (tier) ${p.tier}`);
+  if (!tiers.length && p.tier !== undefined) errors.push(`jazyk ${p.language} nemá úrovně, pole tier nepatří do hádanky`);
   if (p.teaser !== undefined && (typeof p.teaser !== 'string' || !p.teaser)) errors.push('upoutávka (teaser) musí být text');
   if (!Array.isArray(p.groups)) return [...errors, 'chybí skupiny'];
   if (p.groups.length !== p.size) errors.push(`počet skupin ${p.groups.length} neodpovídá velikosti ${p.size}`);

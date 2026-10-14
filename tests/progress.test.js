@@ -60,6 +60,15 @@ describe('historie a váček', () => {
     expect(dailyEntry(p, '2026-10-20')).toBe(null);
   });
 
+  it('u jazyka s úrovněmi se denní hraje jednou za každou úroveň', () => {
+    const e = createEntry(play(puzzle('en-0001')), { mode: 'daily', date: '2026-10-19', seconds: 1, score: 0, tier: 'hard' });
+    const p = addEntry(emptyProgress(), e);
+    expect(e.tier).toBe('hard');
+    expect(dailyEntry(p, '2026-10-19', 'hard')).not.toBe(null);
+    expect(dailyEntry(p, '2026-10-19', 'easy')).toBe(null);
+    expect(dailyEntry(p, '2026-10-19')).toBe(null);
+  });
+
   it('statistiky', () => {
     let p = addEntry(emptyProgress(), entry(puzzle('cs-0001'), {}, { score: 120, seconds: 100 }));
     p = addEntry(p, entry(puzzle('cs-0002'), { mistakes: 2 }, { score: 80, seconds: 200, mode: 'free' }));

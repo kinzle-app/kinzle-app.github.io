@@ -3,6 +3,8 @@ import { h } from './dom.js';
 import { t, LANGUAGES, getLanguage } from '../services/i18n.js';
 import { getSettings, TABLES, FONT_SIZES } from '../services/settings.js';
 import { hapticsSupported } from '../services/haptics.js';
+import { activeTier } from '../services/content.js';
+import { tiersOf } from '../config/tiers.js';
 
 export function renderSettings(root, { onChange, navigate }) {
   const s = getSettings();
@@ -34,6 +36,9 @@ export function renderSettings(root, { onChange, navigate }) {
   root.append(h('section', { class: 'page' },
     h('h2', {}, t('settings.title')),
     choices(t('settings.language'), LANGUAGES.map((c) => [c, languageName(c)]), getLanguage(), 'lang'),
+    // úroveň jazyka (jen angličtina): každá úroveň má vlastní denní hádanku
+    tiersOf(getLanguage()).length > 0 && choices(t('settings.tier'), tiersOf(getLanguage()).map((v) => [v, t(`tier.${v}`)]), activeTier(getLanguage()), 'tier'),
+    tiersOf(getLanguage()).length > 0 && h('p', { class: 'muted' }, t('settings.tierNote')),
     choices(t('settings.table'), TABLES.map((v) => [v, t(`table.${v}`)]), s.table, 'table'),
     choices(t('settings.fontSize'), FONT_SIZES.map((v) => [v, t(`fontSize.${v}`)]), s.fontSize, 'fontSize'),
     h('div', { class: 'switches' },

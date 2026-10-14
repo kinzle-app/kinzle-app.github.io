@@ -213,3 +213,26 @@ test('obsah z webu: novější se stáhne a použije při dalším spuštění, 
   await page.reload();
   await expect(page.getByRole('heading', { name: 'Novinka z webu' })).toBeVisible();
 });
+
+test('angličtina: úroveň v nastavení, každá úroveň má svou denní hádanku', async ({ page }) => {
+  await setup(page, { lang: 'en', tier: 'easy', newsSeen: {} });
+  await page.clock.setFixedTime(new Date('2026-10-19T08:00:00Z'));
+  await page.goto('./#/');
+  // Easy zatím nemá denní hádanky; dnešní Hard je nabídnutá pod kartou
+  await expect(page.getByText('Daily puzzles are on their way.')).toBeVisible();
+  await page.getByRole('button', { name: 'Hard', exact: true }).click();
+  await expect(page.getByText('Kinzle #1 · Hard')).toBeVisible();
+  for (const g of puzzle('en-0001').groups) {
+    for (const w of g.words) await page.getByRole('button', { name: w, exact: true }).click();
+    await page.getByRole('button', { name: 'Submit group' }).click();
+  }
+  await page.getByRole('button', { name: 'Back to start' }).click();
+  await expect(page.getByRole('button', { name: 'Hard ✓' })).toBeDisabled();
+
+  // přepnutí na Hard v nastavení: na úvodu je odehraná hádanka s výsledkem
+  await page.goto('./#/nastaveni');
+  await page.getByRole('button', { name: 'Hard', exact: true }).click();
+  await page.goto('./#/');
+  await expect(page.getByText('Kinzle #1 · Hard')).toBeVisible();
+  await expect(page.getByText('Solved')).toBeVisible();
+});

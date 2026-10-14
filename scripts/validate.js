@@ -8,6 +8,7 @@ import { pathToFileURL } from 'node:url';
 import { validatePuzzle } from '../src/game/puzzle.js';
 import { pragueDate, weekday, addDays, isValidDate } from '../src/game/calendar.js';
 import { RHYTHM } from '../src/config/rhythm.js';
+import { tiersOf } from '../src/config/tiers.js';
 
 export const MIN_DAYS_AHEAD = 14;
 
@@ -42,31 +43,45 @@ export function checkContent({ puzzles, daily, packs, locales, today, paths = {}
     return null;
   };
 
-  for (const [lang, schedule] of Object.entries(daily)) {
+  // Rozpisy denních hádanek: jazyk s úrovněmi má v daily.json rozpis pro každou úroveň ({ easy: {…}, … })
+  const schedulesOf = (lang, file) => {
+    const tiers = tiersOf(lang);
+    if (!tiers.length) return [[null, file]];
+    for (const key of Object.keys(file)) if (!tiers.includes(key)) errors.push(`${lang}/daily.json: neznámá úroveň ${key}`);
+    return tiers.map((tier) => [tier, file[tier] || {}]);
+  };
+
+  for (const [lang, file] of Object.entries(daily)) {
     const used = new Map();
-    for (const [date, id] of Object.entries(schedule)) {
-      const where = `${lang}/daily.json ${date}`;
-      if (!isValidDate(date)) errors.push(`${where}: neplatné datum`);
-      if (used.has(id)) errors.push(`${where}: hádanka ${id} už je ${used.get(id)}`);
-      used.set(id, date);
-      const p = usable(id, lang, where);
-      if (!p || !isValidDate(date)) continue;
-      const rule = RHYTHM[weekday(date)];
-      if (p.size !== rule.size) errors.push(`${where}: rytmus týdne chce velikost ${rule.size}×4, hádanka má ${p.size}×4`);
-      if (p.level < rule.min || p.level > rule.max) {
-        errors.push(`${where}: rytmus týdne chce úroveň ${rule.min}–${rule.max}, hádanka má ${p.level}`);
+    let daysAheadMin = Infinity;
+    for (const [tier, schedule] of schedulesOf(lang, file)) {
+      const label = tier ? `${lang} ${tier}` : lang;
+      for (const [date, id] of Object.entries(schedule)) {
+        const where = `${lang}/daily.json ${tier ? tier + ' ' : ''}${date}`;
+        if (!isValidDate(date)) errors.push(`${where}: neplatné datum`);
+        if (used.has(id)) errors.push(`${where}: hádanka ${id} už je ${used.get(id)}`);
+        used.set(id, date);
+        const p = usable(id, lang, where);
+        if (!p || !isValidDate(date)) continue;
+        if (tier && p.tier !== tier) errors.push(`${where}: hádanka ${id} má úroveň ${p.tier}, ne ${tier}`);
+        const rule = RHYTHM[weekday(date)];
+        if (p.size !== rule.size) errors.push(`${where}: rytmus týdne chce velikost ${rule.size}×4, hádanka má ${p.size}×4`);
+        if (p.level < rule.min || p.level > rule.max) {
+          errors.push(`${where}: rytmus týdne chce úroveň ${rule.min}–${rule.max}, hádanka má ${p.level}`);
+        }
       }
+      // zásoba: kolik dní ode dneška je naplánováno bez mezery
+      let daysAhead = 0;
+      while (schedule[addDays(today, daysAhead)]) daysAhead += 1;
+      daysAheadMin = Math.min(daysAheadMin, daysAhead);
+      if (daysAhead < MIN_DAYS_AHEAD) warnings.push(`${label}: denní hádanky jsou naplánované jen na ${daysAhead} dní dopředu (méně než ${MIN_DAYS_AHEAD})`);
     }
-    // zásoba: kolik dní ode dneška je naplánováno bez mezery
-    let daysAhead = 0;
-    while (schedule[addDays(today, daysAhead)]) daysAhead += 1;
     const all = puzzles.filter((x) => x.lang === lang);
     summary[lang] = {
       approved: all.filter((x) => x.data?.status === 'approved').length,
       drafts: all.filter((x) => x.data?.status === 'draft').length,
-      daysAhead
+      daysAhead: daysAheadMin
     };
-    if (daysAhead < MIN_DAYS_AHEAD) warnings.push(`${lang}: denní hádanky jsou naplánované jen na ${daysAhead} dní dopředu (méně než ${MIN_DAYS_AHEAD})`);
   }
 
   for (const [lang, list] of Object.entries(packs)) {
@@ -75,6 +90,7 @@ export function checkContent({ puzzles, daily, packs, locales, today, paths = {}
       for (const field of ['id', 'title', 'description']) if (!pack[field]) errors.push(`${where}: chybí ${field}`);
       if (typeof pack.price !== 'number') errors.push(`${where}: price musí být číslo`);
       if (typeof pack.locked !== 'boolean') errors.push(`${where}: locked musí být true/false`);
+      if (tiersOf(lang).length && !tiersOf(lang).includes(pack.tier)) errors.push(`${where}: chybí nebo neplatná úroveň (tier) ${pack.tier}`);
       if (!Array.isArray(pack.puzzles) || pack.puzzles.length === 0) errors.push(`${where}: prázdný seznam hádanek`);
       else pack.puzzles.forEach((id) => usable(id, lang, where, pack.draft === true));
     }
@@ -114,7 +130,7 @@ export function checkContent({ puzzles, daily, packs, locales, today, paths = {}
           if (used.has(level.puzzle)) errors.push(`${where}: hádanka ${level.puzzle} je na Cestě dvakrát`);
           used.add(level.puzzle);
           usable(level.puzzle, lang, where);
-          if (Object.values(daily[lang] || {}).includes(level.puzzle)) errors.push(`${where}: hádanka ${level.puzzle} je i v rozpisu denních hádanek`);
+          if (schedulesOf(lang, daily[lang] || {}).some(([, s]) => Object.values(s).includes(level.puzzle))) errors.push(`${where}: hádanka ${level.puzzle} je i v rozpisu denních hádanek`);
         }
       }
     }

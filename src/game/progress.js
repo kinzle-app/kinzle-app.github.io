@@ -36,9 +36,10 @@ export function normalizeProgress(raw) {
   };
 }
 
-// Záznam dohrané hry. game = stav z engine.js
-export function createEntry(game, { mode, date, seconds, score, finishedAt = new Date().toISOString() }) {
+// Záznam dohrané hry. game = stav z engine.js; tier = úroveň jazyka u denní hádanky (jen jazyky s úrovněmi)
+export function createEntry(game, { mode, date, seconds, score, tier, finishedAt = new Date().toISOString() }) {
   return {
+    ...(tier && { tier }),
     puzzleId: game.puzzle.id,
     mode,
     date,
@@ -60,8 +61,9 @@ export function addEntry(progress, entry) {
   return { ...progress, history: [...progress.history, entry] };
 }
 
-export function dailyEntry(progress, date) {
-  return progress.history.find((e) => e.mode === 'daily' && e.date === date) || null;
+// Odehraná denní hádanka daného dne (u jazyka s úrovněmi pro danou úroveň)
+export function dailyEntry(progress, date, tier = null) {
+  return progress.history.find((e) => e.mode === 'daily' && e.date === date && (e.tier || null) === tier) || null;
 }
 
 // Váček: každá vyřešená skupina je jedno semínko (stejná skupina se nepočítá dvakrát).

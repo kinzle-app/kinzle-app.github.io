@@ -1,7 +1,8 @@
 // Záložka Denní (úvodní obrazovka): dnešní hádanka, výsledek s odpočtem do další, váček se semínky.
 import { h } from './dom.js';
 import { t, getLanguage } from '../services/i18n.js';
-import { dailySchedule, approvedById } from '../services/content.js';
+import { dailySchedule, approvedById, activeTier } from '../services/content.js';
+import { tiersOf } from '../config/tiers.js';
 import { getProgress } from '../services/progress.js';
 import { today, msToNextDay } from '../services/clock.js';
 import { dailyFor } from '../game/daily.js';
@@ -13,6 +14,11 @@ import { tabs } from './tabs.js';
 
 export function formatDate(date, options = { day: 'numeric', month: 'numeric' }) {
   return new Intl.DateTimeFormat(getLanguage(), { ...options, timeZone: 'UTC' }).format(new Date(`${date}T12:00:00Z`));
+}
+
+// „Kinzle #3“, u jazyka s úrovněmi „Kinzle #3 · Hard“
+export function dailyLabel(number, tier) {
+  return tier ? `${t('daily.label', { n: number })} · ${t(`tier.${tier}`)}` : t('daily.label', { n: number });
 }
 
 // 18 573 s → „05:09:33“
@@ -29,11 +35,13 @@ export function bagIcon() {
 
 export function renderDaily(root, { navigate }) {
   const date = today();
-  const schedule = dailySchedule(getLanguage());
+  const lang = getLanguage();
+  const tier = activeTier(lang);
+  const schedule = dailySchedule(lang, tier);
   const byId = approvedById();
   const info = dailyFor(date, schedule, byId);
   const progress = getProgress();
-  const result = dailyEntry(progress, date);
+  const result = dailyEntry(progress, date, tier);
   let countdown = null;
 
   const card = h('section', { class: 'panel daily-card' });
@@ -45,7 +53,7 @@ export function renderDaily(root, { navigate }) {
     card.append(
       h('small', {}, `${t('daily.title')} · ${formatDate(date)}`),
       h('div', { class: 'daily-head' },
-        h('span', { class: 'daily-number' }, t('daily.label', { n: info.number })),
+        h('span', { class: 'daily-number' }, dailyLabel(info.number, tier)),
         h('span', { class: 'panel-muted' }, t(`size.${info.puzzle.size}`))),
       info.rerun ? h('p', { class: 'panel-muted' }, t('daily.rerun')) : '');
 
@@ -67,8 +75,16 @@ export function renderDaily(root, { navigate }) {
         teaser ? h('p', { class: 'teaser' }, t('daily.teaser', { text: teaser })) : '');
     } else {
       card.append(h('button', { class: 'primary', onclick: () => navigate(`#/denni/${date}`) },
-        t(hasSession(`daily:${date}`) ? 'daily.continue' : 'daily.play')));
+        t(hasSession(`daily:${date}${tier ? ':' + tier : ''}`) ? 'daily.continue' : 'daily.play')));
     }
+  }
+
+  // Jazyk s úrovněmi: dnešní hádanky ostatních úrovní (✓ = už odehraná)
+  const others = tiersOf(lang).filter((x) => x !== tier && dailySchedule(lang, x)[date] && byId.has(dailySchedule(lang, x)[date]));
+  if (others.length) {
+    card.append(h('p', { class: 'panel-muted other-tiers' }, t('daily.alsoToday'), ' ',
+      ...others.map((x) => h('button', { class: 'link', onclick: () => navigate(`#/denni/${date}/${x}`), disabled: Boolean(dailyEntry(progress, date, x)) },
+        dailyEntry(progress, date, x) ? `${t(`tier.${x}`)} ✓` : t(`tier.${x}`)))));
   }
 
   const count = seeds(progress).length;

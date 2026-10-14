@@ -72,7 +72,9 @@
     "reduceMotion": "Omezit animace",
     "colorblind": "Režim pro barvoslepé",
     "colorblindNote": "Každá skupina má kromě barvy i symbol (● ▲ ■ ◆ ★). V režimu pro barvoslepé ho uvidíš i na kostičce s nápovědou.",
-    "howToPlay": "Jak se hraje"
+    "howToPlay": "Jak se hraje",
+    "tier": "Úroveň angličtiny",
+    "tierNote": "Easy: základní slova, skupiny podle významu. Medium: běžná slova a jednoduchá spojení. Hard: slovní hříčky pro rodilé mluvčí. Každá úroveň má vlastní denní hádanku."
   },
   "table": {
     "evening": "Večerní",
@@ -156,7 +158,8 @@
     "next": "Další hádanka za",
     "teaser": "Zítra: {text}",
     "play": "Hrát",
-    "continue": "Pokračovat"
+    "continue": "Pokračovat",
+    "alsoToday": "Dnes také:"
   },
   "bag": {
     "title": "Váček se semínky",
@@ -303,5 +306,10 @@
     "tip": "Můj tip",
     "placeholder": "Myslím, že Praslovo je…",
     "saved": "Uloženo"
+  },
+  "tier": {
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard"
   }
 }
