@@ -1,0 +1,66 @@
+{
+  "id": "cs-0033",
+  "language": "cs",
+  "size": 5,
+  "level": 5,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Psací potřeby",
+      "difficulty": 1,
+      "words": [
+        "tužka",
+        "pero",
+        "fix",
+        "křída"
+      ],
+      "explanation": "Čím se dá psát."
+    },
+    {
+      "title": "Mají peří",
+      "difficulty": 2,
+      "words": [
+        "peřina",
+        "polštář",
+        "šíp",
+        "slepice"
+      ],
+      "explanation": "Peřina a polštář jsou plněné peřím, šíp má na konci peří a slepice je jím pokrytá."
+    },
+    {
+      "title": "Dají se číst",
+      "difficulty": 3,
+      "words": [
+        "noty",
+        "mapa",
+        "myšlenky",
+        "dlaň"
+      ],
+      "explanation": "Číst noty, mapu, myšlenky a z dlaně."
+    },
+    {
+      "title": "Dají se zlomit",
+      "difficulty": 4,
+      "words": [
+        "kost",
+        "hůl",
+        "vaz",
+        "kouzlo"
+      ],
+      "explanation": "Zlomit kost, zlomit nad někým hůl, zlomit vaz a zlomit kouzlo."
+    },
+    {
+      "title": "Změnou prvního písmene z nich vznikne zvíře",
+      "difficulty": 5,
+      "words": [
+        "les",
+        "jev",
+        "sad",
+        "nos"
+      ],
+      "explanation": "LES → PES, JEV → LEV, SAD → HAD, NOS → KOS. Nos se dá zlomit taky, ale bez něj by tahle skupina neměla čtyři slova."
+    }
+  ]
+}

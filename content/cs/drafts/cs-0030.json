@@ -1,0 +1,55 @@
+{
+  "id": "cs-0030",
+  "language": "cs",
+  "size": 4,
+  "level": 3,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Lesní plody",
+      "difficulty": 1,
+      "words": [
+        "malina",
+        "borůvka",
+        "ostružina",
+        "jahoda"
+      ],
+      "explanation": "Plody, které se dají nasbírat v lese."
+    },
+    {
+      "title": "Tance",
+      "difficulty": 2,
+      "words": [
+        "valčík",
+        "polka",
+        "tango",
+        "salsa"
+      ],
+      "explanation": "Společenské tance."
+    },
+    {
+      "title": "Dají se přeskočit",
+      "difficulty": 3,
+      "words": [
+        "švihadlo",
+        "louže",
+        "řádek",
+        "reklama"
+      ],
+      "explanation": "Přeskočit švihadlo a louži, při čtení řádek a v televizi reklamu."
+    },
+    {
+      "title": "Začínají dvěma stejnými slabikami",
+      "difficulty": 4,
+      "words": [
+        "kukuřice",
+        "kakadu",
+        "mimino",
+        "tatarák"
+      ],
+      "explanation": "KU-KU-řice, KA-KA-du, MI-MI-no, TA-TA-rák."
+    }
+  ]
+}

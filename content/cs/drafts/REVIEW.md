@@ -2,6 +2,66 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
+## Várka 2026-10-14 (7) – denní hádanky út 3. 11. – so 7. 11.
+
+### cs-0029 · 4×4 · úroveň 2 · denní út 3. 11.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Mořští savci | velryba, delfín, tuleň, mrož | |
+| ▲ 2 | Místnosti v bytě | ložnice, obývák, koupelna, předsíň | |
+| ■ 3 | Dají se věšet | obraz, kabát, záclona, hlava | Věšet hlavu = být smutný. |
+| ◆ 4 | Dají se doplnit slovem RANNÍ | mlha, rosa, ptáče, cvičení | Ranní ptáče dál doskáče. |
+
+**Záludná slova:** OBRAZ, ZÁCLONA, KABÁT (věci z bytu, svádějí k místnostem).
+**Slepý test:** správně napoprvé, jiné rozdělení nenašel.
+
+### cs-0030 · 4×4 · úroveň 3 · denní st 4. 11.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Lesní plody | malina, borůvka, ostružina, jahoda | |
+| ▲ 2 | Tance | valčík, polka, tango, salsa | |
+| ■ 3 | Dají se přeskočit | švihadlo, louže, řádek, reklama | |
+| ◆ 4 | Začínají dvěma stejnými slabikami | kukuřice, kakadu, mimino, tatarák | KU-KU, KA-KA, MI-MI, TA-TA. |
+
+**Záludná slova:** šviHADlo, rekLAMA, tataRÁK svádějí ke skupině „schovává se v nich zvíře“ – čtvrté slovo ale chybí.
+**Slepý test:** správně napoprvé, past se schovanými zvířaty sám popsal jako férovou.
+
+### cs-0031 · 4×4 · úroveň 4 · denní čt 5. 11.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Měsíce | leden, březen, duben, srpen | |
+| ▲ 2 | Kancelářské potřeby | sešívačka, děrovačka, lepidlo, razítko | |
+| ■ 3 | Dají se rozbít | talíř, prasátko, koleno, tábor | Rozbít tábor = postavit ho. |
+| ◆ 4 | Barvy mariášových karet | srdce, list, kule, žalud | |
+
+**Záludná slova:** SRDCE (dá se rozbít), DUBEN – ŽALUD – LIST (vše od dubu).
+**Slepý test:** správně napoprvé, jiné rozdělení nenašel.
+
+### cs-0032 · 4×4 · úroveň 4 · denní pá 6. 11.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Těstoviny | špagety, nudle, kolínka, mušličky | |
+| ▲ 2 | Části hradu | hradba, nádvoří, příkop, cimbuří | |
+| ■ 3 | Mohou být ostré | zatáčka, kritika, jazyk, omáčka | |
+| ◆ 4 | Jsou to i české řeky | otava, oslava, orlice, olše | Otava, Oslava, Orlice, Olše. |
+
+**Záludná slova:** OMÁČKA (taky začíná na O jako řeky), PŘÍKOP (k silnici jako zatáčka).
+**Slepý test:** správně napoprvé; podle řešitele spíš lehčí, proto úroveň 4 (ne 5).
+
+### cs-0033 · 5×4 · úroveň 5 · denní so 7. 11.
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Psací potřeby | tužka, pero, fix, křída | |
+| ▲ 2 | Mají peří | peřina, polštář, šíp, slepice | |
+| ■ 3 | Dají se číst | noty, mapa, myšlenky, dlaň | Číst z dlaně. |
+| ◆ 4 | Dají se zlomit | kost, hůl, vaz, kouzlo | Zlomit nad někým hůl, zlomit vaz. |
+| ★ 5 | Změnou prvního písmene z nich vznikne zvíře | les, jev, sad, nos | PES, LEV, HAD, KOS. |
+
+**Záludná slova:** PERO (peří), NOS (dá se zlomit, ale bez něj nemá skupina ★ čtyři slova), TUŽKA a KŘÍDA (dají se zlomit).
+**Slepý test:** čtyři skupiny správně, u ★ našel správnou čtveřici, ale souvislost nepoznal (zasekl se na obtížnosti, ne na nejasnosti). Jiné úplné rozdělení nenašel.
+
+---
+
 ## Várka 2026-10-14 (6) – denní hádanky čt 29. 10. – po 2. 11.
 
 Nové typy skupin, aby se neopakovalo „Dají se doplnit slovem…“ a „Schovává se v nich…“: přirovnání, rčení, slova bez čárky, přidané a vynechané písmeno.

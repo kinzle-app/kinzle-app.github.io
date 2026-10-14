@@ -1,0 +1,55 @@
+{
+  "id": "cs-0031",
+  "language": "cs",
+  "size": 4,
+  "level": 4,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Měsíce",
+      "difficulty": 1,
+      "words": [
+        "leden",
+        "březen",
+        "duben",
+        "srpen"
+      ],
+      "explanation": "Měsíce v roce."
+    },
+    {
+      "title": "Kancelářské potřeby",
+      "difficulty": 2,
+      "words": [
+        "sešívačka",
+        "děrovačka",
+        "lepidlo",
+        "razítko"
+      ],
+      "explanation": "Potřeby, které bývají na psacím stole v kanceláři."
+    },
+    {
+      "title": "Dají se rozbít",
+      "difficulty": 3,
+      "words": [
+        "talíř",
+        "prasátko",
+        "koleno",
+        "tábor"
+      ],
+      "explanation": "Rozbít talíř, rozbít prasátko (pokladničku), rozbít si koleno a rozbít tábor (postavit ho)."
+    },
+    {
+      "title": "Barvy mariášových karet",
+      "difficulty": 4,
+      "words": [
+        "srdce",
+        "list",
+        "kule",
+        "žalud"
+      ],
+      "explanation": "Mariášové karty mají čtyři barvy: srdce (červené), listy (zelené), kule a žaludy."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "cs-0032",
+  "language": "cs",
+  "size": 4,
+  "level": 4,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Těstoviny",
+      "difficulty": 1,
+      "words": [
+        "špagety",
+        "nudle",
+        "kolínka",
+        "mušličky"
+      ],
+      "explanation": "Druhy těstovin."
+    },
+    {
+      "title": "Části hradu",
+      "difficulty": 2,
+      "words": [
+        "hradba",
+        "nádvoří",
+        "příkop",
+        "cimbuří"
+      ],
+      "explanation": "Části středověkého hradu."
+    },
+    {
+      "title": "Mohou být ostré",
+      "difficulty": 3,
+      "words": [
+        "zatáčka",
+        "kritika",
+        "jazyk",
+        "omáčka"
+      ],
+      "explanation": "Ostrá zatáčka, ostrá kritika, ostrý jazyk a ostrá omáčka."
+    },
+    {
+      "title": "Jsou to i české řeky",
+      "difficulty": 4,
+      "words": [
+        "otava",
+        "oslava",
+        "orlice",
+        "olše"
+      ],
+      "explanation": "Otava, Oslava, Orlice i Olše jsou řeky v Česku; zároveň je otava druhá seč trávy, oslava večírek, orlice samice orla a olše strom."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "cs-0029",
+  "language": "cs",
+  "size": 4,
+  "level": 2,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-14",
+  "groups": [
+    {
+      "title": "Mořští savci",
+      "difficulty": 1,
+      "words": [
+        "velryba",
+        "delfín",
+        "tuleň",
+        "mrož"
+      ],
+      "explanation": "Savci, kteří žijí v moři."
+    },
+    {
+      "title": "Místnosti v bytě",
+      "difficulty": 2,
+      "words": [
+        "ložnice",
+        "obývák",
+        "koupelna",
+        "předsíň"
+      ],
+      "explanation": "Místnosti, které má většina bytů."
+    },
+    {
+      "title": "Dají se věšet",
+      "difficulty": 3,
+      "words": [
+        "obraz",
+        "kabát",
+        "záclona",
+        "hlava"
+      ],
+      "explanation": "Obraz na zeď, kabát na věšák, záclonu na okno – a věšet hlavu, když je člověk smutný."
+    },
+    {
+      "title": "Dají se doplnit slovem RANNÍ",
+      "difficulty": 4,
+      "words": [
+        "mlha",
+        "rosa",
+        "ptáče",
+        "cvičení"
+      ],
+      "explanation": "Ranní mlha, ranní rosa, ranní cvičení a přísloví „Ranní ptáče dál doskáče“."
+    }
+  ]
+}
