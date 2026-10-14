@@ -131,7 +131,7 @@ test('malý displej 320 px: nic nepřetéká a slova se neořezávají', async (
 
 test('denní hádanka: jednou denně, výsledek, váček a archiv', async ({ page }) => {
   await setup(page);
-  await page.clock.setFixedTime(new Date('2026-10-19T08:00:00Z')); // pondělí 19. 10. v Praze
+  await page.clock.setFixedTime(new Date('2026-10-12T08:00:00Z')); // pondělí 12. 10. v Praze
   await page.goto('./#/');
   await expect(page.getByText('Kinzle #1')).toBeVisible();
   await page.getByRole('button', { name: 'Hrát' }).click();
@@ -144,7 +144,7 @@ test('denní hádanka: jednou denně, výsledek, váček a archiv', async ({ pag
   await expect(page.getByText('4 semínka')).toBeVisible();
 
   // druhý den je včerejší hádanka v archivu
-  await page.clock.setFixedTime(new Date('2026-10-20T08:00:00Z'));
+  await page.clock.setFixedTime(new Date('2026-10-13T08:00:00Z'));
   await page.goto('./#/archiv');
   await expect(page.getByRole('button', { name: /Kinzle #1/ })).toContainText('✓'); // odehraná, s body
 });
@@ -167,7 +167,7 @@ test('Cesta: úvod příběhu, výhra za hvězdy, odemčení další úrovně, z
 
 test('Volná hra: dohraná úroveň Cesty a starší denní, filtr obtížnosti', async ({ page }) => {
   await setup(page);
-  await page.clock.setFixedTime(new Date('2026-10-20T08:00:00Z'));
+  await page.clock.setFixedTime(new Date('2026-10-13T08:00:00Z'));
   await page.goto('./#/cesta');
   await page.getByRole('button', { name: 'Vyrazit' }).click();
   await page.locator('.next').getByRole('button', { name: 'Hrát' }).click();
@@ -217,7 +217,7 @@ test('obsah z webu: novější se stáhne a použije při dalším spuštění, 
 
 test('angličtina: úroveň v nastavení, každá úroveň má svou denní hádanku', async ({ page }) => {
   await setup(page, { lang: 'en', tier: 'easy', newsSeen: {} });
-  await page.clock.setFixedTime(new Date('2026-10-19T08:00:00Z'));
+  await page.clock.setFixedTime(new Date('2026-10-12T08:00:00Z'));
   await page.goto('./#/');
   // Easy zatím nemá denní hádanky; dnešní Hard je nabídnutá pod kartou
   await expect(page.getByText('Daily puzzles are on their way.')).toBeVisible();
