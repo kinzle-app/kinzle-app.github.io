@@ -170,7 +170,9 @@
       "other": "{count} rare"
     },
     "rareOne": "Rare seed for a clean game",
-    "empty": "Your pouch is empty for now. Every group you solve adds a seed."
+    "empty": "Your pouch is empty for now. Every group you solve adds a seed.",
+    "intro": "Every group you solve becomes a seed with its four words. A game with no mistakes and no hints gives a rare seed ✦. One day they will grow into a tree of words.",
+    "byDifficulty": "Seeds by difficulty"
   },
   "more": {
     "title": "More",

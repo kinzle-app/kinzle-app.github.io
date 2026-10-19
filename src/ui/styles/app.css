@@ -307,15 +307,27 @@ dialog .primary { width: 100%; }
 .bag-text strong { font-size: calc(16px * var(--fs)); }
 .bag-head { display: flex; align-items: center; gap: 12px; }
 .bag-head p { margin: 2px 0 0; }
-.seed-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-.seed { display: flex; gap: 12px; align-items: flex-start; padding: 10px 12px; border-radius: 12px; background: var(--felt-light); }
-.seed-dot {
-  flex: none; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
-  background: var(--gc); color: var(--gc-ink); font-size: 14px;
+.bag-head h2 { margin: 0; }
+.bag-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.chip { padding: 3px 10px; border-radius: 999px; background: var(--felt-light); font-size: calc(13px * var(--fs)); font-weight: 700; }
+.chip-rare { color: var(--star); }
+.page .bag-intro { margin: 0; color: var(--muted); font-size: calc(14px * var(--fs)); line-height: 1.45; }
+/* přehled podle obtížnosti: semínko a počet */
+.seed-tally { list-style: none; margin: 0; padding: 10px 12px; border-radius: 14px; background: var(--felt-light); display: flex; justify-content: space-around; }
+.seed-tally li { display: flex; align-items: center; gap: 4px; font-weight: 800; font-variant-numeric: tabular-nums; }
+/* sbírka: mřížka karet se semínky */
+.seed-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.seed-card {
+  display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;
+  padding: 12px 10px 10px; border-radius: 14px; background: var(--felt-light); border: 2px solid transparent;
 }
-.seed-body { display: flex; flex-direction: column; gap: 2px; font-size: calc(14px * var(--fs)); }
-.seed-body strong { font-size: calc(15px * var(--fs)); }
-.seed-rare { color: var(--star); }
+.seed-card.rare { border-color: var(--star); }
+.seed-card strong { font-size: calc(14px * var(--fs)); line-height: 1.25; }
+.seed-words { font-size: calc(12px * var(--fs)); line-height: 1.35; color: var(--muted); }
+.seed-date { font-size: 11px; color: var(--muted); opacity: .8; }
+.seed-icon { position: relative; display: inline-flex; }
+.seed-icon svg { display: block; }
+.seed-star { position: absolute; top: -4px; right: -6px; color: var(--star); font-size: 14px; }
 
 /* ---------- Nabídka (Více, Archiv) ---------- */
 .menu { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }

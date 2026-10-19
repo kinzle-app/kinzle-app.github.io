@@ -184,7 +184,9 @@
       "other": "{count} vzácných"
     },
     "rareOne": "Vzácné semínko za čistou hru",
-    "empty": "Váček je zatím prázdný. Každá vyřešená skupina do něj přidá semínko."
+    "empty": "Váček je zatím prázdný. Každá vyřešená skupina do něj přidá semínko.",
+    "intro": "Každá skupina, kterou vyřešíš, je semínko se svými čtyřmi slovy. Za hru bez chyby a bez nápovědy je semínko vzácné ✦. Jednou z nich vyroste strom slov.",
+    "byDifficulty": "Semínka podle obtížnosti"
   },
   "more": {
     "title": "Více",

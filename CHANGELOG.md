@@ -18,6 +18,7 @@
 - Okno „Co je nového“ podle `content/<jazyk>/news.json` (jednou po aktualizaci).
 - Obsah se stahuje z webu (`content/manifest.json`, jen změněné soubory) a použije se při dalším spuštění; zabalená kopie funguje offline.
 - Nápověda „Ukázat dvě slova, která patří k sobě“ místo jednoho slova; nápovědy se ukazují jako trvalý řádek nad kostičkami, označené kostičky mají výrazný pruh, u každé volby je vysvětlení.
+- Váček se semínky má novou podobu: semínka jako barevná zrnka v mřížce karet, přehled podle obtížnosti a krátké vysvětlení, k čemu jsou.
 - Moje hry: seznam odehraných her po dnech s filtrem a detail s pokusy po řadě (ukládají se od této verze) a všemi skupinami s vysvětlením.
 - Volná hra je teď Trénink: bez bodů, časomíry a limitu chyb, nápovědy zdarma; do statistik se nepočítá.
 - Angličtina má úrovně Easy / Medium / Hard: volba na konci návodu a v nastavení, každá úroveň má vlastní denní hádanku, na úvodu odkazy na dnešní hádanky ostatních úrovní; archiv a Volná hra podle zvolené úrovně, balíček se štítkem úrovně.
