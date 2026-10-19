@@ -1,0 +1,55 @@
+{
+  "id": "cs-0047",
+  "language": "cs",
+  "size": 4,
+  "level": 5,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-19",
+  "groups": [
+    {
+      "title": "Zdroje světla",
+      "difficulty": 1,
+      "words": [
+        "lucerna",
+        "baterka",
+        "lustr",
+        "lampion"
+      ],
+      "explanation": "Čím se svítí."
+    },
+    {
+      "title": "Optické přístroje",
+      "difficulty": 2,
+      "words": [
+        "lupa",
+        "dalekohled",
+        "mikroskop",
+        "periskop"
+      ],
+      "explanation": "Přístroje s čočkami, které zvětšují nebo ukazují dál."
+    },
+    {
+      "title": "Mohou hořet, i když nejde o oheň",
+      "difficulty": 3,
+      "words": [
+        "termín",
+        "uši",
+        "tváře",
+        "půda"
+      ],
+      "explanation": "Hoří termín, hoří uši a tváře (studem) a hoří půda pod nohama."
+    },
+    {
+      "title": "Přesmyčkou z nich vznikne rostlina (čárky se nepočítají)",
+      "difficulty": 4,
+      "words": [
+        "lampa",
+        "pila",
+        "sít",
+        "kam"
+      ],
+      "explanation": "LAMPA → PALMA, PILA → LÍPA, SÍT → TIS, KAM → MÁK. Lampa svádí ke světlům, ale světel je tu dost i bez ní."
+    }
+  ]
+}

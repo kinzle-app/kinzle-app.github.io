@@ -2,6 +2,60 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
+## Várka 2026-10-19 – zkušební hádanky pro dospělé
+
+Podle nových pravidel v `PRAVIDLA-HADANEK.md` (kapitola 2a): žádná holá kategorie, aspoň dvě hříčky, falešná stopa. Zahraj si je a porovnej s dosavadními – podle toho doladíme obtížnost a pak zapneme rozdělení děti / dospělí. Ve vývojové verzi jsou v Více → Návrhy.
+Slepý test teď hodnotí i obtížnost každé skupiny (1 = hned vidět, 5 = až na konec).
+
+### cs-0044 · 4×4 · úroveň 4
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Mořské ryby | treska, sleď, tuňák, makrela | |
+| ▲ 2 | Mají ostny | ježek, dikobraz, kaktus, bodlák | |
+| ■ 3 | Dají se spolknout | urážka, pilulka, návnada, slzy | |
+| ◆ 4 | Na konci se v nich schovává část těla | sucho, baret, violončelo, kompas | sUCHO, baRET, violonČELO, komPAS |
+
+**Falešná stopa:** NÁVNADA (k rybám).
+**Slepý test 1:** MAKRELA má ostny v ploutvích a dala se prohodit s CANDÁTEM. **Opraveno:** CANDÁT → BODLÁK.
+**Slepý test 2:** správně, jiné řešení nenašel. Obtížnost 1 / 1 / 3 / 5 – první dvě skupiny jsou pořád moc lehké (pravidlo chce nejlehčí aspoň 2).
+
+### cs-0045 · 4×4 · úroveň 4
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Části lodi | příď, záď, stěžeň, kormidlo | |
+| ▲ 2 | Umí skákat | klokan, blecha, žába, cvrček | |
+| ■ 3 | Dají se nabrat | dech, kurz, rychlost, zpoždění | |
+| ◆ 4 | Jejich zdrobnělina znamená něco jiného | kost, list, čára, hák | kostka, lístek, čárka, háček |
+
+**Falešné stopy:** KURZ, HÁK, LIST, ČÁRA (vypadají lodně), ŽÁBA (žabka).
+**Slepý test:** správně, jiné úplné řešení nenašel. Obtížnost 1 / 2 / 3 / 5.
+
+### cs-0046 · 4×4 · úroveň 4
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Odrůdy vína | ryzlink, frankovka, tramín, muškát | |
+| ▲ 2 | Nádoby na pití | korbel, číše, půllitr, panák | |
+| ■ 3 | Bývá na nich pěna | pivo, cappuccino, vlna, vana | |
+| ◆ 4 | Dají se doplnit slovem ŠPANĚLSKÝ | vesnice, ptáček, stěna, chřipka | |
+
+**Falešné stopy:** PIVO a CAPPUCCINO (nápoje k nádobám), MUŠKÁT (květina), PANÁK.
+**Slepý test:** správně, jiné řešení nenašel. Obtížnost 1 / 2 / 4 / 4.
+
+### cs-0047 · 4×4 · úroveň 5
+| Obtížnost | Název | Slova | Vysvětlení |
+|---|---|---|---|
+| ● 1 | Zdroje světla | lucerna, baterka, lustr, lampion | |
+| ▲ 2 | Optické přístroje | lupa, dalekohled, mikroskop, periskop | |
+| ■ 3 | Mohou hořet, i když nejde o oheň | termín, uši, tváře, půda | hoří půda pod nohama |
+| ◆ 4 | Přesmyčkou z nich vznikne rostlina (čárky se nepočítají) | lampa, pila, sít, kam | PALMA, LÍPA, TIS, MÁK |
+
+**Falešná stopa:** LAMPA (páté světlo).
+**Slepý test:** správně, jiné řešení nenašel; upozornil, že u přesmyček nesedí čárky – proto je to v názvu. Obtížnost 1 / 2 / 3 / 5.
+
+**Vyřazeno:** hádanka s hudebními nástroji (dechové, strunné s raketou, „hraje se o ně“, předložka + slovo). Řešitel našel jiné smysluplné rozdělení (PODNOS je trofej z Wimbledonu, k tomu raketa, titul, trofej) – tu jsem zahodil.
+
+---
+
 ## Várka 2026-10-14 (9) – denní hádanky pá 13. 11. – út 17. 11. (poslední česká)
 
 ### cs-0039 · 4×4 · úroveň 4 · denní pá 13. 11. · ✅ schváleno 2026-10-14

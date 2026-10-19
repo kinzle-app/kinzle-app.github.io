@@ -1,0 +1,55 @@
+{
+  "id": "cs-0045",
+  "language": "cs",
+  "size": 4,
+  "level": 4,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-19",
+  "groups": [
+    {
+      "title": "Části lodi",
+      "difficulty": 1,
+      "words": [
+        "příď",
+        "záď",
+        "stěžeň",
+        "kormidlo"
+      ],
+      "explanation": "Části lodi."
+    },
+    {
+      "title": "Umí skákat",
+      "difficulty": 2,
+      "words": [
+        "klokan",
+        "blecha",
+        "žába",
+        "cvrček"
+      ],
+      "explanation": "Zvířata, která se pohybují skoky."
+    },
+    {
+      "title": "Dají se nabrat",
+      "difficulty": 3,
+      "words": [
+        "dech",
+        "kurz",
+        "rychlost",
+        "zpoždění"
+      ],
+      "explanation": "Nabrat dech, kurz, rychlost i zpoždění. Kurz svádí k lodi, ale části lodi jsou čtyři i bez něj."
+    },
+    {
+      "title": "Jejich zdrobnělina znamená něco jiného",
+      "difficulty": 4,
+      "words": [
+        "kost",
+        "list",
+        "čára",
+        "hák"
+      ],
+      "explanation": "Kostka, lístek (jízdenka), čárka a háček (znaménka nad písmeny)."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "cs-0046",
+  "language": "cs",
+  "size": 4,
+  "level": 4,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-19",
+  "groups": [
+    {
+      "title": "Odrůdy vína",
+      "difficulty": 1,
+      "words": [
+        "ryzlink",
+        "frankovka",
+        "tramín",
+        "muškát"
+      ],
+      "explanation": "Odrůdy vína pěstované na Moravě. Muškát je i balkonová květina."
+    },
+    {
+      "title": "Nádoby na pití",
+      "difficulty": 2,
+      "words": [
+        "korbel",
+        "číše",
+        "půllitr",
+        "panák"
+      ],
+      "explanation": "Korbel a půllitr na pivo, číše na víno, panák na tvrdý alkohol."
+    },
+    {
+      "title": "Bývá na nich pěna",
+      "difficulty": 3,
+      "words": [
+        "pivo",
+        "cappuccino",
+        "vlna",
+        "vana"
+      ],
+      "explanation": "Pěna na pivu, mléčná pěna na cappuccinu, pěna na vlnách a pěna do koupele ve vaně."
+    },
+    {
+      "title": "Dají se doplnit slovem ŠPANĚLSKÝ",
+      "difficulty": 4,
+      "words": [
+        "vesnice",
+        "ptáček",
+        "stěna",
+        "chřipka"
+      ],
+      "explanation": "Španělská vesnice (něco nesrozumitelného), španělský ptáček (jídlo), španělská stěna a španělská chřipka."
+    }
+  ]
+}

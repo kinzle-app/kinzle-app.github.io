@@ -57,6 +57,17 @@ Slovo má nejvýš 12 znaků (jinak se nevejde na kostičku), víceslovné spoje
 - **Čeština a angličtina se vymýšlejí zvlášť**, nikdy se nepřekládají. Anglické hádanky musí být srozumitelné hráčům z různých zemí (žádné úzce americké nebo britské reálie, raději mezinárodní pravopis slov bez rozdílů US/UK).
 - **Všechno je původní.** Nikdy nepřebírej ani nepřekládej hádanky z jiných her nebo jejich archivů.
 
+## 2a. Obtížnost pro dospělé
+
+První hádanky (cs-0001 až cs-0043) jsou pro dospělé příliš lehké: první dvě skupiny jsou holé kategorie (Ovoce, Barvy) a zbytek se dá vyřešit vylučováním. Čeština bude mít dvě úrovně – pro děti (dosavadní styl) a pro dospělé. Hádanka pro dospělé musí splnit všechno níže:
+
+- **Žádná holá kategorie.** I nejlehčí skupina je zúžená nebo nečekaná („Mořské ryby“, ne „Ryby“; „Mají ostny“, ne „Zvířata“).
+- **Nejméně dvě skupiny jsou hříčky nebo nečekaná spojení** (ustálené spojení, dvojí význam, skrytá slova, přesmyčka, předpona…).
+- **Nejzjevnější téma má 5–6 kandidátů.** Slova, která na první pohled tvoří skupinu, jsou rozházená do víc skupin, takže vylučovací metoda nefunguje hned.
+- **Aspoň jedna falešná stopa:** tři slova, která spolu zjevně souvisí, ale čtvrté k nim chybí (každé patří jinam).
+- **Pořád platí jednoznačnost** (kapitola 4): falešná stopa nesmí vytvořit druhé platné řešení.
+- **Slepý test měří i obtížnost:** řešitel u každé skupiny napíše, jak těžká mu připadala (1–5) a kolik slov ho mátlo. Hádanka pro dospělé má mít aspoň dvě skupiny s hodnocením 3 a víc a nejlehčí skupinu aspoň 2.
+
 ## 3. Rytmus týdne (denní hádanky)
 
 | Den | Velikost | `level` |

@@ -15,6 +15,7 @@ Příklady: `cs 5`, `en 3 téma: kuchyně`, `cs kapitola 2`, `cs denní od 2026-
    - **denní** (`denní od <datum>`): pro každý den velikost a úroveň podle rytmu týdne z pravidel (po–pá 4×4 se stoupající úrovní, víkend 5×4),
    - **kapitola N**: 10 úrovní Cesty (mix 3×4, 4×4, 5×4, každá 4.–5. úroveň oddechová, poslední mistrovská 5×4), 2–3 hádanky volně k tématu kapitoly; tvoř po 5,
    - jinak počet a téma podle zadání.
+   - **čeština pro dospělé**: navíc pravidla z kapitoly 2a (žádná holá kategorie, 2+ hříčky, falešná stopa, 5–6 kandidátů na nejzjevnější téma).
    - **angličtina**: každá hádanka má úroveň `tier` (easy / medium / hard) podle kapitoly 3a pravidel. Když úroveň v zadání chybí (např. `/hadanky en denní od 2026-10-26 easy`), zeptej se. Denní rozpis je pro každou úroveň zvlášť.
    Várka má **nejvýš 5 hádanek**. Když je jich potřeba víc, udělej prvních 5 a zastav se.
 5. Id: další volné číslo v jazyce (`cs-0001`, `cs-0002`, …), nikdy nepoužij id znovu.
@@ -27,7 +28,7 @@ Pro každou hádanku napiš návrh podle pravidel: přesné názvy skupin (slovn
 2. **Kontrola jednoznačnosti:** tabulka slovo → všechny skupiny, kam by mohlo patřit.
 3. **Hledání alternativního řešení:** aktivně zkus najít jiné rozdělení všech slov.
 4. **Slepý test:** spusť nového subagenta (nástroj Agent) a dej mu **jen** tento úkol se zamíchanými slovy, bez názvů a řešení:
-   > Tady je N×4 slov ze slovní hry (jazyk: …). Rozděl je do N skupin po čtyřech, kde mají slova ve skupině něco společného. Spojení mohou být i slovní hříčky. U každé skupiny napiš, co mají slova společného, a jak moc si jsi jistý. Pak vypiš všechna slova, která by podle tebe mohla patřit i do jiné skupiny, a jakékoli jiné rozdělení, které by taky dávalo smysl. Slova: …
+   > Tady je N×4 slov ze slovní hry (jazyk: …). Rozděl je do N skupin po čtyřech, kde mají slova ve skupině něco společného. Spojení mohou být i slovní hříčky. U každé skupiny napiš, co mají slova společného, a jak moc si jsi jistý. Pak vypiš všechna slova, která by podle tebe mohla patřit i do jiné skupiny, a jakékoli jiné rozdělení, které by taky dávalo smysl. Nakonec u každé skupiny napiš, jak těžká ti připadala (1 = hned vidět, 5 = až na konec) a kolik slov tě u ní mátlo. Slova: …
    Pokud subagent najde jiné obhajitelné řešení nebo se zasekne kvůli nejasnosti (ne kvůli obtížnosti), hádanku oprav a test zopakuj s **novým** subagentem. Do přehledu zapiš, jak test dopadl (i neúspěšné pokusy).
 5. **Jazyková kontrola:** pravopis, diakritika, základní tvar, běžnost slova; u češtiny v pochybnostech Internetová jazyková příručka (prirucka.ujc.cas.cz).
 6. **Kontrola faktů** ve vysvětleních na webu. Neověřitelný fakt vyhoď a napiš jen jednoduché vysvětlení.

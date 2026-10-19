@@ -1,0 +1,55 @@
+{
+  "id": "cs-0044",
+  "language": "cs",
+  "size": 4,
+  "level": 4,
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-19",
+  "groups": [
+    {
+      "title": "Mořské ryby",
+      "difficulty": 1,
+      "words": [
+        "treska",
+        "sleď",
+        "tuňák",
+        "makrela"
+      ],
+      "explanation": "Ryby, které žijí v moři."
+    },
+    {
+      "title": "Mají ostny",
+      "difficulty": 2,
+      "words": [
+        "ježek",
+        "dikobraz",
+        "kaktus",
+        "bodlák"
+      ],
+      "explanation": "Ježek a dikobraz mají ostny na těle, kaktus a bodlák na stoncích a listech."
+    },
+    {
+      "title": "Dají se spolknout",
+      "difficulty": 3,
+      "words": [
+        "urážka",
+        "pilulka",
+        "návnada",
+        "slzy"
+      ],
+      "explanation": "Spolknout urážku, hořkou pilulku, návnadu i slzy. Návnada svádí k rybám, ale ryb je tu dost i bez ní."
+    },
+    {
+      "title": "Na konci se v nich schovává část těla",
+      "difficulty": 4,
+      "words": [
+        "sucho",
+        "baret",
+        "violončelo",
+        "kompas"
+      ],
+      "explanation": "sUCHO, baRET, violonČELO, komPAS."
+    }
+  ]
+}
