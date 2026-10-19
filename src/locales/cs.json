@@ -37,7 +37,9 @@
       "few": "body",
       "many": "bodu",
       "other": "bodů"
-    }
+    },
+    "training": "Trénink",
+    "trainingNote": "Trénink: bez bodů a bez limitu chyb"
   },
   "msg": {
     "pickFour": "Vyber čtyři kostičky.",
@@ -91,12 +93,18 @@
     },
     "option": {
       "title": "Odhalit název skupiny",
-      "word": "Odhalit jedno slovo"
+      "pair": "Ukázat dvě slova, která patří k sobě"
     },
     "cost": "−{points} b.",
     "cancel": "Zpět ke hře",
     "groupTitle": "Nápověda: {title}",
-    "tileLabel": "{word}, nápověda: patří do skupiny {symbol}"
+    "tileLabel": "{word}, nápověda: patří do skupiny {symbol}",
+    "optionNote": {
+      "title": "Uvidíš, co spojuje nejlehčí skupinu, kterou ještě nemáš.",
+      "pair": "Dvě slova z nejlehčí skupiny, kterou ještě nemáš, se označí jejím symbolem."
+    },
+    "pairCard": "Nápověda: {a} a {b} patří k sobě",
+    "free": "zdarma"
   },
   "score": {
     "groups": "Skupiny",
@@ -247,8 +255,8 @@
     }
   },
   "free": {
-    "title": "Volná hra",
-    "note": "Hádanky, které už máš za sebou na Cestě, a starší denní. Hraj je znovu, kolikrát chceš.",
+    "title": "Trénink",
+    "note": "Hádanky, které už máš za sebou na Cestě, a starší denní. Bez bodů, bez časomíry a bez limitu chyb, nápovědy zdarma.",
     "filter": "Obtížnost",
     "all": "Vše",
     "easy": "lehké",
@@ -257,7 +265,7 @@
     "pathLevel": "Cesta · úroveň {n}",
     "empty": "Zatím tu nic není. Přibudou sem úrovně, které dohraješ na Cestě, a starší denní hádanky.",
     "emptyFilter": "V téhle obtížnosti tu zatím nic není.",
-    "back": "Zpět na Volnou hru"
+    "back": "Zpět na trénink"
   },
   "packs": {
     "title": "Balíčky",
@@ -311,5 +319,34 @@
     "easy": "Easy",
     "medium": "Medium",
     "hard": "Hard"
+  },
+  "history": {
+    "title": "Moje hry",
+    "filter": "Režim",
+    "filters": {
+      "all": "Vše",
+      "daily": "Denní",
+      "path": "Cesta",
+      "free": "Trénink",
+      "pack": "Balíčky"
+    },
+    "modes": {
+      "daily": "Denní",
+      "archive": "Archiv",
+      "path": "Cesta",
+      "free": "Trénink",
+      "pack": "Balíček"
+    },
+    "empty": "Zatím tu nic není. Každá dohraná hra se sem zapíše.",
+    "emptyFilter": "V tomhle režimu zatím nic.",
+    "attempts": "Tvoje pokusy",
+    "noAttempts": "U starších her se jednotlivé pokusy neukládaly.",
+    "groups": "Skupiny",
+    "again": "Zahrát znovu",
+    "result": {
+      "correct": "sedí",
+      "oneAway": "těsně vedle",
+      "wrong": "vedle"
+    }
   }
 }

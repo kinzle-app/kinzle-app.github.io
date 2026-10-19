@@ -94,6 +94,9 @@ button:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--select
 .hint-options { display: flex; flex-direction: column; gap: 8px; margin: 0 0 16px; }
 .hint-option { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 14px; text-align: left; }
 .hint-option .cost { color: var(--muted); font-weight: 700; white-space: nowrap; }
+.hint-option-text { display: flex; flex-direction: column; gap: 2px; }
+.hint-option-text small { font-weight: 500; font-size: calc(13px * var(--fs)); color: var(--muted); }
+.stats-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
 /* ---------- Vyřešené skupiny ---------- */
 .solved-list { display: flex; flex-direction: column; gap: 10px; }
@@ -134,8 +137,9 @@ button:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--select
   transition-duration: var(--press);
 }
 .tile:disabled { cursor: default; }
-/* nápověda: kostička dostane barevný okraj skupiny */
+/* nápověda: kostička dostane silný barevný okraj a pruh v barvě skupiny (zůstane vidět i při výběru) */
 .tile.hinted { outline: 4px solid var(--gc); outline-offset: -4px; }
+.tile.hinted::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 10px; background: var(--gc); }
 /* režim pro barvoslepé: navíc symbol skupiny */
 .colorblind .tile.hinted::after {
   content: attr(data-symbol); position: absolute; top: 4px; right: 6px;
@@ -427,3 +431,14 @@ dialog .primary { width: 100%; }
 .other-tiers .link:disabled { text-decoration: none; cursor: default; }
 .help-card .choices { justify-content: center; }
 .setting .muted { margin: 8px 0 0; }
+
+/* ---------- Moje hry ---------- */
+.history { display: flex; flex-direction: column; gap: 14px; }
+.history section { display: flex; flex-direction: column; gap: 8px; }
+.history h3::first-letter { text-transform: uppercase; }
+.attempt-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; counter-reset: attempt; }
+.attempt { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 12px; background: var(--felt-light); }
+.attempt-squares { display: grid; grid-template-columns: repeat(4, 14px); gap: 3px; }
+.attempt-square { width: 14px; height: 14px; border-radius: 4px; background: var(--gc, var(--dot-off)); }
+.attempt-words { font-weight: 700; font-size: calc(14px * var(--fs)); text-transform: uppercase; }
+.attempt-result { color: var(--muted); font-size: calc(13px * var(--fs)); white-space: nowrap; }

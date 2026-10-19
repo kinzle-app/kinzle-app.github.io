@@ -33,7 +33,9 @@
     "pointsUnit": {
       "one": "point",
       "other": "points"
-    }
+    },
+    "training": "Practice",
+    "trainingNote": "Practice: no points, no mistake limit"
   },
   "msg": {
     "pickFour": "Pick four tiles.",
@@ -83,12 +85,18 @@
     },
     "option": {
       "title": "Reveal a group name",
-      "word": "Reveal one word"
+      "pair": "Show two words that belong together"
     },
     "cost": "−{points} pts",
     "cancel": "Back to the game",
     "groupTitle": "Hint: {title}",
-    "tileLabel": "{word}, hint: belongs to group {symbol}"
+    "tileLabel": "{word}, hint: belongs to group {symbol}",
+    "optionNote": {
+      "title": "See what links the easiest group you haven't found yet.",
+      "pair": "Two words from the easiest group you haven't found yet get marked with its symbol."
+    },
+    "pairCard": "Hint: {a} and {b} belong together",
+    "free": "free"
   },
   "score": {
     "groups": "Groups",
@@ -225,8 +233,8 @@
     }
   },
   "free": {
-    "title": "Free play",
-    "note": "Puzzles you've already finished on the Path, plus older daily puzzles. Replay them as often as you like.",
+    "title": "Practice",
+    "note": "Puzzles you have already finished on the Journey, plus older daily puzzles. No points, no timer, no mistake limit, free hints.",
     "filter": "Difficulty",
     "all": "All",
     "easy": "easy",
@@ -235,7 +243,7 @@
     "pathLevel": "Path · level {n}",
     "empty": "Nothing here yet. Levels you finish on the Path and older daily puzzles will appear here.",
     "emptyFilter": "Nothing at this difficulty yet.",
-    "back": "Back to Free play"
+    "back": "Back to Practice"
   },
   "packs": {
     "title": "Packs",
@@ -287,5 +295,34 @@
     "easy": "Easy",
     "medium": "Medium",
     "hard": "Hard"
+  },
+  "history": {
+    "title": "My games",
+    "filter": "Mode",
+    "filters": {
+      "all": "All",
+      "daily": "Daily",
+      "path": "Journey",
+      "free": "Practice",
+      "pack": "Packs"
+    },
+    "modes": {
+      "daily": "Daily",
+      "archive": "Archive",
+      "path": "Journey",
+      "free": "Practice",
+      "pack": "Pack"
+    },
+    "empty": "Nothing here yet. Every finished game will show up here.",
+    "emptyFilter": "Nothing in this mode yet.",
+    "attempts": "Your guesses",
+    "noAttempts": "Older games did not save individual guesses.",
+    "groups": "Groups",
+    "again": "Play again",
+    "result": {
+      "correct": "correct",
+      "oneAway": "one away",
+      "wrong": "not a group"
+    }
   }
 }

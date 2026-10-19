@@ -28,6 +28,7 @@ describe('historie a váček', () => {
     const e = entry(puzzle('cs-0001'));
     expect(e).toMatchObject({ puzzleId: 'cs-0001', won: true, mistakes: 0, hints: 0 });
     expect(e.solved).toHaveLength(3);
+    expect(e.attempts.map((x) => x.result)).toEqual(['correct', 'correct', 'correct']);
     expect(e.solved[0].words).toEqual(['cs-0001-0-0', 'cs-0001-0-1', 'cs-0001-0-2', 'cs-0001-0-3']);
   });
 
@@ -71,7 +72,8 @@ describe('historie a váček', () => {
 
   it('statistiky', () => {
     let p = addEntry(emptyProgress(), entry(puzzle('cs-0001'), {}, { score: 120, seconds: 100 }));
-    p = addEntry(p, entry(puzzle('cs-0002'), { mistakes: 2 }, { score: 80, seconds: 200, mode: 'free' }));
+    p = addEntry(p, entry(puzzle('cs-0002'), { mistakes: 2 }, { score: 80, seconds: 200, mode: 'archive' }));
+    p = addEntry(p, entry(puzzle('cs-0003'), {}, { score: 0, seconds: 5, mode: 'free' })); // trénink se nepočítá
     expect(stats(p)).toMatchObject({ played: 2, won: 2, winRate: 100, averageSeconds: 150, bestScore: 120, dailies: 1, mistakes: [1, 0, 1, 0, 0] });
   });
 });

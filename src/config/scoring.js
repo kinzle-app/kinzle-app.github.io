@@ -13,7 +13,7 @@ export const SCORING = {
 
   // srážky
   mistakePenalty: 10,
-  hintCost: { title: 15, word: 20 }, // odhalení názvu skupiny / jednoho slova
+  hintCost: { title: 15, pair: 20 }, // odhalení názvu skupiny / dvou slov, která patří k sobě
 
   maxHints: 2,
 

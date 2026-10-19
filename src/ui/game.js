@@ -30,8 +30,13 @@ export function hasSession(key) {
 // onFinish(game, seconds, score) se zavolá jednou po konci hry a vrátí počet nových semínek.
 // again = jde hrát znovu (denní hádanka jen jednou); back = kam vede tlačítko Zpět na konci;
 // endNote(game) = doplňující řádek na konci hry (např. hvězdy na Cestě).
-export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.id, onFinish, again = true, back = '#/', backLabel, endNote }) {
-  if (!sessions.has(sessionKey)) sessions.set(sessionKey, { game: createGame(puzzle), timer: createTimer(), finished: false, seedsAdded: 0 });
+// training = trénink: bez bodů a časomíry, bez limitu chyb, nápovědy zdarma a bez omezení.
+export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.id, onFinish, again = true, back = '#/', backLabel, endNote, training = false }) {
+  const maxHints = training ? Infinity : SCORING.maxHints;
+  if (!sessions.has(sessionKey)) {
+    const game = createGame(puzzle, Math.random, { maxMistakes: training ? Infinity : MAX_MISTAKES });
+    sessions.set(sessionKey, { game, timer: createTimer(), finished: false, seedsAdded: 0 });
+  }
   const session = sessions.get(sessionKey);
   const { game, timer } = session;
 
@@ -58,11 +63,13 @@ export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.
   const playArea = h('div', { class: 'play' },
     board, attempts, message, h('div', { class: 'controls' }, hintBtn, shuffleBtn, deselectBtn), submitBtn);
 
+  if (training) attempts.replaceChildren(t('game.trainingNote'));
   root.append(
     h('div', { class: 'bar' },
       h('span', {}, label),
-      h('span', { class: 'timer' }, clockIcon(), h('span', { class: 'visually-hidden' }, t('game.time')), timeEl),
-      scoreEl),
+      training ? h('span', { class: 'pill' }, t('game.training')) : '',
+      training ? '' : h('span', { class: 'timer' }, clockIcon(), h('span', { class: 'visually-hidden' }, t('game.time')), timeEl),
+      training ? '' : scoreEl),
     hintCards,
     solvedList,
     playArea
@@ -190,23 +197,26 @@ export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.
 
   function onHintMenu() {
     if (busy || game.status !== 'playing') return;
-    const left = SCORING.maxHints - game.hints.length;
+    const left = maxHints - game.hints.length;
+    // každá volba s jednou větou, co přesně udělá
     const option = (type) => h('button', {
       class: 'secondary hint-option', type: 'button',
-      disabled: !canHint(game, type, SCORING.maxHints),
+      disabled: !canHint(game, type, maxHints),
       onclick: () => { close(); applyHint(type); }
-    }, h('span', {}, t(`hint.option.${type}`)), h('span', { class: 'cost' }, t('hint.cost', { points: SCORING.hintCost[type] })));
+    },
+      h('span', { class: 'hint-option-text' }, h('strong', {}, t(`hint.option.${type}`)), h('small', {}, t(`hint.optionNote.${type}`))),
+      h('span', { class: 'cost' }, training ? t('hint.free') : t('hint.cost', { points: SCORING.hintCost[type] })));
 
     const close = openModal([
       h('h2', { id: 'hint-title' }, t('hint.title')),
-      h('p', { class: 'muted' }, t('hint.left', { count: left })),
-      h('div', { class: 'hint-options' }, option('title'), option('word')),
+      training ? '' : h('p', { class: 'muted' }, t('hint.left', { count: left })),
+      h('div', { class: 'hint-options' }, option('title'), option('pair')),
       h('button', { class: 'primary', type: 'button', onclick: () => close() }, t('hint.cancel'))
     ], { labelledBy: 'hint-title' });
   }
 
   function applyHint(type) {
-    if (!useHint(game, type, SCORING.maxHints)) return;
+    if (!useHint(game, type, maxHints)) return;
     play('hint');
     renderHints();
     update();
@@ -225,17 +235,19 @@ export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.
     });
     requestAnimationFrame(refit);
 
-    const left = mistakesLeft(game);
-    dots.setAttribute('aria-label', t('game.attemptsLeft', { count: left }));
-    dots.replaceChildren(...Array.from({ length: MAX_MISTAKES }, (_, i) =>
-      h('span', { class: i < left ? 'dot' : 'dot off' })));
+    if (!training) {
+      const left = mistakesLeft(game);
+      dots.setAttribute('aria-label', t('game.attemptsLeft', { count: left }));
+      dots.replaceChildren(...Array.from({ length: MAX_MISTAKES }, (_, i) =>
+        h('span', { class: i < left ? 'dot' : 'dot off' })));
+    }
 
     const playing = game.status === 'playing';
     deselectBtn.disabled = !playing || game.selected.length === 0;
     // během animace jsou tlačítka viditelně neaktivní (stisk by se jinak tiše ztratil)
     submitBtn.disabled = busy || !playing || game.selected.length !== 4;
     shuffleBtn.disabled = busy || !playing;
-    hintBtn.disabled = busy || !playing || !(canHint(game, 'title', SCORING.maxHints) || canHint(game, 'word', SCORING.maxHints));
+    hintBtn.disabled = busy || !playing || !(canHint(game, 'title', maxHints) || canHint(game, 'pair', maxHints));
     updateBar();
   }
 
@@ -244,13 +256,15 @@ export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.
     scoreEl.textContent = t('game.points', { points: scoreBreakdown(game, timer.seconds()).total });
   }
 
-  // Nápovědy: karta s názvem skupiny nad kostičkami, barevný okraj kostičky
+  // Nápovědy: trvalé karty nad kostičkami (název skupiny / dvojice slov) a značka skupiny na kostičkách
   function renderHints() {
     const active = game.hints.filter((hint) => !game.solved.includes(hint.group) && !game.revealed.includes(hint.group));
-    hintCards.replaceChildren(...active.filter((hint) => hint.type === 'title').map((hint) => {
+    hintCards.replaceChildren(...active.map((hint) => {
       const g = game.puzzle.groups[hint.group];
-      return h('div', { class: 'hint-card', 'data-d': g.difficulty },
-        h('span', { 'aria-hidden': 'true' }, SYMBOLS[g.difficulty]), ' ', t('hint.groupTitle', { title: g.title }));
+      const text = hint.type === 'title'
+        ? t('hint.groupTitle', { title: g.title })
+        : t('hint.pairCard', { a: hint.words[0].toLocaleUpperCase(), b: hint.words[1].toLocaleUpperCase() });
+      return h('div', { class: 'hint-card', 'data-d': g.difficulty }, h('span', { 'aria-hidden': 'true' }, SYMBOLS[g.difficulty]), ' ', text);
     }));
     tiles.forEach((btn) => {
       btn.classList.remove('hinted');
@@ -258,13 +272,15 @@ export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.
       btn.removeAttribute('data-symbol');
       btn.setAttribute('aria-label', btn.dataset.word);
     });
-    for (const hint of active.filter((x) => x.type === 'word')) {
+    for (const hint of active.filter((x) => x.type === 'pair')) {
       const g = game.puzzle.groups[hint.group];
-      const btn = tiles.get(hint.word);
-      btn.classList.add('hinted');
-      btn.dataset.d = g.difficulty;
-      btn.dataset.symbol = SYMBOLS[g.difficulty];
-      btn.setAttribute('aria-label', t('hint.tileLabel', { word: hint.word, symbol: SYMBOLS[g.difficulty] }));
+      for (const word of hint.words) {
+        const btn = tiles.get(word);
+        btn.classList.add('hinted');
+        btn.dataset.d = g.difficulty;
+        btn.dataset.symbol = SYMBOLS[g.difficulty];
+        btn.setAttribute('aria-label', t('hint.tileLabel', { word, symbol: SYMBOLS[g.difficulty] }));
+      }
     }
   }
 
@@ -321,7 +337,7 @@ export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.
     if (session.finished) return;
     timer.pause();
     session.finished = true;
-    session.seedsAdded = onFinish?.(game, timer.seconds(), scoreBreakdown(game, timer.seconds()).total) || 0;
+    session.seedsAdded = onFinish?.(game, timer.seconds(), training ? 0 : scoreBreakdown(game, timer.seconds()).total) || 0;
   }
 
   function showEnd(fresh) {
@@ -330,13 +346,28 @@ export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.
     const score = scoreBreakdown(game, seconds);
     const points = h('span', { class: 'end-points' });
     const shareNote = h('p', { class: 'share-note', role: 'status' });
-
     const stat = (label, value) => h('div', { class: 'stat' },
       h('span', { class: 'stat-value' }, value), h('span', { class: 'stat-label' }, label));
+
     // řádek rozpisu bodů; srážky se zobrazují se znaménkem minus
     const line = (key, value, minus = false) => value
       ? h('li', {}, h('span', {}, t(key)), h('span', {}, `${minus ? '−' : '+'}${value}`))
       : null;
+
+    // trénink: bez bodů, jen kolik to stálo chyb a nápověd
+    if (training) {
+      const end = h('div', { class: 'end' },
+        h('h2', {}, t('end.won')),
+        h('div', { class: 'stats stats-2' },
+          stat(t('end.mistakes'), String(game.mistakes)),
+          stat(t('end.hints'), String(game.hints.length))),
+        session.seedsAdded > 0 && h('p', { class: 'seeds-note' }, t('end.seeds', { count: session.seedsAdded })),
+        h('button', { class: 'primary', onclick: () => navigate(back) }, backLabel || t('end.back')),
+        h('button', { class: 'secondary', onclick: () => { sessions.delete(sessionKey); navigate(location.hash); } }, t('end.again')));
+      playArea.replaceChildren(end);
+      if (fresh) fadeIn(end);
+      return;
+    }
 
     const end = h('div', { class: 'end' },
       h('h2', {}, t(won ? 'end.won' : 'end.lost')),

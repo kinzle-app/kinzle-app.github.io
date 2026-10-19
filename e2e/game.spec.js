@@ -7,8 +7,10 @@ const puzzle = (id) => JSON.parse(readFileSync(`content/${id.slice(0, 2)}/puzzle
 const easy = puzzle('cs-0001');
 const news = JSON.parse(readFileSync('content/cs/news.json', 'utf8'));
 
-// Hráč, který už viděl návod; animace omezené, ať testy běží rychle
+// Hráč, který už viděl návod; animace omezené, ať testy běží rychle.
+// Den je pevně před začátkem rozpisu, aby testy nezávisely na dnešním datu (test si ho může přepsat).
 async function setup(page, settings = {}) {
+  await page.clock.setFixedTime(new Date('2026-10-10T08:00:00Z'));
   await page.addInitScript((s) => {
     if (!sessionStorage.getItem('init')) {
       localStorage.setItem('kinzle:settings', JSON.stringify({ lang: 'cs', onboarded: true, reduceMotion: true, newsSeen: { cs: s.news }, ...s }));
@@ -63,7 +65,7 @@ test('těsně vedle, opakovaná kombinace a prohra s odkrytím skupin', async ({
   await expect(page.locator('.group')).toHaveCount(easy.groups.length);
 });
 
-test('nápovědy: název skupiny, barevný okraj, nejvýš dvě', async ({ page }) => {
+test('nápovědy: název skupiny, dvojice slov, nejvýš dvě', async ({ page }) => {
   await setup(page);
   await page.goto('./#/hra/cs-0001');
   const easiest = easy.groups.find((g) => g.difficulty === 1);
@@ -73,8 +75,9 @@ test('nápovědy: název skupiny, barevný okraj, nejvýš dvě', async ({ page 
   await expect(page.getByText(`Nápověda: ${easiest.title}`)).toBeVisible();
 
   await page.getByRole('button', { name: 'Nápověda', exact: true }).click();
-  await page.getByRole('button', { name: /Odhalit jedno slovo/ }).click();
-  await expect(page.locator('.tile.hinted')).toHaveCount(1);
+  await page.getByRole('button', { name: /Ukázat dvě slova/ }).click();
+  await expect(page.locator('.tile.hinted')).toHaveCount(2);
+  await expect(page.locator('.hint-card', { hasText: 'patří k sobě' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Nápověda', exact: true })).toBeDisabled();
 });
 
@@ -236,4 +239,26 @@ test('angličtina: úroveň v nastavení, každá úroveň má svou denní háda
   await page.goto('./#/');
   await expect(page.getByText('Kinzle #1 · Hard')).toBeVisible();
   await expect(page.getByText('Solved')).toBeVisible();
+});
+
+test('trénink bez prohry a Moje hry s pokusy po řadě', async ({ page }) => {
+  await setup(page);
+  await page.clock.setFixedTime(new Date('2026-10-13T08:00:00Z')); // cs-0001 je včerejší denní → v tréninku
+  await page.goto('./#/volna');
+  await page.getByRole('button', { name: /Kinzle #1/ }).click();
+  await expect(page.getByText('Trénink: bez bodů a bez limitu chyb')).toBeVisible();
+  const [a, b] = easy.groups.map((g) => g.words);
+  for (const extra of b) { // 4 chyby by jinak znamenaly prohru
+    await pick(page, [a[0], a[1], a[2], extra]);
+    await page.getByRole('button', { name: 'Zrušit výběr' }).click();
+  }
+  await expect(page.getByText('Tentokrát to nevyšlo')).toHaveCount(0);
+  for (const g of easy.groups) await pick(page, g.words);
+  await expect(page.getByRole('heading', { name: 'Výborně, všechny skupiny sedí!' })).toBeVisible();
+  await expect(page.locator('.end-points')).toHaveCount(0); // bez bodů
+
+  await page.goto('./#/hry');
+  await page.getByRole('button', { name: /Trénink · Kinzle #1/ }).click();
+  await expect(page.locator('.attempt')).toHaveCount(4 + easy.groups.length);
+  await expect(page.locator('.attempt').first()).toContainText('těsně vedle');
 });

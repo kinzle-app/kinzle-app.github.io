@@ -23,8 +23,8 @@ export function shuffle(items, random = Math.random) {
   return out;
 }
 
-// Vytvoří nový stav hry z hádanky
-export function createGame(puzzle, random = Math.random) {
+// Vytvoří nový stav hry z hádanky. maxMistakes = Infinity v tréninku (bez limitu chyb).
+export function createGame(puzzle, random = Math.random, { maxMistakes = MAX_MISTAKES } = {}) {
   const words = puzzle.groups.flatMap((g) => g.words);
   return {
     puzzle,
@@ -33,14 +33,16 @@ export function createGame(puzzle, random = Math.random) {
     solved: [],                    // indexy vyřešených skupin v pořadí řešení
     revealed: [],                  // indexy skupin odkrytých po prohře
     mistakes: 0,
+    maxMistakes,
     guesses: [],                   // všechny odeslané kombinace (seřazené klíče)
-    hints: [],                     // použité nápovědy { type, group, word? }
+    attempts: [],                  // pokusy po řadě { words, result } – pro přehled odehraných her
+    hints: [],                     // použité nápovědy { type, group, words? }
     status: 'playing'              // 'playing' | 'won' | 'lost'
   };
 }
 
 export function mistakesLeft(game) {
-  return MAX_MISTAKES - game.mistakes;
+  return game.maxMistakes - game.mistakes;
 }
 
 // Vybere nebo zruší výběr slova. Víc než 4 vybrat nejde.
@@ -86,6 +88,9 @@ export function submit(game) {
     if (hits > best.hits) best = { index, hits };
   });
 
+  const result = best.hits === GROUP_SIZE ? RESULT.CORRECT : best.hits === GROUP_SIZE - 1 ? RESULT.ONE_AWAY : RESULT.WRONG;
+  game.attempts.push({ words: [...game.selected], result });
+
   if (best.hits === GROUP_SIZE) {
     const group = game.puzzle.groups[best.index];
     game.solved.push(best.index);
@@ -96,29 +101,29 @@ export function submit(game) {
   }
 
   game.mistakes += 1;
-  if (game.mistakes >= MAX_MISTAKES) {
+  if (game.mistakes >= game.maxMistakes) {
     game.status = 'lost';
     game.selected = [];
     game.revealed = unsolvedGroups(game);
   }
-  return { result: best.hits === GROUP_SIZE - 1 ? RESULT.ONE_AWAY : RESULT.WRONG };
+  return { result };
 }
 
 // ---------- Nápovědy ----------
 // Nápověda míří vždy na nejlehčí nevyřešenou skupinu, u které ještě má co odhalit.
 //  'title' – odhalí název skupiny
-//  'word'  – odhalí jedno slovo skupiny (kostička dostane barevný okraj)
+//  'pair'  – ukáže dvě slova, která patří k sobě (obě kostičky dostanou značku skupiny)
 
 function hintTarget(game, type) {
   return unsolvedGroups(game).find((index) => {
     const used = game.hints.filter((h) => h.group === index);
     if (type === 'title') return !used.some((h) => h.type === 'title');
-    return wordsToHint(game, index).length > 0;
+    return wordsToHint(game, index).length >= 2;
   });
 }
 
 function wordsToHint(game, index) {
-  const hinted = game.hints.map((h) => h.word);
+  const hinted = game.hints.flatMap((h) => h.words || []);
   return game.puzzle.groups[index].words.filter((w) => !hinted.includes(w));
 }
 
@@ -131,9 +136,9 @@ export function useHint(game, type, maxHints, random = Math.random) {
   if (!canHint(game, type, maxHints)) return null;
   const group = hintTarget(game, type);
   const hint = { type, group };
-  if (type === 'word') {
-    const words = wordsToHint(game, group);
-    hint.word = words[Math.floor(random() * words.length)];
+  if (type === 'pair') {
+    const words = shuffle(wordsToHint(game, group), random);
+    hint.words = words.slice(0, 2);
   }
   game.hints.push(hint);
   return hint;

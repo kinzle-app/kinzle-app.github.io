@@ -53,6 +53,8 @@ export function createEntry(game, { mode, date, seconds, score, tier, finishedAt
       const g = game.puzzle.groups[i];
       return { title: g.title, words: [...g.words], difficulty: g.difficulty };
     }),
+    // pokusy po řadě (slova + výsledek) pro přehled Moje hry; starší záznamy je nemají
+    attempts: game.attempts.map((a) => ({ words: [...a.words], result: a.result })),
     finishedAt
   };
 }
@@ -82,8 +84,9 @@ export function seeds(progress) {
   return [...byKey.values()];
 }
 
+// Statistiky bez tréninku (Volná hra je bez bodů a bez limitu chyb, zkreslovala by úspěšnost)
 export function stats(progress) {
-  const h = progress.history;
+  const h = progress.history.filter((e) => e.mode !== 'free');
   const won = h.filter((e) => e.won);
   const mistakes = [0, 1, 2, 3, 4].map((n) => h.filter((e) => e.mistakes === n).length);
   return {

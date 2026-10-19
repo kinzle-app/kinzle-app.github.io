@@ -31,6 +31,7 @@ import { renderHelp } from './ui/help.js';
 import { renderFree, freeList } from './ui/free.js';
 import { renderPacks, renderPack, findPack } from './ui/packs.js';
 import { renderDebug } from './ui/debug.js';
+import { renderHistory, renderHistoryDetail } from './ui/history.js';
 import { maybeShowNews, markNewsSeen } from './ui/news.js';
 
 const app = document.getElementById('app');
@@ -93,7 +94,7 @@ const TAB_SCREENS = { '#/': renderDaily, '#/cesta': renderPath, '#/vice': render
 // Další obrazovky s tlačítkem Zpět
 const SCREENS = {
   '#/archiv': renderArchive, '#/vacek': renderBag, '#/statistiky': renderStats, '#/zapisnik': renderNotebook,
-  '#/volna': renderFree, '#/balicky': renderPacks
+  '#/volna': renderFree, '#/balicky': renderPacks, '#/hry': renderHistory
 };
 
 // Denní hádanka (dnešní) nebo starší z archivu: #/denni/YYYY-MM-DD, u jazyka s úrovněmi i #/denni/YYYY-MM-DD/<úroveň>
@@ -165,7 +166,7 @@ function renderPackGame(packId, puzzleId) {
   });
 }
 
-// Volná hra (#/hra/<id>): z nabídky Volné hry se vrací do ní; návrhy a přímé odkazy na úvod
+// Volná hra (#/hra/<id>): hádanka z Tréninku se hraje jako trénink a vrací se do něj; návrhy a přímé odkazy na úvod
 function renderFreeGame(puzzle) {
   const item = freeList().find((x) => x.puzzle.id === puzzle.id);
   return renderGame(app, {
@@ -174,7 +175,8 @@ function renderFreeGame(puzzle) {
     navigate,
     sessionKey: `free:${puzzle.id}`,
     onFinish: finisher('free', today()),
-    ...(item && { back: '#/volna', backLabel: t('free.back') })
+    // z nabídky Tréninku: bez bodů a bez limitu chyb
+    ...(item && { back: '#/volna', backLabel: t('free.back'), training: true })
   });
 }
 
@@ -189,6 +191,7 @@ function render() {
   const daily = route.match(/^#\/denni\/(\d{4}-\d{2}-\d{2})(?:\/(\w+))?$/);
   const pathLevel = route.match(/^#\/cesta\/([\w-]+)$/);
   const pack = route.match(/^#\/balicek\/([\w-]+)$/);
+  const historyGame = route.match(/^#\/hry\/(\d+)$/);
   const packGame = route.match(/^#\/balicek\/([\w-]+)\/([\w-]+)$/);
   const puzzle = free && getPuzzle(free[1]);
 
@@ -216,6 +219,9 @@ function render() {
   } else if (pathLevel) {
     app.append(header(false));
     cleanup = renderPathGame(pathLevel[1]);
+  } else if (historyGame) {
+    app.append(header(false));
+    renderHistoryDetail(app, { navigate, index: Number(historyGame[1]) });
   } else if (packGame) {
     app.append(header(false));
     cleanup = renderPackGame(packGame[1], packGame[2]);

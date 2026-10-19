@@ -13,6 +13,7 @@ export function renderMore(root, { navigate }) {
   root.append(h('div', { class: 'page' },
     h('h2', {}, t('more.title')),
     h('ul', { class: 'menu' },
+      item('#/hry', t('history.title')),
       item('#/volna', t('free.title')),
       item('#/balicky', t('packs.title')),
       item('#/archiv', t('archive.title'), t('archive.note')),

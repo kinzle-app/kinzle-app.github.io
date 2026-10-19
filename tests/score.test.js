@@ -48,7 +48,7 @@ describe('body', () => {
   it('nápovědy stojí body podle typu', () => {
     const g = createGame(puzzle);
     useHint(g, 'title', 2);
-    useHint(g, 'word', 2);
+    useHint(g, 'pair', 2);
     expect(scoreBreakdown(g, 0).hints).toBe(35);
   });
 
@@ -69,6 +69,23 @@ describe('body', () => {
   });
 });
 
+describe('pokusy a trénink', () => {
+  it('pokusy se ukládají po řadě i s výsledkem, opakování ne', () => {
+    const g = createGame(puzzle);
+    pick(g, ['a1', 'a2', 'a3', 'b1']);
+    pick(g, ['a1', 'a2', 'a3', 'b1']);
+    pick(g, A);
+    expect(g.attempts).toEqual([{ words: ['a1', 'a2', 'a3', 'b1'], result: 'oneAway' }, { words: A, result: 'correct' }]);
+  });
+
+  it('v tréninku se neprohrává', () => {
+    const g = createGame(puzzle, Math.random, { maxMistakes: Infinity });
+    for (let i = 0; i < 6; i++) pick(g, ['a1', 'b1', 'c1', ['a2', 'a3', 'a4', 'b2', 'b3', 'b4'][i]]);
+    expect(g.mistakes).toBe(6);
+    expect(g.status).toBe('playing');
+  });
+});
+
 describe('nápovědy', () => {
   it('název odhalí nejlehčí nevyřešenou skupinu, pak další', () => {
     const g = createGame(puzzle);
@@ -77,20 +94,24 @@ describe('nápovědy', () => {
     expect(useHint(g, 'title', 2)).toEqual({ type: 'title', group: 2 });
   });
 
-  it('slovo je z nejlehčí nevyřešené skupiny a neopakuje se', () => {
+  it('dvojice je z nejlehčí nevyřešené skupiny a slova se neopakují', () => {
     const g = createGame(puzzle);
-    const h1 = useHint(g, 'word', 2, () => 0);
-    const h2 = useHint(g, 'word', 2, () => 0);
-    expect(h1).toEqual({ type: 'word', group: 0, word: 'a1' });
-    expect(h2).toEqual({ type: 'word', group: 0, word: 'a2' });
+    const h1 = useHint(g, 'pair', 2, () => 0);
+    const h2 = useHint(g, 'pair', 2, () => 0);
+    expect(h1.group).toBe(0);
+    expect(h1.words).toHaveLength(2);
+    expect(h2.group).toBe(0);
+    expect([...h1.words, ...h2.words].sort()).toEqual(A);
+    expect(canHint(g, 'pair', 3)).toBe(true); // skupina A už nemá co ukázat, přijde B
+    expect(useHint(g, 'pair', 3).group).toBe(1);
   });
 
   it('nejvýš 2 nápovědy na hru', () => {
     const g = createGame(puzzle);
     useHint(g, 'title', 2);
-    useHint(g, 'word', 2);
-    expect(canHint(g, 'word', 2)).toBe(false);
-    expect(useHint(g, 'word', 2)).toBe(null);
+    useHint(g, 'pair', 2);
+    expect(canHint(g, 'pair', 2)).toBe(false);
+    expect(useHint(g, 'pair', 2)).toBe(null);
   });
 
   it('po konci hry nápověda nejde', () => {
