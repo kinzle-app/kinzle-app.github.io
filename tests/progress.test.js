@@ -70,6 +70,12 @@ describe('historie a váček', () => {
     expect(dailyEntry(p, '2026-10-19')).toBe(null);
   });
 
+  it('starší denní záznamy bez úrovně patří k výchozí úrovni', () => {
+    const p = addEntry(emptyProgress(), entry(puzzle('cs-0001')));
+    expect(dailyEntry(p, '2026-10-19', 'easy', 'easy')).not.toBe(null);
+    expect(dailyEntry(p, '2026-10-19', 'hard', 'easy')).toBe(null);
+  });
+
   it('statistiky', () => {
     let p = addEntry(emptyProgress(), entry(puzzle('cs-0001'), {}, { score: 120, seconds: 100 }));
     p = addEntry(p, entry(puzzle('cs-0002'), { mistakes: 2 }, { score: 80, seconds: 200, mode: 'archive' }));

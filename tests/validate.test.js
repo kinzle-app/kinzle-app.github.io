@@ -2,8 +2,8 @@ import { describe, it, expect } from 'vitest';
 import { checkContent, checkLocale } from '../scripts/validate.js';
 import { pragueDate, weekday, addDays, isValidDate } from '../src/game/calendar.js';
 
-// schválená hádanka pro testy; level a size se dají přepsat
-function puzzle(id, { size = 4, level = 1, status = 'approved', lang = 'cs', tier } = {}) {
+// schválená hádanka pro testy; level a size se dají přepsat. Obecná pravidla se zkoušejí na jazyce bez úrovní (de).
+function puzzle(id, { size = 4, level = 1, status = 'approved', lang = 'de', tier } = {}) {
   const groups = Array.from({ length: size }, (_, g) => ({
     title: `S${g}`, difficulty: g + 1, words: [0, 1, 2, 3].map((w) => `${id}-${g}-${w}`), explanation: '-'
   }));
@@ -15,7 +15,7 @@ function puzzle(id, { size = 4, level = 1, status = 'approved', lang = 'cs', tie
 }
 
 const MONDAY = '2026-10-19';
-const base = (over = {}) => ({ puzzles: [], daily: { cs: {} }, packs: { cs: [] }, locales: {}, today: MONDAY, ...over });
+const base = (over = {}) => ({ puzzles: [], daily: { de: {} }, packs: { de: [] }, locales: {}, today: MONDAY, ...over });
 
 describe('kalendář', () => {
   it('den v Praze, i když v UTC už je zítra/včera', () => {
@@ -33,9 +33,9 @@ describe('kalendář', () => {
 
 describe('npm run validate', () => {
   it('správný rozpis projde', () => {
-    const r = checkContent(base({ puzzles: [puzzle('cs-0001')], daily: { cs: { [MONDAY]: 'cs-0001' } } }));
+    const r = checkContent(base({ puzzles: [puzzle('cs-0001')], daily: { de: { [MONDAY]: 'cs-0001' } } }));
     expect(r.errors).toEqual([]);
-    expect(r.summary.cs).toEqual({ approved: 1, drafts: 0, daysAhead: 1 });
+    expect(r.summary.de).toEqual({ approved: 1, drafts: 0, daysAhead: 1 });
   });
 
   it('angličtina má rozpis pro každou úroveň a hádanka musí mít správnou úroveň', () => {
@@ -55,10 +55,19 @@ describe('npm run validate', () => {
     expect(bad.errors.join()).toMatch(/packs.json p: chybí nebo neplatná úroveň/);
   });
 
+  it('čeština má Lehkou a Těžkou: hádanka bez úrovně neprojde', () => {
+    const r = checkContent(base({
+      puzzles: [puzzle('cs-0001', { lang: 'cs' }), puzzle('cs-0002', { lang: 'cs', tier: 'easy' })],
+      daily: { cs: { easy: {}, hard: { [MONDAY]: 'cs-0002' } } }, packs: {}
+    }));
+    expect(r.errors.join()).toMatch(/cs-0001.*úroveň jazyka/);
+    expect(r.errors.join()).toMatch(/má úroveň easy, ne hard/);
+  });
+
   it('odmítne neschválenou nebo neexistující hádanku v rozpisu', () => {
     const r = checkContent(base({
       puzzles: [puzzle('cs-0001', { status: 'draft' })],
-      daily: { cs: { [MONDAY]: 'cs-0001', '2026-10-20': 'cs-0099' } }
+      daily: { de: { [MONDAY]: 'cs-0001', '2026-10-20': 'cs-0099' } }
     }));
     expect(r.errors.join()).toMatch(/není schválená/);
     expect(r.errors.join()).toMatch(/neexistuje/);
@@ -67,7 +76,7 @@ describe('npm run validate', () => {
   it('odmítne opakování denní hádanky', () => {
     const r = checkContent(base({
       puzzles: [puzzle('cs-0001', { level: 2 })],
-      daily: { cs: { [MONDAY]: 'cs-0001', '2026-10-20': 'cs-0001' } }
+      daily: { de: { [MONDAY]: 'cs-0001', '2026-10-20': 'cs-0001' } }
     }));
     expect(r.errors.join()).toMatch(/už je 2026-10-19/);
   });
@@ -75,14 +84,14 @@ describe('npm run validate', () => {
   it('hlídá rytmus týdne: pátek nejtěžší, víkend 5×4', () => {
     const r = checkContent(base({
       puzzles: [puzzle('cs-0001', { level: 2 }), puzzle('cs-0002', { level: 4 })],
-      daily: { cs: { '2026-10-23': 'cs-0001', '2026-10-24': 'cs-0002' } }
+      daily: { de: { '2026-10-23': 'cs-0001', '2026-10-24': 'cs-0002' } }
     }));
     expect(r.errors.join()).toMatch(/úroveň 4–5/);
     expect(r.errors.join()).toMatch(/velikost 5×4/);
   });
 
   it('varuje, když zbývá méně než 14 dní', () => {
-    const r = checkContent(base({ puzzles: [puzzle('cs-0001')], daily: { cs: { [MONDAY]: 'cs-0001' } } }));
+    const r = checkContent(base({ puzzles: [puzzle('cs-0001')], daily: { de: { [MONDAY]: 'cs-0001' } } }));
     expect(r.warnings.join()).toMatch(/jen na 1 dní/);
   });
 
@@ -97,7 +106,7 @@ describe('npm run validate', () => {
   it('balíček smí obsahovat jen schválené hádanky a má cenu a zámek', () => {
     const r = checkContent(base({
       puzzles: [puzzle('cs-0001', { status: 'draft' })],
-      packs: { cs: [{ id: 'kuchyne', title: 'K', description: 'D', puzzles: ['cs-0001'] }] }
+      packs: { de: [{ id: 'kuchyne', title: 'K', description: 'D', puzzles: ['cs-0001'] }] }
     }));
     expect(r.errors.join()).toMatch(/price/);
     expect(r.errors.join()).toMatch(/locked/);
@@ -107,7 +116,7 @@ describe('npm run validate', () => {
   it('návrh balíčku smí obsahovat návrhy hádanek', () => {
     const r = checkContent(base({
       puzzles: [puzzle('cs-0001', { status: 'draft' })],
-      packs: { cs: [{ id: 'kuchyne', title: 'K', description: 'D', price: 0, locked: false, draft: true, puzzles: ['cs-0001'] }] }
+      packs: { de: [{ id: 'kuchyne', title: 'K', description: 'D', price: 0, locked: false, draft: true, puzzles: ['cs-0001'] }] }
     }));
     expect(r.errors).toEqual([]);
   });
@@ -140,18 +149,18 @@ describe('kontrola textů', () => {
 
 describe('kontrola Cesty', () => {
   const path = (ids) => ({ acts: [{ id: '1', chapters: [{ id: '1-1', levels: ids.map((puzzle) => ({ puzzle })) }] }] });
-  const stories = { cs: { chapters: { '1-1': { title: 'K' } } } };
+  const stories = { de: { chapters: { '1-1': { title: 'K' } } } };
 
   it('správná Cesta projde', () => {
-    const r = checkContent(base({ puzzles: [puzzle('cs-0001')], paths: { cs: path(['cs-0001']) }, stories }));
+    const r = checkContent(base({ puzzles: [puzzle('cs-0001')], paths: { de: path(['cs-0001']) }, stories }));
     expect(r.errors).toEqual([]);
   });
 
   it('odmítne denní hádanku, opakování a chybějící název kapitoly', () => {
     const r = checkContent(base({
       puzzles: [puzzle('cs-0001')],
-      daily: { cs: { [MONDAY]: 'cs-0001' } },
-      paths: { cs: path(['cs-0001', 'cs-0001']) },
+      daily: { de: { [MONDAY]: 'cs-0001' } },
+      paths: { de: path(['cs-0001', 'cs-0001']) },
       stories: {}
     }));
     const all = r.errors.join();

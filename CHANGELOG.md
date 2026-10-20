@@ -19,6 +19,8 @@
 - Obsah se stahuje z webu (`content/manifest.json`, jen změněné soubory) a použije se při dalším spuštění; zabalená kopie funguje offline.
 - Nápověda „Ukázat dvě slova, která patří k sobě“ místo jednoho slova; nápovědy se ukazují jako trvalý řádek nad kostičkami, označené kostičky mají výrazný pruh, u každé volby je vysvětlení.
 - Váček se semínky má novou podobu: semínka jako barevná zrnka v mřížce karet, přehled podle obtížnosti a krátké vysvětlení, k čemu jsou.
+- Čeština má dvě denní hádanky: Lehkou (výchozí) a Těžkou pro dospělé, přepínač je přímo na kartě denní hádanky; obě jdou ve stejný den zahrát. Těžká začíná 20. 10. hádankami z balíčku Pro dospělé (balíček zrušen).
+- Oprava: slova na kostičkách mohla na iPhonu při prvním spuštění přetékat (písmo pro měření se načítalo pozdě).
 - Úvod: pod denní hádankou nenápadná sekce „Zahraj si dál“ – kde jsi skončil na Cestě, kolik hádanek zbývá v balíčcích a v tréninku.
 - Moje hry: seznam odehraných her po dnech s filtrem a detail s pokusy po řadě (ukládají se od této verze) a všemi skupinami s vysvětlením.
 - Volná hra je teď Trénink: bez bodů, časomíry a limitu chyb, nápovědy zdarma; do statistik se nepočítá.

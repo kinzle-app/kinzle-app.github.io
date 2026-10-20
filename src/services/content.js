@@ -6,8 +6,8 @@ import { t } from './i18n.js';
 import { load, save } from './storage.js';
 import { activeContent, syncContent } from './content-sync.js';
 import { CONTENT_URL } from '../config/remote.js';
-import { tiersOf, DEFAULT_TIER } from '../config/tiers.js';
-import { getSettings } from './settings.js';
+import { tiersOf, defaultTier } from '../config/tiers.js';
+import { getSettings, updateSettings } from './settings.js';
 
 const STORE_KEY = 'content';
 
@@ -88,11 +88,23 @@ export function currentAct(lang) {
 }
 
 // Rozpis denních hádanek a schválené hádanky pro výběr denní hádanky
-// Úroveň jazyka, kterou si hráč zvolil (Easy / Medium / Hard); null u jazyka bez úrovní
+// Úroveň denní hádanky, kterou si hráč zvolil (pro každý jazyk zvlášť); null u jazyka bez úrovní.
+// Starší nastavení měla jen `tier` pro angličtinu.
 export function activeTier(lang) {
   const tiers = tiersOf(lang);
   if (!tiers.length) return null;
-  return tiers.includes(getSettings().tier) ? getSettings().tier : DEFAULT_TIER;
+  const s = getSettings();
+  const chosen = s.tiers?.[lang] ?? (lang === 'en' ? s.tier : undefined);
+  return tiers.includes(chosen) ? chosen : defaultTier(lang);
+}
+
+// Změna úrovně pro jazyk (jen v nastavení, nic jiného se nemění)
+export function tiersWith(lang, tier) {
+  return { ...getSettings().tiers, [lang]: tier };
+}
+
+export function setActiveTier(lang, tier) {
+  updateSettings({ tiers: tiersWith(lang, tier) });
 }
 
 // Jazyk s úrovněmi má v daily.json rozpis pro každou úroveň; bez udání se použije zvolená úroveň

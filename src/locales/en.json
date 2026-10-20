@@ -168,7 +168,8 @@
     "teaser": "Tomorrow: {text}",
     "play": "Play",
     "continue": "Continue",
-    "alsoToday": "Also today:"
+    "alsoToday": "Also today:",
+    "hardToggle": "Harder version"
   },
   "bag": {
     "title": "Seed pouch",

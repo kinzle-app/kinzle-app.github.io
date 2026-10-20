@@ -1,9 +1,8 @@
 // Úvodní návod (3 krátké obrazovky) – při prvním spuštění a kdykoli z nápovědy.
 import { h } from './dom.js';
 import { t, getLanguage } from '../services/i18n.js';
-import { activeTier } from '../services/content.js';
-import { updateSettings } from '../services/settings.js';
-import { tiersOf } from '../config/tiers.js';
+import { activeTier, setActiveTier } from '../services/content.js';
+import { tiersOf, tierPick } from '../config/tiers.js';
 import { fadeIn } from './anim.js';
 import { SYMBOLS } from './game.js';
 
@@ -41,12 +40,12 @@ export function renderHelp(root, { onDone }) {
 
 // Na konci návodu volba úrovně jazyka (jen angličtina); jde změnit i v nastavení
 function tierChoice() {
+  if (tierPick(getLanguage()) !== 'settings') return null;
   const tiers = tiersOf(getLanguage());
-  if (!tiers.length) return null;
   const buttons = tiers.map((tier) => h('button', {
     class: 'secondary', type: 'button', 'aria-pressed': String(tier === activeTier(getLanguage())),
     onclick: () => {
-      updateSettings({ tier });
+      setActiveTier(getLanguage(), tier);
       for (const b of buttons) b.setAttribute('aria-pressed', String(b === buttons[tiers.indexOf(tier)]));
     }
   }, t(`tier.${tier}`)));

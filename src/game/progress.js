@@ -63,9 +63,10 @@ export function addEntry(progress, entry) {
   return { ...progress, history: [...progress.history, entry] };
 }
 
-// Odehraná denní hádanka daného dne (u jazyka s úrovněmi pro danou úroveň)
-export function dailyEntry(progress, date, tier = null) {
-  return progress.history.find((e) => e.mode === 'daily' && e.date === date && (e.tier || null) === tier) || null;
+// Odehraná denní hádanka daného dne (u jazyka s úrovněmi pro danou úroveň).
+// Záznamy bez úrovně (z doby před úrovněmi) patří k výchozí úrovni jazyka (fallback).
+export function dailyEntry(progress, date, tier = null, fallback = null) {
+  return progress.history.find((e) => e.mode === 'daily' && e.date === date && (e.tier || fallback) === tier) || null;
 }
 
 // Váček: každá vyřešená skupina je jedno semínko (stejná skupina se nepočítá dvakrát).

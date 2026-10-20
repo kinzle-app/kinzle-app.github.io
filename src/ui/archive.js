@@ -2,13 +2,14 @@
 import { h } from './dom.js';
 import { t, getLanguage } from '../services/i18n.js';
 import { dailySchedule, approvedById, activeTier } from '../services/content.js';
+import { defaultTier } from '../config/tiers.js';
 import { getProgress } from '../services/progress.js';
 import { today } from '../services/clock.js';
 import { dailyFor } from '../game/daily.js';
 import { formatDate, dailyLabel } from './daily.js';
 
 export function renderArchive(root, { navigate }) {
-  const tier = activeTier(getLanguage()); // u angličtiny archiv zvolené úrovně
+  const tier = activeTier(getLanguage()); // u jazyka s úrovněmi archiv zvolené úrovně
   const schedule = dailySchedule(getLanguage(), tier);
   const byId = approvedById();
   const history = getProgress().history;
@@ -16,7 +17,7 @@ export function renderArchive(root, { navigate }) {
 
   const items = dates.map((date) => {
     const { number } = dailyFor(date, schedule, byId);
-    const played = history.filter((e) => e.date === date && (e.mode === 'daily' || e.mode === 'archive') && (e.tier || null) === tier);
+    const played = history.filter((e) => e.date === date && (e.mode === 'daily' || e.mode === 'archive') && (e.tier || defaultTier(getLanguage())) === tier);
     const best = played.length ? Math.max(...played.map((e) => e.score)) : null;
     return h('li', {}, h('button', { class: 'menu-item', onclick: () => navigate(`#/denni/${date}`) },
       h('span', {}, `${dailyLabel(number, tier)} · ${formatDate(date)}`),

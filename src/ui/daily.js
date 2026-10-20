@@ -1,10 +1,10 @@
 // Záložka Denní (úvodní obrazovka): dnešní hádanka, výsledek s odpočtem do další, váček se semínky.
 import { h, icon } from './dom.js';
 import { t, getLanguage } from '../services/i18n.js';
-import { dailySchedule, approvedById, activeTier, currentAct, listPacks } from '../services/content.js';
+import { dailySchedule, approvedById, activeTier, setActiveTier, currentAct, listPacks } from '../services/content.js';
 import { actState } from '../game/path.js';
 import { freeList } from './free.js';
-import { tiersOf } from '../config/tiers.js';
+import { tiersOf, defaultTier, tierPick } from '../config/tiers.js';
 import { getProgress } from '../services/progress.js';
 import { today, msToNextDay } from '../services/clock.js';
 import { dailyFor } from '../game/daily.js';
@@ -18,9 +18,11 @@ export function formatDate(date, options = { day: 'numeric', month: 'numeric' })
   return new Intl.DateTimeFormat(getLanguage(), { ...options, timeZone: 'UTC' }).format(new Date(`${date}T12:00:00Z`));
 }
 
-// „Kinzle #3“, u jazyka s úrovněmi „Kinzle #3 · Hard“
-export function dailyLabel(number, tier) {
-  return tier ? `${t('daily.label', { n: number })} · ${t(`tier.${tier}`)}` : t('daily.label', { n: number });
+// „Kinzle #3“, u jazyka s úrovněmi „Kinzle #3 · Hard“. Výchozí úroveň volená přepínačem na kartě
+// (čeština: Lehká) se nevypisuje, ať to hráče, který nic nepřepnul, neplete.
+export function dailyLabel(number, tier, lang = getLanguage()) {
+  const quiet = !tier || (tierPick(lang) === 'card' && tier === defaultTier(lang));
+  return quiet ? t('daily.label', { n: number }) : `${t('daily.label', { n: number })} · ${t(`tier.${tier}`)}`;
 }
 
 // 18 573 s → „05:09:33“
@@ -43,10 +45,21 @@ export function renderDaily(root, { navigate }) {
   const byId = approvedById();
   const info = dailyFor(date, schedule, byId);
   const progress = getProgress();
-  const result = dailyEntry(progress, date, tier);
+  const result = dailyEntry(progress, date, tier, defaultTier(lang));
   let countdown = null;
 
   const card = h('section', { class: 'panel daily-card' });
+  // přepínač „Těžká“ na kartě (jen jazyk, kde se úroveň volí tady): kdo nechce, nic nepřepíná
+  if (tierPick(lang) === 'card') {
+    const hard = tier !== defaultTier(lang);
+    card.append(h('button', {
+      class: 'switch tier-switch', type: 'button', role: 'switch', 'aria-checked': String(hard),
+      onclick: () => {
+        setActiveTier(lang, hard ? defaultTier(lang) : tiersOf(lang).find((x) => x !== defaultTier(lang)));
+        navigate('#/');
+      }
+    }, h('span', {}, t('daily.hardToggle')), h('span', { class: 'switch-track', 'aria-hidden': 'true' }, h('span', { class: 'switch-thumb' }))));
+  }
   if (info.upcoming !== undefined) {
     card.append(
       h('small', {}, t('daily.title')),
@@ -85,8 +98,8 @@ export function renderDaily(root, { navigate }) {
   const others = tiersOf(lang).filter((x) => x !== tier && dailySchedule(lang, x)[date] && byId.has(dailySchedule(lang, x)[date]));
   if (others.length) {
     card.append(h('p', { class: 'panel-muted other-tiers' }, t('daily.alsoToday'), ' ',
-      ...others.map((x) => h('button', { class: 'link', onclick: () => navigate(`#/denni/${date}/${x}`), disabled: Boolean(dailyEntry(progress, date, x)) },
-        dailyEntry(progress, date, x) ? `${t(`tier.${x}`)} ✓` : t(`tier.${x}`)))));
+      ...others.map((x) => h('button', { class: 'link', onclick: () => navigate(`#/denni/${date}/${x}`), disabled: Boolean(dailyEntry(progress, date, x, defaultTier(lang))) },
+        dailyEntry(progress, date, x, defaultTier(lang)) ? `${t(`tier.${x}`)} ✓` : t(`tier.${x}`)))));
   }
 
   const count = seeds(progress).length;

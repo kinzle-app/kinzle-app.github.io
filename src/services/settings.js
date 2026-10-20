@@ -1,7 +1,6 @@
 // Nastavení hráče. Klíč a výchozí stůl musí odpovídat skriptu v index.html,
 // který nastavuje stůl ještě před prvním vykreslením.
 import { load, save } from './storage.js';
-import { DEFAULT_TIER } from '../config/tiers.js';
 
 const KEY = 'settings';
 export const TABLES = ['evening', 'day', 'auto']; // Večerní / Denní / Podle telefonu
@@ -18,7 +17,7 @@ const defaults = {
   fontSize: 'normal',
   onboarded: false,      // úvodní návod už viděl
   newsSeen: {},          // poslední viděné „Co je nového“ pro každý jazyk ({ cs: id })
-  tier: DEFAULT_TIER     // úroveň angličtiny (Easy / Medium / Hard), viz src/config/tiers.js
+  tiers: {}              // zvolená úroveň denní hádanky pro každý jazyk ({ cs: 'hard' }), viz src/config/tiers.js
 };
 
 export function getSettings() {

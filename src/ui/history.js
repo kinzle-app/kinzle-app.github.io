@@ -8,6 +8,7 @@ import { formatTime } from '../game/timer.js';
 import { formatDate, dailyLabel } from './daily.js';
 import { SYMBOLS } from './game.js';
 import { freeList } from './free.js';
+import { defaultTier } from '../config/tiers.js';
 
 // Filtry: režimy, které patří k sobě (denní a archiv jsou obojí denní hádanky)
 const FILTERS = { all: null, daily: ['daily', 'archive'], path: ['path'], free: ['free'], pack: ['pack'] };
@@ -16,7 +17,7 @@ const FILTERS = { all: null, daily: ['daily', 'archive'], path: ['path'], free: 
 function entryLabel(e) {
   const lang = getLanguage();
   if (e.mode === 'daily' || e.mode === 'archive') {
-    const info = dailyFor(e.date, dailySchedule(lang, e.tier || null), approvedById());
+    const info = dailyFor(e.date, dailySchedule(lang, e.tier || defaultTier(lang)), approvedById());
     if (info.puzzle?.id === e.puzzleId) return dailyLabel(info.number, e.tier);
   }
   if (e.mode === 'path') {

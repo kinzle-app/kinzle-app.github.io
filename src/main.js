@@ -10,7 +10,7 @@ import { t, setLanguage, detectLanguage } from './services/i18n.js';
 import { getSettings, updateSettings } from './services/settings.js';
 import { isPersistent } from './services/storage.js';
 import { getPuzzle, puzzleLabel, dailySchedule, approvedById, currentAct, updateContent, activeTier } from './services/content.js';
-import { tiersOf } from './config/tiers.js';
+import { tiersOf, defaultTier } from './config/tiers.js';
 import { isDebug, debugOptions } from './services/debug.js';
 import { getProgress, recordGame } from './services/progress.js';
 import { today } from './services/clock.js';
@@ -104,7 +104,7 @@ function renderDailyGame(date, requestedTier) {
   const info = dailyFor(date, dailySchedule(lang, tier), approvedById());
   const isToday = date === today();
   // budoucí den, neexistující hádanka nebo už odehraná dnešní → zpět na úvod (tam je výsledek)
-  if (!info.puzzle || date > today() || (isToday && dailyEntry(getProgress(), date, tier))) {
+  if (!info.puzzle || date > today() || (isToday && dailyEntry(getProgress(), date, tier, defaultTier(lang)))) {
     location.replace('#/');
     return null;
   }

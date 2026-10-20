@@ -182,7 +182,8 @@
     "teaser": "Zítra: {text}",
     "play": "Hrát",
     "continue": "Pokračovat",
-    "alsoToday": "Dnes také:"
+    "alsoToday": "Dnes také:",
+    "hardToggle": "Těžká verze pro dospělé"
   },
   "bag": {
     "title": "Váček se semínky",
@@ -333,9 +334,9 @@
     "saved": "Uloženo"
   },
   "tier": {
-    "easy": "Easy",
-    "medium": "Medium",
-    "hard": "Hard"
+    "easy": "Lehká",
+    "medium": "Střední",
+    "hard": "Těžká"
   },
   "history": {
     "title": "Moje hry",

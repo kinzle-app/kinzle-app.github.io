@@ -9,19 +9,7 @@
       "cs-0016",
       "cs-0017",
       "cs-0018"
-    ]
-  },
-  {
-    "id": "pro-dospele",
-    "title": "Pro dospělé",
-    "description": "Zkušební těžší hádanky: méně jasných kategorií, víc slovních hříček a falešných stop.",
-    "price": 0,
-    "locked": false,
-    "puzzles": [
-      "cs-0044",
-      "cs-0045",
-      "cs-0046",
-      "cs-0047"
-    ]
+    ],
+    "tier": "easy"
   }
 ]
