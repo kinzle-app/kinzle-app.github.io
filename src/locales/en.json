@@ -9,7 +9,18 @@
   },
   "home": {
     "puzzle": "Puzzle {n}",
-    "draft": "Draft {id}"
+    "draft": "Draft {id}",
+    "more": "Keep playing",
+    "pathNext": "Chapter {chapter} · level {n} is next",
+    "packsLeft": {
+      "one": "{count} puzzle to solve",
+      "other": "{count} puzzles to solve"
+    },
+    "packsDone": "You have solved every pack",
+    "training": {
+      "one": "{count} puzzle to practise, no points",
+      "other": "{count} puzzles to practise, no points"
+    }
   },
   "size": {
     "3": "Easy 3×4",

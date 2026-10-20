@@ -9,7 +9,22 @@
   },
   "home": {
     "puzzle": "Hádanka {n}",
-    "draft": "Návrh {id}"
+    "draft": "Návrh {id}",
+    "more": "Zahraj si dál",
+    "pathNext": "Kapitola {chapter} · na řadě úroveň {n}",
+    "packsLeft": {
+      "one": "{count} hádanka k vyřešení",
+      "few": "{count} hádanky k vyřešení",
+      "many": "{count} hádanky k vyřešení",
+      "other": "{count} hádanek k vyřešení"
+    },
+    "packsDone": "Všechny balíčky máš vyřešené",
+    "training": {
+      "one": "{count} hádanka k procvičení, bez bodů",
+      "few": "{count} hádanky k procvičení, bez bodů",
+      "many": "{count} hádanky k procvičení, bez bodů",
+      "other": "{count} hádanek k procvičení, bez bodů"
+    }
   },
   "size": {
     "3": "Lehká 3×4",

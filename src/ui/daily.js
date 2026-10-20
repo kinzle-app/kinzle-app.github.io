@@ -1,7 +1,9 @@
 // Záložka Denní (úvodní obrazovka): dnešní hádanka, výsledek s odpočtem do další, váček se semínky.
-import { h } from './dom.js';
+import { h, icon } from './dom.js';
 import { t, getLanguage } from '../services/i18n.js';
-import { dailySchedule, approvedById, activeTier } from '../services/content.js';
+import { dailySchedule, approvedById, activeTier, currentAct, listPacks } from '../services/content.js';
+import { actState } from '../game/path.js';
+import { freeList } from './free.js';
 import { tiersOf } from '../config/tiers.js';
 import { getProgress } from '../services/progress.js';
 import { today, msToNextDay } from '../services/clock.js';
@@ -88,12 +90,42 @@ export function renderDaily(root, { navigate }) {
   }
 
   const count = seeds(progress).length;
+  const more = moreToPlay(lang, progress, navigate);
   const bag = h('button', { class: 'panel bag-card', onclick: () => navigate('#/vacek') },
     bagIcon(),
     h('span', { class: 'bag-text' },
       h('strong', {}, t('bag.title')),
       h('span', { class: 'panel-muted' }, t('bag.count', { count }))));
 
-  root.append(h('div', { class: 'page' }, card, bag), tabs('#/', navigate));
+  root.append(h('div', { class: 'page' }, card, more, bag), tabs('#/', navigate));
   return () => clearInterval(countdown);
+}
+
+// „Zahraj si dál“: ztlumené řádky pod denní hádankou – kde hráč skončil na Cestě, balíčky a trénink.
+// Prázdný řádek se neukáže, aby nic nerušilo.
+function moreToPlay(lang, progress, navigate) {
+  const row = (iconName, title, note, hash) => h('li', {}, h('button', { class: 'more-row', onclick: () => navigate(hash) },
+    icon(iconName), h('span', { class: 'more-text' }, h('strong', {}, title), h('span', {}, note)), icon('chevron')));
+  const rows = [];
+
+  const act = currentAct(lang);
+  if (act) {
+    const state = actState(act, progress);
+    const ci = state.chapters.findIndex((c) => c.levels.some((l) => l.state === 'current'));
+    if (ci >= 0) {
+      const level = state.chapters[ci].levels.find((l) => l.state === 'current');
+      rows.push(row('path', t('tabs.path'), t('home.pathNext', { chapter: ci + 1, n: level.index + 1 }), ));
+    }
+  }
+
+  const won = new Set(progress.history.filter((e) => e.mode === 'pack' && e.won).map((e) => e.puzzleId));
+  const packs = listPacks(lang);
+  const left = packs.reduce((n, p) => n + p.puzzles.filter((x) => !won.has(x.id)).length, 0);
+  if (packs.length) rows.push(row('pack', t('packs.title'), left ? t('home.packsLeft', { count: left }) : t('home.packsDone'), '#/balicky'));
+
+  const training = freeList(lang).length;
+  if (training) rows.push(row('training', t('free.title'), t('home.training', { count: training }), '#/volna'));
+
+  return rows.length ? h('section', { class: 'more-to-play', 'aria-label': t('home.more') },
+    h('h3', {}, t('home.more')), h('ul', {}, rows)) : '';
 }
