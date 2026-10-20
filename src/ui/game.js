@@ -122,6 +122,9 @@ export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.
   window.addEventListener('resize', refit);
   document.fonts.addEventListener('loadingdone', refit);
   document.fonts.ready.then(refit);
+  // šířka slov se měří tučností 800 (vybraná kostička); prohlížeč by ji jinak načetl až při prvním výběru
+  // a do té doby měřil užším náhradním písmem (Safari pak o dočtení písma nedá vědět)
+  document.fonts.load("800 15px 'Bricolage Grotesque'").then(refit, () => {});
 
   // ---------- akce hráče ----------
   function onTile(word) {
