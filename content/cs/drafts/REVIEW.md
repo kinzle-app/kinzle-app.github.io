@@ -7,7 +7,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 Podle nových pravidel v `PRAVIDLA-HADANEK.md` (kapitola 2a): žádná holá kategorie, aspoň dvě hříčky, falešná stopa. Zahraj si je a porovnej s dosavadními – podle toho doladíme obtížnost a pak zapneme rozdělení děti / dospělí. Ve vývojové verzi jsou v Více → Návrhy.
 Slepý test teď hodnotí i obtížnost každé skupiny (1 = hned vidět, 5 = až na konec).
 
-### cs-0044 · 4×4 · úroveň 4
+### cs-0044 · 4×4 · úroveň 4 · ✅ zveřejněno v balíčku Pro dospělé 2026-10-20
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Mořské ryby | treska, sleď, tuňák, makrela | |
@@ -19,7 +19,7 @@ Slepý test teď hodnotí i obtížnost každé skupiny (1 = hned vidět, 5 = a�
 **Slepý test 1:** MAKRELA má ostny v ploutvích a dala se prohodit s CANDÁTEM. **Opraveno:** CANDÁT → BODLÁK.
 **Slepý test 2:** správně, jiné řešení nenašel. Obtížnost 1 / 1 / 3 / 5 – první dvě skupiny jsou pořád moc lehké (pravidlo chce nejlehčí aspoň 2).
 
-### cs-0045 · 4×4 · úroveň 4
+### cs-0045 · 4×4 · úroveň 4 · ✅ zveřejněno v balíčku Pro dospělé 2026-10-20
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Části lodi | příď, záď, stěžeň, kormidlo | |
@@ -30,7 +30,7 @@ Slepý test teď hodnotí i obtížnost každé skupiny (1 = hned vidět, 5 = a�
 **Falešné stopy:** KURZ, HÁK, LIST, ČÁRA (vypadají lodně), ŽÁBA (žabka).
 **Slepý test:** správně, jiné úplné řešení nenašel. Obtížnost 1 / 2 / 3 / 5.
 
-### cs-0046 · 4×4 · úroveň 4
+### cs-0046 · 4×4 · úroveň 4 · ✅ zveřejněno v balíčku Pro dospělé 2026-10-20
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Odrůdy vína | ryzlink, frankovka, tramín, muškát | |
@@ -41,7 +41,7 @@ Slepý test teď hodnotí i obtížnost každé skupiny (1 = hned vidět, 5 = a�
 **Falešné stopy:** PIVO a CAPPUCCINO (nápoje k nádobám), MUŠKÁT (květina), PANÁK.
 **Slepý test:** správně, jiné řešení nenašel. Obtížnost 1 / 2 / 4 / 4.
 
-### cs-0047 · 4×4 · úroveň 5
+### cs-0047 · 4×4 · úroveň 5 · ✅ zveřejněno v balíčku Pro dospělé 2026-10-20
 | Obtížnost | Název | Slova | Vysvětlení |
 |---|---|---|---|
 | ● 1 | Zdroje světla | lucerna, baterka, lustr, lampion | |
