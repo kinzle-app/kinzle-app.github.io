@@ -45,7 +45,7 @@ function textWidth(text, size) {
 export function fitText(el, max = 15, min = 11) {
   const span = el.firstElementChild;
   const word = el.dataset.word;
-  const width = el.clientWidth - 12;  // vnitřní odsazení a malá rezerva
+  const width = el.clientWidth - 16;  // vnitřní odsazení a rezerva (vykreslení bývá o kousek širší než měření)
   const height = el.clientHeight - 8;
   const largest = (text, floor) => {
     const lines = text.split('\n').length;
