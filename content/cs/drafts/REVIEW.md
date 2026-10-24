@@ -2,7 +2,7 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
-## Várka 2026-10-24 (E) – Cesta, 2. kapitola „Na zahradě“, úrovně 1–5
+## Várka 2026-10-24 (E) – Cesta, 2. kapitola „Na zahradě“, úrovně 1–5 · ✅ schváleno 2026-10-24 (střípek A)
 
 Křivka o kousek těžší než v 1. kapitole: 3×4, 4×4, 4×4, oddechová 3×4, 4×4. Zahradní téma mají vždy 2–3 skupiny.
 
