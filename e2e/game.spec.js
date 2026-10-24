@@ -263,17 +263,16 @@ test('trénink bez prohry a Moje hry s pokusy po řadě', async ({ page }) => {
   await expect(page.locator('.attempt').first()).toContainText('těsně vedle');
 });
 
-test('čeština: přepínač Těžká na denní kartě, každá verze má svou denní hádanku', async ({ page }) => {
+test('čeština: volba Lehká | Těžká na denní kartě, každá verze má svou denní hádanku', async ({ page }) => {
   await setup(page);
   await page.clock.setFixedTime(new Date('2026-10-20T08:00:00Z'));
   await page.goto('./#/');
   await expect(page.getByText('Kinzle #9')).toBeVisible(); // Lehká: bez přípony
-  const toggle = page.getByRole('switch', { name: 'Těžká verze pro dospělé' });
-  await expect(toggle).toHaveAttribute('aria-checked', 'false');
-  await toggle.click();
+  const choice = page.getByRole('group', { name: 'Verze denní hádanky' });
+  await expect(choice.getByRole('button', { name: 'Lehká' })).toHaveAttribute('aria-pressed', 'true');
+  await choice.getByRole('button', { name: 'Těžká' }).click();
   await expect(page.getByText('Kinzle #1 · Těžká')).toBeVisible();
-  await expect(page.getByRole('switch', { name: 'Těžká verze pro dospělé' })).toHaveAttribute('aria-checked', 'true');
-  await expect(page.getByRole('button', { name: 'Lehká', exact: true })).toBeVisible(); // druhá verze pod kartou
+  await expect(page.getByRole('group', { name: 'Verze denní hádanky' }).getByRole('button', { name: 'Těžká' })).toHaveAttribute('aria-pressed', 'true');
   await page.reload();
   await expect(page.getByText('Kinzle #1 · Těžká')).toBeVisible(); // volba se pamatuje
 });

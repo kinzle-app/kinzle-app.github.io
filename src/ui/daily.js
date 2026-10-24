@@ -49,16 +49,17 @@ export function renderDaily(root, { navigate }) {
   let countdown = null;
 
   const card = h('section', { class: 'panel daily-card' });
-  // přepínač „Těžká“ na kartě (jen jazyk, kde se úroveň volí tady): kdo nechce, nic nepřepíná
+  // volba Lehká | Těžká na kartě (jen jazyk, kde se úroveň volí tady); zvýrazněná je ta, která se právě hraje
   if (tierPick(lang) === 'card') {
-    const hard = tier !== defaultTier(lang);
-    card.append(h('button', {
-      class: 'switch tier-switch', type: 'button', role: 'switch', 'aria-checked': String(hard),
-      onclick: () => {
-        setActiveTier(lang, hard ? defaultTier(lang) : tiersOf(lang).find((x) => x !== defaultTier(lang)));
-        navigate('#/');
-      }
-    }, h('span', {}, t('daily.hardToggle')), h('span', { class: 'switch-track', 'aria-hidden': 'true' }, h('span', { class: 'switch-thumb' }))));
+    card.append(h('div', { class: 'tier-choice', role: 'group', 'aria-label': t('daily.tierChoice') },
+      tiersOf(lang).map((x) => h('button', {
+        type: 'button', 'aria-pressed': String(x === tier),
+        onclick: () => {
+          if (x === tier) return;
+          setActiveTier(lang, x);
+          navigate('#/');
+        }
+      }, dailyEntry(progress, date, x, defaultTier(lang)) ? `${t(`tier.${x}`)} ✓` : t(`tier.${x}`)))));
   }
   if (info.upcoming !== undefined) {
     card.append(
@@ -94,8 +95,8 @@ export function renderDaily(root, { navigate }) {
     }
   }
 
-  // Jazyk s úrovněmi: dnešní hádanky ostatních úrovní (✓ = už odehraná)
-  const others = tiersOf(lang).filter((x) => x !== tier && dailySchedule(lang, x)[date] && byId.has(dailySchedule(lang, x)[date]));
+  // Jazyk s úrovní v nastavení: dnešní hádanky ostatních úrovní (✓ = už odehraná); u volby na kartě je to v ní
+  const others = tierPick(lang) !== 'settings' ? [] : tiersOf(lang).filter((x) => x !== tier && dailySchedule(lang, x)[date] && byId.has(dailySchedule(lang, x)[date]));
   if (others.length) {
     card.append(h('p', { class: 'panel-muted other-tiers' }, t('daily.alsoToday'), ' ',
       ...others.map((x) => h('button', { class: 'link', onclick: () => navigate(`#/denni/${date}/${x}`), disabled: Boolean(dailyEntry(progress, date, x, defaultTier(lang))) },
