@@ -7,7 +7,7 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { validatePuzzle } from '../src/game/puzzle.js';
 import { pragueDate, weekday, addDays, isValidDate } from '../src/game/calendar.js';
-import { RHYTHM } from '../src/config/rhythm.js';
+import { rhythmFor } from '../src/config/rhythm.js';
 import { tiersOf } from '../src/config/tiers.js';
 
 export const MIN_DAYS_AHEAD = 14;
@@ -56,6 +56,7 @@ export function checkContent({ puzzles, daily, packs, locales, today, paths = {}
     let daysAheadMin = Infinity;
     for (const [tier, schedule] of schedulesOf(lang, file)) {
       const label = tier ? `${lang} ${tier}` : lang;
+      const rhythm = rhythmFor(lang, tier);
       for (const [date, id] of Object.entries(schedule)) {
         const where = `${lang}/daily.json ${tier ? tier + ' ' : ''}${date}`;
         if (!isValidDate(date)) errors.push(`${where}: neplatné datum`);
@@ -64,7 +65,8 @@ export function checkContent({ puzzles, daily, packs, locales, today, paths = {}
         const p = usable(id, lang, where);
         if (!p || !isValidDate(date)) continue;
         if (tier && p.tier !== tier) errors.push(`${where}: hádanka ${id} má úroveň ${p.tier}, ne ${tier}`);
-        const rule = RHYTHM[weekday(date)];
+        if (date <= today) continue; // dnešní a odehrané dny se už nemění, rytmus se hlídá jen dopředu
+        const rule = rhythm[weekday(date)];
         if (p.size !== rule.size) errors.push(`${where}: rytmus týdne chce velikost ${rule.size}×4, hádanka má ${p.size}×4`);
         if (p.level < rule.min || p.level > rule.max) {
           errors.push(`${where}: rytmus týdne chce úroveň ${rule.min}–${rule.max}, hádanka má ${p.level}`);

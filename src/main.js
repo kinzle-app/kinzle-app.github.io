@@ -11,6 +11,7 @@ import { getSettings, updateSettings } from './services/settings.js';
 import { isPersistent } from './services/storage.js';
 import { getPuzzle, puzzleLabel, dailySchedule, approvedById, currentAct, updateContent, activeTier } from './services/content.js';
 import { tiersOf, defaultTier } from './config/tiers.js';
+import { rhythmFor } from './config/rhythm.js';
 import { isDebug, debugOptions } from './services/debug.js';
 import { getProgress, recordGame } from './services/progress.js';
 import { today } from './services/clock.js';
@@ -101,7 +102,7 @@ const SCREENS = {
 function renderDailyGame(date, requestedTier) {
   const lang = settings.lang;
   const tier = tiersOf(lang).includes(requestedTier) ? requestedTier : activeTier(lang);
-  const info = dailyFor(date, dailySchedule(lang, tier), approvedById());
+  const info = dailyFor(date, dailySchedule(lang, tier), approvedById(), rhythmFor(lang, tier));
   const isToday = date === today();
   // budoucí den, neexistující hádanka nebo už odehraná dnešní → zpět na úvod (tam je výsledek)
   if (!info.puzzle || date > today() || (isToday && dailyEntry(getProgress(), date, tier, defaultTier(lang)))) {

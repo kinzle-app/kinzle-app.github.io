@@ -5,6 +5,7 @@ import { dailySchedule, approvedById, activeTier, setActiveTier, currentAct, lis
 import { actState } from '../game/path.js';
 import { freeList } from './free.js';
 import { tiersOf, defaultTier, tierPick } from '../config/tiers.js';
+import { rhythmFor } from '../config/rhythm.js';
 import { getProgress } from '../services/progress.js';
 import { today, msToNextDay } from '../services/clock.js';
 import { dailyFor } from '../game/daily.js';
@@ -43,7 +44,7 @@ export function renderDaily(root, { navigate }) {
   const tier = activeTier(lang);
   const schedule = dailySchedule(lang, tier);
   const byId = approvedById();
-  const info = dailyFor(date, schedule, byId);
+  const info = dailyFor(date, schedule, byId, rhythmFor(lang, tier));
   const progress = getProgress();
   const result = dailyEntry(progress, date, tier, defaultTier(lang));
   let countdown = null;

@@ -13,18 +13,20 @@ function hash(text) {
   return h;
 }
 
-// schedule = { 'YYYY-MM-DD': id }, byId = Map(id → hádanka)
+// schedule = { 'YYYY-MM-DD': id }, byId = Map(id → hádanka), rhythm = rytmus týdne dané úrovně
 // Vrací { upcoming: první datum } před začátkem rozpisu, jinak { puzzle, number, rerun }
-export function dailyFor(date, schedule, byId) {
+export function dailyFor(date, schedule, byId, rhythm = RHYTHM) {
   const dates = Object.keys(schedule).filter((d) => byId.has(schedule[d])).sort();
   if (!dates.length || date < dates[0]) return { upcoming: dates[0] || null };
   const number = daysBetween(dates[0], date) + 1;
 
   if (schedule[date] && byId.has(schedule[date])) return { puzzle: byId.get(schedule[date]), number, rerun: false };
 
-  // Repríza: starší denní hádanka, deterministicky podle data; přednost má velikost podle rytmu týdne
+  // Repríza: starší denní hádanka, deterministicky podle data; přednost má velikost a úroveň podle rytmu týdne
   const past = dates.filter((d) => d < date).map((d) => byId.get(schedule[d]));
-  const fitting = past.filter((p) => p.size === RHYTHM[weekday(date)].size);
-  const pool = fitting.length ? fitting : past;
+  const rule = rhythm[weekday(date)];
+  const sized = past.filter((p) => p.size === rule.size);
+  const leveled = sized.filter((p) => p.level >= rule.min && p.level <= rule.max);
+  const pool = leveled.length ? leveled : sized.length ? sized : past;
   return { puzzle: pool[hash(date) % pool.length], number, rerun: true };
 }
