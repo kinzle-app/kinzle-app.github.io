@@ -1,0 +1,56 @@
+{
+  "id": "cs-0072",
+  "language": "cs",
+  "size": 4,
+  "level": 3,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Sladkosti",
+      "difficulty": 1,
+      "words": [
+        "oplatka",
+        "marcipán",
+        "karamel",
+        "nugát"
+      ],
+      "explanation": "Sladkosti."
+    },
+    {
+      "title": "Části květu",
+      "difficulty": 2,
+      "words": [
+        "tyčinka",
+        "pestík",
+        "kalich",
+        "pyl"
+      ],
+      "explanation": "Části květu. Tyčinka je i sladkost, ale tady patří ke květu."
+    },
+    {
+      "title": "Dají se pěstovat",
+      "difficulty": 3,
+      "words": [
+        "přátelství",
+        "kondice",
+        "vousy",
+        "rajčata"
+      ],
+      "explanation": "Pěstovat přátelství, kondici, vousy i rajčata."
+    },
+    {
+      "title": "Rýmují se se slovem ZAHRADA",
+      "difficulty": 4,
+      "words": [
+        "nálada",
+        "šarada",
+        "balada",
+        "záhada"
+      ],
+      "explanation": "Nálada, šarada, balada a záhada – všechny končí na -ada jako zahrada."
+    }
+  ]
+}

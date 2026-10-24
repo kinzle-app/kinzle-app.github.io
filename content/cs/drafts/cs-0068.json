@@ -1,0 +1,45 @@
+{
+  "id": "cs-0068",
+  "language": "cs",
+  "size": 3,
+  "level": 1,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Zahradní nářadí",
+      "difficulty": 1,
+      "words": [
+        "rýč",
+        "motyka",
+        "konev",
+        "kolečko"
+      ],
+      "explanation": "Nářadí na zahradu: rýč a motyka na kopání, konev na zalévání a kolečko na vození."
+    },
+    {
+      "title": "Květiny",
+      "difficulty": 2,
+      "words": [
+        "tulipán",
+        "růže",
+        "narcis",
+        "kopretina"
+      ],
+      "explanation": "Květiny, které rostou na zahradě i na louce."
+    },
+    {
+      "title": "Dají se sekat",
+      "difficulty": 3,
+      "words": [
+        "trávu",
+        "dříví",
+        "chyby",
+        "dobrotu"
+      ],
+      "explanation": "Sekat trávu, sekat dříví – a obrazně sekat chyby (dělat je jednu za druhou) a sekat dobrotu (chovat se hezky)."
+    }
+  ]
+}

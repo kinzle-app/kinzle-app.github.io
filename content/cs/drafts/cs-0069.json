@@ -1,0 +1,56 @@
+{
+  "id": "cs-0069",
+  "language": "cs",
+  "size": 4,
+  "level": 2,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Zpěvní ptáci",
+      "difficulty": 1,
+      "words": [
+        "drozd",
+        "špaček",
+        "stehlík",
+        "pěnkava"
+      ],
+      "explanation": "Ptáci, které uslyšíš zpívat na zahradě."
+    },
+    {
+      "title": "Najdeš je na zahradě",
+      "difficulty": 2,
+      "words": [
+        "altán",
+        "kompost",
+        "záhon",
+        "skleník"
+      ],
+      "explanation": "Altán na posezení, kompost na odpadky z kuchyně, záhon na zeleninu a skleník na rajčata."
+    },
+    {
+      "title": "Mají trny",
+      "difficulty": 3,
+      "words": [
+        "trnka",
+        "ostružiník",
+        "hloh",
+        "akát"
+      ],
+      "explanation": "Keře a stromy s trny."
+    },
+    {
+      "title": "Dají se doplnit slovem ZELENÝ",
+      "difficulty": 4,
+      "words": [
+        "mužík",
+        "louka",
+        "palec",
+        "světlo"
+      ],
+      "explanation": "Zelený mužík (na semaforu), zelená louka, zelený palec (kdo umí s rostlinami) a zelené světlo."
+    }
+  ]
+}

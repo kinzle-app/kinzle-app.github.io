@@ -1,0 +1,56 @@
+{
+  "id": "cs-0070",
+  "language": "cs",
+  "size": 4,
+  "level": 2,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Ovocné stromy",
+      "difficulty": 1,
+      "words": [
+        "hrušeň",
+        "třešeň",
+        "meruňka",
+        "broskvoň"
+      ],
+      "explanation": "Stromy, na kterých roste ovoce."
+    },
+    {
+      "title": "Sladké dobroty z ovoce",
+      "difficulty": 2,
+      "words": [
+        "bublanina",
+        "závin",
+        "žemlovka",
+        "kompot"
+      ],
+      "explanation": "Sladká jídla, do kterých patří ovoce."
+    },
+    {
+      "title": "Dají se trhat",
+      "difficulty": 3,
+      "words": [
+        "rekordy",
+        "zuby",
+        "plevel",
+        "lístky"
+      ],
+      "explanation": "Trhat rekordy, trhat zuby, trhat plevel a trhat lístky (u vchodu do kina). Ovoce se trhá taky, ale tady jde o stromy."
+    },
+    {
+      "title": "Dají se doplnit slovem OVOCNÝ",
+      "difficulty": 4,
+      "words": [
+        "sad",
+        "pálenka",
+        "sirup",
+        "muška"
+      ],
+      "explanation": "Ovocný sad, ovocná pálenka, ovocný sirup a ovocná muška (octomilka)."
+    }
+  ]
+}

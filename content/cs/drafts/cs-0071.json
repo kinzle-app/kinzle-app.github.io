@@ -1,0 +1,45 @@
+{
+  "id": "cs-0071",
+  "language": "cs",
+  "size": 3,
+  "level": 1,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Na dvorku",
+      "difficulty": 1,
+      "words": [
+        "husa",
+        "krůta",
+        "králík",
+        "kozel"
+      ],
+      "explanation": "Zvířata, která se chovají na dvorku."
+    },
+    {
+      "title": "Zelenina ze záhonu",
+      "difficulty": 2,
+      "words": [
+        "hrášek",
+        "kedluben",
+        "kapusta",
+        "brokolice"
+      ],
+      "explanation": "Zelenina, kterou si můžeš vypěstovat na zahradě."
+    },
+    {
+      "title": "Dají se doplnit slovem HUSÍ",
+      "difficulty": 3,
+      "words": [
+        "kůže",
+        "pochod",
+        "sádlo",
+        "brk"
+      ],
+      "explanation": "Husí kůže (když je zima nebo strach), husí pochod (jeden za druhým), husí sádlo a husí brk (dřívější pero). Husa sama patří na dvorek."
+    }
+  ]
+}

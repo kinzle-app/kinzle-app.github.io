@@ -2,6 +2,31 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
+## Várka 2026-10-24 (E) – Cesta, 2. kapitola „Na zahradě“, úrovně 1–5
+
+Křivka o kousek těžší než v 1. kapitole: 3×4, 4×4, 4×4, oddechová 3×4, 4×4. Zahradní téma mají vždy 2–3 skupiny.
+
+| Úroveň | Hádanka | Skupiny (● ▲ ■ ◆) | Testy |
+|---|---|---|---|
+| 1 · 3×4 | cs-0068 · úroveň 1 | zahradní nářadí (rýč, motyka, konev, kolečko) · květiny (tulipán, růže, narcis, kopretina) · dají se sekat (trávu, dříví, chyby, dobrotu) | 1: „ZAHRADNÍ …“ sedělo skoro na všechno → skupina nahrazena „Dají se sekat“. 2: správně, jednoznačné. |
+| 2 · 4×4 | cs-0069 · úroveň 2 | zpěvní ptáci (drozd, špaček, stehlík, pěnkava) · najdeš je na zahradě (altán, kompost, záhon, skleník) · mají trny (trnka, ostružiník, hloh, akát) · ZELENÝ (mužík, louka, palec, světlo) | 1: JABLOŇ a AKÁT šly prohodit. 2: „zasadit“ nebylo k nalezení a „zelená cibulka“ mátla → skupina nahrazena „Najdeš je na zahradě“. 3: správně, jednoznačné. |
+| 3 · 4×4 | cs-0070 · úroveň 2 | ovocné stromy (hrušeň, třešeň, meruňka, broskvoň) · sladké dobroty z ovoce (bublanina, závin, žemlovka, kompot) · dají se trhat (rekordy, zuby, plevel, lístky) · OVOCNÝ (sad, pálenka, sirup, muška) | správně napoprvé; past KOMPOT (ovocný). |
+| 4 · 3×4 oddechová | cs-0071 · úroveň 1 | na dvorku (husa, krůta, králík, kozel) · zelenina ze záhonu (hrášek, kedluben, kapusta, brokolice) · HUSÍ (kůže, pochod, sádlo, brk) | správně napoprvé; past HUSA. |
+| 5 · 4×4 | cs-0072 · úroveň 3 | sladkosti (oplatka, marcipán, karamel, nugát) · části květu (tyčinka, pestík, kalich, pyl) · dají se pěstovat (přátelství, kondice, vousy, rajčata) · rýmují se se slovem ZAHRADA (nálada, šarada, balada, záhada) | 1: správně. Opraveno: PARADA se píše „paráda“ → **ZÁHADA**. 2: správně, jednoznačné; past TYČINKA. |
+
+### Příběh 2. kapitoly (návrh)
+
+- **Název:** Na zahradě · **motiv plánu:** zelená, proužky
+- **Začátek:** Za domem začíná zahrada. Slova tu rostou mezi záhony, šplhají po plotě a schovávají se pod listím. Stačí je najít.
+- **Konec:** Pod starou hrušní jsi v trávě našel další stopu. Někdo ji tu nechal ležet, jako by věděl, že ji jednou najdeš.
+- **Střípek 2 – vyber jeden:**
+  - **A (doporučuji):** „Praslovo umí čekat. Klidně celé roky, než přijde jeho chvíle.“
+  - B: „Praslovo je starší než všechny stromy v téhle zahradě.“
+  - C: „Praslovo mlčí. Ale až promluví, bude ho všude plno.“
+- **Další kapitola (zobrazí se jako „přibude brzy“):** Na chatě
+
+---
+
 ## Várka 2026-10-24 (C) – Lehká na st 4. 11. – ne 8. 11. · ✅ schváleno 2026-10-24
 
 | Den | Hádanka | Skupiny (● ▲ ■ ◆) | Testy |
