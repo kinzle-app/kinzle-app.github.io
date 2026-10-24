@@ -2,7 +2,7 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
-## Várka 2026-10-24 (C) – Lehká na st 4. 11. – ne 8. 11.
+## Várka 2026-10-24 (C) – Lehká na st 4. 11. – ne 8. 11. · ✅ schváleno 2026-10-24
 
 | Den | Hádanka | Skupiny (● ▲ ■ ◆) | Testy |
 |---|---|---|---|
@@ -14,7 +14,7 @@ Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; 
 
 ---
 
-## Várka 2026-10-24 (D) – Těžká na st 11. 11. – ne 15. 11.
+## Várka 2026-10-24 (D) – Těžká na st 11. 11. – ne 15. 11. · ✅ schváleno 2026-10-24
 
 | Den | Hádanka | Skupiny | Obtížnost / testy |
 |---|---|---|---|
