@@ -79,7 +79,7 @@ První hádanky (cs-0001 až cs-0043) jsou pro dospělé příliš lehké: prvn�
 | pátek | 4×4 | 4–5 (nejtěžší) |
 | sobota, neděle | 5×4 (víkendový speciál) | 3–5 |
 
-Tabulka platí pro angličtinu. **Čeština má dvě denní hádanky s vlastním rytmem** ():
+Tabulka platí pro angličtinu. **Čeština má dvě denní hádanky s vlastním rytmem** (`src/config/rhythm.js`):
 
 | Den | Lehká (děti, začátečníci) | Těžká (dospělí, kapitola 2a) |
 |---|---|---|
@@ -90,9 +90,9 @@ Tabulka platí pro angličtinu. **Čeština má dvě denní hádanky s vlastním
 | pátek | 4×4, úroveň 1–2 | 4×4, úroveň 4–5 |
 | sobota, neděle | 4×4, úroveň 1–2 | 5×4, úroveň 3–5 |
 
-Lehká: skupiny podle významu, nanejvýš jedna jednoduchá hříčka („Dají se doplnit slovem…“). Úroveň () je pro obě verze na stejné stupnici 1–5.
+Lehká: skupiny podle významu, nanejvýš jedna jednoduchá hříčka („Dají se doplnit slovem…“). Úroveň (`level`) je pro obě verze na stejné stupnici 1–5.
 
- rytmus kontroluje (jen pro dny, které ještě nezačaly – odehrané dny se nemění). Velikost 3×4 se v denních hádankách nepoužívá (patří hlavně do Cesty).
+`npm run validate` rytmus kontroluje (jen pro dny, které ještě nezačaly – odehrané dny se nemění). Velikost 3×4 se v denních hádankách nepoužívá (patří hlavně do Cesty).
 
 ## 3a. Úrovně angličtiny (Easy / Medium / Hard)
 
