@@ -2,6 +2,118 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
+## Várka 2026-10-24 (A) – Lehká na pá 30. 10. – út 3. 11.
+
+Lehká = děti a začátečníci: 4×4, úroveň 1–2, skupiny podle významu, nanejvýš jedna jednoduchá hříčka. Slepý test řešil i jako „pro dítě kolem 10 let“.
+
+### cs-0048 · 4×4 · úroveň 1 · Lehká pá 30. 10.
+| Obtížnost | Název | Slova |
+|---|---|---|
+| ● 1 | Mláďata zvířat | kotě, štěně, tele, hříbě |
+| ▲ 2 | Na stole k jídlu | lžíce, vidlička, ubrousek, sklenička |
+| ■ 3 | Mají kolečka | kočárek, koloběžka, vozík, skateboard |
+| ◆ 4 | Dají se doplnit slovem ŠKOLNÍ | rok, výlet, jídelna, lavice |
+
+**Past:** JÍDELNA (ke stolování). **Test 1:** správně; TRAKAŘ městské děti neznají → **opraveno** na SKATEBOARD. **Test 2:** správně, dítě by zvládlo.
+
+### cs-0049 · 4×4 · úroveň 1 · Lehká so 31. 10.
+| Obtížnost | Název | Slova |
+|---|---|---|
+| ● 1 | Části těla | loket, rameno, břicho, záda |
+| ▲ 2 | Počasí | bouřka, vítr, mráz, liják |
+| ■ 3 | Žijí v moři | medúza, krab, chobotnice, hvězdice |
+| ◆ 4 | Dají se doplnit slovem DOPRAVNÍ | značka, nehoda, hřiště, zácpa |
+
+**Past:** ZÁCPA (k břichu). **Test 1:** správně; VÁNICE méně známá → **opraveno** na LIJÁK. **Test 2:** správně.
+
+### cs-0050 · 4×4 · úroveň 2 · Lehká ne 1. 11.
+| Obtížnost | Název | Slova |
+|---|---|---|
+| ● 1 | Postavy z pohádek | Popelka, Karkulka, Budulínek, Krtek |
+| ▲ 2 | Jezdí se na nich po sněhu | sáňky, lyže, boby, snowboard |
+| ■ 3 | Co si děti stavějí | sněhulák, domeček, pyramida, pevnost |
+| ◆ 4 | Dají se doplnit slovem ZIMNÍ | spánek, stadion, olympiáda, prázdniny |
+
+**Past:** STADION (taky se staví – proto „Co si *děti* stavějí“), SNĚHULÁK (zimní). **Test 1:** správně; RUMCAJS část dětí nezná → **opraveno** na KRTEK, upřesněn název skupiny ■. **Test 2:** správně.
+
+### cs-0051 · 4×4 · úroveň 1 · Lehká po 2. 11.
+| Obtížnost | Název | Slova |
+|---|---|---|
+| ● 1 | V koupelně | mýdlo, kartáček, sprcha, houbička |
+| ▲ 2 | Nosí se na nohou | bačkory, kozačky, holínky, sandály |
+| ■ 3 | Vystupují v cirkuse | klaun, akrobat, žonglér, kouzelník |
+| ◆ 4 | Mohou být kouzelné | hůlka, prsten, zrcadlo, klobouk |
+
+**Pasti:** ZRCADLO (koupelna), KOUZELNÍK (kouzla). **Test:** správně napoprvé, dítě by zvládlo.
+
+### cs-0052 · 4×4 · úroveň 2 · Lehká út 3. 11.
+| Obtížnost | Název | Slova |
+|---|---|---|
+| ● 1 | Na pláži | slunečník, mušle, osuška, kbelík |
+| ▲ 2 | Starají se o zvířata | veterinář, chovatel, ošetřovatel, krotitel |
+| ■ 3 | Létají, ale nejsou ptáci | motýl, netopýr, vážka, čmelák |
+| ◆ 4 | Dají se doplnit slovem VODNÍ | meloun, skluzavka, pistole, bomba |
+
+**Pasti:** MELOUN a SKLUZAVKA (pláž). **Test 1:** správně; „vodní hrad“ a „vodní pólo“ děti neznají → **opraveno** na PISTOLE a BOMBA. **Test 2:** správně.
+
+---
+
+## Várka 2026-10-24 (B) – Těžká na st 4. 11. – út 10. 11.
+
+Těžká = dospělí (kapitola 2a pravidel). Obtížnost skupin podle řešitele (1 = hned vidět, 5 = až na konec).
+
+### cs-0056 · 4×4 · úroveň 3 · Těžká st 4. 11.
+| Obtížnost | Název | Slova |
+|---|---|---|
+| ● 1 | Plemena psů | pudl, jezevčík, dalmatin, bígl |
+| ▲ 2 | Bojové sporty: sportovci | boxer, šermíř, zápasník, judista |
+| ■ 3 | Dají se trénovat | paměť, svaly, trpělivost, postřeh |
+| ◆ 4 | Na začátku se v nich schovává zbraň | kopírka, mečoun, šípek, praktikant |
+
+**Past:** BOXER (i pes – psů je pět). **Test 1:** správně; v DĚLNÍKOVI je jen „děl“, ne celé „dělo“ → **opraveno** na PRAKTIKANT (PRAK). **Test 2:** správně, obtížnost 1 / 2 / 3 / 4.
+
+### cs-0054 · 4×4 · úroveň 4 · Těžká čt 5. 11.
+| Obtížnost | Název | Slova |
+|---|---|---|
+| ● 1 | Studené omáčky | tatarka, kečup, majonéza, remuláda |
+| ▲ 2 | Česká jídla | svíčková, guláš, knedlík, řízek |
+| ■ 3 | Dají se rozpustit | cukr, parlament, kapela, led |
+| ◆ 4 | Dají se doplnit slovem FRANCOUZSKÝ | hole, brambory, polibek, klíč |
+
+**Pasti:** SVÍČKOVÁ (omáčka), BRAMBORY (jídlo). **Test 1:** našel druhé řešení – „francouzská HOŘČICE“ → **opraveno** na REMULÁDA. **Test 2:** správně, obtížnost 1 / 2 / 3 / 4.
+
+### cs-0055 · 4×4 · úroveň 5 · Těžká pá 6. 11.
+| Obtížnost | Název | Slova |
+|---|---|---|
+| ● 1 | Mají klávesy | piano, varhany, akordeon, kalkulačka |
+| ▲ 2 | Hudební pojmy z italštiny | forte, tempo, adagio, crescendo |
+| ■ 3 | Doplní spojení HRÁT NA… | city, jistotu, efekt, schovávanou |
+| ◆ 4 | Začínají dvěma notami (do re mi fa sol la si) | fazole, lasička, siréna, dodo |
+
+**Pasti:** PIANO (i italský pojem), VARHANY a AKORDEON („hrát na…“). **Test:** správně napoprvé, obtížnost 2 / 3 / 3 / 4 – splňuje pravidlo pro dospělé.
+
+### cs-0053 · 4×4 · úroveň 3 · Těžká po 9. 11.
+| Obtížnost | Název | Slova |
+|---|---|---|
+| ● 1 | Sovy | výr, puštík, sýček, kalous |
+| ▲ 2 | Čepice a klobouky | kulich, beranice, kšiltovka, buřinka |
+| ■ 3 | Mají krk nebo hrdlo, i když nejsou živé | kytara, kontrabas, láhev, váza |
+| ◆ 4 | Dají se doplnit slovem BÍLÝ | vrána, trpaslík, místa, límeček |
+
+**Pasti:** VRÁNA (ptáci), LÍMEČEK (oblečení). **Test 1:** „bílý páv“ dával druhé řešení a skupina „Mají oka“ (už je v cs-0004) nebyla k nalezení → **opraveno** na „Mají krk“. **Test 2:** správně, ale skupiny krk a „nádoby s víčkem“ byly spíš odhad (láhev má krk i uzávěr) → **opraveno** na „Čepice a klobouky“. **Test 3:** správně, jiné úplné rozdělení nenašel; obtížnost 1 / 2 / 3 / 4–5. Název ■ upřesněn na „krk nebo hrdlo“ (nádoby mají spíš hrdlo).
+
+### cs-0057 · 4×4 · úroveň 4 · Těžká út 10. 11.
+| Obtížnost | Název | Slova |
+|---|---|---|
+| ● 1 | Části kostela | oltář, kazatelna, zvonice, kůr |
+| ▲ 2 | Na svatbě | nevěsta, ženich, svědek, družička |
+| ■ 3 | Dají se slíbit | věrnost, hory doly, nemožné, mlčenlivost |
+| ◆ 4 | Na konci se v nich schovává ženské jméno | latina, pyramida, oliva, slída |
+
+**Past:** OLTÁŘ (svatba). **Test:** správně napoprvé, obtížnost 1 / 2 / 3 / 5.
+
+---
+
 ## Várka 2026-10-19 – zkušební hádanky pro dospělé
 
 Podle nových pravidel v `PRAVIDLA-HADANEK.md` (kapitola 2a): žádná holá kategorie, aspoň dvě hříčky, falešná stopa. Zahraj si je a porovnej s dosavadními – podle toho doladíme obtížnost a pak zapneme rozdělení děti / dospělí. Ve vývojové verzi jsou v Více → Návrhy.

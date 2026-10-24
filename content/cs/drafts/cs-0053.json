@@ -1,0 +1,56 @@
+{
+  "id": "cs-0053",
+  "language": "cs",
+  "size": 4,
+  "level": 3,
+  "tier": "hard",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Sovy",
+      "difficulty": 1,
+      "words": [
+        "výr",
+        "puštík",
+        "sýček",
+        "kalous"
+      ],
+      "explanation": "Sovy, které žijí v Česku."
+    },
+    {
+      "title": "Čepice a klobouky",
+      "difficulty": 2,
+      "words": [
+        "kulich",
+        "beranice",
+        "kšiltovka",
+        "buřinka"
+      ],
+      "explanation": "Co se nosí na hlavě: kulich, beranice, kšiltovka a buřinka."
+    },
+    {
+      "title": "Mají krk nebo hrdlo, i když nejsou živé",
+      "difficulty": 3,
+      "words": [
+        "kytara",
+        "kontrabas",
+        "láhev",
+        "váza"
+      ],
+      "explanation": "Krk kytary a kontrabasu, hrdlo láhve a vázy."
+    },
+    {
+      "title": "Dají se doplnit slovem BÍLÝ",
+      "difficulty": 4,
+      "words": [
+        "vrána",
+        "trpaslík",
+        "místa",
+        "límeček"
+      ],
+      "explanation": "Bílá vrána (vzácnost), bílý trpaslík (hvězda), bílá místa (na mapě) a bílý límeček (úředník). Vrána svádí k ptákům, límeček k oblečení."
+    }
+  ]
+}

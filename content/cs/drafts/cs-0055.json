@@ -1,0 +1,56 @@
+{
+  "id": "cs-0055",
+  "language": "cs",
+  "size": 4,
+  "level": 5,
+  "tier": "hard",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Mají klávesy",
+      "difficulty": 1,
+      "words": [
+        "piano",
+        "varhany",
+        "akordeon",
+        "kalkulačka"
+      ],
+      "explanation": "Klávesy mají hudební nástroje i kalkulačka."
+    },
+    {
+      "title": "Hudební pojmy z italštiny",
+      "difficulty": 2,
+      "words": [
+        "forte",
+        "tempo",
+        "adagio",
+        "crescendo"
+      ],
+      "explanation": "Forte (silně), tempo, adagio (zvolna), crescendo (zesilovat). Piano (slabě) je taky takový pojem, ale patří ke klávesám."
+    },
+    {
+      "title": "Doplní spojení HRÁT NA…",
+      "difficulty": 3,
+      "words": [
+        "city",
+        "jistotu",
+        "efekt",
+        "schovávanou"
+      ],
+      "explanation": "Hrát na city, na jistotu, na efekt a na schovávanou. Na varhany a piano se hraje doslova."
+    },
+    {
+      "title": "Začínají dvěma notami (do re mi fa sol la si)",
+      "difficulty": 4,
+      "words": [
+        "fazole",
+        "lasička",
+        "siréna",
+        "dodo"
+      ],
+      "explanation": "FA-SOL-e, LA-SI-čka, SI-RE-na, DO-DO."
+    }
+  ]
+}

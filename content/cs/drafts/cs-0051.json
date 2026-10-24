@@ -1,0 +1,56 @@
+{
+  "id": "cs-0051",
+  "language": "cs",
+  "size": 4,
+  "level": 1,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "V koupelně",
+      "difficulty": 1,
+      "words": [
+        "mýdlo",
+        "kartáček",
+        "sprcha",
+        "houbička"
+      ],
+      "explanation": "Co najdeš v koupelně."
+    },
+    {
+      "title": "Nosí se na nohou",
+      "difficulty": 2,
+      "words": [
+        "bačkory",
+        "kozačky",
+        "holínky",
+        "sandály"
+      ],
+      "explanation": "Obuv."
+    },
+    {
+      "title": "Vystupují v cirkuse",
+      "difficulty": 3,
+      "words": [
+        "klaun",
+        "akrobat",
+        "žonglér",
+        "kouzelník"
+      ],
+      "explanation": "Lidé, které uvidíš v cirkuse."
+    },
+    {
+      "title": "Mohou být kouzelné",
+      "difficulty": 4,
+      "words": [
+        "hůlka",
+        "prsten",
+        "zrcadlo",
+        "klobouk"
+      ],
+      "explanation": "Kouzelná hůlka, kouzelný prsten, kouzelné zrcadlo a kouzelný klobouk. Zrcadlo je i v koupelně a kouzelník v cirkuse."
+    }
+  ]
+}

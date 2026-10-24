@@ -1,0 +1,56 @@
+{
+  "id": "cs-0049",
+  "language": "cs",
+  "size": 4,
+  "level": 1,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Části těla",
+      "difficulty": 1,
+      "words": [
+        "loket",
+        "rameno",
+        "břicho",
+        "záda"
+      ],
+      "explanation": "Části lidského těla."
+    },
+    {
+      "title": "Počasí",
+      "difficulty": 2,
+      "words": [
+        "bouřka",
+        "vítr",
+        "mráz",
+        "liják"
+      ],
+      "explanation": "Jaké bývá počasí."
+    },
+    {
+      "title": "Žijí v moři",
+      "difficulty": 3,
+      "words": [
+        "medúza",
+        "krab",
+        "chobotnice",
+        "hvězdice"
+      ],
+      "explanation": "Mořští živočichové."
+    },
+    {
+      "title": "Dají se doplnit slovem DOPRAVNÍ",
+      "difficulty": 4,
+      "words": [
+        "značka",
+        "nehoda",
+        "hřiště",
+        "zácpa"
+      ],
+      "explanation": "Dopravní značka, nehoda, hřiště a zácpa. Zácpa svádí k břichu, ale tady jde o auta."
+    }
+  ]
+}

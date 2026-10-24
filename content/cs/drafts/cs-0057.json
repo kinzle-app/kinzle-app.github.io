@@ -1,0 +1,56 @@
+{
+  "id": "cs-0057",
+  "language": "cs",
+  "size": 4,
+  "level": 4,
+  "tier": "hard",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Části kostela",
+      "difficulty": 1,
+      "words": [
+        "oltář",
+        "kazatelna",
+        "zvonice",
+        "kůr"
+      ],
+      "explanation": "Části kostela."
+    },
+    {
+      "title": "Na svatbě",
+      "difficulty": 2,
+      "words": [
+        "nevěsta",
+        "ženich",
+        "svědek",
+        "družička"
+      ],
+      "explanation": "Kdo je na svatbě. Oltář svádí ke svatbě, ale patří ke kostelu."
+    },
+    {
+      "title": "Dají se slíbit",
+      "difficulty": 3,
+      "words": [
+        "věrnost",
+        "hory doly",
+        "nemožné",
+        "mlčenlivost"
+      ],
+      "explanation": "Slíbit věrnost, slibovat hory doly i nemožné, slíbit mlčenlivost."
+    },
+    {
+      "title": "Na konci se v nich schovává ženské jméno",
+      "difficulty": 4,
+      "words": [
+        "latina",
+        "pyramida",
+        "oliva",
+        "slída"
+      ],
+      "explanation": "laTINA, pyrAMIDA, olIVA, sLÍDA."
+    }
+  ]
+}

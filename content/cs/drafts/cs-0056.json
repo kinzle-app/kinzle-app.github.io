@@ -1,0 +1,56 @@
+{
+  "id": "cs-0056",
+  "language": "cs",
+  "size": 4,
+  "level": 3,
+  "tier": "hard",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Plemena psů",
+      "difficulty": 1,
+      "words": [
+        "pudl",
+        "jezevčík",
+        "dalmatin",
+        "bígl"
+      ],
+      "explanation": "Psí plemena."
+    },
+    {
+      "title": "Bojové sporty: sportovci",
+      "difficulty": 2,
+      "words": [
+        "boxer",
+        "šermíř",
+        "zápasník",
+        "judista"
+      ],
+      "explanation": "Sportovci bojových sportů. Boxer je i psí plemeno."
+    },
+    {
+      "title": "Dají se trénovat",
+      "difficulty": 3,
+      "words": [
+        "paměť",
+        "svaly",
+        "trpělivost",
+        "postřeh"
+      ],
+      "explanation": "Trénovat se dá paměť, svaly, trpělivost i postřeh."
+    },
+    {
+      "title": "Na začátku se v nich schovává zbraň",
+      "difficulty": 4,
+      "words": [
+        "kopírka",
+        "mečoun",
+        "šípek",
+        "praktikant"
+      ],
+      "explanation": "KOPÍrka, MEČoun, ŠÍPek, PRAKtikant."
+    }
+  ]
+}

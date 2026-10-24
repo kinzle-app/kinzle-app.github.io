@@ -1,0 +1,56 @@
+{
+  "id": "cs-0054",
+  "language": "cs",
+  "size": 4,
+  "level": 4,
+  "tier": "hard",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Studené omáčky",
+      "difficulty": 1,
+      "words": [
+        "tatarka",
+        "kečup",
+        "majonéza",
+        "remuláda"
+      ],
+      "explanation": "Studené omáčky k jídlu."
+    },
+    {
+      "title": "Česká jídla",
+      "difficulty": 2,
+      "words": [
+        "svíčková",
+        "guláš",
+        "knedlík",
+        "řízek"
+      ],
+      "explanation": "Jídla české kuchyně. Svíčková je i omáčka, ale teplá."
+    },
+    {
+      "title": "Dají se rozpustit",
+      "difficulty": 3,
+      "words": [
+        "cukr",
+        "parlament",
+        "kapela",
+        "led"
+      ],
+      "explanation": "Rozpustit cukr i led, rozpustit parlament a kapela se může rozpustit."
+    },
+    {
+      "title": "Dají se doplnit slovem FRANCOUZSKÝ",
+      "difficulty": 4,
+      "words": [
+        "hole",
+        "brambory",
+        "polibek",
+        "klíč"
+      ],
+      "explanation": "Francouzské hole (berle), francouzské brambory, francouzský polibek a francouzský klíč (nastavitelný). Brambory svádějí k jídlům."
+    }
+  ]
+}

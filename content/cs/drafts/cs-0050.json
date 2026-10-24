@@ -1,0 +1,56 @@
+{
+  "id": "cs-0050",
+  "language": "cs",
+  "size": 4,
+  "level": 2,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Postavy z pohádek",
+      "difficulty": 1,
+      "words": [
+        "Popelka",
+        "Karkulka",
+        "Budulínek",
+        "Krtek"
+      ],
+      "explanation": "Známé postavy z pohádek a večerníčků."
+    },
+    {
+      "title": "Jezdí se na nich po sněhu",
+      "difficulty": 2,
+      "words": [
+        "sáňky",
+        "lyže",
+        "boby",
+        "snowboard"
+      ],
+      "explanation": "Na čem se jezdí po sněhu."
+    },
+    {
+      "title": "Co si děti stavějí",
+      "difficulty": 3,
+      "words": [
+        "sněhulák",
+        "domeček",
+        "pyramida",
+        "pevnost"
+      ],
+      "explanation": "Sněhulák ze sněhu, domeček a pyramida z kostek nebo písku, pevnost z polštářů."
+    },
+    {
+      "title": "Dají se doplnit slovem ZIMNÍ",
+      "difficulty": 4,
+      "words": [
+        "spánek",
+        "stadion",
+        "olympiáda",
+        "prázdniny"
+      ],
+      "explanation": "Zimní spánek, zimní stadion, zimní olympiáda a zimní prázdniny."
+    }
+  ]
+}

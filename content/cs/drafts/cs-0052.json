@@ -1,0 +1,56 @@
+{
+  "id": "cs-0052",
+  "language": "cs",
+  "size": 4,
+  "level": 2,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Na pláži",
+      "difficulty": 1,
+      "words": [
+        "slunečník",
+        "mušle",
+        "osuška",
+        "kbelík"
+      ],
+      "explanation": "Co si vezmeš nebo najdeš na pláži."
+    },
+    {
+      "title": "Starají se o zvířata",
+      "difficulty": 2,
+      "words": [
+        "veterinář",
+        "chovatel",
+        "ošetřovatel",
+        "krotitel"
+      ],
+      "explanation": "Lidé, kteří se starají o zvířata nebo s nimi pracují."
+    },
+    {
+      "title": "Létají, ale nejsou ptáci",
+      "difficulty": 3,
+      "words": [
+        "motýl",
+        "netopýr",
+        "vážka",
+        "čmelák"
+      ],
+      "explanation": "Motýl, vážka a čmelák jsou hmyz, netopýr je savec."
+    },
+    {
+      "title": "Dají se doplnit slovem VODNÍ",
+      "difficulty": 4,
+      "words": [
+        "meloun",
+        "skluzavka",
+        "pistole",
+        "bomba"
+      ],
+      "explanation": "Vodní meloun, vodní skluzavka, vodní pistole a vodní bomba (balonek s vodou)."
+    }
+  ]
+}

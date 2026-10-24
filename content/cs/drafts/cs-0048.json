@@ -1,0 +1,56 @@
+{
+  "id": "cs-0048",
+  "language": "cs",
+  "size": 4,
+  "level": 1,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Mláďata zvířat",
+      "difficulty": 1,
+      "words": [
+        "kotě",
+        "štěně",
+        "tele",
+        "hříbě"
+      ],
+      "explanation": "Kotě je mládě kočky, štěně psa, tele krávy a hříbě koně."
+    },
+    {
+      "title": "Na stole k jídlu",
+      "difficulty": 2,
+      "words": [
+        "lžíce",
+        "vidlička",
+        "ubrousek",
+        "sklenička"
+      ],
+      "explanation": "Co se dává na stůl, když se jí."
+    },
+    {
+      "title": "Mají kolečka",
+      "difficulty": 3,
+      "words": [
+        "kočárek",
+        "koloběžka",
+        "vozík",
+        "skateboard"
+      ],
+      "explanation": "Kočárek, koloběžka, vozík i skateboard jezdí na kolečkách."
+    },
+    {
+      "title": "Dají se doplnit slovem ŠKOLNÍ",
+      "difficulty": 4,
+      "words": [
+        "rok",
+        "výlet",
+        "jídelna",
+        "lavice"
+      ],
+      "explanation": "Školní rok, školní výlet, školní jídelna a školní lavice. Jídelna svádí ke stolování, ale je to místnost."
+    }
+  ]
+}
