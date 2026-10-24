@@ -1,0 +1,56 @@
+{
+  "id": "cs-0061",
+  "language": "cs",
+  "size": 4,
+  "level": 1,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Najdeš je v lese",
+      "difficulty": 1,
+      "words": [
+        "mech",
+        "kapradí",
+        "mraveniště",
+        "pařez"
+      ],
+      "explanation": "Co roste a leží v lese."
+    },
+    {
+      "title": "Na horách",
+      "difficulty": 2,
+      "words": [
+        "vlek",
+        "sjezdovka",
+        "lanovka",
+        "chata"
+      ],
+      "explanation": "Co najdeš na horách. Chata je i stavení, ale tady patří na hory."
+    },
+    {
+      "title": "Bydlí se v nich",
+      "difficulty": 3,
+      "words": [
+        "vila",
+        "panelák",
+        "mrakodrap",
+        "zámek"
+      ],
+      "explanation": "Budovy, kde lidé bydlí."
+    },
+    {
+      "title": "Dají se doplnit slovem PERNÍKOVÝ",
+      "difficulty": 4,
+      "words": [
+        "chaloupka",
+        "panáček",
+        "medvídek",
+        "srdce"
+      ],
+      "explanation": "Perníková chaloupka, perníkový panáček, perníkový medvídek a perníkové srdce."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "cs-0062",
+  "language": "cs",
+  "size": 4,
+  "level": 2,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Najdeš je na podzim",
+      "difficulty": 1,
+      "words": [
+        "kaštan",
+        "dýně",
+        "listí",
+        "hřib"
+      ],
+      "explanation": "Co patří k podzimu."
+    },
+    {
+      "title": "Strašidla",
+      "difficulty": 2,
+      "words": [
+        "duch",
+        "upír",
+        "kostlivec",
+        "bubák"
+      ],
+      "explanation": "Strašidelné bytosti. Dýně patří k Halloweenu, ale strašidlo to není."
+    },
+    {
+      "title": "Žijí pod zemí",
+      "difficulty": 3,
+      "words": [
+        "žížala",
+        "jezevec",
+        "krtek",
+        "sysel"
+      ],
+      "explanation": "Zvířata, která žijí v zemi nebo v norách."
+    },
+    {
+      "title": "Dají se doplnit slovem STRAŠIDELNÝ",
+      "difficulty": 4,
+      "words": [
+        "příběh",
+        "dům",
+        "sklep",
+        "les"
+      ],
+      "explanation": "Strašidelný příběh, dům, sklep a les."
+    }
+  ]
+}

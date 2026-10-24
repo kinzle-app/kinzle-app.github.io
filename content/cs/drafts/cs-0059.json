@@ -1,0 +1,56 @@
+{
+  "id": "cs-0059",
+  "language": "cs",
+  "size": 4,
+  "level": 1,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Dinosauři",
+      "difficulty": 1,
+      "words": [
+        "tyranosaurus",
+        "stegosaurus",
+        "triceratops",
+        "diplodok"
+      ],
+      "explanation": "Známí dinosauři."
+    },
+    {
+      "title": "Ve vesmíru",
+      "difficulty": 2,
+      "words": [
+        "raketa",
+        "astronaut",
+        "satelit",
+        "kometa"
+      ],
+      "explanation": "Co létá vesmírem."
+    },
+    {
+      "title": "Jsou žluté",
+      "difficulty": 3,
+      "words": [
+        "citron",
+        "kuřátko",
+        "slunečnice",
+        "kanárek"
+      ],
+      "explanation": "Věci a zvířata žluté barvy."
+    },
+    {
+      "title": "Dají se doplnit slovem DĚTSKÝ",
+      "difficulty": 4,
+      "words": [
+        "pokoj",
+        "koutek",
+        "lékař",
+        "den"
+      ],
+      "explanation": "Dětský pokoj, dětský koutek, dětský lékař a Den dětí."
+    }
+  ]
+}

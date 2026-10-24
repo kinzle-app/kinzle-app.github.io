@@ -2,6 +2,30 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
+## Várka 2026-10-24 (C) – Lehká na st 4. 11. – ne 8. 11.
+
+| Den | Hádanka | Skupiny (● ▲ ■ ◆) | Testy |
+|---|---|---|---|
+| st 4. 11. | cs-0058 · úroveň 1 | školní předměty · uklízí se jimi (smeták, vysavač, mop, lopatka) · mají tlačítka (ovladač, výtah, mobil, zvonek) · NAROZENINOVÝ (přání, párty, pozvánka, čepička) | 1: PRAČKA šla k úklidu i k tlačítkům → **ZVONEK**. 2: správně, jednoznačné. |
+| čt 5. 11. | cs-0059 · úroveň 1 | dinosauři · ve vesmíru (raketa, astronaut, satelit, kometa) · jsou žluté (citron, kuřátko, slunečnice, kanárek) · DĚTSKÝ (pokoj, koutek, lékař, den) | správně napoprvé; DRUŽICE → **SATELIT** (děti znají víc). |
+| pá 6. 11. | cs-0060 · úroveň 2 | bicí nástroje · maluje se jimi (štětec, voskovka, barva, váleček) · dá se na ně malovat (plátno, obličej, tabule, kámen) · ZUBNÍ (víla, kaz, nit, ordinace) | 1: „zubní SESTRA“ dávala druhé řešení → skupina zdravotníků nahrazena „Maluje se jimi“. 2: správně, jednoznačné; past KÁMEN (zubní kámen). |
+| so 7. 11. | cs-0061 · úroveň 1 | v lese (mech, kapradí, mraveniště, pařez) · na horách (vlek, sjezdovka, lanovka, chata) · bydlí se v nich (vila, panelák, mrakodrap, zámek) · PERNÍKOVÝ (chaloupka, panáček, medvídek, srdce) | 1: „perníkový dědek“ děti neznají → **MEDVÍDEK**. 2: správně, jednoznačné. |
+| ne 8. 11. | cs-0062 · úroveň 2 | podzim (kaštan, dýně, listí, hřib) · strašidla (duch, upír, kostlivec, bubák) · žijí pod zemí (žížala, jezevec, krtek, sysel) · STRAŠIDELNÝ (příběh, dům, sklep, les) | správně napoprvé; past DÝNĚ (Halloween). |
+
+---
+
+## Várka 2026-10-24 (D) – Těžká na st 11. 11. – ne 15. 11.
+
+| Den | Hádanka | Skupiny | Obtížnost / testy |
+|---|---|---|---|
+| st 11. 11. | cs-0063 · 4×4 · úroveň 3 | pražské čtvrti · vinařství (réva, burčák, lis, vinobraní) · mohou být sladké (sny, pomsta, nicnedělání, voda) · PRAŽSKÝ (jaro, šunka, orloj, Jezulátko) | 1 / 2 / 3 / 4, správně napoprvé; past VINOHRADY. |
+| čt 12. 11. | cs-0064 · 4×4 · úroveň 4 | jezdecké disciplíny · výstroj koně · mívají ostruhy (kohout, bažant, kovboj, rytíř) · KOŇSKÝ (dávka, ohon, síla, kaštan) | 1: skupinu ostruh nenašel (DŽOKEJ vypadal jako „jezdci“) → **BAŽANT**. 2: správně, 1 / 2 / 3 / 5. |
+| pá 13. 11. | cs-0065 · 4×4 · úroveň 5 | nosí štěstí (čtyřlístek, kominík, šupina, střep) · nosí smůlu (žebřík, pátek, třináctka, kočka) · dají se rozsypat (sůl, korálky, puzzle, popel) · velikonoční dny (zelený, velký, bílá, květná) | 2 / 3 / 3 / 5, správně napoprvé – na pátek 13.; past SŮL. |
+| so 14. 11. | cs-0066 · 5×4 · úroveň 4 | plynné prvky · drahokamy · souhvězdí · mají jádro (atom, buňka, ořech, kometa) · HVĚZDNÝ (prach, války, hodina, brána) | 1 / 1 / 2 / 4 / 5, správně napoprvé. |
+| ne 15. 11. | cs-0067 · 5×4 · úroveň 4 | uzeniny (klobása, tlačenka, párek, slanina) · druhy piva · v hospodě (výčep, pípa, štamgast, tácek) · dají se zapít (žal, úspěch, prášek, výhra) · PIVNÍ (sýr, pupek, lázně, festival) | 1: „pivní OBCHOD“ → **ÚSPĚCH**. 2: „pivní SALÁM“ → **TLAČENKA**. 3: správně, jednoznačné, 1 / 2 / 3 / 4 / 5. |
+
+---
+
 ## Várka 2026-10-24 (A) – Lehká na pá 30. 10. – út 3. 11.
 
 Lehká = děti a začátečníci: 4×4, úroveň 1–2, skupiny podle významu, nanejvýš jedna jednoduchá hříčka. Slepý test řešil i jako „pro dítě kolem 10 let“.

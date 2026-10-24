@@ -1,0 +1,56 @@
+{
+  "id": "cs-0063",
+  "language": "cs",
+  "size": 4,
+  "level": 3,
+  "tier": "hard",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Pražské čtvrti",
+      "difficulty": 1,
+      "words": [
+        "Žižkov",
+        "Smíchov",
+        "Karlín",
+        "Vinohrady"
+      ],
+      "explanation": "Čtvrti Prahy."
+    },
+    {
+      "title": "Vinařství",
+      "difficulty": 2,
+      "words": [
+        "réva",
+        "burčák",
+        "lis",
+        "vinobraní"
+      ],
+      "explanation": "Co patří k výrobě vína. Vinohrady svádějí k vínu, ale jsou to pražská čtvrť."
+    },
+    {
+      "title": "Mohou být sladké",
+      "difficulty": 3,
+      "words": [
+        "sny",
+        "pomsta",
+        "nicnedělání",
+        "voda"
+      ],
+      "explanation": "Sladké sny, sladká pomsta, sladké nicnedělání a sladká voda (ne slaná). Burčák je sladký taky, ale patří k vínu."
+    },
+    {
+      "title": "Dají se doplnit slovem PRAŽSKÝ",
+      "difficulty": 4,
+      "words": [
+        "jaro",
+        "šunka",
+        "orloj",
+        "Jezulátko"
+      ],
+      "explanation": "Pražské jaro, pražská šunka, Pražský orloj a Pražské Jezulátko."
+    }
+  ]
+}

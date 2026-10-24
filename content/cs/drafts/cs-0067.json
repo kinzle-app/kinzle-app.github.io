@@ -1,0 +1,67 @@
+{
+  "id": "cs-0067",
+  "language": "cs",
+  "size": 5,
+  "level": 4,
+  "tier": "hard",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Uzeniny",
+      "difficulty": 1,
+      "words": [
+        "klobása",
+        "tlačenka",
+        "párek",
+        "slanina"
+      ],
+      "explanation": "Uzeniny."
+    },
+    {
+      "title": "Druhy piva",
+      "difficulty": 2,
+      "words": [
+        "ležák",
+        "desítka",
+        "dvanáctka",
+        "porter"
+      ],
+      "explanation": "Druhy piva."
+    },
+    {
+      "title": "V hospodě",
+      "difficulty": 3,
+      "words": [
+        "výčep",
+        "pípa",
+        "štamgast",
+        "tácek"
+      ],
+      "explanation": "Co a kdo patří do hospody."
+    },
+    {
+      "title": "Dají se zapít",
+      "difficulty": 4,
+      "words": [
+        "žal",
+        "úspěch",
+        "prášek",
+        "výhra"
+      ],
+      "explanation": "Zapít žal, úspěch, prášek i výhru."
+    },
+    {
+      "title": "Dají se doplnit slovem PIVNÍ",
+      "difficulty": 5,
+      "words": [
+        "sýr",
+        "pupek",
+        "lázně",
+        "festival"
+      ],
+      "explanation": "Pivní sýr, pivní pupek, pivní lázně a pivní festival. Pivní tácek taky, ale tácek patří do hospody."
+    }
+  ]
+}

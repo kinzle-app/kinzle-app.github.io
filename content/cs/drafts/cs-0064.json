@@ -1,0 +1,56 @@
+{
+  "id": "cs-0064",
+  "language": "cs",
+  "size": 4,
+  "level": 4,
+  "tier": "hard",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Jezdecké disciplíny",
+      "difficulty": 1,
+      "words": [
+        "parkur",
+        "drezura",
+        "dostihy",
+        "pólo"
+      ],
+      "explanation": "Sporty na koni."
+    },
+    {
+      "title": "Výstroj koně",
+      "difficulty": 2,
+      "words": [
+        "uzda",
+        "třmeny",
+        "otěže",
+        "podkova"
+      ],
+      "explanation": "Co patří ke koni a jezdci."
+    },
+    {
+      "title": "Mívají ostruhy",
+      "difficulty": 3,
+      "words": [
+        "kohout",
+        "bažant",
+        "kovboj",
+        "rytíř"
+      ],
+      "explanation": "Kohout a bažant mají ostruhy na nohou, kovboj a rytíř na botách."
+    },
+    {
+      "title": "Dají se doplnit slovem KOŇSKÝ",
+      "difficulty": 4,
+      "words": [
+        "dávka",
+        "ohon",
+        "síla",
+        "kaštan"
+      ],
+      "explanation": "Koňská dávka, koňský ohon, koňská síla a koňský kaštan (jírovec). Koňská podkova a dostihy svádějí sem, ale patří jinam."
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "id": "cs-0066",
+  "language": "cs",
+  "size": 5,
+  "level": 4,
+  "tier": "hard",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Plynné prvky",
+      "difficulty": 1,
+      "words": [
+        "kyslík",
+        "dusík",
+        "vodík",
+        "helium"
+      ],
+      "explanation": "Chemické prvky, které jsou za běžných podmínek plyny."
+    },
+    {
+      "title": "Drahokamy",
+      "difficulty": 2,
+      "words": [
+        "rubín",
+        "safír",
+        "smaragd",
+        "topaz"
+      ],
+      "explanation": "Drahé kameny."
+    },
+    {
+      "title": "Souhvězdí",
+      "difficulty": 3,
+      "words": [
+        "Orion",
+        "Pegas",
+        "Kasiopeja",
+        "Andromeda"
+      ],
+      "explanation": "Souhvězdí na noční obloze."
+    },
+    {
+      "title": "Mají jádro",
+      "difficulty": 4,
+      "words": [
+        "atom",
+        "buňka",
+        "ořech",
+        "kometa"
+      ],
+      "explanation": "Atomové jádro, buněčné jádro, jádro ořechu a jádro komety."
+    },
+    {
+      "title": "Dají se doplnit slovem HVĚZDNÝ",
+      "difficulty": 5,
+      "words": [
+        "prach",
+        "války",
+        "hodina",
+        "brána"
+      ],
+      "explanation": "Hvězdný prach, Hvězdné války, hvězdná hodina (vrchol slávy) a Hvězdná brána."
+    }
+  ]
+}

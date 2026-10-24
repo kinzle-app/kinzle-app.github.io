@@ -1,0 +1,56 @@
+{
+  "id": "cs-0058",
+  "language": "cs",
+  "size": 4,
+  "level": 1,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Školní předměty",
+      "difficulty": 1,
+      "words": [
+        "matematika",
+        "čeština",
+        "tělocvik",
+        "přírodověda"
+      ],
+      "explanation": "Předměty na základní škole."
+    },
+    {
+      "title": "Uklízí se jimi",
+      "difficulty": 2,
+      "words": [
+        "smeták",
+        "vysavač",
+        "mop",
+        "lopatka"
+      ],
+      "explanation": "Pomůcky na úklid."
+    },
+    {
+      "title": "Mají tlačítka",
+      "difficulty": 3,
+      "words": [
+        "ovladač",
+        "výtah",
+        "mobil",
+        "zvonek"
+      ],
+      "explanation": "Ovladač, výtah, mobil i zvonek u dveří se ovládají tlačítkem. Vysavač má tlačítko taky, ale patří k úklidu."
+    },
+    {
+      "title": "Dají se doplnit slovem NAROZENINOVÝ",
+      "difficulty": 4,
+      "words": [
+        "přání",
+        "párty",
+        "pozvánka",
+        "čepička"
+      ],
+      "explanation": "Narozeninové přání, párty, pozvánka a čepička."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "cs-0065",
+  "language": "cs",
+  "size": 4,
+  "level": 5,
+  "tier": "hard",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Nosí štěstí",
+      "difficulty": 1,
+      "words": [
+        "čtyřlístek",
+        "kominík",
+        "šupina",
+        "střep"
+      ],
+      "explanation": "Pověry pro štěstí: čtyřlístek, potkat kominíka, kapří šupina v peněžence, střepy přinášejí štěstí."
+    },
+    {
+      "title": "Nosí smůlu",
+      "difficulty": 2,
+      "words": [
+        "žebřík",
+        "pátek",
+        "třináctka",
+        "kočka"
+      ],
+      "explanation": "Projít pod žebříkem, pátek třináctého, číslo 13 a černá kočka přes cestu."
+    },
+    {
+      "title": "Dají se rozsypat",
+      "difficulty": 3,
+      "words": [
+        "sůl",
+        "korálky",
+        "puzzle",
+        "popel"
+      ],
+      "explanation": "Rozsypat sůl, korálky, puzzle i popel. Rozsypaná sůl nosí smůlu, ale tady jde o rozsypání."
+    },
+    {
+      "title": "Doplní velikonoční dny (… čtvrtek, … pátek, … sobota, … neděle)",
+      "difficulty": 4,
+      "words": [
+        "zelený",
+        "velký",
+        "bílá",
+        "květná"
+      ],
+      "explanation": "Zelený čtvrtek, Velký pátek, Bílá sobota a Květná neděle."
+    }
+  ]
+}

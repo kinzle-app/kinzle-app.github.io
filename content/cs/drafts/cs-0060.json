@@ -1,0 +1,56 @@
+{
+  "id": "cs-0060",
+  "language": "cs",
+  "size": 4,
+  "level": 2,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-24",
+  "groups": [
+    {
+      "title": "Bicí nástroje",
+      "difficulty": 1,
+      "words": [
+        "činely",
+        "xylofon",
+        "triangl",
+        "tamburína"
+      ],
+      "explanation": "Nástroje, na které se hraje údery."
+    },
+    {
+      "title": "Maluje se jimi",
+      "difficulty": 2,
+      "words": [
+        "štětec",
+        "voskovka",
+        "barva",
+        "váleček"
+      ],
+      "explanation": "Čím se maluje."
+    },
+    {
+      "title": "Dá se na ně malovat",
+      "difficulty": 3,
+      "words": [
+        "plátno",
+        "obličej",
+        "tabule",
+        "kámen"
+      ],
+      "explanation": "Malovat na plátno, na obličej, na tabuli i na kámen."
+    },
+    {
+      "title": "Dají se doplnit slovem ZUBNÍ",
+      "difficulty": 4,
+      "words": [
+        "víla",
+        "kaz",
+        "nit",
+        "ordinace"
+      ],
+      "explanation": "Zubní víla, zubní kaz, zubní nit a zubní ordinace. Zubní kámen taky existuje, ale kámen patří k malování."
+    }
+  ]
+}
