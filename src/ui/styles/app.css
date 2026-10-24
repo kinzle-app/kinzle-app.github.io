@@ -287,6 +287,9 @@ dialog .primary { width: 100%; }
 .tabs {
   margin-top: auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px;
   background: var(--panel); border-radius: 14px; padding: 5px;
+  /* lišta zůstává dole na obrazovce i při posouvání; stín v barvě stolu zakryje obsah pod ní */
+  position: sticky; bottom: max(12px, env(safe-area-inset-bottom)); z-index: 5;
+  box-shadow: 0 -10px 14px -4px var(--felt), 0 22px 0 10px var(--felt);
 }
 .tab {
   min-height: 44px; border: none; border-radius: 10px; background: transparent;

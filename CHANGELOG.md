@@ -22,6 +22,7 @@
 - Čeština má dvě denní hádanky: Lehkou (výchozí) a Těžkou pro dospělé, volba Lehká | Těžká je přímo na kartě denní hádanky (zvýrazněná je ta, která se hraje, odehraná má ✓); obě jdou ve stejný den zahrát. Těžká začíná 20. 10. hádankami z balíčku Pro dospělé (balíček zrušen).
 - Lehká a Těžká se teď opravdu liší: Lehká je každý den 4×4 s úrovní 1–2, Těžká má rytmus týdne s úrovní 3–5 a víkendem 5×4. Od 25. 10. jsou hádanky rozdělené podle obtížnosti; repríza vybírá hádanku vhodné úrovně.
 - Oprava: slova na kostičkách mohla na iPhonu při prvním spuštění přetékat (písmo pro měření se načítalo pozdě).
+- Spodní lišta Denní / Cesta / Více zůstává při posouvání dole na obrazovce.
 - Úvod: pod denní hádankou nenápadná sekce „Zahraj si dál“ – kde jsi skončil na Cestě, kolik hádanek zbývá v balíčcích a v tréninku.
 - Moje hry: seznam odehraných her po dnech s filtrem a detail s pokusy po řadě (ukládají se od této verze) a všemi skupinami s vysvětlením.
 - Volná hra je teď Trénink: bez bodů, časomíry a limitu chyb, nápovědy zdarma; do statistik se nepočítá.
