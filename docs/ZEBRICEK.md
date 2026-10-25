@@ -6,6 +6,8 @@
 - Databáze: `supabase/migrations/` – tabulky `players`, `daily_results`, `seeds`, `path_progress` a funkce
   `set_nickname`, `submit_daily`, `add_seeds`, `set_path`, `leaderboard`, `delete_me`, `ping`.
 - Aplikace: `src/services/leaderboard.js` (síť), `src/game/leaderboard.js` (co poslat), `src/ui/leaderboard.js` (obrazovka `#/zebricek`).
+- Party: `supabase/migrations/002_party.sql` – tabulky `parties`, `party_members`, `party_puzzles`; obrazovky `src/ui/party.js` (`#/parta`, `#/parta/<id>`, pozvánka `#/parta/pripojit/<kód>`). Žebříček party je stejná funkce `leaderboard` s parametrem `p_party`.
+- Vlastní hádanka: celá v odkazu `#/h/<kód>` (`src/game/custom.js`, `src/ui/custom.js`), server ji potřebuje jen pro hádanky party. Nepočítá se do semínek, statistik ani žebříčku.
 - Vypnutí bez nového vydání: `"leaderboards": false` v `content/flags.json`.
 
 ## Pravidla

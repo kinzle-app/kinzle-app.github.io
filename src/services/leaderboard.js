@@ -123,16 +123,30 @@ async function send() {
   cache.clear();
 }
 
-// Žebříček 'today' nebo 'total': { top: [...], me, count }. Drží se minutu v paměti.
-export async function board(kind) {
+// Žebříček 'today' nebo 'total' (celý, nebo jen parta): { top: [...], me, count }. Drží se minutu v paměti.
+export async function board(kind, party = null) {
   const lang = getLanguage();
-  const key = `${lang}:${kind}`;
+  const key = `${lang}:${kind}:${party}`;
   const hit = cache.get(key);
   if (hit && Date.now() - hit.at < BACKEND.cacheSeconds * 1000) return hit.data;
   await sync();
-  const data = await rpc('leaderboard', { p_lang: lang, p_kind: kind });
+  const data = await rpc('leaderboard', { p_lang: lang, p_kind: kind, ...(party && { p_party: party }) });
   cache.set(key, { at: Date.now(), data });
   return data;
+}
+
+// ---------- party ----------
+export const myParties = () => rpc('my_parties', {});
+export const createParty = (name) => rpc('create_party', { p_name: name });
+export const joinParty = (code) => rpc('join_party', { p_code: code });
+export const partyDetail = (id) => rpc('party_detail', { p_party: id, p_lang: getLanguage() });
+export const postPartyPuzzle = (id, code) => rpc('post_party_puzzle', { p_party: id, p_lang: getLanguage(), p_code: code });
+export const deletePartyPuzzle = (puzzleId) => rpc('delete_party_puzzle', { p_id: puzzleId });
+export const removeMember = (id, user) => rpc('remove_member', { p_party: id, p_user: user });
+
+export async function leaveParty(id) {
+  await rpc('leave_party', { p_party: id });
+  cache.clear();
 }
 
 // Smazání všech údajů hráče na serveru i v zařízení (přezdívka, výsledky, semínka)

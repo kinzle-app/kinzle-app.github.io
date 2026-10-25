@@ -31,7 +31,8 @@ export function hasSession(key) {
 // again = jde hrát znovu (denní hádanka jen jednou); back = kam vede tlačítko Zpět na konci;
 // endNote(game) = doplňující řádek na konci hry (např. hvězdy na Cestě).
 // training = trénink: bez bodů a časomíry, bez limitu chyb, nápovědy zdarma a bez omezení.
-export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.id, onFinish, again = true, back = '#/', backLabel, endNote, training = false }) {
+// shareAuthor = vlastní hádanka od hráče: na konci (i po prohře) „Poslat výsledek autorovi“ s odkazem na hádanku.
+export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.id, onFinish, again = true, back = '#/', backLabel, endNote, training = false, shareAuthor = false }) {
   const maxHints = training ? Infinity : SCORING.maxHints;
   if (!sessions.has(sessionKey)) {
     const game = createGame(puzzle, Math.random, { maxMistakes: training ? Infinity : MAX_MISTAKES });
@@ -388,8 +389,8 @@ export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.
         line('score.hints', score.hints, true)),
       endNote && h('p', { class: 'end-note' }, endNote(game)),
       session.seedsAdded > 0 && h('p', { class: 'seeds-note' }, t('end.seeds', { count: session.seedsAdded })),
-      won && h('button', { class: 'primary', onclick: () => onShare(score.total, seconds, shareNote) }, t('end.share')),
-      won && shareNote,
+      (won || shareAuthor) && h('button', { class: 'primary', onclick: () => onShare(score.total, seconds, shareNote) }, t(shareAuthor ? 'custom.sendResult' : 'end.share')),
+      (won || shareAuthor) && shareNote,
       again && h('button', {
         class: won ? 'secondary' : 'primary',
         onclick: () => { sessions.delete(sessionKey); navigate(location.hash); }
@@ -407,13 +408,12 @@ export function renderGame(root, { puzzle, label, navigate, sessionKey = puzzle.
   }
 
   async function onShare(total, seconds, note) {
-    const text = t('share.text', {
-      name: label,
-      points: total,
-      time: formatTime(seconds),
-      mistakes: game.mistakes === 0 ? t('share.noMistakes') : t('share.mistakes', { count: game.mistakes })
-    });
-    const url = location.origin + location.pathname;
+    const mistakes = game.mistakes === 0 ? t('share.noMistakes') : t('share.mistakes', { count: game.mistakes });
+    const text = shareAuthor
+      ? t(game.status === 'won' ? 'custom.resultWon' : 'custom.resultLost', { name: label, time: formatTime(seconds), mistakes })
+      : t('share.text', { name: label, points: total, time: formatTime(seconds), mistakes });
+    // u vlastní hádanky odkaz přímo na ni, ať si ji může zahrát i další
+    const url = shareAuthor ? location.href : location.origin + location.pathname;
     const result = await shareText(text, url);
     if (result === 'copied') note.textContent = t('share.copied');
     else if (result === 'manual') {

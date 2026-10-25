@@ -15,6 +15,8 @@ export function renderMore(root, { navigate }) {
     h('h2', {}, t('more.title')),
     h('ul', { class: 'menu' },
       leaderboardEnabled() && item('#/zebricek', t('board.title')),
+      leaderboardEnabled() && item('#/parta', t('party.title'), t('party.menuNote')),
+      item('#/vlastni', t('custom.title'), t('custom.menuNote')),
       item('#/hry', t('history.title')),
       item('#/volna', t('free.title')),
       item('#/balicky', t('packs.title')),

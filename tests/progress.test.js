@@ -80,7 +80,14 @@ describe('historie a váček', () => {
     let p = addEntry(emptyProgress(), entry(puzzle('cs-0001'), {}, { score: 120, seconds: 100 }));
     p = addEntry(p, entry(puzzle('cs-0002'), { mistakes: 2 }, { score: 80, seconds: 200, mode: 'archive' }));
     p = addEntry(p, entry(puzzle('cs-0003'), {}, { score: 0, seconds: 5, mode: 'free' })); // trénink se nepočítá
+    p = addEntry(p, entry(puzzle('u-abc'), {}, { score: 300, seconds: 5, mode: 'custom', code: 'xyz' })); // vlastní hádanka taky ne
     expect(stats(p)).toMatchObject({ played: 2, won: 2, winRate: 100, averageSeconds: 150, bestScore: 120, dailies: 1, mistakes: [1, 0, 1, 0, 0] });
+  });
+
+  it('vlastní hádanka od hráče nedá semínka, ale zůstane v historii i s kódem', () => {
+    const p = addEntry(emptyProgress(), entry(puzzle('u-abc'), {}, { mode: 'custom', code: 'xyz' }));
+    expect(seeds(p)).toHaveLength(0);
+    expect(normalizeProgress(JSON.parse(JSON.stringify(p))).history[0]).toMatchObject({ mode: 'custom', code: 'xyz' });
   });
 });
 

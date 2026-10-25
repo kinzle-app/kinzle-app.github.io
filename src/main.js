@@ -27,6 +27,9 @@ import { renderArchive } from './ui/archive.js';
 import { renderBag } from './ui/bag.js';
 import { renderStats } from './ui/stats.js';
 import { renderLeaderboard } from './ui/leaderboard.js';
+import { renderCustomCreate, customLabel } from './ui/custom.js';
+import { renderParties, renderParty, renderPartyJoin } from './ui/party.js';
+import { decodeCustom } from './game/custom.js';
 import { sync as syncLeaderboard } from './services/leaderboard.js';
 import { renderGame } from './ui/game.js';
 import { renderSettings } from './ui/settings.js';
@@ -91,8 +94,8 @@ function onChange(changes) {
 
 // Uložení dohrané hry; vrací počet nových semínek ve váčku
 // Uložení dohrané hry a odeslání nového výsledku do žebříčku (na pozadí, když je hráč zapsaný)
-const finisher = (mode, date, tier) => (game, seconds, score) => {
-  const added = recordGame(createEntry(game, { mode, date, seconds, score, tier }));
+const finisher = (mode, date, tier, code) => (game, seconds, score) => {
+  const added = recordGame(createEntry(game, { mode, date, seconds, score, tier, code }));
   syncLeaderboard();
   return added;
 };
@@ -102,7 +105,7 @@ const TAB_SCREENS = { '#/': renderDaily, '#/cesta': renderPath, '#/vice': render
 // Další obrazovky s tlačítkem Zpět
 const SCREENS = {
   '#/archiv': renderArchive, '#/vacek': renderBag, '#/statistiky': renderStats, '#/zapisnik': renderNotebook,
-  '#/volna': renderFree, '#/balicky': renderPacks, '#/hry': renderHistory, '#/zebricek': renderLeaderboard
+  '#/volna': renderFree, '#/balicky': renderPacks, '#/hry': renderHistory, '#/zebricek': renderLeaderboard, '#/vlastni': renderCustomCreate, '#/parta': renderParties
 };
 
 // Denní hádanka (dnešní) nebo starší z archivu: #/denni/YYYY-MM-DD, u jazyka s úrovněmi i #/denni/YYYY-MM-DD/<úroveň>
@@ -188,6 +191,23 @@ function renderFreeGame(puzzle) {
   });
 }
 
+// Vlastní hádanka od hráče z odkazu: #/h/<kód>. Nepočítá se do semínek, statistik ani žebříčku.
+function renderCustomGame(code) {
+  const puzzle = decodeCustom(code);
+  if (!puzzle) {
+    app.append(h('div', { class: 'page' }, h('h2', {}, t('custom.broken')), h('p', {}, t('custom.brokenText'))));
+    return null;
+  }
+  return renderGame(app, {
+    puzzle,
+    label: customLabel(code),
+    navigate,
+    sessionKey: `custom:${puzzle.id}`,
+    onFinish: finisher('custom', today(), null, code),
+    shareAuthor: true
+  });
+}
+
 function render() {
   cleanup?.();
   cleanup = null;
@@ -201,6 +221,10 @@ function render() {
   const pack = route.match(/^#\/balicek\/([\w-]+)$/);
   const historyGame = route.match(/^#\/hry\/(\d+)$/);
   const packGame = route.match(/^#\/balicek\/([\w-]+)\/([\w-]+)$/);
+  const custom = route.match(/^#\/h\/([\w-]+)$/);
+  const customParty = route.match(/^#\/vlastni\/parta\/([\w-]+)$/);
+  const partyJoin = route.match(/^#\/parta\/pripojit\/(\w+)$/);
+  const party = !partyJoin && route.match(/^#\/parta\/([\w-]+)$/);
   const puzzle = free && getPuzzle(free[1]);
 
   if (!settings.onboarded && route !== '#/navod') {
@@ -236,6 +260,18 @@ function render() {
   } else if (pack) {
     app.append(header(false));
     renderPack(app, { navigate, id: pack[1] });
+  } else if (custom) {
+    app.append(header(false));
+    cleanup = renderCustomGame(custom[1]);
+  } else if (customParty) {
+    app.append(header(false));
+    renderCustomCreate(app, { navigate, party: customParty[1] });
+  } else if (partyJoin) {
+    app.append(header(false));
+    renderPartyJoin(app, { code: partyJoin[1] });
+  } else if (party) {
+    app.append(header(false));
+    renderParty(app, { navigate, id: party[1] });
   } else if (puzzle) {
     app.append(header(false));
     cleanup = renderFreeGame(puzzle);

@@ -9,9 +9,11 @@ import { formatDate, dailyLabel } from './daily.js';
 import { SYMBOLS } from './game.js';
 import { freeList } from './free.js';
 import { defaultTier } from '../config/tiers.js';
+import { decodeCustom } from '../game/custom.js';
+import { customLabel } from './custom.js';
 
 // Filtry: režimy, které patří k sobě (denní a archiv jsou obojí denní hádanky)
-const FILTERS = { all: null, daily: ['daily', 'archive'], path: ['path'], free: ['free'], pack: ['pack'] };
+const FILTERS = { all: null, daily: ['daily', 'archive'], path: ['path'], free: ['free'], pack: ['pack'], custom: ['custom'] };
 
 // Název hry v seznamu podle režimu
 function entryLabel(e) {
@@ -28,6 +30,7 @@ function entryLabel(e) {
     const pack = listPacks(lang).find((p) => p.puzzles.some((x) => x.id === e.puzzleId));
     if (pack) return pack.title;
   }
+  if (e.mode === 'custom' && e.code) return customLabel(e.code);
   const free = e.mode === 'free' && freeList(lang).find((x) => x.puzzle.id === e.puzzleId);
   if (free) return free.label;
   const puzzle = getPuzzle(e.puzzleId);
@@ -91,7 +94,7 @@ export function renderHistoryDetail(root, { navigate, index }) {
     location.replace('#/hry');
     return;
   }
-  const puzzle = getPuzzle(e.puzzleId);
+  const puzzle = getPuzzle(e.puzzleId) || (e.code && decodeCustom(e.code));
   // skupina každého slova (barva čtverečku v pokusu); u změněné hádanky podle uložených skupin
   const groups = puzzle ? puzzle.groups : e.solved;
   const groupOf = (word) => groups.find((g) => g.words.includes(word));
@@ -114,6 +117,6 @@ export function renderHistoryDetail(root, { navigate, index }) {
       h('span', { class: 'group-title' }, h('span', { 'aria-hidden': 'true' }, SYMBOLS[g.difficulty]), ' ', g.title),
       h('span', { class: 'group-words' }, g.words.join(' · ')),
       g.explanation && h('span', { class: 'group-note' }, g.explanation)))),
-    puzzle && h('button', { class: 'primary', onclick: () => navigate(`#/hra/${puzzle.id}`) }, t('history.again'))
+    puzzle && h('button', { class: 'primary', onclick: () => navigate(e.code ? `#/h/${e.code}` : `#/hra/${puzzle.id}`) }, t('history.again'))
   ));
 }

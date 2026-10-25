@@ -510,3 +510,25 @@ dialog .primary { width: 100%; }
 .rank-name strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .rank-name small { font-size: calc(12px * var(--fs)); }
 .rank-value { font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ---------- Vlastní hádanka a parta ---------- */
+.tier-choice-3 { grid-template-columns: repeat(3, 1fr); }
+.custom-form { display: flex; flex-direction: column; gap: 12px; }
+.custom-group {
+  display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 12px;
+  border: 3px solid var(--line); border-radius: var(--radius-panel);
+}
+.custom-group[data-d='1'] { border-color: var(--g1); }
+.custom-group[data-d='2'] { border-color: var(--g2); }
+.custom-group[data-d='3'] { border-color: var(--g3); }
+.custom-group[data-d='4'] { border-color: var(--g4); }
+.custom-group[data-d='5'] { border-color: var(--g5); }
+.custom-group legend { padding: 0 6px; font-weight: 800; }
+.custom-words { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.custom-words .nick-input { min-width: 0; }
+.nick-input[aria-invalid] { border-color: var(--selected); border-width: 3px; }
+.party-invite { align-items: flex-start; }
+.party-code { font-size: calc(30px * var(--fs)); letter-spacing: 4px; font-variant-numeric: tabular-nums; }
+.party-puzzle { display: flex; flex-direction: column; }
+.link.small { min-height: 32px; font-size: calc(13px * var(--fs)); }
+.rank-value .link.small { margin-left: 8px; }

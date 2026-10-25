@@ -303,7 +303,7 @@ test('žebříček: zápis přezdívkou, chybná přezdívka, Dnes a Celkem (ser
     return json(200, null);
   });
   await page.goto('./#/vice');
-  await page.getByRole('button', { name: 'Žebříček' }).click();
+  await page.getByRole('button', { name: 'Žebříček', exact: true }).click();
   const nick = page.getByRole('textbox', { name: 'Přezdívka (3–16 znaků)' });
   await nick.fill('kokot');
   await page.getByRole('button', { name: 'Zapsat se' }).click();
@@ -316,4 +316,75 @@ test('žebříček: zápis přezdívkou, chybná přezdívka, Dnes a Celkem (ser
   await page.getByRole('button', { name: 'Celkem' }).click();
   await expect(page.locator('.rank-list li.me')).toContainText('42 semínek');
   expect(calls).toContain('set_path'); // odznak Cesty se poslal po zápisu
+});
+
+test('vlastní hádanka: složit, chyba ve formuláři, zahrát z odkazu, bez semínek, v Moje hry', async ({ page }) => {
+  await setup(page);
+  await page.goto('./#/vice');
+  await page.getByRole('button', { name: /Vlastní hádanka/ }).click();
+  await page.getByRole('button', { name: 'Lehká 3×4' }).click();
+  const groups = [['Ovoce', 'jablko', 'hruška', 'švestka', 'třešeň'], ['Zvířata', 'pes', 'kočka', 'kůň', 'kráva'], ['Barvy', 'modrá', 'žlutá', 'zelená', 'pes']];
+  for (const [i, [title, ...words]] of groups.entries()) {
+    await page.getByRole('textbox', { name: `Název skupiny ${i + 1}` }).fill(title);
+    for (const [j, w] of words.entries()) await page.getByRole('textbox', { name: `Skupina ${i + 1}, slovo ${j + 1}`, exact: true }).fill(w);
+  }
+  await page.getByRole('textbox', { name: 'Tvoje jméno (uvidí ho hráč)' }).fill('Táta');
+  await page.getByRole('button', { name: 'Vytvořit odkaz' }).click();
+  await expect(page.getByText('Skupina 3: stejné slovo je v hádance dvakrát.')).toBeVisible();
+  await page.getByRole('textbox', { name: 'Skupina 3, slovo 4', exact: true }).fill('červená');
+  await page.getByRole('button', { name: 'Vytvořit odkaz' }).click();
+  await expect(page.getByRole('heading', { name: 'Hádanka je hotová!' })).toBeVisible();
+  await page.getByRole('button', { name: 'Vyzkoušet hádanku' }).click();
+  await expect(page).toHaveURL(/#\/h\/[\w-]+$/);
+  await expect(page.getByText('Od: Táta')).toBeVisible();
+  await pick(page, ['jablko', 'hruška', 'švestka', 'třešeň']);
+  await pick(page, ['pes', 'kočka', 'kůň', 'kráva']);
+  await pick(page, ['modrá', 'žlutá', 'zelená', 'červená']);
+  await expect(page.getByRole('button', { name: 'Poslat výsledek autorovi' })).toBeVisible();
+  await expect(page.locator('.seeds-note')).toHaveCount(0); // vlastní hádanka nedává semínka
+  await page.goto('./#/hry');
+  await expect(page.getByRole('button', { name: /Vlastní hádanka · Od: Táta/ })).toBeVisible();
+  await page.goto('./#/h/poskozeny-odkaz');
+  await expect(page.getByRole('heading', { name: 'Odkaz nefunguje' })).toBeVisible();
+});
+
+test('parta: zápis, založení, kód pro pozvání, kdo dnes hrál, hádanky party (server je simulovaný)', async ({ page }) => {
+  await setup(page);
+  const party = {
+    id: '11111111-1111-1111-1111-111111111111', code: 'ABC234', name: 'Rodina', owner: true,
+    members: [
+      { id: 'a', nickname: 'Táta', me: true, owner: true, played: true, level: 27, stars: 70 },
+      { id: 'b', nickname: 'Syn', me: false, owner: false, played: false, level: 12, stars: 30 }
+    ],
+    puzzles: []
+  };
+  const calls = [];
+  await page.route('**/*.supabase.co/**', async (route) => {
+    const name = route.request().url().split('/rpc/')[1];
+    const body = route.request().postDataJSON() || {};
+    calls.push(name || 'auth');
+    const json = (data) => route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(data) });
+    if (!name) return json({ access_token: 't', refresh_token: 'r', expires_at: 4102444800 });
+    if (name === 'set_nickname') return json(body.p_nickname);
+    if (name === 'my_parties') return json([]);
+    if (name === 'create_party') return json({ id: party.id, code: party.code, name: body.p_name });
+    if (name === 'party_detail') return json(party);
+    if (name === 'leaderboard') return json({ top: [], me: null, count: 0 });
+    return json(null);
+  });
+  await page.goto('./#/vice');
+  await page.getByRole('button', { name: /^Parta/ }).click();
+  await page.getByRole('textbox', { name: 'Přezdívka (3–16 znaků)' }).fill('Táta');
+  await page.getByRole('button', { name: 'Zapsat se' }).click();
+  await expect(page.getByText('Zatím nejsi v žádné partě.')).toBeVisible();
+  await page.getByRole('textbox', { name: 'Název party (např. Rodina)' }).fill('Rodina');
+  await page.getByRole('button', { name: 'Založit' }).click();
+  await expect(page.getByRole('heading', { name: 'Rodina' })).toBeVisible();
+  await expect(page.getByText('ABC234')).toBeVisible();
+  await expect(page.locator('.rank-list li').filter({ hasText: 'Syn' })).toContainText('ještě ne');
+  await expect(page.locator('.rank-list li').filter({ hasText: 'Syn' }).getByRole('button', { name: 'Odebrat' })).toBeVisible();
+  await expect(page.getByText('Zatím tu žádná hádanka není.')).toBeVisible();
+  await page.getByRole('button', { name: 'Složit hádanku pro partu' }).click();
+  await expect(page.getByRole('heading', { name: 'Hádanka pro partu' })).toBeVisible();
+  expect(calls).toContain('leaderboard'); // žebříček party se načetl
 });

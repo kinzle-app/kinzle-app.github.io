@@ -2,7 +2,7 @@
 // Data mají číslo verze schématu; poškozené nebo neznámé části se při načtení zahodí, hra nespadne.
 
 export const SCHEMA_VERSION = 1;
-export const MODES = ['daily', 'archive', 'path', 'free', 'pack'];
+export const MODES = ['daily', 'archive', 'path', 'free', 'pack', 'custom'];
 
 export function emptyProgress() {
   return { version: SCHEMA_VERSION, history: [], skipped: [], storySeen: [], notebook: { text: '' } };
@@ -36,10 +36,12 @@ export function normalizeProgress(raw) {
   };
 }
 
-// Záznam dohrané hry. game = stav z engine.js; tier = úroveň jazyka u denní hádanky (jen jazyky s úrovněmi)
-export function createEntry(game, { mode, date, seconds, score, tier, finishedAt = new Date().toISOString() }) {
+// Záznam dohrané hry. game = stav z engine.js; tier = úroveň jazyka u denní hádanky (jen jazyky s úrovněmi);
+// code = kód vlastní hádanky od hráče (z něj jde hádanku znovu otevřít)
+export function createEntry(game, { mode, date, seconds, score, tier, code, finishedAt = new Date().toISOString() }) {
   return {
     ...(tier && { tier }),
+    ...(code && { code }),
     puzzleId: game.puzzle.id,
     mode,
     date,
@@ -71,9 +73,11 @@ export function dailyEntry(progress, date, tier = null, fallback = null) {
 
 // Váček: každá vyřešená skupina je jedno semínko (stejná skupina se nepočítá dvakrát).
 // Vzácné semínko: skupina vyřešená aspoň jednou v čisté hře (výhra bez chyby a nápovědy).
+// Vlastní hádanky od hráčů se nepočítají (dají se vymyslet libovolně).
 export function seeds(progress) {
   const byKey = new Map();
   for (const e of progress.history) {
+    if (e.mode === 'custom') continue;
     const clean = e.won && e.mistakes === 0 && e.hints === 0;
     for (const g of e.solved) {
       const key = `${e.puzzleId}#${g.difficulty}`;
@@ -85,9 +89,9 @@ export function seeds(progress) {
   return [...byKey.values()];
 }
 
-// Statistiky bez tréninku (Volná hra je bez bodů a bez limitu chyb, zkreslovala by úspěšnost)
+// Statistiky bez tréninku (Volná hra je bez bodů a bez limitu chyb, zkreslovala by úspěšnost) a bez vlastních hádanek
 export function stats(progress) {
-  const h = progress.history.filter((e) => e.mode !== 'free');
+  const h = progress.history.filter((e) => e.mode !== 'free' && e.mode !== 'custom');
   const won = h.filter((e) => e.won);
   const mistakes = [0, 1, 2, 3, 4].map((n) => h.filter((e) => e.mistakes === n).length);
   return {
