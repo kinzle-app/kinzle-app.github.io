@@ -49,6 +49,11 @@ describe('odemykání', () => {
     expect(s.chapters[1].levels[0].state).toBe('current');
     expect(activeChapterIndex(s)).toBe(1);
   });
+
+  it('úrovně se číslují přes celé dějství (další kapitola navazuje)', () => {
+    const s = actState(act, { history: [] });
+    expect(s.chapters.map((c) => c.levels.map((l) => l.number))).toEqual([[1, 2, 3], [4, 5]]);
+  });
 });
 
 describe('přeskočení po 3 neúspěších', () => {

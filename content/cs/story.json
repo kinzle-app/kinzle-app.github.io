@@ -3,7 +3,7 @@
     "1": {
       "title": "Putování",
       "intro": "Všechna slova mají společného prapředka – Praslovo. Nikdo neví, jak vypadá. Vydej se po jeho stopách.",
-      "nextChapter": "Na chatě"
+      "nextChapter": "Na nádraží"
     }
   },
   "chapters": {
@@ -18,6 +18,12 @@
       "intro": "Za domem začíná zahrada. Slova tu rostou mezi záhony, šplhají po plotě a schovávají se pod listím. Stačí je najít.",
       "outro": "Pod starou hrušní jsi v trávě našel další stopu. Někdo ji tu nechal ležet, jako by věděl, že ji jednou najdeš.",
       "shard": "Praslovo umí čekat. Klidně celé roky, než přijde jeho chvíle."
+    },
+    "1-3": {
+      "title": "Na chatě",
+      "intro": "Cesta tě zavedla za město, na starou chatu u lesa. Večer praská oheň v kamnech, venku šumí stromy a slova se tu vyprávějí potichu, jako pověsti.",
+      "outro": "Na půdě chaty, v plechové krabici od bonbonů, ležel dopis. Pár řádků, podpis nečitelný – a další stopa k Praslovu.",
+      "shard": "Praslovo má pevnou slupku. Uvnitř schovává všechno, co teprve bude."
     }
   }
 }

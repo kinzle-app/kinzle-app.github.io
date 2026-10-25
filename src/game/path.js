@@ -26,6 +26,7 @@ export function actState(act, progress) {
   const skipped = progress.skipped || [];
   let unlocked = true; // první úroveň dějství je vždy odemčená
   let currentFound = false;
+  let number = 0; // pořadí úrovně v celém dějství (2. kapitola navazuje na 1.)
 
   const chapters = act.chapters.map((chapter) => {
     const levels = chapter.levels.map((level, index) => {
@@ -40,7 +41,7 @@ export function actState(act, progress) {
       // další úroveň se odemkne dohráním nebo přeskočením
       unlocked = record.won || (unlocked && skipped.includes(level.puzzle));
       return {
-        ...level, index, state, stars: record.stars, failures: record.failures,
+        ...level, index, number: ++number, state, stars: record.stars, failures: record.failures,
         canSkip: state === 'current' && record.failures >= SKIP_AFTER_FAILURES
       };
     });

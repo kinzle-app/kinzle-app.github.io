@@ -2,7 +2,7 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
-## Várka 2026-10-25 (H) – Cesta, 3. kapitola „Na chatě“, úrovně 6–10
+## Várka 2026-10-25 (H) – Cesta, 3. kapitola „Na chatě“, úrovně 6–10 · ✅ schváleno 2026-10-25 (další kapitola Na nádraží)
 
 | Úroveň | Hádanka | Skupiny (● ▲ ■ ◆ ★) | Testy |
 |---|---|---|---|

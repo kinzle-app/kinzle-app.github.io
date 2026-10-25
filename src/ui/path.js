@@ -93,14 +93,14 @@ export function renderPath(root, { navigate }) {
 
     chapter.levels.forEach((l, i) => {
       const p = points[i];
-      const label = t('path.levelAria', { n: i + 1, size: t(`size.${sizeOf(l)}`), state: t(`path.state.${l.state}`) });
+      const label = t('path.levelAria', { n: l.number, size: t(`size.${sizeOf(l)}`), state: t(`path.state.${l.state}`) });
       const btn = h('button', {
         class: `lvl ${l.state}${l.master ? ' master' : ''}${l.puzzle === selected ? ' chosen' : ''}`,
         style: `left:${(p.x / width) * 100}%;top:${(p.y / height) * 100}%`,
         'aria-label': label, 'aria-pressed': String(l.puzzle === selected),
         onclick: () => { selected = l.puzzle; draw(); }
       },
-        l.state === 'locked' ? svgIcon('lock') : l.state === 'skipped' ? svgIcon('skip', 22) : String(i + 1),
+        l.state === 'locked' ? svgIcon('lock') : l.state === 'skipped' ? svgIcon('skip', 22) : String(l.number),
         h('span', { class: 'size' }, `${sizeOf(l)}×4`),
         l.rest && h('span', { class: 'badge', title: t('path.rest') }, svgIcon('leaf', 13)),
         l.master && h('span', { class: 'crown', 'aria-hidden': 'true' }, '♛'),
@@ -109,7 +109,6 @@ export function renderPath(root, { navigate }) {
     });
 
     // ---------- vybraná úroveň ----------
-    const index = chapter.levels.indexOf(level);
     const info = {
       done: [t('path.info.done', { size: t(`size.${sizeOf(level)}`) }), t('path.again')],
       skipped: [t('path.info.skipped'), t('path.try')],
@@ -119,7 +118,7 @@ export function renderPath(root, { navigate }) {
     }[level.state];
     const next = h('section', { class: 'panel next' },
       h('div', { class: 'next-info' },
-        h('strong', {}, t('path.level', { n: index + 1 }), level.master ? ` · ${t('path.master')}` : level.rest ? ` · ${t('path.rest')}` : ''),
+        h('strong', {}, t('path.level', { n: level.number }), level.master ? ` · ${t('path.master')}` : level.rest ? ` · ${t('path.rest')}` : ''),
         h('span', { class: 'panel-muted' }, info[0]),
         level.canSkip && h('button', { class: 'link', onclick: () => skip(level.puzzle) }, t('path.skip'))),
       h('button', {

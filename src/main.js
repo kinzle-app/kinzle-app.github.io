@@ -133,7 +133,7 @@ function renderPathGame(puzzleId) {
   }
   return renderGame(app, {
     puzzle,
-    label: t('path.level', { n: index + 1 }),
+    label: t('path.level', { n: level.number }),
     navigate,
     sessionKey: `path:${puzzleId}`,
     onFinish: finisher('path', today()),
