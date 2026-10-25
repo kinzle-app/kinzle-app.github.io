@@ -2,6 +2,31 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
+## Várka 2026-10-25 (G) – Cesta, 3. kapitola „Na chatě“, úrovně 1–5
+
+Stejná křivka jako u Zahrady: 3×4, 4×4, 4×4, oddechová 3×4, 4×4. Témata: les, táborák, rybaření, deštivý den na chatě.
+
+| Úroveň | Hádanka | Skupiny (● ▲ ■ ◆) | Testy |
+|---|---|---|---|
+| 1 · 3×4 | cs-0078 · úroveň 1 | houby (hřib, bedla, liška, muchomůrka) · u táboráku (kytara, jiskry, buřty, polínka) · LESNÍ (jahody, cesta, školka, studánka) | správně napoprvé, jednoznačné; past LIŠKA (houba i zvíře). |
+| 2 · 4×4 | cs-0079 · úroveň 2 | ryby (štika, kapr, pstruh, okoun) · rybářské potřeby (prut, návnada, podběrák, splávek) · topí se v nich (kamna, krb, kotel, pec) · dají se chytit (rýma, autobus, míč, signál) | 1: skupina „vybavení chaty“ (kamna, palanda, krb, lavice) neměla jasné pojítko → **Topí se v nich** (kamna, krb, kotel, pec). 2: správně, jednoznačné; past ryby (dají se chytit). |
+| 3 · 4×4 | cs-0080 · úroveň 2 | hry na deštivý den (dáma, šachy, pexeso, prší) · počasí (bouřka, mlha, liják, kroupy) · na vodě (kanoe, pádlo, vesta, raft) · VODNÍ (pistole, mlýn, lyže, meloun) | správně napoprvé, jednoznačné; pasti PRŠÍ (karetní hra i počasí) a MLÝN (i hra). |
+| 4 · 3×4 oddechová | cs-0081 · úroveň 1 | zvířata v lese (srna, jelen, veverka, divočák) · do batohu na výlet (svačina, pláštěnka, baterka, mapa) · NOČNÍ (můra, košile, stolek, obloha) | správně napoprvé, jednoznačné; past MŮRA (noční motýl). |
+| 5 · 4×4 | cs-0082 · úroveň 3 | jehličnany (smrk, borovice, modřín, jedle) · topí se jimi (uhlí, brikety, šišky, polena) · dají se rozdělat (oheň, malta, postel, práce) · schované zvíře (sLEVa, pOSEL, MYŠlenka, zRAK) | 1: „rozdělat UZEL“ zní nepřirozeně → **PRÁCE**. 2: správně, jednoznačné; pasti ŠIŠKY (strom) a OHEŇ (palivo). |
+
+### Příběh 3. kapitoly (návrh)
+
+- **Název:** Na chatě · **motiv plánu:** dřevěná hnědá, tečky
+- **Začátek:** Cesta tě zavedla za město, na starou chatu u lesa. Večer praská oheň v kamnech, venku šumí stromy a slova se tu vyprávějí potichu, jako pověsti.
+- **Konec:** Na půdě chaty, v plechové krabici od bonbonů, ležel dopis. Pár řádků, podpis nečitelný – a další stopa k Praslovu.
+- **Střípek 3 – vyber jeden:**
+  - **A (doporučuji):** „Praslovo má pevnou slupku. Uvnitř schovává všechno, co teprve bude.“
+  - B: „Kdo Praslovo najde, nesmí si ho nechat pro sebe.“
+  - C: „Praslovo se nedá koupit. Dá se jen dostat – nebo darovat.“
+- **Další kapitola (zobrazí se jako „přibude brzy“):** zatím Na chatě zůstane poslední; název 4. kapitoly navrhnu s úrovněmi 6–10.
+
+---
+
 ## Várka 2026-10-25 (F) – Cesta, 2. kapitola „Na zahradě“, úrovně 6–10 · ✅ schváleno 2026-10-25
 
 Druhá půlka kapitoly přitvrzuje stejně jako v 1. kapitole: 4×4, 4×4, oddechová 3×4, 4×4 a mistrovská 5×4.

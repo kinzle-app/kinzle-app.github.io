@@ -1,0 +1,45 @@
+{
+  "id": "cs-0078",
+  "language": "cs",
+  "size": 3,
+  "level": 1,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-25",
+  "groups": [
+    {
+      "title": "Houby",
+      "difficulty": 1,
+      "words": [
+        "hřib",
+        "bedla",
+        "liška",
+        "muchomůrka"
+      ],
+      "explanation": "Houby z lesa. Liška je tu houba, ne zvíře – a muchomůrka se nesbírá!"
+    },
+    {
+      "title": "U táboráku",
+      "difficulty": 2,
+      "words": [
+        "kytara",
+        "jiskry",
+        "buřty",
+        "polínka"
+      ],
+      "explanation": "U táboráku se hraje na kytaru, opékají buřty, přikládají polínka a létají jiskry."
+    },
+    {
+      "title": "Dají se doplnit slovem LESNÍ",
+      "difficulty": 3,
+      "words": [
+        "jahody",
+        "cesta",
+        "školka",
+        "studánka"
+      ],
+      "explanation": "Lesní jahody, lesní cesta, lesní školka (kde rostou malé stromky) a lesní studánka."
+    }
+  ]
+}

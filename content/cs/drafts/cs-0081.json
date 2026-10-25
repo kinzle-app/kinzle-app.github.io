@@ -1,0 +1,45 @@
+{
+  "id": "cs-0081",
+  "language": "cs",
+  "size": 3,
+  "level": 1,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-25",
+  "groups": [
+    {
+      "title": "Zvířata v lese",
+      "difficulty": 1,
+      "words": [
+        "srna",
+        "jelen",
+        "veverka",
+        "divočák"
+      ],
+      "explanation": "Zvířata, která potkáš v lese."
+    },
+    {
+      "title": "Do batohu na výlet",
+      "difficulty": 2,
+      "words": [
+        "svačina",
+        "pláštěnka",
+        "baterka",
+        "mapa"
+      ],
+      "explanation": "Co si sbalit na výlet."
+    },
+    {
+      "title": "Dají se doplnit slovem NOČNÍ",
+      "difficulty": 3,
+      "words": [
+        "můra",
+        "košile",
+        "stolek",
+        "obloha"
+      ],
+      "explanation": "Noční můra, noční košile, noční stolek a noční obloha. Můra je i noční motýl, ale do zvířat z lesa nepatří."
+    }
+  ]
+}

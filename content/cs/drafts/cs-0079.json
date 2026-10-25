@@ -1,0 +1,56 @@
+{
+  "id": "cs-0079",
+  "language": "cs",
+  "size": 4,
+  "level": 2,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-25",
+  "groups": [
+    {
+      "title": "Ryby",
+      "difficulty": 1,
+      "words": [
+        "štika",
+        "kapr",
+        "pstruh",
+        "okoun"
+      ],
+      "explanation": "Ryby z řek a rybníků."
+    },
+    {
+      "title": "Rybářské potřeby",
+      "difficulty": 2,
+      "words": [
+        "prut",
+        "návnada",
+        "podběrák",
+        "splávek"
+      ],
+      "explanation": "Co potřebuje rybář. Podběrák je síťka na vytažení ryby z vody."
+    },
+    {
+      "title": "Topí se v nich",
+      "difficulty": 3,
+      "words": [
+        "kamna",
+        "krb",
+        "kotel",
+        "pec"
+      ],
+      "explanation": "Kamna, krb, kotel i pec – v nich se topí."
+    },
+    {
+      "title": "Dají se chytit",
+      "difficulty": 4,
+      "words": [
+        "rýma",
+        "autobus",
+        "míč",
+        "signál"
+      ],
+      "explanation": "Chytit rýmu, autobus, míč i signál (na chatě to bývá těžké). Ryby se chytají taky, ale mají svou skupinu."
+    }
+  ]
+}

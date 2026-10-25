@@ -1,0 +1,56 @@
+{
+  "id": "cs-0080",
+  "language": "cs",
+  "size": 4,
+  "level": 2,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-25",
+  "groups": [
+    {
+      "title": "Hry na deštivý den",
+      "difficulty": 1,
+      "words": [
+        "dáma",
+        "šachy",
+        "pexeso",
+        "prší"
+      ],
+      "explanation": "Deskové a karetní hry. Prší je karetní hra – i když venku zrovna prší."
+    },
+    {
+      "title": "Počasí",
+      "difficulty": 2,
+      "words": [
+        "bouřka",
+        "mlha",
+        "liják",
+        "kroupy"
+      ],
+      "explanation": "Jaké může být počasí."
+    },
+    {
+      "title": "Na vodě",
+      "difficulty": 3,
+      "words": [
+        "kanoe",
+        "pádlo",
+        "vesta",
+        "raft"
+      ],
+      "explanation": "Co patří k vodákům: kanoe, raft, pádlo a plovací vesta."
+    },
+    {
+      "title": "Dají se doplnit slovem VODNÍ",
+      "difficulty": 4,
+      "words": [
+        "pistole",
+        "mlýn",
+        "lyže",
+        "meloun"
+      ],
+      "explanation": "Vodní pistole, vodní mlýn, vodní lyže a vodní meloun. Mlýn je i hra, ale tady patří k vodě."
+    }
+  ]
+}

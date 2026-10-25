@@ -1,0 +1,56 @@
+{
+  "id": "cs-0082",
+  "language": "cs",
+  "size": 4,
+  "level": 3,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-25",
+  "groups": [
+    {
+      "title": "Jehličnaté stromy",
+      "difficulty": 1,
+      "words": [
+        "smrk",
+        "borovice",
+        "modřín",
+        "jedle"
+      ],
+      "explanation": "Stromy s jehličím."
+    },
+    {
+      "title": "Topí se jimi",
+      "difficulty": 2,
+      "words": [
+        "uhlí",
+        "brikety",
+        "šišky",
+        "polena"
+      ],
+      "explanation": "Čím se dá topit v kamnech. Šišky rostou na jehličnanech, ale tady patří do kamen."
+    },
+    {
+      "title": "Dají se rozdělat",
+      "difficulty": 3,
+      "words": [
+        "oheň",
+        "malta",
+        "postel",
+        "práce"
+      ],
+      "explanation": "Rozdělat oheň, rozdělat maltu, rozdělat postel (připravit ji ke spaní) a rozdělaná práce."
+    },
+    {
+      "title": "Schovává se v nich zvíře",
+      "difficulty": 4,
+      "words": [
+        "sleva",
+        "posel",
+        "myšlenka",
+        "zrak"
+      ],
+      "explanation": "sLEVa, pOSEL, MYŠlenka, zRAK – lev, osel, myš a rak."
+    }
+  ]
+}
