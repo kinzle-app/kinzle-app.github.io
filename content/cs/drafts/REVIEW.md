@@ -2,7 +2,7 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
-## Várka 2026-10-25 (F) – Cesta, 2. kapitola „Na zahradě“, úrovně 6–10
+## Várka 2026-10-25 (F) – Cesta, 2. kapitola „Na zahradě“, úrovně 6–10 · ✅ schváleno 2026-10-25
 
 Druhá půlka kapitoly přitvrzuje stejně jako v 1. kapitole: 4×4, 4×4, oddechová 3×4, 4×4 a mistrovská 5×4.
 

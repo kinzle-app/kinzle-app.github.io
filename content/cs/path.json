@@ -18,6 +18,22 @@
             { "puzzle": "cs-0014" },
             { "puzzle": "cs-0015", "master": true }
           ]
+        },
+        {
+          "id": "1-2",
+          "theme": { "tint": "#6FA35A", "ornament": "stripes" },
+          "levels": [
+            { "puzzle": "cs-0068" },
+            { "puzzle": "cs-0069" },
+            { "puzzle": "cs-0070" },
+            { "puzzle": "cs-0071", "rest": true },
+            { "puzzle": "cs-0072" },
+            { "puzzle": "cs-0073" },
+            { "puzzle": "cs-0074" },
+            { "puzzle": "cs-0075", "rest": true },
+            { "puzzle": "cs-0076" },
+            { "puzzle": "cs-0077", "master": true }
+          ]
         }
       ]
     }
