@@ -43,7 +43,7 @@ export function renderLeaderboard(root) {
 
   // Pořadí: záložky, seznam (top 50 + vlastní řádek), smazání údajů
   function boardView() {
-    const list = h('div', { class: 'board-list' }, h('p', { class: 'muted' }, t('board.loading')));
+    const list = h('div', { class: 'rank-box' }, h('p', { class: 'muted' }, t('board.loading')));
     const choice = h('div', { class: 'tier-choice', role: 'group', 'aria-label': t('board.title') },
       ['today', 'total'].map((k) => h('button', {
         type: 'button', 'aria-pressed': String(k === kind),
@@ -70,8 +70,8 @@ export function renderLeaderboard(root) {
 
   function rows({ top, me }) {
     if (!top.length) return [h('p', { class: 'muted' }, t(`board.${kind}Empty`))];
-    const out = [h('ol', { class: 'board' }, top.map(row))];
-    if (me && !top.some((r) => r.me)) out.push(h('ol', { class: 'board board-me' }, row(me)));
+    const out = [h('ol', { class: 'rank-list' }, top.map(row))];
+    if (me && !top.some((r) => r.me)) out.push(h('ol', { class: 'rank-list rank-me' }, row(me)));
     if (!me && kind === 'today') out.push(h('p', { class: 'muted' }, t('board.notYet')));
     return out;
   }
@@ -82,9 +82,9 @@ export function renderLeaderboard(root) {
       ? [t('game.points', { points: r.score }), tiersOf(getLanguage()).length ? ` · ${t(`tier.${r.tier}`)}` : '']
       : [t('board.seeds', { count: r.seeds })];
     return h('li', { class: r.me ? 'me' : '' },
-      h('span', { class: 'board-rank' }, `${r.rank}.`),
-      h('span', { class: 'board-name' }, h('strong', {}, r.nickname), badge && h('small', {}, badge)),
-      h('span', { class: 'board-value' }, ...value));
+      h('span', { class: 'rank-pos' }, `${r.rank}.`),
+      h('span', { class: 'rank-name' }, h('strong', {}, r.nickname), badge && h('small', {}, badge)),
+      h('span', { class: 'rank-value' }, ...value));
   }
 
   function confirmForget() {

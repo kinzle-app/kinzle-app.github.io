@@ -161,6 +161,8 @@ test('Cesta: úvod příběhu, výhra za hvězdy, odemčení další úrovně, z
   await page.getByRole('button', { name: 'Vyrazit' }).click();
   await expect(page.getByRole('button', { name: /Úroveň 1, .*na řadě/ })).toBeVisible();
   await page.locator('.next').getByRole('button', { name: 'Hrát' }).click();
+  // hrací plocha je mřížka po čtyřech (hlídá, aby ji nerozbily styly jiné obrazovky)
+  expect(await page.locator('.board').evaluate((e) => getComputedStyle(e).gridTemplateColumns.split(' ').length)).toBe(4);
   for (const g of first.groups) await pick(page, g.words);
   await expect(page.getByText('Získáváš 3 hvězdy')).toBeVisible();
   await page.getByRole('button', { name: 'Zpět na Cestu' }).click();
@@ -308,10 +310,10 @@ test('žebříček: zápis přezdívkou, chybná přezdívka, Dnes a Celkem (ser
   await expect(page.getByText('Tuhle přezdívku použít nejde')).toBeVisible();
   await nick.fill('Syn');
   await page.getByRole('button', { name: 'Zapsat se' }).click();
-  await expect(page.locator('.board li.me')).toContainText('160 b. · Lehká');
-  await expect(page.locator('.board li').first()).toContainText('Táta');
-  await expect(page.locator('.board li').first()).toContainText('úroveň 27 · ★ 70');
+  await expect(page.locator('.rank-list li.me')).toContainText('160 b. · Lehká');
+  await expect(page.locator('.rank-list li').first()).toContainText('Táta');
+  await expect(page.locator('.rank-list li').first()).toContainText('úroveň 27 · ★ 70');
   await page.getByRole('button', { name: 'Celkem' }).click();
-  await expect(page.locator('.board li.me')).toContainText('42 semínek');
+  await expect(page.locator('.rank-list li.me')).toContainText('42 semínek');
   expect(calls).toContain('set_path'); // odznak Cesty se poslal po zápisu
 });
