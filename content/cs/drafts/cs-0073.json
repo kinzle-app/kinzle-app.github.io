@@ -1,0 +1,56 @@
+{
+  "id": "cs-0073",
+  "language": "cs",
+  "size": 4,
+  "level": 3,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-25",
+  "groups": [
+    {
+      "title": "Škůdci na zahradě",
+      "difficulty": 1,
+      "words": [
+        "mšice",
+        "slimák",
+        "hraboš",
+        "mandelinka"
+      ],
+      "explanation": "Kdo na zahradě škodí rostlinám."
+    },
+    {
+      "title": "Léčivé byliny",
+      "difficulty": 2,
+      "words": [
+        "heřmánek",
+        "máta",
+        "šalvěj",
+        "meduňka"
+      ],
+      "explanation": "Byliny, ze kterých se vaří čaj, když něco bolí."
+    },
+    {
+      "title": "Rostou z cibule",
+      "difficulty": 3,
+      "words": [
+        "hyacint",
+        "lilie",
+        "šalotka",
+        "česnek"
+      ],
+      "explanation": "Rostliny, které rostou z cibule – květiny i zelenina."
+    },
+    {
+      "title": "Na začátku mají strom",
+      "difficulty": 4,
+      "words": [
+        "tisíc",
+        "smrkat",
+        "Dubaj",
+        "Bukurešť"
+      ],
+      "explanation": "Tis-íc, smrk-at, Dub-aj a Buk-urešť – každé slovo začíná názvem stromu."
+    }
+  ]
+}

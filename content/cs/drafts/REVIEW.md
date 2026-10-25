@@ -2,6 +2,22 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
+## Várka 2026-10-25 (F) – Cesta, 2. kapitola „Na zahradě“, úrovně 6–10
+
+Druhá půlka kapitoly přitvrzuje stejně jako v 1. kapitole: 4×4, 4×4, oddechová 3×4, 4×4 a mistrovská 5×4.
+
+| Úroveň | Hádanka | Skupiny (● ▲ ■ ◆ ★) | Testy |
+|---|---|---|---|
+| 6 · 4×4 | cs-0073 · úroveň 3 | škůdci (mšice, slimák, hraboš, mandelinka) · léčivé byliny (heřmánek, máta, šalvěj, meduňka) · rostou z cibule (hyacint, lilie, šalotka, česnek) · na začátku mají strom (TISíc, SMRKat, DUBaj, BUKurešť) | správně napoprvé, jednoznačné. |
+| 7 · 4×4 | cs-0074 · úroveň 4 | na zahradě (kůlna, pergola, jezírko, studna) · žijí v jezírku (čolek, vodoměrka, karas, skokan) · dají se načerpat (síly, inspirace, energie, benzín) · ŽABÍ (perspektiva, stehýnka, muž, král) | 1: správně, ale „žabí VLAS“ (řasa) skoro nikdo nezná → **KRÁL** (Žabí král). 2: správně, jednoznačné; pasti STUDNA (čerpá se z ní) a SKOKAN (žába). |
+| 8 · 3×4 oddechová | cs-0075 · úroveň 1 | keře s bobulemi (rybíz, angrešt, josta, malina) · květiny na balkon (petúnie, begónie, surfinie, fuchsie) · zmrzlina (pohár, kornout, stánek, krém) | správně napoprvé; past MALINA (malinová zmrzlina). |
+| 9 · 4×4 | cs-0076 · úroveň 4 | druhy hodin (přesýpací, sluneční, věžní, kyvadlové) · tažní ptáci (vlaštovka, kukačka, rorýs, jiřička) · práce na zahradě (pletí, zálivka, roubování, hnojení) · rýmují se se slovem STROM (hrom, fantom, agronom, symptom) | správně napoprvé, jednoznačné. |
+| 10 · 5×4 mistrovská | cs-0077 · úroveň 5 | hnojiva (hnůj, guáno, močůvka, slepičince) · kořenová zelenina (celer, pastinák, ředkev, tuřín) · plodová zelenina (rajče, okurka, lilek, cuketa) · dají se zasít (pochybnost, nedůvěra, neklid, strach) · RAJSKÝ (jablko, omáčka, plyn, ptáček) | správně napoprvé; RAJSKÝ poznal jako poslední (záměr). Past RAJČE („rajské jablíčko“) – jablko ale k zelenině nejde, takže rozdělení je jediné. |
+
+Po schválení zveřejním celou 2. kapitolu na Cestě (motiv zelená s proužky, texty a střípek A) a přidám zprávu do „Co je nového“.
+
+---
+
 ## Várka 2026-10-24 (E) – Cesta, 2. kapitola „Na zahradě“, úrovně 1–5 · ✅ schváleno 2026-10-24 (střípek A)
 
 Křivka o kousek těžší než v 1. kapitole: 3×4, 4×4, 4×4, oddechová 3×4, 4×4. Zahradní téma mají vždy 2–3 skupiny.

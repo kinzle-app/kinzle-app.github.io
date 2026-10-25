@@ -1,0 +1,45 @@
+{
+  "id": "cs-0075",
+  "language": "cs",
+  "size": 3,
+  "level": 1,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-25",
+  "groups": [
+    {
+      "title": "Keře s bobulemi",
+      "difficulty": 1,
+      "words": [
+        "rybíz",
+        "angrešt",
+        "josta",
+        "malina"
+      ],
+      "explanation": "Ovocné keře na zahradě. Josta je kříženec rybízu a angreštu."
+    },
+    {
+      "title": "Květiny na balkon",
+      "difficulty": 2,
+      "words": [
+        "petúnie",
+        "begónie",
+        "surfinie",
+        "fuchsie"
+      ],
+      "explanation": "Květiny, které kvetou v truhlících na balkoně."
+    },
+    {
+      "title": "Zmrzlina",
+      "difficulty": 3,
+      "words": [
+        "pohár",
+        "kornout",
+        "stánek",
+        "krém"
+      ],
+      "explanation": "Zmrzlinový pohár, kornout, stánek i krém. Malinová zmrzlina je dobrá, ale malina patří na keř."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "cs-0076",
+  "language": "cs",
+  "size": 4,
+  "level": 4,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-25",
+  "groups": [
+    {
+      "title": "Druhy hodin",
+      "difficulty": 1,
+      "words": [
+        "přesýpací",
+        "sluneční",
+        "věžní",
+        "kyvadlové"
+      ],
+      "explanation": "Přesýpací, sluneční, věžní a kyvadlové hodiny."
+    },
+    {
+      "title": "Tažní ptáci",
+      "difficulty": 2,
+      "words": [
+        "vlaštovka",
+        "kukačka",
+        "rorýs",
+        "jiřička"
+      ],
+      "explanation": "Ptáci, kteří na zimu odlétají do teplých krajin."
+    },
+    {
+      "title": "Práce na zahradě",
+      "difficulty": 3,
+      "words": [
+        "pletí",
+        "zálivka",
+        "roubování",
+        "hnojení"
+      ],
+      "explanation": "Co se na zahradě dělá během roku."
+    },
+    {
+      "title": "Rýmují se se slovem STROM",
+      "difficulty": 4,
+      "words": [
+        "hrom",
+        "fantom",
+        "agronom",
+        "symptom"
+      ],
+      "explanation": "Hrom, fantom, agronom a symptom – všechny končí na -om."
+    }
+  ]
+}

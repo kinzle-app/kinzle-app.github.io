@@ -1,0 +1,67 @@
+{
+  "id": "cs-0077",
+  "language": "cs",
+  "size": 5,
+  "level": 5,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-25",
+  "groups": [
+    {
+      "title": "Hnojiva",
+      "difficulty": 1,
+      "words": [
+        "hnůj",
+        "guáno",
+        "močůvka",
+        "slepičince"
+      ],
+      "explanation": "Přírodní hnojiva."
+    },
+    {
+      "title": "Kořenová zelenina",
+      "difficulty": 2,
+      "words": [
+        "celer",
+        "pastinák",
+        "ředkev",
+        "tuřín"
+      ],
+      "explanation": "Zelenina, ze které se jí kořen."
+    },
+    {
+      "title": "Plodová zelenina",
+      "difficulty": 3,
+      "words": [
+        "rajče",
+        "okurka",
+        "lilek",
+        "cuketa"
+      ],
+      "explanation": "Zelenina, ze které se jí plod. Rajčeti se říkalo rajské jablíčko, ale jablko je tu jinde."
+    },
+    {
+      "title": "Dají se zasít",
+      "difficulty": 4,
+      "words": [
+        "pochybnost",
+        "nedůvěra",
+        "neklid",
+        "strach"
+      ],
+      "explanation": "Zasít pochybnost, nedůvěru, neklid i strach – nejen semínka se dají zasít."
+    },
+    {
+      "title": "Dají se doplnit slovem RAJSKÝ",
+      "difficulty": 5,
+      "words": [
+        "jablko",
+        "omáčka",
+        "plyn",
+        "ptáček"
+      ],
+      "explanation": "Rajské jablko, rajská omáčka, rajský plyn (oxid dusný) a rajský ptáček."
+    }
+  ]
+}

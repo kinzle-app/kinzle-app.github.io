@@ -1,0 +1,56 @@
+{
+  "id": "cs-0074",
+  "language": "cs",
+  "size": 4,
+  "level": 4,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-25",
+  "groups": [
+    {
+      "title": "Na zahradě",
+      "difficulty": 1,
+      "words": [
+        "kůlna",
+        "pergola",
+        "jezírko",
+        "studna"
+      ],
+      "explanation": "Stavby a místa na zahradě. Ze studny se čerpá voda, ale studna patří sem."
+    },
+    {
+      "title": "Žijí v jezírku",
+      "difficulty": 2,
+      "words": [
+        "čolek",
+        "vodoměrka",
+        "karas",
+        "skokan"
+      ],
+      "explanation": "Zvířata z jezírka. Skokan je žába, ale patří sem, ne ke slovu ŽABÍ."
+    },
+    {
+      "title": "Dají se načerpat (nebo dojdou)",
+      "difficulty": 3,
+      "words": [
+        "síly",
+        "inspirace",
+        "energie",
+        "benzín"
+      ],
+      "explanation": "Načerpat síly, inspiraci, energii i benzín – a když se nenačerpají, dojdou."
+    },
+    {
+      "title": "Dají se doplnit slovem ŽABÍ",
+      "difficulty": 4,
+      "words": [
+        "perspektiva",
+        "stehýnka",
+        "muž",
+        "král"
+      ],
+      "explanation": "Žabí perspektiva (pohled zespodu), žabí stehýnka, žabí muž (potápěč) a Žabí král z pohádky."
+    }
+  ]
+}
