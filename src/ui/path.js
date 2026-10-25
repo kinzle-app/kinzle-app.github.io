@@ -13,7 +13,6 @@ const ICONS = {
   skip: '<path d="M4 17a8 8 0 0 1 14-6M18 5v6h-6"/>',
   leaf: '<path d="M5 19c0-9 6-14 14-14 0 8-5 14-14 14zM5 19l7-7"/>'
 };
-let viewedChapter = null; // kapitola, kterou si hráč prohlíží (pamatuje se mezi návštěvami)
 
 function svgIcon(name, size = 20) {
   const span = document.createElement('span');
@@ -43,96 +42,147 @@ export function renderPath(root, { navigate }) {
   draw();
   showStory();
 
+  // Celá Cesta jako jedna dlouhá cesta zdola nahoru: dohrané kapitoly jsou pod aktuální.
   function draw() {
     const progress = getProgress();
     const state = actState(act, progress);
-    if (viewedChapter === null || viewedChapter >= state.chapters.length) viewedChapter = activeChapterIndex(state);
-    const chapter = state.chapters[viewedChapter];
-    const story = act.chapterStory(chapter.id);
-    const last = viewedChapter === state.chapters.length - 1;
-    if (!selected || !chapter.levels.some((l) => l.puzzle === selected)) {
-      selected = (chapter.levels.find((l) => l.state === 'current') || chapter.levels.findLast((l) => l.state !== 'locked') || chapter.levels[0]).puzzle;
+    const all = state.chapters.flatMap((c) => c.levels);
+    if (!selected || !all.some((l) => l.puzzle === selected)) {
+      selected = (all.find((l) => l.state === 'current') || all.findLast((l) => l.state !== 'locked') || all[0]).puzzle;
     }
-    const level = chapter.levels.find((l) => l.puzzle === selected);
 
-    // ---------- karta kapitoly ----------
-    const canPrev = viewedChapter > 0;
-    const canNext = !last && state.chapters[viewedChapter + 1].started;
+    // ---------- karta aktuální kapitoly ----------
+    const activeIndex = activeChapterIndex(state);
+    const active = state.chapters[activeIndex];
     const shards = state.chapters.filter((c) => c.complete && act.chapterStory(c.id).shard).length;
     const card = h('section', { class: 'panel chapter' },
-      h('small', {}, t('path.chapter', { n: viewedChapter + 1 }),
-        last && act.story.nextChapter ? ` · ${t('path.nextSoon', { title: act.story.nextChapter })}` : ''),
+      h('small', {}, t('path.chapter', { n: activeIndex + 1 })),
       h('div', { class: 'chapter-head' },
-        canPrev && h('button', { class: 'chapter-nav', 'aria-label': t('path.prev'), onclick: () => { viewedChapter -= 1; selected = null; draw(); } }, '‹'),
-        h('span', { class: 'chapter-name' }, story.title || chapter.id),
-        canNext && h('button', { class: 'chapter-nav', 'aria-label': t('path.next'), onclick: () => { viewedChapter += 1; selected = null; draw(); } }, '›'),
-        h('span', { class: 'chapter-stars' }, starsSvg(1, 1, 16), ` ${chapter.stars} / ${chapter.maxStars}`)),
-      h('div', { class: 'progress', role: 'img', 'aria-label': t('path.progress', { done: chapter.done, total: chapter.levels.length }) },
-        h('span', { style: `width:${(chapter.done / chapter.levels.length) * 100}%` })),
+        h('span', { class: 'chapter-name' }, act.chapterStory(active.id).title || active.id),
+        h('span', { class: 'chapter-stars' }, starsSvg(1, 1, 16), ` ${active.stars} / ${active.maxStars}`)),
+      h('div', { class: 'progress', role: 'img', 'aria-label': t('path.progress', { done: active.done, total: active.levels.length }) },
+        h('span', { style: `width:${(active.done / active.levels.length) * 100}%` })),
       h('p', { class: 'panel-muted' }, [
-        t('path.progress', { done: chapter.done, total: chapter.levels.length }),
-        chapter.skippedCount ? t('path.skippedCount', { count: chapter.skippedCount }) : null,
+        t('path.progress', { done: active.done, total: active.levels.length }),
+        active.skippedCount ? t('path.skippedCount', { count: active.skippedCount }) : null,
         t('path.starsNote')
       ].filter(Boolean).join(' · ')),
       shards > 0 && h('button', { class: 'link', onclick: () => navigate('#/zapisnik') }, t('path.notebook', { count: shards })));
 
-    // ---------- herní plán ----------
-    const { width, height, points } = layout(chapter.levels.length);
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
-    svg.setAttribute('class', 'track');
-    svg.setAttribute('aria-hidden', 'true');
-    const d = trackPath(points);
-    svg.innerHTML = `${ornament(chapter.theme?.ornament, width, height)}
-      <path d="${d}" fill="none" stroke="var(--track)" stroke-width="30" stroke-linecap="round"/>
-      <path d="${d}" fill="none" stroke="var(--track-dash)" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>`;
+    // ---------- cesta: nahoře další kapitola, pod ní rozehrané kapitoly od nejnovější ----------
+    const journey = h('div', { class: 'journey' });
+    const firstLocked = state.chapters.findIndex((c) => !c.started);
+    if (firstLocked >= 0) {
+      journey.append(sign(firstLocked, act.chapterStory(state.chapters[firstLocked].id).title, t('path.lockedNote'), 'lock'));
+    } else if (act.story.nextChapter) {
+      journey.append(sign(state.chapters.length, act.story.nextChapter, t('path.soonNote'), 'soon'));
+    }
+    const blocks = state.chapters.map((chapter, i) => {
+      if (!chapter.started) return null;
+      const title = act.chapterStory(chapter.id).title || chapter.id;
+      return h('div', { class: 'chapter-block' },
+        chapter.complete && h('div', { class: 'milestone done' },
+          h('span', { class: 'milestone-title' }, `✓ ${t('path.chapterTitle', { n: i + 1, title })}`),
+          h('span', { class: 'chapter-stars' }, starsSvg(1, 1, 14), ` ${chapter.stars} / ${chapter.maxStars}`),
+          h('button', { class: 'link', onclick: () => showOutro(chapter) }, t('path.replay'))),
+        chapterMap(chapter),
+        h('small', { class: 'chapter-start' }, t('path.chapterTitle', { n: i + 1, title })));
+    }).filter(Boolean);
+    journey.append(...blocks.reverse()); // starší kapitoly dolů
 
-    const map = h('div', {
-      class: 'map', style: `aspect-ratio:${width} / ${height};--tint:${chapter.theme?.tint || 'transparent'}`
-    }, svg, chapter.perfect ? h('span', { class: 'perfect', title: t('path.perfect') }, '✦') : null);
+    const next = h('section', { class: 'panel next' });
+    page.replaceChildren(card, journey, next);
+    select(selected);
+    // otevři Cestu na zvolené úrovni
+    requestAnimationFrame(() => page.querySelector('.lvl.chosen')?.scrollIntoView({ block: 'center' }));
 
-    chapter.levels.forEach((l, i) => {
-      const p = points[i];
-      const label = t('path.levelAria', { n: l.number, size: t(`size.${sizeOf(l)}`), state: t(`path.state.${l.state}`) });
-      const btn = h('button', {
-        class: `lvl ${l.state}${l.master ? ' master' : ''}${l.puzzle === selected ? ' chosen' : ''}`,
-        style: `left:${(p.x / width) * 100}%;top:${(p.y / height) * 100}%`,
-        'aria-label': label, 'aria-pressed': String(l.puzzle === selected),
-        onclick: () => { selected = l.puzzle; draw(); }
-      },
-        l.state === 'locked' ? svgIcon('lock') : l.state === 'skipped' ? svgIcon('skip', 22) : String(l.number),
-        h('span', { class: 'size' }, `${sizeOf(l)}×4`),
-        l.rest && h('span', { class: 'badge', title: t('path.rest') }, svgIcon('leaf', 13)),
-        l.master && h('span', { class: 'crown', 'aria-hidden': 'true' }, '♛'),
-        l.state === 'done' && starsSvg(l.stars));
-      map.append(btn);
-    });
+    // Výběr úrovně: jen přepne zvýraznění a panel dole, plán se nepřekresluje (neposkočí)
+    function select(puzzleId) {
+      selected = puzzleId;
+      const level = all.find((l) => l.puzzle === puzzleId);
+      page.querySelectorAll('.lvl').forEach((b) => {
+        const on = b.dataset.puzzle === puzzleId;
+        b.classList.toggle('chosen', on);
+        b.setAttribute('aria-pressed', String(on));
+      });
+      const info = {
+        done: [t('path.info.done', { size: t(`size.${sizeOf(level)}`) }), t('path.again')],
+        skipped: [t('path.info.skipped'), t('path.try')],
+        current: [t('path.info.current', { size: t(`size.${sizeOf(level)}`) }), t('path.play')],
+        open: [t('path.info.current', { size: t(`size.${sizeOf(level)}`) }), t('path.play')],
+        locked: [t('path.info.locked'), t('path.locked')]
+      }[level.state];
+      next.replaceChildren(
+        h('div', { class: 'next-info' },
+          h('strong', {}, t('path.level', { n: level.number }), level.master ? ` · ${t('path.master')}` : level.rest ? ` · ${t('path.rest')}` : ''),
+          h('span', { class: 'panel-muted' }, info[0]),
+          level.canSkip && h('button', { class: 'link', onclick: () => skip(level.puzzle) }, t('path.skip'))),
+        h('button', {
+          class: 'primary', disabled: level.state === 'locked',
+          onclick: () => navigate(`#/cesta/${level.puzzle}`)
+        }, info[1]));
+    }
 
-    // ---------- vybraná úroveň ----------
-    const info = {
-      done: [t('path.info.done', { size: t(`size.${sizeOf(level)}`) }), t('path.again')],
-      skipped: [t('path.info.skipped'), t('path.try')],
-      current: [t('path.info.current', { size: t(`size.${sizeOf(level)}`) }), t('path.play')],
-      open: [t('path.info.current', { size: t(`size.${sizeOf(level)}`) }), t('path.play')],
-      locked: [t('path.info.locked'), t('path.locked')]
-    }[level.state];
-    const next = h('section', { class: 'panel next' },
-      h('div', { class: 'next-info' },
-        h('strong', {}, t('path.level', { n: level.number }), level.master ? ` · ${t('path.master')}` : level.rest ? ` · ${t('path.rest')}` : ''),
-        h('span', { class: 'panel-muted' }, info[0]),
-        level.canSkip && h('button', { class: 'link', onclick: () => skip(level.puzzle) }, t('path.skip'))),
-      h('button', {
-        class: 'primary', disabled: level.state === 'locked',
-        onclick: () => navigate(`#/cesta/${level.puzzle}`)
-      }, info[1]));
+    // Herní plán jedné kapitoly
+    function chapterMap(chapter) {
+      const { width, height, points } = layout(chapter.levels.length);
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+      svg.setAttribute('class', 'track');
+      svg.setAttribute('aria-hidden', 'true');
+      const d = trackPath(points);
+      svg.innerHTML = `${ornament(chapter.theme?.ornament, width, height)}
+        <path d="${d}" fill="none" stroke="var(--track)" stroke-width="30" stroke-linecap="round"/>
+        <path d="${d}" fill="none" stroke="var(--track-dash)" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>`;
 
-    page.replaceChildren(card, map, next);
+      const map = h('div', {
+        class: 'map', style: `aspect-ratio:${width} / ${height};--tint:${chapter.theme?.tint || 'transparent'}`
+      }, svg, chapter.perfect ? h('span', { class: 'perfect', title: t('path.perfect') }, '✦') : null);
+
+      chapter.levels.forEach((l, i) => {
+        const p = points[i];
+        const label = t('path.levelAria', { n: l.number, size: t(`size.${sizeOf(l)}`), state: t(`path.state.${l.state}`) });
+        map.append(h('button', {
+          class: `lvl ${l.state}${l.master ? ' master' : ''}`,
+          style: `left:${(p.x / width) * 100}%;top:${(p.y / height) * 100}%`,
+          'aria-label': label, 'data-puzzle': l.puzzle,
+          onclick: () => select(l.puzzle)
+        },
+          l.state === 'locked' ? svgIcon('lock') : l.state === 'skipped' ? svgIcon('skip', 22) : String(l.number),
+          h('span', { class: 'size' }, `${sizeOf(l)}×4`),
+          l.rest && h('span', { class: 'badge', title: t('path.rest') }, svgIcon('leaf', 13)),
+          l.master && h('span', { class: 'crown', 'aria-hidden': 'true' }, '♛'),
+          l.state === 'done' && starsSvg(l.stars)));
+      });
+      return map;
+    }
+  }
+
+  // Cedule kapitoly, která ještě není rozehraná (zamčená nebo teprve přibude)
+  function sign(index, title, note, kind) {
+    return h('div', { class: `milestone ${kind}` },
+      kind === 'lock' && svgIcon('lock', 18),
+      h('span', { class: 'milestone-title' }, t('path.chapterTitle', { n: index + 1, title })),
+      h('span', { class: 'panel-muted' }, note));
   }
 
   function skip(puzzleId) {
     updateProgress((p) => ({ skipped: [...p.skipped, puzzleId] }));
     selected = null;
     draw();
+  }
+
+  // Konec kapitoly se střípkem (po dokončení a znovu z cedule na Cestě)
+  function showOutro(chapter) {
+    const story = act.chapterStory(chapter.id);
+    const close = openModal([
+      h('small', { class: 'story-kicker' }, story.title),
+      h('h2', { id: 'story-title' }, t('path.chapterDone')),
+      story.outro && h('p', {}, story.outro),
+      story.shard && h('div', { class: 'shard' }, h('small', {}, t('path.shard')), h('p', {}, story.shard)),
+      story.shard && h('button', { class: 'secondary', onclick: () => { close(); navigate('#/zapisnik'); } }, t('path.openNotebook')),
+      h('button', { class: 'primary', onclick: () => close() }, t('path.continue'))
+    ], { labelledBy: 'story-title' });
   }
 
   // Příběh: úvod dějství a kapitoly při prvním vstupu, konec kapitoly se střípkem po jejím dokončení
@@ -144,15 +194,7 @@ export function renderPath(root, { navigate }) {
 
     const finished = state.chapters.find((c) => c.complete && !seen(`outro:${c.id}`));
     if (finished) {
-      const story = act.chapterStory(finished.id);
-      const close = openModal([
-        h('small', { class: 'story-kicker' }, story.title),
-        h('h2', { id: 'story-title' }, t('path.chapterDone')),
-        story.outro && h('p', {}, story.outro),
-        story.shard && h('div', { class: 'shard' }, h('small', {}, t('path.shard')), h('p', {}, story.shard)),
-        story.shard && h('button', { class: 'secondary', onclick: () => { close(); navigate('#/zapisnik'); } }, t('path.openNotebook')),
-        h('button', { class: 'primary', onclick: () => close() }, t('path.continue'))
-      ], { labelledBy: 'story-title' });
+      showOutro(finished);
       markSeen(`outro:${finished.id}`);
       return;
     }

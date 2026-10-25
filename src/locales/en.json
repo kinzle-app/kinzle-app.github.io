@@ -193,9 +193,10 @@
   "path": {
     "soon": "The Journey board is being built and arrives in the next version.",
     "chapter": "Chapter {n}",
-    "nextSoon": "“{title}” coming soon",
-    "prev": "Previous chapter",
-    "next": "Next chapter",
+    "chapterTitle": "Chapter {n} · {title}",
+    "lockedNote": "Unlocks when you finish the previous chapter",
+    "soonNote": "Coming soon",
+    "replay": "Story and fragment",
     "progress": "{done} of {total} done",
     "skippedCount": {
       "one": "{count} skipped",

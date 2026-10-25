@@ -211,9 +211,10 @@
   "path": {
     "soon": "Cesta po herním plánu se připravuje a přibude v příští verzi.",
     "chapter": "Kapitola {n}",
-    "nextSoon": "další „{title}“ přibude brzy",
-    "prev": "Předchozí kapitola",
-    "next": "Další kapitola",
+    "chapterTitle": "Kapitola {n} · {title}",
+    "lockedNote": "Odemkne se dokončením předchozí kapitoly",
+    "soonNote": "Přibude brzy",
+    "replay": "Příběh a střípek",
     "progress": "{done} z {total} dokončeno",
     "skippedCount": {
       "one": "{count} přeskočená",

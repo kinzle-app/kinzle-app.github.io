@@ -356,10 +356,6 @@ dialog .primary { width: 100%; }
 .chapter small { text-transform: uppercase; }
 .chapter-head { display: flex; align-items: center; gap: 8px; }
 .chapter-name { flex: 1; font-size: calc(20px * var(--fs)); font-weight: 800; }
-.chapter-nav {
-  width: 36px; height: 36px; border: none; border-radius: 10px;
-  background: var(--panel-active); color: var(--panel-text); font-size: 22px; font-weight: 800; line-height: 1;
-}
 .chapter-stars { display: flex; align-items: center; gap: 4px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .progress { height: 8px; border-radius: 4px; background: var(--panel-active); overflow: hidden; }
 .progress span { display: block; height: 100%; background: var(--selected); border-radius: 4px; }
@@ -399,6 +395,22 @@ dialog .primary { width: 100%; }
 .lvl .crown { position: absolute; top: -26px; left: 50%; transform: translateX(-50%); color: var(--star); font-size: 22px; }
 .stars { display: inline-flex; gap: 1px; vertical-align: middle; }
 
+/* celá Cesta pod sebou: cedule mezi kapitolami */
+.journey, .chapter-block { display: flex; flex-direction: column; gap: 10px; }
+.journey { gap: 18px; }
+.milestone {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px;
+  padding: 10px 14px; border-radius: 14px; background: var(--panel); color: var(--panel-text);
+}
+.milestone-title { flex: 1; font-weight: 800; }
+.milestone.lock, .milestone.soon { border: 2px dashed var(--line); background: transparent; color: var(--text); }
+.milestone .panel-muted { flex-basis: 100%; }
+.milestone.lock .panel-muted, .milestone.soon .panel-muted { color: var(--muted); }
+.milestone .link { min-height: 32px; font-size: calc(13px * var(--fs)); }
+.chapter-start { text-align: center; color: var(--muted); font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+
+/* panel zvolené úrovně zůstává při posouvání dole nad lištou záložek */
+.path .next { position: sticky; bottom: calc(max(12px, env(safe-area-inset-bottom)) + 66px); z-index: 4; }
 .next { flex-direction: row; align-items: center; gap: 12px; }
 .next-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
 .next-info strong { font-size: calc(16px * var(--fs)); }
