@@ -2,7 +2,7 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
-## Várka 2026-10-25 (G) – Cesta, 3. kapitola „Na chatě“, úrovně 1–5
+## Várka 2026-10-25 (G) – Cesta, 3. kapitola „Na chatě“, úrovně 1–5 · ✅ schváleno 2026-10-25 (střípek A)
 
 Stejná křivka jako u Zahrady: 3×4, 4×4, 4×4, oddechová 3×4, 4×4. Témata: les, táborák, rybaření, deštivý den na chatě.
 
