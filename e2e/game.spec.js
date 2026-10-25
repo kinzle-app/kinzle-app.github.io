@@ -303,7 +303,9 @@ test('žebříček: zápis přezdívkou, chybná přezdívka, Dnes a Celkem (ser
     return json(200, null);
   });
   await page.goto('./#/spolu');
-  await page.getByRole('button', { name: /Žebříček dneška/ }).click();
+  // záložka ukáže žebříček rovnou, i bez přezdívky; nad ním pozvánka k zápisu
+  await expect(page.locator('.rank-list li').first()).toContainText('Táta');
+  await page.locator('.join-card').getByRole('button', { name: 'Zapsat se' }).click();
   const nick = page.getByRole('textbox', { name: 'Přezdívka (3–16 znaků)' });
   await nick.fill('kokot');
   await page.getByRole('button', { name: 'Zapsat se' }).click();

@@ -1,9 +1,10 @@
-// Záložka Žebříček (adresa #/spolu): všechno s lidmi – moje dnešní umístění, party (kdo hrál, nové hádanky) a vlastní hádanka.
+// Záložka Žebříček (adresa #/spolu): rovnou pořadí (prvních 10, celý na #/zebricek), pod ním party a vlastní hádanka.
 // Údaje ze serveru se doplní, až dorazí; bez internetu zůstanou řádky klikací s popiskem „teď nedostupné“.
 import { h, menuSection, menuRow } from './dom.js';
 import { t } from '../services/i18n.js';
 import { getProgress } from '../services/progress.js';
-import { leaderboardEnabled, nickname, board, myParties, partyDetail } from '../services/leaderboard.js';
+import { leaderboardEnabled, nickname, myParties, partyDetail } from '../services/leaderboard.js';
+import { rankings } from './leaderboard.js';
 import { customId } from '../game/custom.js';
 import { tabs } from './tabs.js';
 
@@ -12,21 +13,25 @@ export function renderTogether(root, { navigate }) {
   const sections = [];
 
   if (leaderboardEnabled()) {
-    const rankNote = h('span', {}, nickname() ? t('together.loading') : t('together.joinNote'));
-    sections.push(menuSection(t('together.board'), [menuRow('trophy', t('together.boardRow'), rankNote, go('#/zebricek'))]));
+    // kdo ještě nemá přezdívku, vidí žebříček taky a nad ním pozvánku k zápisu
+    if (!nickname()) {
+      sections.push(h('section', { class: 'panel join-card' },
+        h('p', { class: 'panel-text' }, t('together.joinText')),
+        h('button', { class: 'primary', onclick: go('#/zebricek') }, t('board.join'))));
+    }
+    sections.push(rankings(null, { limit: 10, onMore: go('#/zebricek') }));
     const partyList = h('ul', {}, menuRow('plus', t('together.partyNew'), t('together.partyNewNote'), go('#/parta')));
     sections.push(h('section', { class: 'more-to-play' }, h('h3', {}, t('together.party')), partyList));
-    if (nickname()) fill(rankNote, partyList);
+    if (nickname()) fill(partyList);
+  } else {
+    sections.push(h('p', { class: 'muted' }, t('board.disabled')));
   }
   sections.push(menuSection(t('together.puzzles'), [menuRow('pencil', t('together.custom'), t('together.customNote'), go('#/vlastni'))]));
 
   root.append(h('div', { class: 'page' }, h('h2', {}, t('together.title')), ...sections), tabs('#/spolu', navigate));
 
-  // Doplnění ze serveru: umístění dnes a řádek pro každou partu
-  async function fill(rankNote, partyList) {
-    board('today').then(({ me, count }) => {
-      rankNote.textContent = me ? t('together.rank', { rank: me.rank, count, points: me.score }) : t('together.notPlayed');
-    }).catch(() => { rankNote.textContent = t('together.unavailable'); });
+  // Doplnění ze serveru: řádek pro každou partu (kdo dnes hrál, nové hádanky)
+  async function fill(partyList) {
     try {
       const parties = await myParties();
       const played = new Set(getProgress().history.filter((e) => e.mode === 'custom').map((e) => e.puzzleId));

@@ -70,8 +70,9 @@ export function nicknameForm(onDone) {
   ];
 }
 
-// Pořadí se záložkami Dnes / Celkem: celé, nebo jen pro partu (party = id party)
-export function rankings(party = null) {
+// Pořadí se záložkami Dnes / Celkem: celé, nebo jen pro partu (party = id party).
+// limit = kolik prvních hráčů ukázat (jinak všech 50); onMore = odkaz „Celý žebříček“, když je jich víc.
+export function rankings(party = null, { limit = null, onMore = null } = {}) {
   const box = h('div', { class: 'rankings' });
   draw();
   return box;
@@ -98,9 +99,12 @@ export function rankings(party = null) {
 
   function rows({ top, me }) {
     if (!top.length) return [h('p', { class: 'muted' }, t(`board.${kind}Empty`))];
-    const out = [h('ol', { class: 'rank-list' }, top.map(row))];
-    if (me && !top.some((r) => r.me)) out.push(h('ol', { class: 'rank-list rank-me' }, row(me)));
-    if (!me && kind === 'today') out.push(h('p', { class: 'muted' }, t('board.notYet')));
+    const shown = limit ? top.slice(0, limit) : top;
+    const out = [h('ol', { class: 'rank-list' }, shown.map(row))];
+    if (me && !shown.some((r) => r.me)) out.push(h('ol', { class: 'rank-list rank-me' }, row(me)));
+    // výzva jen pro zapsaného hráče, který dnes ještě nehrál (nezapsaného zve karta nad žebříčkem)
+    if (!me && kind === 'today' && nickname()) out.push(h('p', { class: 'muted' }, t('board.notYet')));
+    if (onMore && shown.length < top.length) out.push(h('button', { class: 'link', onclick: onMore }, t('board.all')));
     return out;
   }
 

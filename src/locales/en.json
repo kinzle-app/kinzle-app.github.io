@@ -385,7 +385,8 @@
     },
     "privacyStored": "We only store your nickname, daily results, seeds and Path progress.",
     "privacyNot": "No e-mail, name or password.",
-    "privacyDelete": "You can delete it all at any time."
+    "privacyDelete": "You can delete it all at any time.",
+    "all": "Full leaderboard"
   },
   "custom": {
     "title": "Your own puzzle",
@@ -476,13 +477,8 @@
   },
   "together": {
     "title": "Leaderboard",
-    "board": "All players",
-    "boardRow": "Today’s leaderboard",
     "party": "Group",
     "puzzles": "Puzzles",
-    "joinNote": "Join with a nickname and compare",
-    "notPlayed": "You haven’t played today yet",
-    "rank": "You’re {rank}. of {count} · {points} pts",
     "partyNew": "Start or join a group",
     "partyNewNote": "A leaderboard just for family and friends",
     "played": "{played} of {total} played today",
@@ -493,6 +489,7 @@
     "custom": "Make your own puzzle",
     "customNote": "and send it to friends",
     "loading": "…",
-    "unavailable": "unavailable right now"
+    "unavailable": "unavailable right now",
+    "joinText": "Join with a nickname to appear on the leaderboard – kids and grown-ups alike."
   }
 }

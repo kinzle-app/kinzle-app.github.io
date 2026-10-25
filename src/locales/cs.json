@@ -415,7 +415,8 @@
     },
     "privacyStored": "Uložíme jen přezdívku, výsledky denní hádanky, semínka a postup na Cestě.",
     "privacyNot": "Žádný e-mail, jméno ani heslo.",
-    "privacyDelete": "Všechno můžeš kdykoli smazat."
+    "privacyDelete": "Všechno můžeš kdykoli smazat.",
+    "all": "Celý žebříček"
   },
   "custom": {
     "title": "Vlastní hádanka",
@@ -508,13 +509,8 @@
   },
   "together": {
     "title": "Žebříček",
-    "board": "Všichni hráči",
-    "boardRow": "Žebříček dneška",
     "party": "Parta",
     "puzzles": "Hádanky",
-    "joinNote": "Zapiš se přezdívkou a porovnej se",
-    "notPlayed": "Dnes jsi ještě nehrál(a)",
-    "rank": "Jsi {rank}. z {count} · {points} b.",
     "partyNew": "Založit nebo připojit partu",
     "partyNewNote": "Žebříček jen pro rodinu a kamarády",
     "played": "{played} z {total} dnes hrálo",
@@ -527,6 +523,7 @@
     "custom": "Slož vlastní hádanku",
     "customNote": "a pošli ji kamarádům",
     "loading": "…",
-    "unavailable": "teď nedostupné"
+    "unavailable": "teď nedostupné",
+    "joinText": "Zapiš se přezdívkou a objev se v žebříčku – s dětmi i dospělými."
   }
 }

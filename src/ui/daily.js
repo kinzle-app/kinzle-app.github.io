@@ -90,7 +90,7 @@ export function renderDaily(root, { navigate }) {
           h('span', {}, t('game.points', { points: result.score })),
           h('span', {}, formatTime(result.seconds))),
         h('p', { class: 'panel-muted' }, t('daily.next'), ' ', left),
-        leaderboardEnabled() && h('button', { class: 'link', onclick: () => navigate('#/zebricek') }, t('board.open')),
+        leaderboardEnabled() && h('button', { class: 'link', onclick: () => navigate('#/spolu') }, t('board.open')),
         teaser ? h('p', { class: 'teaser' }, t('daily.teaser', { text: teaser })) : '');
     } else {
       card.append(h('button', { class: 'primary', onclick: () => navigate(`#/denni/${date}`) },
