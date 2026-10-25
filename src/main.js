@@ -101,7 +101,7 @@ const finisher = (mode, date, tier, code) => (game, seconds, score) => {
   return added;
 };
 
-// Obrazovky se záložkami Denní / Cesta / Spolu / Více
+// Obrazovky se záložkami Denní / Cesta / Žebříček / Více
 const TAB_SCREENS = { '#/': renderDaily, '#/cesta': renderPath, '#/spolu': renderTogether, '#/vice': renderMore };
 // Další obrazovky s tlačítkem Zpět
 const SCREENS = {

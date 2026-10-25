@@ -169,7 +169,7 @@
     "daily": "Denní",
     "path": "Cesta",
     "more": "Více",
-    "together": "Spolu"
+    "together": "Žebříček"
   },
   "daily": {
     "title": "DENNÍ HÁDANKA",
@@ -507,8 +507,8 @@
     }
   },
   "together": {
-    "title": "Spolu",
-    "board": "Žebříček",
+    "title": "Žebříček",
+    "board": "Všichni hráči",
     "boardRow": "Žebříček dneška",
     "party": "Parta",
     "puzzles": "Hádanky",

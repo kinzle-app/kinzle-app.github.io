@@ -1,4 +1,4 @@
-// Záložka Spolu: všechno s lidmi – moje dnešní umístění, party (kdo hrál, nové hádanky) a vlastní hádanka.
+// Záložka Žebříček (adresa #/spolu): všechno s lidmi – moje dnešní umístění, party (kdo hrál, nové hádanky) a vlastní hádanka.
 // Údaje ze serveru se doplní, až dorazí; bez internetu zůstanou řádky klikací s popiskem „teď nedostupné“.
 import { h, menuSection, menuRow } from './dom.js';
 import { t } from '../services/i18n.js';

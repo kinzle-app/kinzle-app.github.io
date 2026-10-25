@@ -1,4 +1,4 @@
-// Spodní lišta záložek: Denní / Cesta / Spolu / Více
+// Spodní lišta záložek: Denní / Cesta / Žebříček (adresa #/spolu) / Více
 import { h } from './dom.js';
 import { t } from '../services/i18n.js';
 

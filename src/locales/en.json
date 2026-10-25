@@ -155,7 +155,7 @@
     "daily": "Daily",
     "path": "Journey",
     "more": "More",
-    "together": "Together"
+    "together": "Ranks"
   },
   "daily": {
     "title": "DAILY PUZZLE",
@@ -475,8 +475,8 @@
     }
   },
   "together": {
-    "title": "Together",
-    "board": "Leaderboard",
+    "title": "Leaderboard",
+    "board": "All players",
     "boardRow": "Today’s leaderboard",
     "party": "Group",
     "puzzles": "Puzzles",
