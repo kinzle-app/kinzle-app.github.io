@@ -168,7 +168,8 @@
     "label": "Hlavní nabídka",
     "daily": "Denní",
     "path": "Cesta",
-    "more": "Více"
+    "more": "Více",
+    "together": "Spolu"
   },
   "daily": {
     "title": "DENNÍ HÁDANKA",
@@ -206,7 +207,14 @@
   },
   "more": {
     "title": "Více",
-    "drafts": "Návrhy ke schválení (jen ve vývojové verzi)"
+    "drafts": "Návrhy ke schválení (jen ve vývojové verzi)",
+    "play": "Hrát dál",
+    "mine": "Moje",
+    "training": "Bez bodů a bez limitu chyb",
+    "packs": "Tematické sady hádanek",
+    "history": "Odehrané hry a tvoje pokusy",
+    "bag": "Nasbírané skupiny",
+    "stats": "Úspěšnost, čas a záloha"
   },
   "path": {
     "soon": "Cesta po herním plánu se připravuje a přibude v příští verzi.",
@@ -374,7 +382,6 @@
     "title": "Žebříček",
     "open": "Žebříček dneška",
     "intro": "Zapiš se přezdívkou a porovnej se s ostatními – s dětmi i dospělými.",
-    "privacy": "Ukládáme jen přezdívku, výsledky denní hádanky, počet semínek a postup na Cestě. Žádný e-mail ani jméno. Všechno můžeš kdykoli smazat.",
     "nickname": "Přezdívka (3–16 znaků)",
     "join": "Zapsat se",
     "loading": "Načítám…",
@@ -405,12 +412,14 @@
       "nickname_length": "Přezdívka musí mít 3 až 16 znaků.",
       "nickname_chars": "Použij jen písmena, číslice, mezeru, tečku, pomlčku nebo podtržítko.",
       "nickname_bad": "Tuhle přezdívku použít nejde, vyber si jinou."
-    }
+    },
+    "privacyStored": "Uložíme jen přezdívku, výsledky denní hádanky, semínka a postup na Cestě.",
+    "privacyNot": "Žádný e-mail, jméno ani heslo.",
+    "privacyDelete": "Všechno můžeš kdykoli smazat."
   },
   "custom": {
     "title": "Vlastní hádanka",
     "titleParty": "Hádanka pro partu",
-    "menuNote": "Slož hádanku a pošli ji kamarádům",
     "intro": "Vymysli skupiny po čtyřech slovech. První skupina je nejlehčí, poslední nejtěžší. Hádanka se uloží do odkazu, který pošleš komukoli.",
     "size": "Velikost hádanky",
     "group": "Skupina {n}",
@@ -453,7 +462,6 @@
   },
   "party": {
     "title": "Parta",
-    "menuNote": "Žebříček jen pro rodinu a kamarády",
     "intro": "Soukromá skupina s vlastním žebříčkem. Uvidíš, kdo dnes už hrál, a můžete si posílat hádanky.",
     "needNick": "Parta potřebuje přezdívku. Zapiš se do žebříčku:",
     "none": "Zatím nejsi v žádné partě. Založ ji, nebo se připoj kódem od kamaráda.",
@@ -497,5 +505,28 @@
       "party_not_found": "Parta s tímhle kódem neexistuje. Zkontroluj kód.",
       "party_full": "Parta je plná (nejvýš 30 členů)."
     }
+  },
+  "together": {
+    "title": "Spolu",
+    "board": "Žebříček",
+    "boardRow": "Žebříček dneška",
+    "party": "Parta",
+    "puzzles": "Hádanky",
+    "joinNote": "Zapiš se přezdívkou a porovnej se",
+    "notPlayed": "Dnes jsi ještě nehrál(a)",
+    "rank": "Jsi {rank}. z {count} · {points} b.",
+    "partyNew": "Založit nebo připojit partu",
+    "partyNewNote": "Žebříček jen pro rodinu a kamarády",
+    "played": "{played} z {total} dnes hrálo",
+    "newPuzzles": {
+      "one": "{count} nová hádanka",
+      "few": "{count} nové hádanky",
+      "many": "{count} nové hádanky",
+      "other": "{count} nových hádanek"
+    },
+    "custom": "Slož vlastní hádanku",
+    "customNote": "a pošli ji kamarádům",
+    "loading": "…",
+    "unavailable": "teď nedostupné"
   }
 }

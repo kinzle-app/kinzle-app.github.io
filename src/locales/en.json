@@ -154,7 +154,8 @@
     "label": "Main menu",
     "daily": "Daily",
     "path": "Journey",
-    "more": "More"
+    "more": "More",
+    "together": "Together"
   },
   "daily": {
     "title": "DAILY PUZZLE",
@@ -188,7 +189,14 @@
   },
   "more": {
     "title": "More",
-    "drafts": "Drafts awaiting approval (development build only)"
+    "drafts": "Drafts awaiting approval (development build only)",
+    "play": "Keep playing",
+    "mine": "Mine",
+    "training": "No points, no mistake limit",
+    "packs": "Themed puzzle sets",
+    "history": "Games played and your attempts",
+    "bag": "Groups you’ve collected",
+    "stats": "Success rate, time and backup"
   },
   "path": {
     "soon": "The Journey board is being built and arrives in the next version.",
@@ -346,7 +354,6 @@
     "title": "Leaderboard",
     "open": "Today’s leaderboard",
     "intro": "Join with a nickname and compare yourself with others – kids and grown-ups alike.",
-    "privacy": "We only store your nickname, daily results, number of seeds and Path progress. No e-mail, no name. You can delete it all at any time.",
     "nickname": "Nickname (3–16 characters)",
     "join": "Join",
     "loading": "Loading…",
@@ -375,12 +382,14 @@
       "nickname_length": "A nickname needs 3 to 16 characters.",
       "nickname_chars": "Use only letters, digits, space, dot, dash or underscore.",
       "nickname_bad": "That nickname can’t be used, please pick another."
-    }
+    },
+    "privacyStored": "We only store your nickname, daily results, seeds and Path progress.",
+    "privacyNot": "No e-mail, name or password.",
+    "privacyDelete": "You can delete it all at any time."
   },
   "custom": {
     "title": "Your own puzzle",
     "titleParty": "Puzzle for your group",
-    "menuNote": "Make a puzzle and send it to friends",
     "intro": "Think up groups of four words. The first group is the easiest, the last the hardest. The puzzle is stored in a link you can send to anyone.",
     "size": "Puzzle size",
     "group": "Group {n}",
@@ -423,7 +432,6 @@
   },
   "party": {
     "title": "Group",
-    "menuNote": "A leaderboard just for family and friends",
     "intro": "A private group with its own leaderboard. See who has played today and send each other puzzles.",
     "needNick": "Groups need a nickname. Join the leaderboard:",
     "none": "You’re not in a group yet. Start one, or join with a friend’s code.",
@@ -465,5 +473,26 @@
       "party_not_found": "No group has this code. Check it and try again.",
       "party_full": "The group is full (30 members at most)."
     }
+  },
+  "together": {
+    "title": "Together",
+    "board": "Leaderboard",
+    "boardRow": "Today’s leaderboard",
+    "party": "Group",
+    "puzzles": "Puzzles",
+    "joinNote": "Join with a nickname and compare",
+    "notPlayed": "You haven’t played today yet",
+    "rank": "You’re {rank}. of {count} · {points} pts",
+    "partyNew": "Start or join a group",
+    "partyNewNote": "A leaderboard just for family and friends",
+    "played": "{played} of {total} played today",
+    "newPuzzles": {
+      "one": "{count} new puzzle",
+      "other": "{count} new puzzles"
+    },
+    "custom": "Make your own puzzle",
+    "customNote": "and send it to friends",
+    "loading": "…",
+    "unavailable": "unavailable right now"
   }
 }

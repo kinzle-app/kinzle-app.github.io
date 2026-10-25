@@ -23,6 +23,7 @@ import { renderDaily, dailyLabel } from './ui/daily.js';
 import { renderPath, renderNotebook, starsSvg } from './ui/path.js';
 import { starsFor, actState } from './game/path.js';
 import { renderMore } from './ui/more.js';
+import { renderTogether } from './ui/together.js';
 import { renderArchive } from './ui/archive.js';
 import { renderBag } from './ui/bag.js';
 import { renderStats } from './ui/stats.js';
@@ -100,8 +101,8 @@ const finisher = (mode, date, tier, code) => (game, seconds, score) => {
   return added;
 };
 
-// Obrazovky se záložkami Denní / Cesta / Více
-const TAB_SCREENS = { '#/': renderDaily, '#/cesta': renderPath, '#/vice': renderMore };
+// Obrazovky se záložkami Denní / Cesta / Spolu / Více
+const TAB_SCREENS = { '#/': renderDaily, '#/cesta': renderPath, '#/spolu': renderTogether, '#/vice': renderMore };
 // Další obrazovky s tlačítkem Zpět
 const SCREENS = {
   '#/archiv': renderArchive, '#/vacek': renderBag, '#/statistiky': renderStats, '#/zapisnik': renderNotebook,

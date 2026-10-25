@@ -285,7 +285,7 @@ dialog .primary { width: 100%; }
 
 /* ---------- Spodní záložky ---------- */
 .tabs {
-  margin-top: auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px;
+  margin-top: auto; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px;
   background: var(--panel); border-radius: 14px; padding: 5px;
   /* lišta zůstává dole na obrazovce i při posouvání; stín v barvě stolu zakryje obsah pod ní */
   position: sticky; bottom: max(12px, env(safe-area-inset-bottom)); z-index: 5;
@@ -532,3 +532,8 @@ dialog .primary { width: 100%; }
 .party-puzzle { display: flex; flex-direction: column; }
 .link.small { min-height: 32px; font-size: calc(13px * var(--fs)); }
 .rank-value .link.small { margin-left: 8px; }
+.nick-intro { margin: 0; font-size: calc(16px * var(--fs)); line-height: 1.4; }
+.nick-input::placeholder { color: var(--panel-muted); opacity: 1; }
+.privacy { margin: 4px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.privacy li { position: relative; padding-left: 26px; font-size: calc(15px * var(--fs)); line-height: 1.4; color: var(--text); }
+.privacy li::before { content: '✓'; position: absolute; left: 4px; color: var(--star); font-weight: 800; }

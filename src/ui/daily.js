@@ -131,7 +131,7 @@ function moreToPlay(lang, progress, navigate) {
     const ci = state.chapters.findIndex((c) => c.levels.some((l) => l.state === 'current'));
     if (ci >= 0) {
       const level = state.chapters[ci].levels.find((l) => l.state === 'current');
-      rows.push(row('path', t('tabs.path'), t('home.pathNext', { chapter: ci + 1, n: level.index + 1 }), ));
+      rows.push(row('path', t('tabs.path'), t('home.pathNext', { chapter: ci + 1, n: level.number }), '#/cesta'));
     }
   }
 

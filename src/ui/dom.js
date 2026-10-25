@@ -20,8 +20,28 @@ const ICONS = {
   path: '<circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M8 18h6a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h6"/>',
   pack: '<path d="M4 8l8-4 8 4v8l-8 4-8-4z"/><path d="M4 8l8 4 8-4M12 12v8"/>',
   training: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.5"/>',
-  chevron: '<path d="M9 5l7 7-7 7"/>'
+  chevron: '<path d="M9 5l7 7-7 7"/>',
+  trophy: '<path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M9 20h6"/>',
+  people: '<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 19a6 6 0 0 1 12 0M15 14.5a4.5 4.5 0 0 1 6 4.5"/>',
+  plus: '<path d="M12 5v14M5 12h14"/>',
+  pencil: '<path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 7l3 3"/>',
+  list: '<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="18" r="1"/>',
+  seed: '<path d="M12 21c-4 0-7-3-7-7 0-5 7-11 7-11s7 6 7 11c0 4-3 7-7 7z"/>',
+  stats: '<path d="M5 20V11M12 20V5M19 20v-7"/>',
+  calendar: '<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/>'
 };
+
+// Sekce nabídky s nadpisem a řádky (stejný vzhled jako „Zahraj si dál“ na úvodu)
+export function menuSection(title, rows) {
+  return h('section', { class: 'more-to-play' }, h('h3', {}, title), h('ul', {}, rows));
+}
+
+// Řádek nabídky: ikona, název, popisek pod ním, šipka. Popisek jde doplnit později (note.textContent).
+export function menuRow(iconName, title, note, onclick) {
+  const noteEl = typeof note === 'string' ? h('span', {}, note) : note;
+  return h('li', {}, h('button', { class: 'more-row', onclick },
+    icon(iconName), h('span', { class: 'more-text' }, h('strong', {}, title), noteEl), icon('chevron')));
+}
 
 export function icon(name) {
   const span = document.createElement('span');

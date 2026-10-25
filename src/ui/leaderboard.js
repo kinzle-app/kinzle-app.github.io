@@ -63,7 +63,11 @@ export function nicknameForm(onDone) {
       button.disabled = false;
     }
   } }, input, button, status);
-  return [h('p', {}, t('board.intro')), form, h('p', { class: 'muted' }, t('board.privacy'))];
+  return [
+    h('p', { class: 'nick-intro' }, t('board.intro')),
+    form,
+    h('ul', { class: 'privacy' }, ['privacyStored', 'privacyNot', 'privacyDelete'].map((key) => h('li', {}, t(`board.${key}`))))
+  ];
 }
 
 // Pořadí se záložkami Dnes / Celkem: celé, nebo jen pro partu (party = id party)

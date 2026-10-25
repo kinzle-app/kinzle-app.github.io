@@ -302,8 +302,8 @@ test('žebříček: zápis přezdívkou, chybná přezdívka, Dnes a Celkem (ser
     }
     return json(200, null);
   });
-  await page.goto('./#/vice');
-  await page.getByRole('button', { name: 'Žebříček', exact: true }).click();
+  await page.goto('./#/spolu');
+  await page.getByRole('button', { name: /Žebříček dneška/ }).click();
   const nick = page.getByRole('textbox', { name: 'Přezdívka (3–16 znaků)' });
   await nick.fill('kokot');
   await page.getByRole('button', { name: 'Zapsat se' }).click();
@@ -320,8 +320,8 @@ test('žebříček: zápis přezdívkou, chybná přezdívka, Dnes a Celkem (ser
 
 test('vlastní hádanka: složit, chyba ve formuláři, zahrát z odkazu, bez semínek, v Moje hry', async ({ page }) => {
   await setup(page);
-  await page.goto('./#/vice');
-  await page.getByRole('button', { name: /Vlastní hádanka/ }).click();
+  await page.goto('./#/spolu');
+  await page.getByRole('button', { name: /Slož vlastní hádanku/ }).click();
   await page.getByRole('button', { name: 'Lehká 3×4' }).click();
   const groups = [['Ovoce', 'jablko', 'hruška', 'švestka', 'třešeň'], ['Zvířata', 'pes', 'kočka', 'kůň', 'kráva'], ['Barvy', 'modrá', 'žlutá', 'zelená', 'pes']];
   for (const [i, [title, ...words]] of groups.entries()) {
@@ -372,8 +372,8 @@ test('parta: zápis, založení, kód pro pozvání, kdo dnes hrál, hádanky pa
     if (name === 'leaderboard') return json({ top: [], me: null, count: 0 });
     return json(null);
   });
-  await page.goto('./#/vice');
-  await page.getByRole('button', { name: /^Parta/ }).click();
+  await page.goto('./#/spolu');
+  await page.getByRole('button', { name: /Založit nebo připojit partu/ }).click();
   await page.getByRole('textbox', { name: 'Přezdívka (3–16 znaků)' }).fill('Táta');
   await page.getByRole('button', { name: 'Zapsat se' }).click();
   await expect(page.getByText('Zatím nejsi v žádné partě.')).toBeVisible();
