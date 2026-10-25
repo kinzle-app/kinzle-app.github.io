@@ -537,3 +537,6 @@ dialog .primary { width: 100%; }
 .privacy { margin: 4px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
 .privacy li { position: relative; padding-left: 26px; font-size: calc(15px * var(--fs)); line-height: 1.4; color: var(--text); }
 .privacy li::before { content: '✓'; position: absolute; left: 4px; color: var(--star); font-weight: 800; }
+/* žebříček: záložky Dnes / Celkem, popisek a seznam s mezerami (popisek se nepřilepí k záložkám) */
+.rankings { display: flex; flex-direction: column; gap: 14px; }
+.rankings .muted { margin: 0; font-size: calc(14px * var(--fs)); line-height: 1.4; }
