@@ -2,6 +2,24 @@
 
 Nejnovější várka je nahoře. Odpověz např. „schvaluji cs-0001, cs-0003; cs-0002 oprav: …“.
 
+## Várka 2026-10-25 (H) – Cesta, 3. kapitola „Na chatě“, úrovně 6–10
+
+| Úroveň | Hádanka | Skupiny (● ▲ ■ ◆ ★) | Testy |
+|---|---|---|---|
+| 6 · 4×4 | cs-0083 · úroveň 3 | strunné nástroje (housle, harfa, banjo, violoncello) · na pouti (kolotoč, střelnice, perník, balónek) · KOUZELNÝ (hůlka, zrcadlo, slovíčko, lampa) · mají křídla (letadlo, motýl, anděl, okno) | 1: správně, ale „kouzelný DĚDEČEK“ dnešní děti neznají → **ZRCADLO**. 2: správně, jednoznačné; past BALÓNEK (létá, ale křídla nemá). |
+| 7 · 4×4 | cs-0084 · úroveň 4 | noční obloha (Měsíc, hvězda, meteor, souhvězdí) · hry venku (schovávaná, honěná, škatulata, kuličky) · dají se pást (ovce, krávy, husy, oči) · na začátku mají číslo (STOdola, SEDMikráska, OSMisměrka, DEVĚTsil) | správně napoprvé, jednoznačné; past STODOLA (statek). |
+| 8 · 3×4 oddechová | cs-0085 · úroveň 1 | hmyz (komár, vosa, beruška, čmelák) · na stanování (stan, spacák, karimatka, ešus) · LETNÍ (prázdniny, tábor, kino, čas) | správně napoprvé, jednoznačné; past TÁBOR. |
+| 9 · 4×4 | cs-0086 · úroveň 4 | pohádkové bytosti (hastrman, víla, skřítek, ježibaba) · sýry (eidam, hermelín, niva, tvarůžky) · dají se zahnat (hlad, žízeň, strach, nuda) · ŽIVÝ (voda, plot, betlém, vysílání) | správně napoprvé, jednoznačné (skupinu zahnat poznal jako „umírat hlady, žízní…“ – stejná čtveřice); past VODA (hastrman). |
+| 10 · 5×4 mistrovská | cs-0087 · úroveň 5 | psí plemena · česká pohoří · dravci · mají hřbet (kniha, ruka, nůž, vlna) · na začátku mají jméno (PETRžel, JANtar, ROMANtika, VÍTěz) | správně napoprvé, jednoznačné; obtížnost 1 / 1 / 2 / 4 / 3–4. |
+
+### Další kapitola (zobrazí se jako „přibude brzy“) – vyber jednu
+
+- **A (doporučuji): Na nádraží** – dopis z půdy chaty pošle hráče na cestu vlakem.
+- B: U řeky
+- C: Ve staré knihovně
+
+---
+
 ## Várka 2026-10-25 (G) – Cesta, 3. kapitola „Na chatě“, úrovně 1–5 · ✅ schváleno 2026-10-25 (střípek A)
 
 Stejná křivka jako u Zahrady: 3×4, 4×4, 4×4, oddechová 3×4, 4×4. Témata: les, táborák, rybaření, deštivý den na chatě.

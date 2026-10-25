@@ -1,0 +1,67 @@
+{
+  "id": "cs-0087",
+  "language": "cs",
+  "size": 5,
+  "level": 5,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-25",
+  "groups": [
+    {
+      "title": "Psí plemena",
+      "difficulty": 1,
+      "words": [
+        "jezevčík",
+        "pudl",
+        "dalmatin",
+        "bígl"
+      ],
+      "explanation": "Plemena psů."
+    },
+    {
+      "title": "Česká pohoří",
+      "difficulty": 2,
+      "words": [
+        "Krkonoše",
+        "Šumava",
+        "Beskydy",
+        "Jeseníky"
+      ],
+      "explanation": "Pohoří v Česku, kde stojí spousta chat."
+    },
+    {
+      "title": "Dravci",
+      "difficulty": 3,
+      "words": [
+        "sokol",
+        "orel",
+        "káně",
+        "jestřáb"
+      ],
+      "explanation": "Draví ptáci."
+    },
+    {
+      "title": "Mají hřbet",
+      "difficulty": 4,
+      "words": [
+        "kniha",
+        "ruka",
+        "nůž",
+        "vlna"
+      ],
+      "explanation": "Hřbet knihy, hřbet ruky, hřbet nože a hřbet vlny. Hřbet mají i hory a psi, ale ti mají svou skupinu."
+    },
+    {
+      "title": "Na začátku mají jméno",
+      "difficulty": 5,
+      "words": [
+        "petržel",
+        "jantar",
+        "romantika",
+        "vítěz"
+      ],
+      "explanation": "PETRžel, JANtar, ROMANtika a VÍTěz – Petr, Jan, Roman a Vít."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "cs-0083",
+  "language": "cs",
+  "size": 4,
+  "level": 3,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-25",
+  "groups": [
+    {
+      "title": "Strunné nástroje",
+      "difficulty": 1,
+      "words": [
+        "housle",
+        "harfa",
+        "banjo",
+        "violoncello"
+      ],
+      "explanation": "Hudební nástroje se strunami."
+    },
+    {
+      "title": "Na pouti",
+      "difficulty": 2,
+      "words": [
+        "kolotoč",
+        "střelnice",
+        "perník",
+        "balónek"
+      ],
+      "explanation": "Co najdeš na pouti: kolotoč, střelnici, perníkové srdce i balónek."
+    },
+    {
+      "title": "Dají se doplnit slovem KOUZELNÝ",
+      "difficulty": 3,
+      "words": [
+        "hůlka",
+        "zrcadlo",
+        "slovíčko",
+        "lampa"
+      ],
+      "explanation": "Kouzelná hůlka, kouzelné zrcadlo (ze Sněhurky), kouzelné slovíčko (prosím) a Aladinova kouzelná lampa."
+    },
+    {
+      "title": "Mají křídla",
+      "difficulty": 4,
+      "words": [
+        "letadlo",
+        "motýl",
+        "anděl",
+        "okno"
+      ],
+      "explanation": "Letadlo, motýl i anděl mají křídla – a okno taky: okenní křídlo. Balónek létá, ale křídla nemá."
+    }
+  ]
+}

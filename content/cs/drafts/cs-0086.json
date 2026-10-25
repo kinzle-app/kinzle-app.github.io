@@ -1,0 +1,56 @@
+{
+  "id": "cs-0086",
+  "language": "cs",
+  "size": 4,
+  "level": 4,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-25",
+  "groups": [
+    {
+      "title": "Pohádkové bytosti",
+      "difficulty": 1,
+      "words": [
+        "hastrman",
+        "víla",
+        "skřítek",
+        "ježibaba"
+      ],
+      "explanation": "Bytosti z pohádek, které žijí u vody a v lese."
+    },
+    {
+      "title": "Sýry",
+      "difficulty": 2,
+      "words": [
+        "eidam",
+        "hermelín",
+        "niva",
+        "tvarůžky"
+      ],
+      "explanation": "Druhy sýrů."
+    },
+    {
+      "title": "Dají se zahnat",
+      "difficulty": 3,
+      "words": [
+        "hlad",
+        "žízeň",
+        "strach",
+        "nuda"
+      ],
+      "explanation": "Zahnat hlad, žízeň, strach i nudu. A dá se jimi i „umírat“: hlady, žízní, strachy, nudou."
+    },
+    {
+      "title": "Dají se doplnit slovem ŽIVÝ",
+      "difficulty": 4,
+      "words": [
+        "voda",
+        "plot",
+        "betlém",
+        "vysílání"
+      ],
+      "explanation": "Živá voda (z pohádek), živý plot, živý betlém a živé vysílání. Voda láká k hastrmanovi, ale patří sem."
+    }
+  ]
+}

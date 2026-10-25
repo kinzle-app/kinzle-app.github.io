@@ -1,0 +1,56 @@
+{
+  "id": "cs-0084",
+  "language": "cs",
+  "size": 4,
+  "level": 4,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-25",
+  "groups": [
+    {
+      "title": "Na noční obloze",
+      "difficulty": 1,
+      "words": [
+        "Měsíc",
+        "hvězda",
+        "meteor",
+        "souhvězdí"
+      ],
+      "explanation": "Co uvidíš v noci na obloze, když u chaty nesvítí lampy."
+    },
+    {
+      "title": "Hry venku",
+      "difficulty": 2,
+      "words": [
+        "schovávaná",
+        "honěná",
+        "škatulata",
+        "kuličky"
+      ],
+      "explanation": "Hry, které se hrají venku s kamarády."
+    },
+    {
+      "title": "Dají se pást",
+      "difficulty": 3,
+      "words": [
+        "ovce",
+        "krávy",
+        "husy",
+        "oči"
+      ],
+      "explanation": "Pást ovce, krávy i husy – a pást oči znamená dívat se na něco, co se líbí."
+    },
+    {
+      "title": "Na začátku mají číslo",
+      "difficulty": 4,
+      "words": [
+        "stodola",
+        "sedmikráska",
+        "osmisměrka",
+        "devětsil"
+      ],
+      "explanation": "STOdola, SEDMikráska, OSMisměrka a DEVĚTsil – sto, sedm, osm a devět."
+    }
+  ]
+}

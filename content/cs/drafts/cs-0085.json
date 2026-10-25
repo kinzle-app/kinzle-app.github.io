@@ -1,0 +1,45 @@
+{
+  "id": "cs-0085",
+  "language": "cs",
+  "size": 3,
+  "level": 1,
+  "tier": "easy",
+  "status": "draft",
+  "author": "Kinzle",
+  "createdAt": "2026-10-25",
+  "groups": [
+    {
+      "title": "Hmyz",
+      "difficulty": 1,
+      "words": [
+        "komár",
+        "vosa",
+        "beruška",
+        "čmelák"
+      ],
+      "explanation": "Hmyz, který v létě potkáš u chaty."
+    },
+    {
+      "title": "Na stanování",
+      "difficulty": 2,
+      "words": [
+        "stan",
+        "spacák",
+        "karimatka",
+        "ešus"
+      ],
+      "explanation": "Co si vzít, když spíš venku. Ešus je kovová miska a hrnec v jednom."
+    },
+    {
+      "title": "Dají se doplnit slovem LETNÍ",
+      "difficulty": 3,
+      "words": [
+        "prázdniny",
+        "tábor",
+        "kino",
+        "čas"
+      ],
+      "explanation": "Letní prázdniny, letní tábor, letní kino a letní čas (posunuté hodiny). Na táboře se stanuje, ale tábor patří sem."
+    }
+  ]
+}
