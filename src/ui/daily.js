@@ -14,6 +14,7 @@ import { addDays } from '../game/calendar.js';
 import { formatTime } from '../game/timer.js';
 import { hasSession } from './game.js';
 import { tabs } from './tabs.js';
+import { leaderboardEnabled } from '../services/leaderboard.js';
 
 export function formatDate(date, options = { day: 'numeric', month: 'numeric' }) {
   return new Intl.DateTimeFormat(getLanguage(), { ...options, timeZone: 'UTC' }).format(new Date(`${date}T12:00:00Z`));
@@ -89,6 +90,7 @@ export function renderDaily(root, { navigate }) {
           h('span', {}, t('game.points', { points: result.score })),
           h('span', {}, formatTime(result.seconds))),
         h('p', { class: 'panel-muted' }, t('daily.next'), ' ', left),
+        leaderboardEnabled() && h('button', { class: 'link', onclick: () => navigate('#/zebricek') }, t('board.open')),
         teaser ? h('p', { class: 'teaser' }, t('daily.teaser', { text: teaser })) : '');
     } else {
       card.append(h('button', { class: 'primary', onclick: () => navigate(`#/denni/${date}`) },

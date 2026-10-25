@@ -276,3 +276,42 @@ test('čeština: volba Lehká | Těžká na denní kartě, každá verze má svo
   await page.reload();
   await expect(page.getByText('Kinzle #1 · Těžká')).toBeVisible(); // volba se pamatuje
 });
+
+test('žebříček: zápis přezdívkou, chybná přezdívka, Dnes a Celkem (server je simulovaný)', async ({ page }) => {
+  await setup(page);
+  const calls = [];
+  // skutečný server se v testech nikdy nevolá
+  await page.route('**/*.supabase.co/**', async (route) => {
+    const url = route.request().url();
+    const body = route.request().postDataJSON() || {};
+    const name = url.split('/rpc/')[1];
+    calls.push(name || 'auth');
+    const json = (status, data) => route.fulfill({ status, contentType: 'application/json', body: JSON.stringify(data) });
+    if (!name) return json(200, { access_token: 't', refresh_token: 'r', expires_at: 4102444800 });
+    if (name === 'set_nickname') {
+      return body.p_nickname.includes('kokot') ? json(400, { code: 'P0001', message: 'nickname_bad' }) : json(200, body.p_nickname);
+    }
+    if (name === 'leaderboard') {
+      const me = body.p_kind === 'today'
+        ? { rank: 2, nickname: 'Syn', tier: 'easy', score: 160, seconds: 90, won: true, level: 12, stars: 30, me: true }
+        : { rank: 1, nickname: 'Syn', seeds: 42, level: 12, stars: 30, me: true };
+      const other = { rank: 1, nickname: 'Táta', tier: 'hard', score: 150, seconds: 200, won: true, level: 27, stars: 70, me: false };
+      return json(200, { top: body.p_kind === 'today' ? [other, me] : [me], me, count: 2 });
+    }
+    return json(200, null);
+  });
+  await page.goto('./#/vice');
+  await page.getByRole('button', { name: 'Žebříček' }).click();
+  const nick = page.getByRole('textbox', { name: 'Přezdívka (3–16 znaků)' });
+  await nick.fill('kokot');
+  await page.getByRole('button', { name: 'Zapsat se' }).click();
+  await expect(page.getByText('Tuhle přezdívku použít nejde')).toBeVisible();
+  await nick.fill('Syn');
+  await page.getByRole('button', { name: 'Zapsat se' }).click();
+  await expect(page.locator('.board li.me')).toContainText('160 b. · Lehká');
+  await expect(page.locator('.board li').first()).toContainText('Táta');
+  await expect(page.locator('.board li').first()).toContainText('úroveň 27 · ★ 70');
+  await page.getByRole('button', { name: 'Celkem' }).click();
+  await expect(page.locator('.board li.me')).toContainText('42 semínek');
+  expect(calls).toContain('set_path'); // odznak Cesty se poslal po zápisu
+});

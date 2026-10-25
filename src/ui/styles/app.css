@@ -491,3 +491,22 @@ dialog .primary { width: 100%; }
   font: inherit; font-weight: 700; font-size: calc(14px * var(--fs));
 }
 .tier-choice button[aria-pressed='true'] { background: var(--selected); color: var(--selected-ink); box-shadow: 0 2px 0 var(--selected-shadow); }
+
+/* ---------- Žebříček ---------- */
+.nick-form { display: flex; flex-direction: column; gap: 10px; }
+.nick-input {
+  min-height: 48px; padding: 0 14px; border: 2px solid var(--line); border-radius: 12px;
+  background: var(--panel); color: var(--panel-text); font: inherit; font-size: calc(16px * var(--fs));
+}
+.board { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.board li {
+  display: grid; grid-template-columns: 2.4em minmax(0, 1fr) auto; align-items: center; gap: 10px;
+  padding: 10px 12px; border-radius: 12px; background: var(--panel); color: var(--panel-text);
+}
+.board li.me { background: var(--selected); color: var(--selected-ink); }
+.board-me { margin-top: 10px; }
+.board-rank { font-weight: 800; font-variant-numeric: tabular-nums; }
+.board-name { display: flex; flex-direction: column; min-width: 0; }
+.board-name strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.board-name small { font-size: calc(12px * var(--fs)); }
+.board-value { font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }

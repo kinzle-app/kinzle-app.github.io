@@ -4,6 +4,7 @@ import { t, getLanguage } from '../services/i18n.js';
 import { listPuzzles } from '../services/content.js';
 import { tabs } from './tabs.js';
 import { isDebug } from '../services/debug.js';
+import { leaderboardEnabled } from '../services/leaderboard.js';
 
 export function renderMore(root, { navigate }) {
   const item = (hash, title, note) => h('li', {}, h('button', { class: 'menu-item', onclick: () => navigate(hash) },
@@ -13,6 +14,7 @@ export function renderMore(root, { navigate }) {
   root.append(h('div', { class: 'page' },
     h('h2', {}, t('more.title')),
     h('ul', { class: 'menu' },
+      leaderboardEnabled() && item('#/zebricek', t('board.title')),
       item('#/hry', t('history.title')),
       item('#/volna', t('free.title')),
       item('#/balicky', t('packs.title')),

@@ -26,6 +26,8 @@ import { renderMore } from './ui/more.js';
 import { renderArchive } from './ui/archive.js';
 import { renderBag } from './ui/bag.js';
 import { renderStats } from './ui/stats.js';
+import { renderLeaderboard } from './ui/leaderboard.js';
+import { sync as syncLeaderboard } from './services/leaderboard.js';
 import { renderGame } from './ui/game.js';
 import { renderSettings } from './ui/settings.js';
 import { renderHelp } from './ui/help.js';
@@ -88,14 +90,19 @@ function onChange(changes) {
 }
 
 // Uložení dohrané hry; vrací počet nových semínek ve váčku
-const finisher = (mode, date, tier) => (game, seconds, score) => recordGame(createEntry(game, { mode, date, seconds, score, tier }));
+// Uložení dohrané hry a odeslání nového výsledku do žebříčku (na pozadí, když je hráč zapsaný)
+const finisher = (mode, date, tier) => (game, seconds, score) => {
+  const added = recordGame(createEntry(game, { mode, date, seconds, score, tier }));
+  syncLeaderboard();
+  return added;
+};
 
 // Obrazovky se záložkami Denní / Cesta / Více
 const TAB_SCREENS = { '#/': renderDaily, '#/cesta': renderPath, '#/vice': renderMore };
 // Další obrazovky s tlačítkem Zpět
 const SCREENS = {
   '#/archiv': renderArchive, '#/vacek': renderBag, '#/statistiky': renderStats, '#/zapisnik': renderNotebook,
-  '#/volna': renderFree, '#/balicky': renderPacks, '#/hry': renderHistory
+  '#/volna': renderFree, '#/balicky': renderPacks, '#/hry': renderHistory, '#/zebricek': renderLeaderboard
 };
 
 // Denní hádanka (dnešní) nebo starší z archivu: #/denni/YYYY-MM-DD, u jazyka s úrovněmi i #/denni/YYYY-MM-DD/<úroveň>
@@ -254,3 +261,5 @@ render();
 
 // Novější obsah z webu se stáhne na pozadí a použije se při dalším spuštění
 if (!(isDebug() && debugOptions().offline)) updateContent();
+// Výsledky, které se minule nepodařilo odeslat (např. bez internetu)
+syncLeaderboard();

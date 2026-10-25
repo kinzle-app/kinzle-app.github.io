@@ -32,6 +32,9 @@ const offset = date || time ? (() => {
   return pragueMs(date || pragueDate(new Date()), hour, minute) - Date.now();
 })() : 0;
 
+// Posunuté hodiny = výsledky se nesmí posílat do žebříčku
+export const clockShifted = Boolean(date || time);
+
 export function now() {
   return new Date(Date.now() + offset);
 }

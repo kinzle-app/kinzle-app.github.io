@@ -339,5 +339,40 @@
       "oneAway": "one away",
       "wrong": "not a group"
     }
+  },
+  "board": {
+    "title": "Leaderboard",
+    "open": "Today’s leaderboard",
+    "intro": "Join with a nickname and compare yourself with others – kids and grown-ups alike.",
+    "privacy": "We only store your nickname, daily results, number of seeds and Path progress. No e-mail, no name. You can delete it all at any time.",
+    "nickname": "Nickname (3–16 characters)",
+    "join": "Join",
+    "loading": "Loading…",
+    "unavailable": "The leaderboard is unavailable right now. Try again in a moment – you can keep playing.",
+    "disabled": "The leaderboard is off in test mode.",
+    "today": "Today",
+    "total": "All time",
+    "todayNote": "Today’s daily puzzle. All levels share one board: what counts is how you did against players of your own level.",
+    "totalNote": "Seeds from all games except training. Each group counts only once.",
+    "todayEmpty": "Nobody has played today yet. Be the first!",
+    "totalEmpty": "Nobody here yet.",
+    "notYet": "Finish today’s puzzle to appear here.",
+    "badge": "level {level} · ★ {stars}",
+    "seeds": {
+      "one": "{count} seed",
+      "other": "{count} seeds"
+    },
+    "playingAs": "Playing as {name}.",
+    "forget": "Delete my leaderboard data",
+    "forgetTitle": "Delete your data?",
+    "forgetText": "Your nickname, results and seeds will disappear from the leaderboard. The game on this device stays as it is.",
+    "forgetConfirm": "Delete",
+    "cancel": "Cancel",
+    "error": {
+      "nickname_taken": "That nickname is taken, try another one.",
+      "nickname_length": "A nickname needs 3 to 16 characters.",
+      "nickname_chars": "Use only letters, digits, space, dot, dash or underscore.",
+      "nickname_bad": "That nickname can’t be used, please pick another."
+    }
   }
 }

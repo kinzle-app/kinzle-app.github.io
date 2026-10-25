@@ -1,0 +1,23 @@
+# Budíček pro Supabase: free projekt se po 7 dnech bez aktivity uspí.
+# Každé 3 dny zavolá malou funkci ping(). Adresa a veřejný klíč jsou v GitHub Secrets
+# (SUPABASE_URL, SUPABASE_KEY) – návod v docs/ZEBRICEK.md.
+name: Ping Supabase
+
+on:
+  schedule:
+    - cron: '17 6 */3 * *'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Zavolat ping()
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: |
+          curl --fail --silent --show-error -X POST "$SUPABASE_URL/rest/v1/rpc/ping" \
+            -H "apikey: $SUPABASE_KEY" -H "Content-Type: application/json" -d '{}'

@@ -367,5 +367,42 @@
       "oneAway": "těsně vedle",
       "wrong": "vedle"
     }
+  },
+  "board": {
+    "title": "Žebříček",
+    "open": "Žebříček dneška",
+    "intro": "Zapiš se přezdívkou a porovnej se s ostatními – s dětmi i dospělými.",
+    "privacy": "Ukládáme jen přezdívku, výsledky denní hádanky, počet semínek a postup na Cestě. Žádný e-mail ani jméno. Všechno můžeš kdykoli smazat.",
+    "nickname": "Přezdívka (3–16 znaků)",
+    "join": "Zapsat se",
+    "loading": "Načítám…",
+    "unavailable": "Žebříček je teď nedostupný. Zkus to za chvíli – hra jde hrát dál.",
+    "disabled": "V testovacím režimu je žebříček vypnutý.",
+    "today": "Dnes",
+    "total": "Celkem",
+    "todayNote": "Dnešní denní hádanka. Lehká i Těžká jsou v jednom žebříčku: rozhoduje, jak sis vedl proti hráčům své úrovně.",
+    "totalNote": "Semínka ze všech her kromě tréninku. Každá skupina se počítá jen jednou.",
+    "todayEmpty": "Dnes ještě nikdo nehrál. Buď první!",
+    "totalEmpty": "Zatím tu nikdo není.",
+    "notYet": "Dohraj dnešní hádanku a objevíš se tu.",
+    "badge": "úroveň {level} · ★ {stars}",
+    "seeds": {
+      "one": "{count} semínko",
+      "few": "{count} semínka",
+      "many": "{count} semínka",
+      "other": "{count} semínek"
+    },
+    "playingAs": "Hraješ jako {name}.",
+    "forget": "Smazat moje údaje ze žebříčku",
+    "forgetTitle": "Smazat údaje?",
+    "forgetText": "Ze žebříčku zmizí tvoje přezdívka, výsledky i semínka. Hra v telefonu zůstane, jak je.",
+    "forgetConfirm": "Smazat",
+    "cancel": "Zrušit",
+    "error": {
+      "nickname_taken": "Tahle přezdívka už je obsazená, zkus jinou.",
+      "nickname_length": "Přezdívka musí mít 3 až 16 znaků.",
+      "nickname_chars": "Použij jen písmena, číslice, mezeru, tečku, pomlčku nebo podtržítko.",
+      "nickname_bad": "Tuhle přezdívku použít nejde, vyber si jinou."
+    }
   }
 }
