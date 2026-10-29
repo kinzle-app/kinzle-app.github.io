@@ -3,8 +3,8 @@
 ## Co kde je
 - Projekt Supabase **kinzle** v organizaci Kinzle (region Frankfurt, free plán).
 - Adresa a veřejný klíč: `src/config/backend.js`. Tajný klíč (secret / service_role) do repozitáře **nikdy**.
-- Databáze: `supabase/migrations/` – tabulky `players`, `daily_results`, `seeds`, `path_progress` a funkce
-  `set_nickname`, `submit_daily`, `add_seeds`, `set_path`, `leaderboard`, `delete_me`, `ping`.
+- Databáze: `supabase/migrations/` – tabulky `players`, `daily_results`, `path_scores`, `path_days`, `path_progress` (a nepoužívaná `seeds` z první verze) a funkce
+  `set_nickname`, `submit_daily`, `submit_path`, `set_path`, `leaderboard`, `delete_me`, `ping`.
 - Aplikace: `src/services/leaderboard.js` (síť), `src/game/leaderboard.js` (co poslat), `src/ui/leaderboard.js` (obrazovka `#/zebricek`).
 - Party: `supabase/migrations/002_party.sql` – tabulky `parties`, `party_members`, `party_puzzles`; obrazovky `src/ui/party.js` (`#/parta`, `#/parta/<id>`, pozvánka `#/parta/pripojit/<kód>`). Žebříček party je stejná funkce `leaderboard` s parametrem `p_party`.
 - Vlastní hádanka: celá v odkazu `#/h/<kód>` (`src/game/custom.js`, `src/ui/custom.js`), server ji potřebuje jen pro hádanky party. Nepočítá se do semínek, statistik ani žebříčku.
@@ -12,9 +12,10 @@
 
 ## Pravidla
 - Hráč se zapíše přezdívkou (anonymní přihlášení Supabase, žádný e-mail).
-- **Dnes**: dnešní denní hádanka, za den se počítá první dohraná. Lehká a Těžká v jednom žebříčku –
-  pořadí podle toho, jak hráč dopadl proti hráčům své úrovně, při shodě body a čas.
-- **Celkem**: semínka (vyřešené skupiny) ze všech her kromě tréninku, každá skupina jednou, bez nulování.
+- Žebříček je podle **bodů** (migrace 004): denní hádanka Lehká i Těžká (za den jeden výsledek za každou verzi,
+  počítá se první dohraný) a Cesta (za každou úroveň nejlepší vyhraný výsledek; při zlepšení se přičte jen rozdíl).
+- **Dnes**: dnešní body z denních hádanek + co dnes přibylo na Cestě. **Celkem**: všechno dohromady, bez nulování.
+- Archiv, balíčky, trénink a vlastní hádanky se do žebříčku nepočítají.
 - U přezdívky odznak Cesty: nejvyšší dohraná úroveň a hvězdy.
 - V testovacím režimu (`?debug`) a s posunutými hodinami (`?datum`) se nic neodesílá.
 

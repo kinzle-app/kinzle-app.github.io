@@ -1,24 +1,29 @@
 // Co poslat do žebříčku – čistá logika bez sítě. Síť a přihlášení jsou v services/leaderboard.js.
-import { seeds } from './progress.js';
 
-// Denní hádanky daných dnů, které ještě nebyly odeslány. Za den se počítá jen první dohraná
-// (u jazyka s úrovněmi ta, kterou hráč dohrál dřív). sent = ['cs:2026-10-25', …]
-export function dailyToSend(history, lang, days, sent) {
-  return days.flatMap((day) => {
-    if (sent.includes(`${lang}:${day}`)) return [];
-    const first = history
-      .filter((e) => e.mode === 'daily' && e.date === day && e.puzzleId.startsWith(`${lang}-`))
-      .sort((a, b) => (a.finishedAt || '').localeCompare(b.finishedAt || ''))[0];
-    return first ? [first] : [];
-  });
+// Denní hádanky daných dnů, které ještě nebyly odeslány: za každý den jedna za každou verzi (Lehká, Těžká),
+// a to ta dohraná první. Záznamy bez verze patří k výchozí (fallback). sent = ['cs:2026-10-25:easy', …]
+export function dailyToSend(history, lang, days, sent, fallback = null) {
+  const out = new Map();
+  history
+    .filter((e) => e.mode === 'daily' && days.includes(e.date) && e.puzzleId.startsWith(`${lang}-`))
+    .sort((a, b) => (a.finishedAt || '').localeCompare(b.finishedAt || ''))
+    .forEach((e) => {
+      const tier = e.tier || fallback;
+      const key = `${lang}:${e.date}:${tier}`;
+      if (!out.has(key) && !sent.includes(key)) out.set(key, { key, tier, entry: e });
+    });
+  return [...out.values()];
 }
 
-// Semínka jazyka, která server ještě nemá. Trénink se nepočítá.
-export function seedsToSend(history, lang, sent) {
-  const known = new Set(sent);
-  return seeds({ history: history.filter((e) => e.mode !== 'free') })
-    .map((s) => s.key)
-    .filter((key) => key.startsWith(`${lang}-`) && !known.has(key));
+// Vyhrané úrovně Cesty s lepším výsledkem, než má server: [{ puzzleId, score, date }].
+// sent = { 'cs-0006': 120, … } (nejlepší odeslané body)
+export function pathToSend(history, lang, sent) {
+  const best = new Map();
+  for (const e of history) {
+    if (e.mode !== 'path' || !e.won || !e.puzzleId.startsWith(`${lang}-`)) continue;
+    if (!best.has(e.puzzleId) || e.score > best.get(e.puzzleId).score) best.set(e.puzzleId, { puzzleId: e.puzzleId, score: e.score, date: e.date });
+  }
+  return [...best.values()].filter((b) => b.score > (sent[b.puzzleId] || 0));
 }
 
 // Odznak Cesty: nejvyšší dohraná úroveň a součet hvězd. state = actState() z game/path.js

@@ -389,18 +389,12 @@
     "disabled": "V testovacím režimu je žebříček vypnutý.",
     "today": "Dnes",
     "total": "Celkem",
-    "todayNote": "Dnešní denní hádanka. Lehká i Těžká jsou v jednom žebříčku: rozhoduje, jak sis vedl proti hráčům své úrovně.",
-    "totalNote": "Semínka ze všech her kromě tréninku. Každá skupina se počítá jen jednou.",
+    "todayNote": "Dnešní body: denní hádanka Lehká i Těžká a co dnes přibylo na Cestě.",
+    "totalNote": "Body ze všech denních hádanek a za každou úroveň Cesty její nejlepší výsledek. Opakováním úrovně jde body jen vylepšit.",
     "todayEmpty": "Dnes ještě nikdo nehrál. Buď první!",
     "totalEmpty": "Zatím tu nikdo není.",
     "notYet": "Dohraj dnešní hádanku a objevíš se tu.",
     "badge": "úroveň {level} · ★ {stars}",
-    "seeds": {
-      "one": "{count} semínko",
-      "few": "{count} semínka",
-      "many": "{count} semínka",
-      "other": "{count} semínek"
-    },
     "playingAs": "Hraješ jako {name}.",
     "forget": "Smazat moje údaje ze žebříčku",
     "forgetTitle": "Smazat údaje?",
@@ -416,7 +410,8 @@
     "privacyStored": "Uložíme jen přezdívku, výsledky denní hádanky, semínka a postup na Cestě.",
     "privacyNot": "Žádný e-mail, jméno ani heslo.",
     "privacyDelete": "Všechno můžeš kdykoli smazat.",
-    "all": "Celý žebříček"
+    "all": "Celý žebříček",
+    "split": "denní {daily} · Cesta {path}"
   },
   "custom": {
     "title": "Vlastní hádanka",

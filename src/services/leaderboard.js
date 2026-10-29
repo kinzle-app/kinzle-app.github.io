@@ -11,7 +11,7 @@ import { getLanguage } from './i18n.js';
 import { defaultTier } from '../config/tiers.js';
 import { addDays } from '../game/calendar.js';
 import { actState } from '../game/path.js';
-import { dailyToSend, seedsToSend, pathBadge } from '../game/leaderboard.js';
+import { dailyToSend, pathToSend, pathBadge } from '../game/leaderboard.js';
 
 const cache = new Map();
 let syncing = null;
@@ -23,7 +23,7 @@ export function leaderboardEnabled() {
 
 // Uložený stav: přezdívka a co už je na serveru (aby se nic neposílalo dvakrát)
 function state() {
-  return { nickname: null, sentDaily: [], sentSeeds: [], path: {}, ...load('leaderboard', {}) };
+  return { nickname: null, sentDaily: [], sentPath: {}, path: {}, ...load('leaderboard', {}) };
 }
 
 function update(changes) {
@@ -98,19 +98,20 @@ async function send() {
   const lang = getLanguage();
   const progress = getProgress();
 
-  for (const e of dailyToSend(progress.history, lang, [addDays(today(), -1), today()], state().sentDaily)) {
+  // denní hádanky: Lehká i Těžká (u jazyka bez verzí výchozí 'medium')
+  const days = [addDays(today(), -1), today()];
+  for (const { key, tier, entry: e } of dailyToSend(progress.history, lang, days, state().sentDaily, defaultTier(lang) || 'medium')) {
     await tolerant(() => rpc('submit_daily', {
-      p_lang: lang, p_day: e.date, p_tier: e.tier || defaultTier(lang) || 'medium', p_puzzle: e.puzzleId,
+      p_lang: lang, p_day: e.date, p_tier: tier, p_puzzle: e.puzzleId,
       p_score: e.score, p_seconds: e.seconds, p_mistakes: e.mistakes, p_hints: e.hints, p_won: e.won
     }));
-    update({ sentDaily: [...state().sentDaily, `${lang}:${e.date}`] });
+    update({ sentDaily: [...state().sentDaily, key] });
   }
 
-  const keys = seedsToSend(progress.history, lang, state().sentSeeds);
-  for (let i = 0; i < keys.length; i += 1000) {
-    const part = keys.slice(i, i + 1000);
-    await tolerant(() => rpc('add_seeds', { p_lang: lang, p_seeds: part }));
-    update({ sentSeeds: [...state().sentSeeds, ...part] });
+  // Cesta: nejlepší výsledek každé vyhrané úrovně (server přičte jen zlepšení)
+  for (const p of pathToSend(progress.history, lang, state().sentPath)) {
+    await tolerant(() => rpc('submit_path', { p_lang: lang, p_puzzle: p.puzzleId, p_score: p.score, p_day: p.date }));
+    update({ sentPath: { ...state().sentPath, [p.puzzleId]: p.score } });
   }
 
   const act = currentAct(lang);

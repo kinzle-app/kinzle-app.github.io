@@ -295,9 +295,9 @@ test('žebříček: zápis přezdívkou, chybná přezdívka, Dnes a Celkem (ser
     }
     if (name === 'leaderboard') {
       const me = body.p_kind === 'today'
-        ? { rank: 2, nickname: 'Syn', tier: 'easy', score: 160, seconds: 90, won: true, level: 12, stars: 30, me: true }
-        : { rank: 1, nickname: 'Syn', seeds: 42, level: 12, stars: 30, me: true };
-      const other = { rank: 1, nickname: 'Táta', tier: 'hard', score: 150, seconds: 200, won: true, level: 27, stars: 70, me: false };
+        ? { rank: 2, nickname: 'Syn', points: 160, daily: 120, path: 40, level: 12, stars: 30, me: true }
+        : { rank: 1, nickname: 'Syn', points: 2400, daily: 1500, path: 900, level: 12, stars: 30, me: true };
+      const other = { rank: 1, nickname: 'Táta', points: 310, daily: 310, path: 0, level: 27, stars: 70, me: false };
       return json(200, { top: body.p_kind === 'today' ? [other, me] : [me], me, count: 2 });
     }
     return json(200, null);
@@ -312,11 +312,12 @@ test('žebříček: zápis přezdívkou, chybná přezdívka, Dnes a Celkem (ser
   await expect(page.getByText('Tuhle přezdívku použít nejde')).toBeVisible();
   await nick.fill('Syn');
   await page.getByRole('button', { name: 'Zapsat se' }).click();
-  await expect(page.locator('.rank-list li.me')).toContainText('160 b. · Lehká');
+  await expect(page.locator('.rank-list li.me')).toContainText('160 b.');
+  await expect(page.locator('.rank-list li.me')).toContainText('denní 120 · Cesta 40');
   await expect(page.locator('.rank-list li').first()).toContainText('Táta');
   await expect(page.locator('.rank-list li').first()).toContainText('úroveň 27 · ★ 70');
   await page.getByRole('button', { name: 'Celkem' }).click();
-  await expect(page.locator('.rank-list li.me')).toContainText('42 semínek');
+  await expect(page.locator('.rank-list li.me')).toContainText(/2\s400\sb\./); // tisíce i jednotka s pevnou mezerou
   expect(calls).toContain('set_path'); // odznak Cesty se poslal po zápisu
 });
 

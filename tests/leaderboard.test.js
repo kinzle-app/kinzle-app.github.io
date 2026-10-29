@@ -1,37 +1,42 @@
 import { describe, it, expect } from 'vitest';
-import { dailyToSend, seedsToSend, pathBadge } from '../src/game/leaderboard.js';
+import { dailyToSend, pathToSend, pathBadge } from '../src/game/leaderboard.js';
 
-const g = (difficulty) => ({ title: `G${difficulty}`, words: ['a', 'b', 'c', 'd'], difficulty });
 const entry = (puzzleId, mode, date, extra = {}) =>
-  ({ puzzleId, mode, date, won: true, score: 100, seconds: 60, mistakes: 0, hints: 0, solved: [g(1), g(2)], ...extra });
+  ({ puzzleId, mode, date, won: true, score: 100, seconds: 60, mistakes: 0, hints: 0, solved: [], ...extra });
 
-describe('denní výsledek do žebříčku', () => {
-  it('za den jen první dohraná denní hádanka daného jazyka', () => {
+describe('denní výsledky do žebříčku', () => {
+  it('za den jedna Lehká a jedna Těžká (vždy ta dohraná první), jen daný jazyk a jen denní', () => {
     const history = [
       entry('cs-0002', 'daily', '2026-10-25', { tier: 'hard', finishedAt: '2026-10-25T10:00:00Z' }),
       entry('cs-0001', 'daily', '2026-10-25', { tier: 'easy', finishedAt: '2026-10-25T08:00:00Z' }),
+      entry('cs-0003', 'daily', '2026-10-25', { tier: 'easy', finishedAt: '2026-10-25T09:00:00Z' }),
       entry('en-0001', 'daily', '2026-10-25'),
-      entry('cs-0003', 'archive', '2026-10-25')
+      entry('cs-0004', 'archive', '2026-10-25')
     ];
-    expect(dailyToSend(history, 'cs', ['2026-10-24', '2026-10-25'], []).map((e) => e.puzzleId)).toEqual(['cs-0001']);
+    expect(dailyToSend(history, 'cs', ['2026-10-24', '2026-10-25'], []).map((x) => [x.key, x.entry.puzzleId]))
+      .toEqual([['cs:2026-10-25:easy', 'cs-0001'], ['cs:2026-10-25:hard', 'cs-0002']]);
   });
 
-  it('už odeslaný den se znovu neposílá', () => {
-    const history = [entry('cs-0001', 'daily', '2026-10-25')];
-    expect(dailyToSend(history, 'cs', ['2026-10-25'], ['cs:2026-10-25'])).toEqual([]);
+  it('záznam bez verze patří k výchozí; už odeslaný se znovu neposílá', () => {
+    const history = [entry('cs-0001', 'daily', '2026-10-25'), entry('cs-0002', 'daily', '2026-10-25', { tier: 'hard' })];
+    expect(dailyToSend(history, 'cs', ['2026-10-25'], ['cs:2026-10-25:easy'], 'easy').map((x) => x.key)).toEqual(['cs:2026-10-25:hard']);
   });
 });
 
-describe('semínka do žebříčku', () => {
-  it('každá skupina jen jednou, bez tréninku a bez jiného jazyka, bez už odeslaných', () => {
+describe('Cesta do žebříčku', () => {
+  it('za úroveň nejlepší vyhraný výsledek, jen když je lepší než odeslaný', () => {
     const history = [
-      entry('cs-0001', 'daily', '2026-10-24'),
-      entry('cs-0001', 'archive', '2026-10-25'),
-      entry('cs-0009', 'free', '2026-10-25'),
-      entry('en-0001', 'daily', '2026-10-25')
+      entry('cs-0006', 'path', '2026-10-20', { score: 120 }),
+      entry('cs-0006', 'path', '2026-10-25', { score: 150 }),
+      entry('cs-0007', 'path', '2026-10-25', { score: 300, won: false }),
+      entry('cs-0008', 'path', '2026-10-24', { score: 90 }),
+      entry('cs-0009', 'free', '2026-10-25', { score: 0 })
     ];
-    expect(seedsToSend(history, 'cs', [])).toEqual(['cs-0001#1', 'cs-0001#2']);
-    expect(seedsToSend(history, 'cs', ['cs-0001#1'])).toEqual(['cs-0001#2']);
+    expect(pathToSend(history, 'cs', {})).toEqual([
+      { puzzleId: 'cs-0006', score: 150, date: '2026-10-25' },
+      { puzzleId: 'cs-0008', score: 90, date: '2026-10-24' }
+    ]);
+    expect(pathToSend(history, 'cs', { 'cs-0006': 150, 'cs-0008': 80 })).toEqual([{ puzzleId: 'cs-0008', score: 90, date: '2026-10-24' }]);
   });
 });
 

@@ -1,8 +1,7 @@
 // Žebříček (#/zebricek): zápis přezdívkou, záložky Dnes (denní hádanka) a Celkem (semínka), smazání údajů.
 // Formulář přezdívky a pořadí používá i obrazovka party.
 import { h } from './dom.js';
-import { t, getLanguage } from '../services/i18n.js';
-import { tiersOf } from '../config/tiers.js';
+import { t } from '../services/i18n.js';
 import { leaderboardEnabled, nickname, join, board, forget } from '../services/leaderboard.js';
 import { openModal } from './modal.js';
 
@@ -108,14 +107,14 @@ export function rankings(party = null, { limit = null, onMore = null } = {}) {
     return out;
   }
 
+  // body celkem a pod nimi rozpis: denní hádanky (Lehká + Těžká) a Cesta
   function row(r) {
-    const value = kind === 'today'
-      ? [t('game.points', { points: r.score }), tiersOf(getLanguage()).length ? ` · ${t(`tier.${r.tier}`)}` : '']
-      : [t('board.seeds', { count: r.seeds })];
     return h('li', { class: r.me ? 'me' : '' },
       h('span', { class: 'rank-pos' }, `${r.rank}.`),
       playerName(r),
-      h('span', { class: 'rank-value' }, ...value));
+      h('span', { class: 'rank-value' },
+        h('strong', {}, t('game.points', { points: r.points })),
+        h('small', {}, t('board.split', { daily: r.daily, path: r.path }))));
   }
 }
 

@@ -361,16 +361,12 @@
     "disabled": "The leaderboard is off in test mode.",
     "today": "Today",
     "total": "All time",
-    "todayNote": "Today’s daily puzzle. All levels share one board: what counts is how you did against players of your own level.",
-    "totalNote": "Seeds from all games except training. Each group counts only once.",
+    "todayNote": "Today’s points: every daily puzzle level and what you added on the Path today.",
+    "totalNote": "Points from all daily puzzles plus your best result on each Path level. Replaying a level can only improve it.",
     "todayEmpty": "Nobody has played today yet. Be the first!",
     "totalEmpty": "Nobody here yet.",
     "notYet": "Finish today’s puzzle to appear here.",
     "badge": "level {level} · ★ {stars}",
-    "seeds": {
-      "one": "{count} seed",
-      "other": "{count} seeds"
-    },
     "playingAs": "Playing as {name}.",
     "forget": "Delete my leaderboard data",
     "forgetTitle": "Delete your data?",
@@ -386,7 +382,8 @@
     "privacyStored": "We only store your nickname, daily results, seeds and Path progress.",
     "privacyNot": "No e-mail, name or password.",
     "privacyDelete": "You can delete it all at any time.",
-    "all": "Full leaderboard"
+    "all": "Full leaderboard",
+    "split": "daily {daily} · Path {path}"
   },
   "custom": {
     "title": "Your own puzzle",
