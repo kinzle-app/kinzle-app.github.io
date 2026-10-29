@@ -340,7 +340,10 @@
     "empty": "Zatím žádný střípek. První najdeš na konci 1. kapitoly.",
     "tip": "Můj tip",
     "placeholder": "Myslím, že Praslovo je…",
-    "saved": "Uloženo"
+    "save": "Uložit tip",
+    "change": "Změnit tip",
+    "cancel": "Zrušit",
+    "savedOn": "Můj tip · uložen {date}"
   },
   "tier": {
     "easy": "Lehká",
@@ -387,13 +390,7 @@
     "loading": "Načítám…",
     "unavailable": "Žebříček je teď nedostupný. Zkus to za chvíli – hra jde hrát dál.",
     "disabled": "V testovacím režimu je žebříček vypnutý.",
-    "today": "Dnes",
-    "total": "Celkem",
-    "todayNote": "Dnešní body: denní hádanka Lehká i Těžká a co dnes přibylo na Cestě.",
-    "totalNote": "Body ze všech denních hádanek a za každou úroveň Cesty její nejlepší výsledek. Opakováním úrovně jde body jen vylepšit.",
-    "todayEmpty": "Dnes ještě nikdo nehrál. Buď první!",
-    "totalEmpty": "Zatím tu nikdo není.",
-    "notYet": "Dohraj dnešní hádanku a objevíš se tu.",
+    "notYet": "Dohraj denní hádanku nebo úroveň Cesty a objevíš se tu.",
     "badge": "úroveň {level} · ★ {stars}",
     "playingAs": "Hraješ jako {name}.",
     "forget": "Smazat moje údaje ze žebříčku",
@@ -411,7 +408,10 @@
     "privacyNot": "Žádný e-mail, jméno ani heslo.",
     "privacyDelete": "Všechno můžeš kdykoli smazat.",
     "all": "Celý žebříček",
-    "split": "denní {daily} · Cesta {path}"
+    "note": "Body za denní hádanky (Lehká i Těžká) a za Cestu. Pod body vidíš, kolik komu dnes přibylo.",
+    "empty": "Zatím tu nikdo není. Buď první!",
+    "todayGain": "dnes +{points}",
+    "todayNone": "dnes –"
   },
   "custom": {
     "title": "Vlastní hádanka",

@@ -6,6 +6,8 @@ import { getProgress, updateProgress } from '../services/progress.js';
 import { actState, activeChapterIndex, layout, trackPath } from '../game/path.js';
 import { openModal } from './modal.js';
 import { tabs } from './tabs.js';
+import { formatDate } from './daily.js';
+import { today } from '../services/clock.js';
 
 const STAR = 'M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z';
 const ICONS = {
@@ -233,23 +235,39 @@ function ornament(kind, width, height) {
   return dots;
 }
 
-// Zápisník: nasbírané střípky a vlastní tip hráče (jen se ukládá, nic se nehodnotí)
+// Zápisník: nasbírané střípky a vlastní tip hráče. Tip se ukládá tlačítkem (vědomé rozhodnutí),
+// zůstává jen v zařízení a nic se nehodnotí.
 export function renderNotebook(root) {
   const act = currentAct(getLanguage());
   const progress = getProgress();
   const shards = act ? actState(act, progress).chapters.filter((c) => c.complete && act.chapterStory(c.id).shard) : [];
-  const saved = h('p', { class: 'share-note', role: 'status' });
-  let timer = null;
-  const tip = h('textarea', {
-    class: 'notebook-tip', rows: 4, maxlength: 280, placeholder: t('notebook.placeholder'), 'aria-label': t('notebook.tip'),
-    oninput: () => {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        updateProgress(() => ({ notebook: { text: tip.value } }));
-        saved.textContent = t('notebook.saved');
-      }, 400);
+  const tip = h('div', { class: 'tip-box' });
+  drawTip(progress.notebook.text ? 'card' : 'edit');
+
+  // 'card' = uložený tip s datem a tlačítkem Změnit; 'edit' = psaní a Uložit tip
+  function drawTip(mode) {
+    const saved = getProgress().notebook;
+    if (mode === 'card') {
+      tip.replaceChildren(
+        h('section', { class: 'panel tip-card' },
+          h('small', {}, saved.savedAt ? t('notebook.savedOn', { date: formatDate(saved.savedAt) }) : t('notebook.tip')),
+          h('p', { class: 'panel-text tip-text' }, saved.text)),
+        h('button', { class: 'secondary', onclick: () => drawTip('edit') }, t('notebook.change')));
+      return;
     }
-  }, progress.notebook.text);
+    const area = h('textarea', {
+      class: 'notebook-tip', rows: 4, maxlength: 280, placeholder: t('notebook.placeholder'), 'aria-label': t('notebook.tip'),
+      oninput: () => { save.disabled = !area.value.trim() || area.value.trim() === saved.text; }
+    }, saved.text);
+    const save = h('button', {
+      class: 'primary', disabled: true,
+      onclick: () => {
+        updateProgress(() => ({ notebook: { text: area.value.trim(), savedAt: today() } }));
+        drawTip('card');
+      }
+    }, t('notebook.save'));
+    tip.replaceChildren(area, save, saved.text && h('button', { class: 'secondary', onclick: () => drawTip('card') }, t('notebook.cancel')));
+  }
 
   root.append(h('div', { class: 'page' },
     h('h2', {}, t('notebook.title')),
@@ -259,5 +277,5 @@ export function renderNotebook(root) {
         h('small', {}, act.chapterStory(c.id).title), h('p', {}, act.chapterStory(c.id).shard))))
       : h('p', {}, t('notebook.empty')),
     h('h3', {}, t('notebook.tip')),
-    tip, saved));
+    tip));
 }

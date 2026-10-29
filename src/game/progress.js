@@ -32,7 +32,11 @@ export function normalizeProgress(raw) {
     history: raw.history.filter(validEntry),
     skipped: strings(raw.skipped),           // přeskočené úrovně Cesty (id hádanek)
     storySeen: strings(raw.storySeen),       // přečtené části příběhu ('intro:1-1', 'outro:1-1')
-    notebook: { text: typeof raw.notebook?.text === 'string' ? raw.notebook.text : '' } // tip do zápisníku
+    // tip do zápisníku a den, kdy ho hráč uložil (starší tipy datum nemají)
+    notebook: {
+      text: typeof raw.notebook?.text === 'string' ? raw.notebook.text : '',
+      ...(typeof raw.notebook?.savedAt === 'string' && { savedAt: raw.notebook.savedAt })
+    }
   };
 }
 

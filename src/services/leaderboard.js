@@ -124,14 +124,14 @@ async function send() {
   cache.clear();
 }
 
-// Žebříček 'today' nebo 'total' (celý, nebo jen parta): { top: [...], me, count }. Drží se minutu v paměti.
-export async function board(kind, party = null) {
+// Žebříček (celý, nebo jen parta): { top: [...], me, count }. Drží se minutu v paměti.
+export async function board(party = null) {
   const lang = getLanguage();
-  const key = `${lang}:${kind}:${party}`;
+  const key = `${lang}:${party}`;
   const hit = cache.get(key);
   if (hit && Date.now() - hit.at < BACKEND.cacheSeconds * 1000) return hit.data;
   await sync();
-  const data = await rpc('leaderboard', { p_lang: lang, p_kind: kind, ...(party && { p_party: party }) });
+  const data = await rpc('leaderboard', { p_lang: lang, p_kind: 'total', ...(party && { p_party: party }) });
   cache.set(key, { at: Date.now(), data });
   return data;
 }

@@ -312,7 +312,10 @@
     "empty": "No fragments yet. You’ll find the first at the end of chapter 1.",
     "tip": "My guess",
     "placeholder": "I think the First Word is…",
-    "saved": "Saved"
+    "save": "Save my guess",
+    "change": "Change my guess",
+    "cancel": "Cancel",
+    "savedOn": "My guess · saved {date}"
   },
   "tier": {
     "easy": "Easy",
@@ -359,13 +362,7 @@
     "loading": "Loading…",
     "unavailable": "The leaderboard is unavailable right now. Try again in a moment – you can keep playing.",
     "disabled": "The leaderboard is off in test mode.",
-    "today": "Today",
-    "total": "All time",
-    "todayNote": "Today’s points: every daily puzzle level and what you added on the Path today.",
-    "totalNote": "Points from all daily puzzles plus your best result on each Path level. Replaying a level can only improve it.",
-    "todayEmpty": "Nobody has played today yet. Be the first!",
-    "totalEmpty": "Nobody here yet.",
-    "notYet": "Finish today’s puzzle to appear here.",
+    "notYet": "Finish a daily puzzle or a Path level to appear here.",
     "badge": "level {level} · ★ {stars}",
     "playingAs": "Playing as {name}.",
     "forget": "Delete my leaderboard data",
@@ -383,7 +380,10 @@
     "privacyNot": "No e-mail, name or password.",
     "privacyDelete": "You can delete it all at any time.",
     "all": "Full leaderboard",
-    "split": "daily {daily} · Path {path}"
+    "note": "Points from daily puzzles (every level) and the Path. Under the points you see what each player added today.",
+    "empty": "Nobody here yet. Be the first!",
+    "todayGain": "today +{points}",
+    "todayNone": "today –"
   },
   "custom": {
     "title": "Your own puzzle",

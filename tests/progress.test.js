@@ -92,6 +92,12 @@ describe('historie a váček', () => {
 });
 
 describe('poškozená data a záloha', () => {
+  it('tip do zápisníku si pamatuje den uložení; starší tip bez data zůstane', () => {
+    const base = { ...emptyProgress(), notebook: { text: 'kámen?', savedAt: '2026-10-29' } };
+    expect(normalizeProgress(base).notebook).toEqual({ text: 'kámen?', savedAt: '2026-10-29' });
+    expect(normalizeProgress({ ...base, notebook: { text: 'starý' } }).notebook).toEqual({ text: 'starý' });
+  });
+
   it('neznámá nebo rozbitá data → prázdný postup', () => {
     expect(normalizeProgress(null)).toEqual(emptyProgress());
     expect(normalizeProgress({ version: 99, history: [] })).toEqual(emptyProgress());

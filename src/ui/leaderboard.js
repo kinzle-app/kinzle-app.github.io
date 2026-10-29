@@ -5,8 +5,6 @@ import { t } from '../services/i18n.js';
 import { leaderboardEnabled, nickname, join, board, forget } from '../services/leaderboard.js';
 import { openModal } from './modal.js';
 
-let kind = 'today'; // vybraná záložka (pamatuje se mezi návštěvami)
-
 const ERRORS = ['nickname_taken', 'nickname_length', 'nickname_chars', 'nickname_bad'];
 
 export function renderLeaderboard(root) {
@@ -69,27 +67,17 @@ export function nicknameForm(onDone) {
   ];
 }
 
-// Pořadí se záložkami Dnes / Celkem: celé, nebo jen pro partu (party = id party).
+// Pořadí podle celkových bodů a u každého, kolik dnes přibylo: celé, nebo jen pro partu (party = id party).
 // limit = kolik prvních hráčů ukázat (jinak všech 50); onMore = odkaz „Celý žebříček“, když je jich víc.
 export function rankings(party = null, { limit = null, onMore = null } = {}) {
-  const box = h('div', { class: 'rankings' });
-  draw();
+  const list = h('div', { class: 'rank-box' }, h('p', { class: 'muted' }, t('board.loading')));
+  const box = h('div', { class: 'rankings' }, h('p', { class: 'muted' }, t('board.note')), list);
+  load();
   return box;
 
-  function draw() {
-    const list = h('div', { class: 'rank-box' }, h('p', { class: 'muted' }, t('board.loading')));
-    const choice = h('div', { class: 'tier-choice', role: 'group', 'aria-label': t('board.title') },
-      ['today', 'total'].map((k) => h('button', {
-        type: 'button', 'aria-pressed': String(k === kind),
-        onclick: () => { kind = k; draw(); }
-      }, t(`board.${k}`))));
-    box.replaceChildren(choice, h('p', { class: 'muted' }, t(`board.${kind}Note`)), list);
-    load(list);
-  }
-
-  async function load(list) {
+  async function load() {
     try {
-      const data = await board(kind, party);
+      const data = await board(party);
       list.replaceChildren(...rows(data));
     } catch {
       list.replaceChildren(h('p', { class: 'muted' }, t('board.unavailable')));
@@ -97,24 +85,24 @@ export function rankings(party = null, { limit = null, onMore = null } = {}) {
   }
 
   function rows({ top, me }) {
-    if (!top.length) return [h('p', { class: 'muted' }, t(`board.${kind}Empty`))];
+    if (!top.length) return [h('p', { class: 'muted' }, t('board.empty'))];
     const shown = limit ? top.slice(0, limit) : top;
     const out = [h('ol', { class: 'rank-list' }, shown.map(row))];
     if (me && !shown.some((r) => r.me)) out.push(h('ol', { class: 'rank-list rank-me' }, row(me)));
-    // výzva jen pro zapsaného hráče, který dnes ještě nehrál (nezapsaného zve karta nad žebříčkem)
-    if (!me && kind === 'today' && nickname()) out.push(h('p', { class: 'muted' }, t('board.notYet')));
+    // výzva jen pro zapsaného hráče, který zatím nemá body (nezapsaného zve karta nad žebříčkem)
+    if (!me && nickname()) out.push(h('p', { class: 'muted' }, t('board.notYet')));
     if (onMore && shown.length < top.length) out.push(h('button', { class: 'link', onclick: onMore }, t('board.all')));
     return out;
   }
 
-  // body celkem a pod nimi rozpis: denní hádanky (Lehká + Těžká) a Cesta
+  // body celkem a pod nimi, kolik dnes přibylo
   function row(r) {
     return h('li', { class: r.me ? 'me' : '' },
       h('span', { class: 'rank-pos' }, `${r.rank}.`),
       playerName(r),
       h('span', { class: 'rank-value' },
         h('strong', {}, t('game.points', { points: r.points })),
-        h('small', {}, t('board.split', { daily: r.daily, path: r.path }))));
+        h('small', {}, r.today ? t('board.todayGain', { points: r.today }) : t('board.todayNone'))));
   }
 }
 

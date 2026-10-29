@@ -14,7 +14,7 @@
 - Hráč se zapíše přezdívkou (anonymní přihlášení Supabase, žádný e-mail).
 - Žebříček je podle **bodů** (migrace 004): denní hádanka Lehká i Těžká (za den jeden výsledek za každou verzi,
   počítá se první dohraný) a Cesta (za každou úroveň nejlepší vyhraný výsledek; při zlepšení se přičte jen rozdíl).
-- **Dnes**: dnešní body z denních hádanek + co dnes přibylo na Cestě. **Celkem**: všechno dohromady, bez nulování.
+- Jeden seznam podle **celkových bodů** (bez nulování, migrace 005); u každého hráče malým „dnes +…“ = dnešní body z denních hádanek + co dnes přibylo na Cestě.
 - Archiv, balíčky, trénink a vlastní hádanky se do žebříčku nepočítají.
 - U přezdívky odznak Cesty: nejvyšší dohraná úroveň a hvězdy.
 - V testovacím režimu (`?debug`) a s posunutými hodinami (`?datum`) se nic neodesílá.

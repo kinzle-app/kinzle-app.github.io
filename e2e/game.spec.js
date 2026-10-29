@@ -279,7 +279,7 @@ test('čeština: volba Lehká | Těžká na denní kartě, každá verze má svo
   await expect(page.getByText('Kinzle #1 · Těžká')).toBeVisible(); // volba se pamatuje
 });
 
-test('žebříček: zápis přezdívkou, chybná přezdívka, Dnes a Celkem (server je simulovaný)', async ({ page }) => {
+test('žebříček: zápis přezdívkou, chybná přezdívka, celkové body a dnešní přírůstek (server je simulovaný)', async ({ page }) => {
   await setup(page);
   const calls = [];
   // skutečný server se v testech nikdy nevolá
@@ -294,11 +294,9 @@ test('žebříček: zápis přezdívkou, chybná přezdívka, Dnes a Celkem (ser
       return body.p_nickname.includes('kokot') ? json(400, { code: 'P0001', message: 'nickname_bad' }) : json(200, body.p_nickname);
     }
     if (name === 'leaderboard') {
-      const me = body.p_kind === 'today'
-        ? { rank: 2, nickname: 'Syn', points: 160, daily: 120, path: 40, level: 12, stars: 30, me: true }
-        : { rank: 1, nickname: 'Syn', points: 2400, daily: 1500, path: 900, level: 12, stars: 30, me: true };
-      const other = { rank: 1, nickname: 'Táta', points: 310, daily: 310, path: 0, level: 27, stars: 70, me: false };
-      return json(200, { top: body.p_kind === 'today' ? [other, me] : [me], me, count: 2 });
+      const other = { rank: 1, nickname: 'Táta', points: 3100, daily: 2800, path: 300, today: 0, level: 27, stars: 70, me: false };
+      const me = { rank: 2, nickname: 'Syn', points: 2400, daily: 1500, path: 900, today: 160, level: 12, stars: 30, me: true };
+      return json(200, { top: [other, me], me, count: 2 });
     }
     return json(200, null);
   });
@@ -312,12 +310,10 @@ test('žebříček: zápis přezdívkou, chybná přezdívka, Dnes a Celkem (ser
   await expect(page.getByText('Tuhle přezdívku použít nejde')).toBeVisible();
   await nick.fill('Syn');
   await page.getByRole('button', { name: 'Zapsat se' }).click();
-  await expect(page.locator('.rank-list li.me')).toContainText('160 b.');
-  await expect(page.locator('.rank-list li.me')).toContainText('denní 120 · Cesta 40');
-  await expect(page.locator('.rank-list li').first()).toContainText('Táta');
-  await expect(page.locator('.rank-list li').first()).toContainText('úroveň 27 · ★ 70');
-  await page.getByRole('button', { name: 'Celkem' }).click();
   await expect(page.locator('.rank-list li.me')).toContainText(/2\s400\sb\./); // tisíce i jednotka s pevnou mezerou
+  await expect(page.locator('.rank-list li.me')).toContainText('dnes +160');
+  await expect(page.locator('.rank-list li').first()).toContainText('úroveň 27 · ★ 70');
+  await expect(page.locator('.rank-list li').first()).toContainText('dnes –');
   expect(calls).toContain('set_path'); // odznak Cesty se poslal po zápisu
 });
 
@@ -390,4 +386,19 @@ test('parta: zápis, založení, kód pro pozvání, kdo dnes hrál, hádanky pa
   await page.getByRole('button', { name: 'Složit hádanku pro partu' }).click();
   await expect(page.getByRole('heading', { name: 'Hádanka pro partu' })).toBeVisible();
   expect(calls).toContain('leaderboard'); // žebříček party se načetl
+});
+
+test('zápisník: tip se uloží až tlačítkem, pak je vidět s datem a jde změnit', async ({ page }) => {
+  await setup(page);
+  await page.goto('./#/zapisnik');
+  const save = page.getByRole('button', { name: 'Uložit tip' });
+  await expect(save).toBeDisabled();
+  await page.getByRole('textbox', { name: 'Můj tip' }).fill('Kámen');
+  await save.click();
+  await expect(page.getByText('Můj tip · uložen 10. 10.')).toBeVisible();
+  await page.reload();
+  await expect(page.getByText('Kámen')).toBeVisible(); // uložené i po znovuotevření
+  await page.getByRole('button', { name: 'Změnit tip' }).click();
+  await expect(page.getByRole('textbox', { name: 'Můj tip' })).toHaveValue('Kámen');
+  await expect(page.getByRole('button', { name: 'Uložit tip' })).toBeDisabled(); // beze změny nejde uložit
 });
